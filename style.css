@@ -1,0 +1,45 @@
+body {
+  min-height: 100vh;
+  background-color: #e499ff;
+  background-image: -o-radial-gradient(
+      at 5% 12%,
+      hsla(235, 100%, 70%, 1) 0px,
+      transparent 50%
+    ),
+    -o-radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%),
+    -o-radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%),
+    -o-radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%),
+    -o-radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
+  background-image: radial-gradient(
+      at 5% 12%,
+      hsla(235, 100%, 70%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
+}
+
+.wrapper1 {
+  width: 100%;
+  height: 100vh;
+}
+
+.headtext {
+  color: white;
+  text-align: center;
+  position: absolute;
+  width: calc(100% - 30px);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin: 0 15px;
+  font-size: 3vh;
+}
+
+.headtext h1,
+.headtext h3 {
+  margin: 1rem 0;
+}
