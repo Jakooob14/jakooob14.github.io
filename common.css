@@ -6,8 +6,32 @@ body {
   margin: 0;
 }
 
+body {
+  min-height: 100vh;
+  background-color: #e499ff;
+  background-image: -o-radial-gradient(
+      at 5% 12%,
+      hsla(235, 100%, 70%, 1) 0px,
+      transparent 50%
+    ),
+    -o-radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%),
+    -o-radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%),
+    -o-radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%),
+    -o-radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
+  background-image: radial-gradient(
+      at 5% 12%,
+      hsla(235, 100%, 70%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
+}
+
 a {
-  color: rgb(163, 45, 218);
+  color: rgb(129, 33, 176);
+  text-decoration: none;
 }
 
 * {
