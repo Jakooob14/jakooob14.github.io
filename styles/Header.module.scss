@@ -26,12 +26,16 @@ $header_height: 4rem;
 }
 
 .name{
+    float: left;
     line-height: $header_height;
     margin: 0 2rem;
-    color: white;
+    width: max-content;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 25px;
+    a{
+        color: white;
+    }
 }
 
 @media only screen and (max-width: 600px) {

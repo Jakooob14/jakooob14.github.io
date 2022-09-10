@@ -5,7 +5,7 @@ import header from '../styles/Header.module.scss'
 const Header: NextPage = () => {
     return (
         <header className={header.main}>
-            <Link className={header.name} href='/'>Jakooob</Link>
+            <h2 className={header.name}><Link href='/'>Jakooob</Link></h2>
             <ul>
                 <li><Link href='/'>Home</Link></li>
                 <li><Link href='/projects'>Projects</Link></li>
