@@ -1,0 +1,29 @@
+.main{
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    background-color: #001e41;
+    box-shadow: 0 0 15px 5px rgba(0, 35, 74, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.icon div{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .5rem;
+    background-color: #002754;
+    overflow: hidden;
+    height: fit-content;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 30px;
+    transition: background-color .1s;
+}
+
+.icon div:hover{
+    background-color: rgba(0, 39, 84, 0.4);
+}

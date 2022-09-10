@@ -1,0 +1,59 @@
+@import "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100;200;300;400;500;600;700;800;900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
+
+*{
+  font-family: 'Rubik', sans-serif;
+  overflow-x: hidden;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  background-color: #00326B;
+  //background-image: -o-radial-gradient(at 5% 12%, hsla(235, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
+  //background-image: radial-gradient(at 5% 12%, hsla(235, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
+}
+
+html, body{
+  min-height: 100%;
+  margin: 0;
+}
+
+a{
+  color: #2982e7;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar{
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1258a7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #003169;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #001834;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    -webkit-animation-duration: 0s !important;
+    animation-duration: 0s !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

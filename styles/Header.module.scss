@@ -1,0 +1,49 @@
+$header_height: 4rem;
+
+.main{
+    position: absolute;
+    width: 100vw;
+    height: $header_height;
+    background-color: #001e41;
+    box-shadow: 0 0 15px 5px rgba(0, 35, 74, 0.5);
+    z-index: 10;
+    ul{
+        height: $header_height;
+        float: right;
+        margin: 0 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        li{
+            width: max-content;
+            margin-right: 5rem;
+            a{
+                color: white;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.name{
+    line-height: $header_height;
+    margin: 0 2rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+    .main ul{
+        width: 100%;
+        margin: 0;
+        li{
+            margin: 0;
+        }
+    }
+
+    .name{
+        display: none;
+    }
+}

@@ -1,0 +1,227 @@
+.loadingoverlay{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00326b;
+  z-index: 1000;
+  animation: loading 1s ease 1s forwards;
+}
+
+@keyframes loading {
+  99%{
+    height: 100vh;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.bgwrapper{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bgimage{
+  position: absolute;
+  width: 100vw;
+  height: 113vh;
+  overflow: hidden;
+
+}
+
+.bgmountains{
+  bottom: -15vh;
+}
+
+.gradient {
+  bottom: 1px !important;
+  height: 90vh;
+}
+
+.stars{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../public/mountains/stars.png');
+  //mask-image: linear-gradient(125deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  mask-image: url(../public/mask.png);
+  mask-size: 5;
+  animation: stars 15s linear infinite alternate;
+}
+
+
+@keyframes stars {
+  50%{
+    mask-size: 2;
+  }
+  100%{
+  mask-size: 500%;
+  mask-position: -25rem;
+  }
+}
+
+.bgwrapper h1,
+.bgwrapper h2 {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  font-size: 100px;
+  left: 49vw;
+  top: 50vh;
+  font-family: 'Rubik', sans-serif;
+  transform-origin: top;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  bottom: 10px;
+  background: rgb(0, 35, 75);
+  background: linear-gradient(170deg, rgba(0, 35, 75, 1) 0%, rgba(0, 84, 182, 1) 100%);
+}
+
+.bgwrapper h1 {
+  animation: nameanim 3s cubic-bezier(.21, .48, .3, .81) 3s forwards;
+}
+
+.bgwrapper h2 {
+  left: 10%;
+  font-size: 50px;
+  top: 65%;
+  color: rgba(255, 255, 255, 0.9);
+  animation: occanim 2s ease-out 7s forwards;
+}
+
+@keyframes nameanim {
+  100% {
+    top: 10vh;
+  }
+}
+
+@keyframes occanim {
+  100% {
+    top: 37vh;
+  }
+}
+
+.about{
+  position: relative;
+  width: 60vw;
+  margin: 30vh 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.about h2{
+  font-size: 60px;
+}
+
+.about p{
+  margin: 25px;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 300;
+}
+
+
+
+@media only screen and (max-width: 1000px){
+  .bgimage {
+    right: 0;
+    width: 200%;
+  }
+
+  .bgwrapper h1,
+  .bgwrapper h2 {
+    font-size: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80%;
+  }
+
+  .bgwrapper h2{
+    font-size: 6vh;
+    width: max-content;
+  }
+
+  @keyframes occanim {
+    100% {
+      top: 25vh;
+    }
+  }
+
+  .about {
+    width: 80vw;
+    margin: 30vh 10vw;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .bgwrapper h2 {
+    font-size: 5vw;
+  }
+
+  .bgimage {
+    width: 150%;
+    left: -2rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .bgwrapper h2 {
+    font-size: 5vw;
+  }
+
+  .bgimage {
+    width: 200%;
+    left: -10rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .bgwrapper h1{
+    font-size: 20vw;
+  }
+
+  .bgimage {
+    width: 400%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .bgwrapper h2 {
+    font-size: 6vw;
+  }
+
+  .bgimage {
+    width: 300%;
+  }
+}
+
+
+@media only screen and (max-width: 1500px) and (min-width: 1001px) {
+  .bgwrapper h1{
+    left: 43vw;
+    top: 80%;
+  }
+
+  .bgwrapper h2{
+    font-size: 3vw;
+  }
+
+  @keyframes nameanim {
+      100% {
+        top: 8vh;
+      }
+    }
+  
+    @keyframes occanim {
+      100% {
+        top: 30vh;
+      }
+    }
+}
