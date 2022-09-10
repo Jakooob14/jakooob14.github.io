@@ -7,7 +7,6 @@ import fgMountains from '../public/mountains/fgmountains.png'
 import gradient from '../public/mountains/gradient.png'
 import Image from 'next/image'
 import Head from 'next/head'
-import { useEffect } from 'react'
 import Link from 'next/link'
 
 const Home: NextPage = () => {
