@@ -1,8 +1,8 @@
-import { NextPage } from 'next'
+import { FunctionComponent } from 'react'
 import Link from 'next/link'
 import header from '../styles/Header.module.scss'
 
-const Header: NextPage = () => {
+const Header: FunctionComponent = () => {
     return (
         <header className={header.main}>
             <h2 className={header.name}><Link href='/'>Jakooob</Link></h2>
