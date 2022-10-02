@@ -1,11 +1,10 @@
-import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import footer from '../styles/Footer.module.scss'
 import instagramLogo from '../public/instagram.svg'
 import githubLogo from '../public/github.svg'
 import emailIcon from '../public/email.svg'
 
-const Header: FunctionComponent = () => {
+const Header = () => {
     return (
         <footer className={footer.main}>
             <a href='https://github.com/Jakooob14' target='_BLANK' rel="noreferrer" className={`${footer.icon} ${footer.github}`}><div><Image src={githubLogo} alt="Github logo"/></div></a>
