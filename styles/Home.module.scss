@@ -1,8 +1,10 @@
+@use "vars";
+
 .loadingoverlay{
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #00326b;
+  background-color: vars.$bg-color;
   z-index: 1000;
   animation: loading 1s ease 1s forwards;
 }
@@ -29,7 +31,6 @@
   width: 100vw;
   height: 113vh;
   overflow: hidden;
-
 }
 
 .bgmountains{
@@ -69,7 +70,7 @@
   text-transform: uppercase;
   font-size: 100px;
   left: 49vw;
-  top: 50vh;
+  top: 70vh;
   font-family: 'Rubik', sans-serif;
   transform-origin: top;
 }
@@ -102,7 +103,7 @@
 
 @keyframes occanim {
   100% {
-    top: 37vh;
+    top: 35vh;
   }
 }
 

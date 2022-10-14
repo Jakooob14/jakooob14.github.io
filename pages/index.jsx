@@ -30,6 +30,7 @@ const Home = () => {
         <div className={styles.about}>
           <h2>About me</h2>
           <p>Hello, my name is Jakub Sokol I am an IT student from the Czech Republic and I have always had an adoration for computers and other forms of technology since I was little. My passion only grew stronger as I got to understand the inner workings of games and now my dream is to develop them. </p>
+          <span className='_spacer'></span>
           <p>See my projects at the <Link href='/projects'>projects</Link> page. And you can contact me either through my email <a href='mailto:sokoljakub14@gmail.com'>sokoljakub14@gmail.com</a> or Instagram <a href='https://instagram.com/Jakooob14' target='_BLANK' rel="noreferrer noopener">Jakooob14</a>.</p>
           
         </div>

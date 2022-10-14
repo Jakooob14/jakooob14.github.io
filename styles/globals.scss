@@ -1,3 +1,5 @@
+@use "vars";
+
 @import "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100;200;300;400;500;600;700;800;900&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
@@ -14,7 +16,7 @@
 
 body{
   min-height: 100vh;
-  background-color: #00326B;
+  background-color: vars.$bg-color;
   //background-image: -o-radial-gradient(at 5% 12%, hsla(235, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%), -o-radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
   //background-image: radial-gradient(at 5% 12%, hsla(235, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 94% 31%, hsla(283, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 81% 80%, hsla(240, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 53% 27%, hsla(261, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 7% 82%, hsla(264, 100%, 70%, 1) 0px, transparent 50%);
 }
@@ -43,6 +45,14 @@ a{
 
 ::-webkit-scrollbar-thumb:hover {
   background: #001834;
+}
+
+
+._spacer{
+  width: 70%;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce){
