@@ -1,8 +1,9 @@
+@use "vars";
 .main{
     width: 100vw;
     height: 4rem;
     display: flex;
-    background-color: #001e41;
+    background-color: vars.$secondary-bg-color;
     box-shadow: 0 0 15px 5px rgba(0, 35, 74, 0.5);
     justify-content: center;
     align-items: center;
@@ -14,9 +15,8 @@
     justify-content: center;
     align-items: center;
     margin: 0 .5rem;
-    background-color: #002754;
+    background-color: vars.$footer-button-color;
     overflow: hidden;
-    height: fit-content;
     width: 40px;
     height: 40px;
     padding: 10px;
@@ -25,5 +25,5 @@
 }
 
 .icon div:hover{
-    background-color: rgba(0, 39, 84, 0.4);
+    background-color: vars.$footer-button-color-hover;
 }

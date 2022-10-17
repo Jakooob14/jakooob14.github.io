@@ -48,14 +48,14 @@
   background-image: url('../public/mountains/stars.png');
   //mask-image: linear-gradient(125deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   mask-image: url(../public/mask.png);
-  mask-size: 5;
+  mask-size: 500%;
   animation: stars 15s linear infinite alternate;
 }
 
 
 @keyframes stars {
   50%{
-    mask-size: 2;
+    mask-size: 200%;
   }
   100%{
   mask-size: 500%;
@@ -66,7 +66,7 @@
 .bgwrapper h1,
 .bgwrapper h2 {
   position: absolute;
-  color: rgba(255, 255, 255, 0.9);
+  color: vars.$text-color;
   text-transform: uppercase;
   font-size: 100px;
   left: 49vw;
@@ -91,7 +91,8 @@
   left: 10%;
   font-size: 50px;
   top: 65%;
-  color: rgba(255, 255, 255, 0.9);
+  color: vars.$text-color;
+  opacity: 0.9;
   animation: occanim 2s ease-out 7s forwards;
 }
 

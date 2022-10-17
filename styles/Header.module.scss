@@ -1,10 +1,11 @@
+@use "vars";
 $header_height: 4rem;
 
 .main{
     position: absolute;
     width: 100vw;
     height: $header_height;
-    background-color: #001e41;
+    background-color: vars.$secondary-bg-color;
     box-shadow: 0 0 15px 5px rgba(0, 35, 74, 0.5);
     z-index: 10;
     ul{
@@ -18,7 +19,7 @@ $header_height: 4rem;
             width: max-content;
             margin-right: 5rem;
             a{
-                color: white;
+                color: vars.$text-color;
                 text-transform: uppercase;
             }
         }

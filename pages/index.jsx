@@ -23,9 +23,9 @@ const Home = () => {
           <div id='stars' className={`${styles.bgimage} ${styles.stars}`}/>
           <h1 id='name'>Jakooob</h1>
           <h2 id='occ'>student & developer</h2>
-          <div id='bgmountains' className={`${styles.bgimage} ${styles.bgmountains}`}><Image src={bgMountains} layout='fill' alt="Background mountains"/></div>
-          <div id='gradient' className={`${styles.bgimage} ${styles.gradient}`}><Image src={gradient}layout='fill' alt="Gradient"/></div>
-          <div id='fgmountains' className={`${styles.bgimage} ${styles.fgmountains}`}><Image src={fgMountains}layout='fill' alt="Foreground mountains"/></div>
+          <div id='bgmountains' className={`${styles.bgimage} ${styles.bgmountains}`}><Image src={bgMountains} layout='fill' alt="Background mountains" priority={true}/></div>
+          <div id='gradient' className={`${styles.bgimage} ${styles.gradient}`}><Image src={gradient}layout='fill' alt="Gradient" priority={true}/></div>
+          <div id='fgmountains' className={`${styles.bgimage} ${styles.fgmountains}`}><Image src={fgMountains}layout='fill' alt="Foreground mountains" priority={true}/></div>
         </div>
         <div className={styles.about}>
           <h2>About me</h2>
