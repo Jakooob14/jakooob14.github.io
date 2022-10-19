@@ -1,6 +1,7 @@
 @use "vars";
 $header_height: 4rem;
 
+
 .main{
     position: absolute;
     width: 100vw;
@@ -26,17 +27,13 @@ $header_height: 4rem;
     }
 }
 
-.name{
+.logo{
     float: left;
-    line-height: $header_height;
-    margin: 0 2rem;
-    width: max-content;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 25px;
-    a{
-        color: white;
-    }
+    height: $header_height;
+    width: $header_height;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -48,7 +45,7 @@ $header_height: 4rem;
         }
     }
 
-    .name{
+    .logo{
         display: none;
     }
 }
