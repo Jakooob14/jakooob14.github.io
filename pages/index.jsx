@@ -5,16 +5,14 @@ import bgMountains from '../public/mountains/bgmountains.png'
 import fgMountains from '../public/mountains/fgmountains.png'
 import gradient from '../public/mountains/gradient.png'
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from 'next/link'
+import DHead from "../components/Head";
 
 const Home = () => {
   return (
     <>
-      <Head>
-        <title>Home</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+      <DHead title="Jakooob | Home"/>
+
       <Header />
       <main className={styles.main}>
         <div className={styles.loadingoverlay}/>
@@ -23,16 +21,16 @@ const Home = () => {
           <div id='stars' className={`${styles.bgimage} ${styles.stars}`}/>
           <h1 id='name'>Jakooob</h1>
           <h2 id='occ'>student & developer</h2>
-          <div id='bgmountains' className={`${styles.bgimage} ${styles.bgmountains}`}><Image src={bgMountains} layout='fill' alt="Background mountains"/></div>
-          <div id='gradient' className={`${styles.bgimage} ${styles.gradient}`}><Image src={gradient}layout='fill' alt="Gradient"/></div>
-          <div id='fgmountains' className={`${styles.bgimage} ${styles.fgmountains}`}><Image src={fgMountains}layout='fill' alt="Foreground mountains"/></div>
+          <div id='bgmountains' className={`${styles.bgimage} ${styles.bgmountains}`}><Image src={bgMountains} layout='fill' alt="Background mountains" priority/></div>
+          <div id='gradient' className={`${styles.bgimage} ${styles.gradient}`}><Image src={gradient}layout='fill' alt="Gradient" priority/></div>
+          <div id='fgmountains' className={`${styles.bgimage} ${styles.fgmountains}`}><Image src={fgMountains}layout='fill' alt="Foreground mountains" priority/></div>
         </div>
-        <div className={styles.about}>
-          <h2>About me</h2>
-          <p>Hello, my name is Jakub Sokol I am an IT student from the Czech Republic and I have always had an adoration for computers and other forms of technology since I was little. My passion only grew stronger as I got to understand the inner workings of games and now my dream is to develop them. </p>
-          <p>See my projects at the <Link href='/projects'>projects</Link> page. And you can contact me either through my email <a href='mailto:sokoljakub14@gmail.com'>sokoljakub14@gmail.com</a> or Instagram <a href='https://instagram.com/Jakooob14' target='_BLANK' rel="noreferrer noopener">Jakooob14</a>.</p>
-          
-        </div>
+          <div className={styles.about}>
+              <h2>About me</h2>
+              <p>Hello, my name is Jakub Sokol I am an IT student from the Czech Republic and I have always had an adoration for computers and other forms of technology since I was little. My passion only grew stronger as I got to understand the inner workings of games and now my dream is to develop them. </p>
+              <span className='_spacer'/>
+              <p>See my projects at the <Link href='/projects'>projects</Link> page. And you can contact me either through my email <a href='mailto:sokoljakub14@gmail.com'>sokoljakub14@gmail.com</a> or Instagram <a href='https://instagram.com/Jakooob14' target='_BLANK' rel="noreferrer noopener">Jakooob14</a>.</p>
+          </div>
       </main>
       <Footer />
     </>
