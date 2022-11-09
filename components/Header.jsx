@@ -6,7 +6,7 @@ import logo from '../public/jakooob logo.svg'
 const Header = () => {
     return (
         <header className={header.main}>
-            <a href="/" className={header.logo}><Image src={logo} width='40px'/></a>
+            <a className={header.logo}><Image src={logo} width='40px'/></a>
             <ul>
                 <li><Link href='/'>Home</Link></li>
                 <li><Link href='/projects'>Projects</Link></li>
