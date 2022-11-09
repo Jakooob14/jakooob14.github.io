@@ -4,7 +4,6 @@ import styles from '../styles/Projects.module.scss'
 import nepIcon from '../public/nep icon.png'
 import mejsczIcon from '../public/mejs.cz icon.svg'
 import Image from 'next/image'
-import Head from 'next/head'
 import DHead from "../components/Head";
 
 const Projects = () => {
