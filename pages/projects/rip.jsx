@@ -26,9 +26,9 @@ const Rip = () => {
             <main className={styles.main}>
                 <div>
                     <h1>WARNING!</h1>
-                    <p>{name ? name : urlTo} has unfortunately died. So now the domain is probably not theirs anymore, so take caution visiting this domain, as someone with bad intent could've put malicious stuff there, so beware!</p>
+                    <p>{name ? name : urlTo} has unfortunately died. So now the domain is probably not theirs anymore, so take caution visiting this domain, as someone with bad intent could&apos;ve put malicious stuff there, so beware!</p>
                     <div><a className={countdown === 0 ? styles.active : null} href={urlTo}  rel='noreferrer noopener'>{urlTo}</a><p className={`${styles.countdown} ${countdown === 0 ? styles.disabled : null}`}>{countdown}</p></div>
-                    <Link href={"/projects"}>I'd rather go back</Link>
+                    <Link href={"/projects"}>I&apos;d rather go back</Link>
                 </div>
             </main>
             <Footer />
