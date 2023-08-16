@@ -3,14 +3,13 @@ $header_height: 4rem;
 
 
 .main{
-    position: absolute;
     width: 100vw;
-    height: $header_height;
+    height: 4rem;
     background-color: vars.$secondary-bg-color;
     box-shadow: 0 0 15px 5px rgba(0, 35, 74, 0.5);
     z-index: 10;
     ul{
-        height: $header_height;
+        height: inherit;
         float: right;
         margin: 0 1rem;
         display: flex;
@@ -29,8 +28,8 @@ $header_height: 4rem;
 
 .logo{
     float: left;
-    height: $header_height;
-    width: $header_height;
+    height: inherit;
+    margin-left: 1rem;
     display: flex;
     align-content: center;
     justify-content: center;

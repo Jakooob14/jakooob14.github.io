@@ -22,6 +22,10 @@
     padding: 10px;
     border-radius: 30px;
     transition: background-color .1s;
+    svg{
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .icon div:hover{
