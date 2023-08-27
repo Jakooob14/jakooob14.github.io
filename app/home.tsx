@@ -10,9 +10,9 @@ export default function Home() {
         <>
             <Header/>
             <main className={`${styles.main} h-screen overflow-hidden relative flex items-end bg-gradient-to-b from-blue-950 to-blue-800`}>
-                <div className={`${styles.fgMountains} bg-repeat-x bg-bottom z-10 w-full h-full relative items-end overflow-x-hidden`}></div>
+                <div className={'bg-[url("/mountains/fgmountains.png")] bg-repeat-x bg-bottom z-10 w-full h-full relative items-end overflow-x-hidden'}></div>
                 <div className={'w-full h-full absolute bg-gradient-to-t from-blue-800 to-transparent to-50% opacity-80 z-6'}></div>
-                <div className={`${styles.bgMountains} bg-repeat-x bg-[bottom_-16rem_right_-36rem] md:bg-bottom lg:m-0 z-5 w-full h-full absolute items-end overflow-x-hidden`}></div>
+                <div className={'bg-[url("/mountains/bgmountains.png")] bg-repeat-x bg-[bottom_-16rem_right_-36rem] md:bg-bottom lg:m-0 z-5 w-full h-full absolute items-end overflow-x-hidden'}></div>
                 <div className={`${styles.stars} w-full h-full absolute`}></div>
                 <h1 className={'absolute text-[18vw] md:text-9xl right-[28%] z-7 top-full uppercase font-bold text-center'}>Jakooob</h1>
                 <h2 className={'absolute text-[7vw] md:text-5xl left-[12%] z-7 top-full uppercase font-bold text-center'}>Student & Developer</h2>

@@ -1,10 +1,4 @@
 .main{
-  .fgMountains{
-    background-image: url('/mountains/fgMountains.png');
-  }
-  .bgMountains{
-    background-image: url('/mountains/bgMountains.png');
-  }
   h1{
     animation: name 3s ease forwards, z-indexUp 1ms forwards 3s;
     @media (max-width: 2000px) { right: 20%; }
