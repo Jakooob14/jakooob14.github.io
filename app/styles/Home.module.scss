@@ -1,0 +1,37 @@
+.main{
+  h1{
+    animation: name 3s ease forwards, z-indexUp 1ms forwards 3s;
+    @media (max-width: 2000px) { right: 20%; }
+    @media (max-width: 1536px) { width: 100%; right: 0; animation: nameMobile 3s ease forwards; }
+    @keyframes name { 100%{ top: 10%; } }
+    @keyframes nameMobile { 100%{ top: 5%; } }
+  }
+  h2{
+    animation: subtitleBig 3s ease forwards 2.5s, z-indexUp 1ms forwards 5.5s;
+    @media (max-width: 1900px) { animation: subtitle 3s ease forwards 2.5s; }
+    @media (max-width: 1536px) { width: 100%; left: 0; animation: subtitleMobile 3s ease forwards 2.5s; }
+    @keyframes subtitleBig { 100%{ top: 35%; } }
+    @keyframes subtitle { 100%{ top: 25%; } }
+    @keyframes subtitleMobile { 100%{ top: 22%; } }
+  }
+  @keyframes z-indexUp { 100%{ z-index: 15 } }
+}
+
+.stars{
+  background-image: url('/mountains/stars.png');
+  mask-image: url('/mountains/mask.png');
+  mask-size: 500%;
+  animation: stars 15s linear infinite alternate;
+  z-index: 3;
+}
+
+
+@keyframes stars {
+  50%{
+    mask-size: 200%;
+  }
+  100%{
+    mask-size: 500%;
+    mask-position: -25rem;
+  }
+}
