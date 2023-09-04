@@ -19,18 +19,19 @@ const config: Config = {
         fhd: '1920px'
       },
       zIndex: {
-        '1': '1',
-        '2': '2',
-        '3': '3',
-        '4': '4',
-        '5': '5',
-        '6': '6',
-        '7': '7',
-        '8': '8',
-        '9': '9',
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+        6: '6',
+        7: '7',
+        8: '8',
+        9: '9',
       },
       fontFamily: {
-        'Rubik': ['Rubik', 'sans-serif']
+        'Rubik': ['Rubik', 'sans-serif'],
+        'Arial': ['arial', 'sans-serif']
       },
       brightness: {
         30: '30%'

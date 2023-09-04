@@ -1,3 +1,5 @@
+'use client';
+
 import {FaGithub, FaInstagram, FaSteam} from "react-icons/fa";
 import {SiMaildotru} from "react-icons/si";
 
