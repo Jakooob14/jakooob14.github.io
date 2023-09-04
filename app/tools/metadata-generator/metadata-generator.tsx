@@ -49,14 +49,6 @@ export default function MetadataGenerator() {
         trimmedUrl = trimmedUrl.replace(/\/.*/gi, '')
     }
 
-    // useEffect(() => {
-    //     $('code').each((index, element) => {
-    //         hljs.highlightElement(element);
-    //         console.log(element)
-    //     })
-    //     setPopupOpen(true);
-    // }, [popupOpen])
-
     return (
         <>
             <Header/>
@@ -129,10 +121,10 @@ export default function MetadataGenerator() {
                                                 <span className={'font-Arial text-sm text-[#4d5156] text-ellipsis line-clamp-2 break-all'}>{params.revised ? `${params.revised} — ` : ''}{params.description}</span>
                                             </div>
                                         </div>
-                                        <div className={'flex flex-wrap justify-center gap-6'}>
+                                        <div className={'md:flex flex-wrap justify-center gap-6'}>
                                             <div>
                                                 <h2 className={'text-gray-500 mb-3'}>X / Twitter</h2>
-                                                <div className={'mb-8 rounded-[14px] w-[506px] border-[1px] border-[#e1e8ed] overflow-hidden'}>
+                                                <div className={'mb-8 rounded-[14px] w-full md:w-[506px] border-[1px] border-[#e1e8ed] overflow-hidden'}>
                                                     <div className={'w-full h-[252px] overflow-hidden'}>
                                                         <img src={params.image} alt={''} className={'w-full h-full object-cover object-center'}/>
                                                     </div>
@@ -145,7 +137,7 @@ export default function MetadataGenerator() {
                                             </div>
                                             <div>
                                                 <h2 className={'text-gray-500 mb-3'}>Facebook</h2>
-                                                <div className={'mb-8 w-[500px] border-[1px] border-[rgb(218,221,225)] overflow-hidden'}>
+                                                <div className={'mb-8 md:w-[500px] border-[1px] border-[rgb(218,221,225)] overflow-hidden'}>
                                                     <div className={'w-full h-[261px] overflow-hidden'}>
                                                         <img src={params.image} alt={''} className={'w-full h-full object-cover object-center'}/>
                                                     </div>
