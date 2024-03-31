@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75249d91-b2b1-45af-845e-03e18a3fac4a" name="Changes" comment="">
+    <list default="true" id="75249d91-b2b1-45af-845e-03e18a3fac4a" name="Changes" comment="i18n">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Footer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/projects/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/projects/projects.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/projects/rip/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/projects/rip/rip.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tools/metadata-generator/metadata-generator.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tools/metadata-generator/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,11 +131,24 @@
       <workItem from="1711831076255" duration="69000" />
       <workItem from="1711831214949" duration="3295000" />
       <workItem from="1711881195594" duration="14568000" />
-      <workItem from="1711898403014" duration="1858000" />
+      <workItem from="1711898403014" duration="2638000" />
     </task>
+    <task id="LOCAL-00001" summary="i18n">
+      <option name="closed" value="true" />
+      <created>1711900408203</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711900408203</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="i18n" />
+    <option name="LAST_COMMIT_MESSAGE" value="i18n" />
   </component>
 </project>

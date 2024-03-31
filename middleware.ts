@@ -5,7 +5,7 @@ import {match} from "@formatjs/intl-localematcher";
 let locales = ['en', 'cs'];
 
 // Get the preferred locale, similar to the above or using a library
-function getLocale(request: any) {
+function getLocale() {
     let headers = { 'accept-language': 'en-US,en;q=0.5' };
     let languages = new Negotiator({ headers }).languages();
     let defaultLocale = 'en';
@@ -14,14 +14,14 @@ function getLocale(request: any) {
 }
 
 export function middleware(request: any) {
-    let locale = getLocale(request);
+    let locale = getLocale();
 
     if (request.cookies.has("lang")) locale = request.cookies.get("lang").value;
 
     // Check if there is any supported locale in the pathname
     const { pathname } = request.nextUrl
 
-    if (pathname.match(".*\\.(?:png|jpg|jpeg|svg|webp)")) return NextResponse.next();
+    if (pathname.match(".*\\.(?:png|jpg|jpeg|svg|webp|.ico)")) return NextResponse.next();
 
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -44,9 +44,13 @@ export function middleware(request: any) {
 
 export const config = {
     matcher: [
-        // Skip all internal paths (_next)
-        '/((?!_next).*)',
-        // Optional: only run on root (/) URL
-        // '/'
+        /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+        '/((?!api|_next/static|_next/image|favicon.ico).*)',
     ],
 }
