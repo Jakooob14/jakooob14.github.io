@@ -1,0 +1,52 @@
+{
+  "header": {
+    "home": "Home",
+    "projects": "Projects",
+    "tools": "Tools",
+    "mg": "Metadata Generator"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Student & Developer"
+    },
+    "about": {
+      "title": "About me",
+      "text": "Hello, my name is Jakub Sokol I am an IT student from the Czech Republic and I have always had an adoration for computers and other forms of technology since I was little. My passion only grew stronger as I got to understand the inner workings of games and now my dream is to develop them.",
+      "text2": {
+        "p1": "See my projects at the ",
+        "p2": "projects",
+        "p3": " page. And you can contact me either through my email ",
+        "p4": " or Instagram "
+      }
+    }
+  },
+  "projects": {
+    "limbo": "In limbo",
+    "dead": "This app is no longer running",
+
+    "nep": {
+      "text": {
+        "p1": "Not Enough PvP or just NEP is a simple mod for Minecraft Fabric 1.19.2 that adds a missing armor HUD. So when you're in a fight you know instantly when an armor piece breaks so you can put on a new one. If I have more ideas I will add more features. If you have any ideas for this mod you can post them in the GitHub repo ",
+        "p2": "issues tab"
+      }
+    },
+    "mejscz": {
+      "text": {
+        "p1": "Mejs.cz is a Czech website made with NextJS for a Minecraft server with the same name. I made this website with my friend ",
+        "p2": "Skymmel"
+      }
+    },
+    "acnod": {
+      "text": {
+        "p1": "Acnod is a project me and ",
+        "p2": "Skymmel",
+        "p3": " are working on. It is a freelance website on which we offer website development services."
+      }
+    }
+  },
+  "rip": {
+    "title": "Warning!",
+    "subtitle": "Mejs.cz has unfortunately died. So now the domain is probably not theirs anymore, so take caution visiting this domain, as someone with bad intent could've put malicious stuff there, so beware!",
+    "back": "I'd rather go back"
+  }
+}

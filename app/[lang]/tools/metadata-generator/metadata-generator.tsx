@@ -1,14 +1,14 @@
 'use client';
 
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import {Fragment, FunctionComponent, useState} from "react";
 import {Combobox, Dialog, Transition} from "@headlessui/react";
 import {HiChevronUpDown} from "react-icons/hi2";
 import {HiCheck} from "react-icons/hi";
 import {useSearchParams} from "next/navigation";
 
-export default function MetadataGenerator() {
+export default function MetadataGenerator({ dict, lang }: any) {
     const searchParams = useSearchParams();
 
     const popup = searchParams.get('popup') as string;
@@ -51,7 +51,7 @@ export default function MetadataGenerator() {
 
     return (
         <>
-            <Header/>
+            <Header dict={dict} lang={lang}/>
             <main className={'min-h-[calc(100vh-8rem)]'}>
                 <div className={'container px-4 mx-auto py-20 flex flex-col items-center justify-center'}>
                     <h1 className={'text-5xl font-bold mb-10 text-center'}>Metadata Generator</h1>
@@ -150,22 +150,22 @@ export default function MetadataGenerator() {
                                             </div>
                                         </div>
                                         <pre className={'bg-blue-100 p-3 rounded overflow-x-scroll'}>
-                                            <code onLoad={() => console.log('qwe')} className={'lang-html text-black'}>
+                                            <code className={'lang-html text-black'}>
                                               {Object.entries(params).map(([key, value]) => (
                                                   value && value !== '-' && (
-                                                      <>&lt;<strong>meta</strong> name=&quot;{key}&quot; content=&quot;{value}&quot;/&gt;<br/></>
+                                                      <span key={value}>&lt;<strong>meta</strong> name=&quot;{key}&quot; content=&quot;{value}&quot;/&gt;<br/></span>
                                                   )
                                               ))}
                                                 <br/>
                                               {Object.entries(ogParams).map(([key, value]) => (
                                                   value && (
-                                                      <>&lt;<strong>meta</strong> property=&quot;og:{key}&quot; content=&quot;{value}&quot;/&gt;<br/></>
+                                                      <span key={value}>&lt;<strong>meta</strong> property=&quot;og:{key}&quot; content=&quot;{value}&quot;/&gt;<br/></span>
                                                   )
                                               ))}
                                                 <br/>
                                               {Object.entries(twitterParams).map(([key, value]) => (
                                                   value && (
-                                                      <>&lt;<strong>meta</strong> property=&quot;twitter:{key}&quot; content=&quot;{value}&quot;/&gt;<br/></>
+                                                      <span key={value}>&lt;<strong>meta</strong> property=&quot;twitter:{key}&quot; content=&quot;{value}&quot;/&gt;<br/></span>
                                                   )
                                               ))}
                                             </code>

@@ -1,0 +1,52 @@
+{
+  "header": {
+    "home": "Domov",
+    "projects": "Projekty",
+    "tools": "Nástroje",
+    "mg": "Generátor Metadat"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Student a vývojář"
+    },
+    "about": {
+      "title": "O mně",
+      "text": "Zdravím, jmenuji se Jakub Sokol, jsem student IT z České republiky a už od dětství jsem zbožňoval počítače a podobné technologie. Moje vášeň jenom zesílila, když jsem pochopil vnitřní fungování her a nyní je mým snem je vyvíjet je.",
+      "text2": {
+        "p1": "Podívejte se na mé projekty na stránce ",
+        "p2": "projektů",
+        "p3": ". Kontaktovat mě můžete na emailu ",
+        "p4": " nebo Instragramu "
+      }
+    }
+  },
+  "projects": {
+    "limbo": "V limbu",
+    "dead": "Tato aplikace už neběží",
+
+    "nep": {
+      "text": {
+        "p1": "Not Enough PvP nebo jen NEP je jednoduchý mod pro Minecraft Fabric 1.19.2, který přidává HUD kde se zobrazí jaké brnění chybí. Při boji tak okamžitě víte, kdy se vám rozbije kus zbroje, abyste si mohli nasadit novou. Pokud budu mít další nápady, přidám další funkce. Pokud máte nějaké nápady pro tento mod, můžete je napsat do repozitáře GitHubu v ",
+        "p2": "kartě chyb"
+      }
+    },
+    "mejscz": {
+      "text": {
+        "p1": "Mejs.cz je česká webová stránka vytvořená pomocí NextJS pro stejnojmenný Minecraft server. Tento web jsem vytvořil se svým kamarádem ",
+        "p2": "Skymmelem"
+      }
+    },
+    "acnod": {
+      "text": {
+        "p1": "Acnod je projekt na, kterým já a ",
+        "p2": "Skymmel",
+        "p3": " pracujeme. Jedná se o webové stránky, na kterých nabízíme služby vývoje webových stránek."
+      }
+    }
+  },
+  "rip": {
+    "title": "Varování!",
+    "subtitle": "byl bohužel uzavřen. Nyní tedy doména již pravděpodobně není jejich, proto buďte při návštěvě této domény opatrní, protože někdo se zlými úmysly tam mohl umístit škodlivé věci, takže pozor!",
+    "back": "Raději půjdu zpět"
+  }
+}

@@ -1,5 +1,5 @@
 import '@/app/styles/globals.scss'
-import {Metadata} from "next";
+import {Metadata, Viewport} from "next";
 
 export const metadata: Metadata = {
     title: {
@@ -11,20 +11,24 @@ export const metadata: Metadata = {
     authors: [{name: 'Jakooob'}],
     creator: 'Jakooob',
     publisher: 'Jakooob',
-    colorScheme: 'dark',
     formatDetection: {
         email: false,
         address: false,
         telephone: false,
-    },
+    }
 }
 
-export default function RootLayout({ children }: {
+export const viewport: Viewport = {
+    themeColor: 'blue',
+}
+
+export default async function RootLayout({ children }: {
   children: React.ReactNode
 }) {
-  return (
-      <html lang="en">
-      <body>{children}</body>
-      </html>
-  )
+    return (
+        // <html lang={params.lang ? params.lang : "en"}>
+        <html>
+        <body>{children}</body>
+        </html>
+    )
 }
