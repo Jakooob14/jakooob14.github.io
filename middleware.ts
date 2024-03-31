@@ -21,7 +21,7 @@ export function middleware(request: any) {
     // Check if there is any supported locale in the pathname
     const { pathname } = request.nextUrl
 
-    if (pathname.match(".*\\.(?:png|jpg|jpeg|svg|webp|.ico)")) return NextResponse.next();
+    if (pathname.match(".*\\.(?:png|jpg|jpeg|svg|webp|ico)")) return NextResponse.next();
 
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
