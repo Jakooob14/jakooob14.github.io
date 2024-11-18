@@ -1,0 +1,21 @@
+@use '../public/fonts';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  html{
+    font-family: 'Raleway', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+
+main{
+  background-color: #DFDBE5;
+  //background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='hsl(0,0%,19%)' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-size: 50px !important;
+}
