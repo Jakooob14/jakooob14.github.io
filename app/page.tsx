@@ -10,8 +10,8 @@ export default function Home() {
         anime({
             targets: titleRefs.current,
             scaleX: [1, 0],
-            delay: function (element, index) {
-                return (200 + 100 * index)
+            delay: function (element) {
+                return element.getAttribute("data-delay");
             },
             easing: "easeInOutQuart"
         });
@@ -20,23 +20,36 @@ export default function Home() {
   return (
     <>
       <main className={'h-screen bg-alt-gray-primary bg-gridPattern bg-[length:200px] bg-[left_35px_top_20px]'}>
-          <div className={'relative z-0'}>
-              <div className={'uppercase text-white font-extrabold ms-24 inline-flex flex-col mt-96'}>
-                  <div className={'relative inline-block text-[300px]'}>
-                      <span className={'ms-[.2em] -mb-20 block'}>
-                          <h2 className={'text-4xl text-alt-gray-500 ms-[.2em]'}>Student & Developer</h2>
+          <div className={'relative z-0 container mx-auto'}>
+              <div className={'uppercase text-white font-extrabold inline-flex items-center justify-center w-full mt-24'}>
+                  <div className={'relative inline-block text-[200px]'}>
+                      <span className={'block relative'}>
+                          <div className={'ms-[calc(.2em+7px)]'}>
+                              <h2 className={'text-4xl text-alt-gray-500'}>Student & Developer</h2>
+                          </div>
+                          <div className={'absolute w-full h-full bg-aero-500 top-0 origin-left'}
+                               data-delay={100}
+                               ref={el => {
+                                   if (el) titleRefs.current[0] = el;
+                               }}>
+                          </div>
                       </span>
-                      <h1 className={'relative grid grid-cols-5 gap-x-24 pe-10'}>
+                      <h1 className={'relative grid grid-cols-5 gap-x-16 pe-10'}>
                           {
                               Array.from('JakubSokol').map((letter, index) => {
                                   return <span key={index}
-                                               className={index == 0 || index == 5 ? 'ms-[.2em]' : undefined}>{letter}</span>
+                                               className={`${index == 0 || index == 5 ? 'ms-[.2em]' : ''} ${index >= 5 ? 'pb-[40px]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
                               })
                           }
                           <div className="absolute top-0 left-0 w-full h-full grid grid-cols-5">
                               {
                                   Array(2).fill(0).map((_, index) => (
-                                      <div key={index} className="col-span-full bg-aero-500 h-full origin-left" ref={el => { if (el) titleRefs.current[index] = el; }}></div>
+                                      <div key={index} className={`col-span-full bg-aero-500 h-full origin-left ${index == 1 ? 'pb-[40px]' : ''}`}
+                                           data-delay={index * 200 + 100}
+                                           ref={el => {
+                                               if (el) titleRefs.current[index + 1] = el;
+                                           }}>
+                                      </div>
                                   ))
                               }
                           </div>
