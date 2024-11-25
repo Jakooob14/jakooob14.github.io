@@ -1,21 +1,16 @@
 'use client'
 
-import {useEffect, useRef} from "react";
-import anime from "animejs/lib/anime.es";
+import {cubicBezier, motion} from "motion/react";
 
 export default function Home() {
-    const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-    useEffect(() => {
-        anime({
-            targets: titleRefs.current,
-            scaleX: [1, 0],
-            delay: function (element) {
-                return parseInt(element.getAttribute("data-delay") as string);
-            },
-            easing: "easeInOutQuart"
-        });
-    }, []);
+    const titleAnimation = {
+        scaleX: 0,
+        transition: {
+            duration: .8,
+            ease: cubicBezier(0.76, 0, 0.24, 1),
+            delay: .4
+        }
+    };
 
     return (
         <>
@@ -29,16 +24,14 @@ export default function Home() {
                           <div className={'ms-2'}>
                               <h2 className={'text-4xl text-alt-gray-500 font-extrabold'}>Student & Developer</h2>
                           </div>
-                          <div className={'absolute w-[calc(100%+.1em)] h-full bg-aero-500 top-0 origin-left -ms-[.05em]'}
-                               data-delay={100}
-                               ref={el => {
-                                   if (el) titleRefs.current[0] = el;
-                               }}>
-                          </div>
+                          <motion.div
+                              className={'absolute w-[calc(100%+.1em)] h-full bg-aero-500 top-0 origin-left -ms-[.05em]'}
+                              animate={titleAnimation}>
+                          </motion.div>
                       </span>
                             <h1 className={'relative grid grid-cols-[repeat(5,auto)] gap-x-16 w-full'}>
 
-                                {/* Binary behind name */}
+                                {/* Hex behind name */}
                                 {/*<div*/}
                                 {/*    className={'absolute top-0 left-0 w-full h-full grid grid-cols-5 leading-[calc(1em-10%)] opacity-[.03] -z-10'}>*/}
                                 {/*    <div*/}
@@ -65,19 +58,23 @@ export default function Home() {
                                                      className={`${index == 4 || index == 9 ? 'w-[.65em]' : ''} ${index == 6 ? '-ms-[.03em]' : ''} ${index >= 5 ? 'pb-[40px]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
                                     })
                                 }
-                                <div className="absolute top-0 left-0 w-[calc(100%+.1em)] h-full grid grid-cols-5 -ms-[.05em]">
+                                <motion.div className={'absolute top-0 left-0 w-[calc(100%+.1em)] h-full grid grid-cols-5 -ms-[.05em]'}>
                                     {
                                         Array(2).fill(0).map((_, index) => (
-                                            <div key={index}
-                                                 className={`col-span-full bg-aero-500 h-full origin-left ${index == 1 ? 'pb-[40px]' : ''}`}
-                                                 data-delay={index * 200 + 100}
-                                                 ref={el => {
-                                                     if (el) titleRefs.current[index + 1] = el;
-                                                 }}>
-                                            </div>
+                                            <motion.div key={index}
+                                                        animate={{
+                                                            ...titleAnimation,
+                                                            transition: {
+                                                                ...titleAnimation.transition,
+                                                                delay: index / 11 + titleAnimation.transition.delay
+                                                            }
+                                                        }}
+                                                        className={`col-span-full bg-aero-500 h-full origin-left ${index == 1 ? 'pb-[40px]' : ''}`}
+                                                        data-delay={index * 200 + 100}>
+                                            </motion.div>
                                         ))
                                     }
-                                </div>
+                                </motion.div>
                             </h1>
                         </div>
                     </div>
@@ -89,6 +86,13 @@ export default function Home() {
                             <li><a className={'block h-full'} href={'#'}>Projects</a></li>
                             <li><a className={'block h-full'} href={'#'}>Contact</a></li>
                         </ul>
+                    </div>
+                    <div className={'flex flex-row gap-12 mt-16'}>
+                        {
+                            Array.from('abcdefg').map((element, index) => {
+                                return <a data-keepwidth={true} key={index} href={'#'} style={{ borderRadius: (30 / 'abcdefg'.length * index) }} className={'w-12 h-12 bg-red-500'}></a>
+                            })
+                        }
                     </div>
                 </div>
             </main>

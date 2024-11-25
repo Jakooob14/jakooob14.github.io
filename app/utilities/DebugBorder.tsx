@@ -19,12 +19,12 @@ export default function DebugBorder({elementName = 'body'}){
             el.style.border = `1px solid hsl(${depth * (360 / Math.max(...depths))}, 100%, 50%)`;
         })
 
-        document.addEventListener('mouseover', (el: any) => {
-            if (!el.target) return;
-            setHovered(el.target);
-            // console.log(el.target.nodeName)
+        document.addEventListener('mouseover', (event: MouseEvent) => {
+            const element = event.target as HTMLElement;
+            if (!element) return;
+            setHovered(element);
         })
-    }, []);
+    }, [elementName]);
 
     return(
         <div data-skipdebug={true} className={'bg-black w-full h-full overflow-hidden'}>

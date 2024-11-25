@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import Signature from "@/app/utilities/signature";
-// import DebugBorder from "@/app/utilities/DebugBorder";
+import CursorEffect from "@/app/utilities/CursorEffect";
 
 export const metadata: Metadata = {
     title: "Jakub Sokol"
@@ -18,6 +18,7 @@ export default function RootLayout({
                 {/*<DebugBorder/>*/}
                 {children}
                 <Signature/>
+                <CursorEffect/>
             </body>
         </html>
     );
