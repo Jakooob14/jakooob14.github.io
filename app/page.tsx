@@ -1,6 +1,7 @@
 'use client'
 
 import {cubicBezier, motion} from "motion/react";
+import HiddenText from "@/app/components/HiddenText";
 
 export default function Home() {
     const titleAnimation = {
@@ -58,7 +59,8 @@ export default function Home() {
                                                      className={`${index == 4 || index == 9 ? 'w-[.65em]' : ''} ${index == 6 ? '-ms-[.03em]' : ''} ${index >= 5 ? 'pb-[40px]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
                                     })
                                 }
-                                <motion.div className={'absolute top-0 left-0 w-[calc(100%+.1em)] h-full grid grid-cols-5 -ms-[.05em]'}>
+                                <motion.div
+                                    className={'absolute top-0 left-0 w-[calc(100%+.1em)] h-full grid grid-cols-5 -ms-[.05em]'}>
                                     {
                                         Array(2).fill(0).map((_, index) => (
                                             <motion.div key={index}
@@ -79,7 +81,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className={'mt-32 font-semibold px-5 bg-black'}>
+                    <div className={'mt-32 font-semibold px-5 bg-aero-500 border-4 border-aero-400'}>
                         <ul className={'flex justify-between h-16 text-2xl/[64px]'}>
                             <li><a className={'block h-full'} href={'#'}>About me</a></li>
                             <li><a className={'block h-full'} href={'#'}>Skills</a></li>
@@ -87,13 +89,7 @@ export default function Home() {
                             <li><a className={'block h-full'} href={'#'}>Contact</a></li>
                         </ul>
                     </div>
-                    <div className={'flex flex-row gap-12 mt-16'}>
-                        {
-                            Array.from('abcdefg').map((element, index) => {
-                                return <a data-keepwidth={true} key={index} href={'#'} style={{ borderRadius: (30 / 'abcdefg'.length * index) }} className={'w-12 h-12 bg-red-500'}></a>
-                            })
-                        }
-                    </div>
+                    <HiddenText className={'text-9xl'}>I am hidden!</HiddenText>
                 </div>
             </main>
         </>
