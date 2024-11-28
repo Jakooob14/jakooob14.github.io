@@ -29,21 +29,15 @@ export default function CursorEffect() {
         mass: .5
     }
 
-    const smoothOptionsPosition = {
-        damping: 20,
-        stiffness: 300,
-        mass: .01
-    }
-
     const smoothMouse = {
         x: useSpring(mouse.x, smoothOptions),
         y: useSpring(mouse.y, smoothOptions)
     }
 
     const smoothSize = {
-        width: useSpring(size.width, smoothOptionsPosition),
-        height: useSpring(size.height, smoothOptionsPosition),
-        borderRadius: useSpring(size.borderRadius, smoothOptionsPosition)
+        width: useSpring(size.width, smoothOptions),
+        height: useSpring(size.height, smoothOptions),
+        borderRadius: useSpring(size.borderRadius, smoothOptions)
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
