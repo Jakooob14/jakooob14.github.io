@@ -21,8 +21,8 @@ export default function HiddenText({ children, className = '', ...props }: Curso
     }
 
     const smoothOptions = {
-        damping: 20,
-        stiffness: 300,
+        damping: 30,
+        stiffness: 350,
         mass: .5
     }
 

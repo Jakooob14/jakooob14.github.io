@@ -33,8 +33,8 @@ export default function Home() {
                             <h1 className={'relative grid grid-cols-[repeat(5,auto)] gap-x-16 w-full'}>
 
                                 {/* Hex behind name */}
-                                {/*<div*/}
-                                {/*    className={'absolute top-0 left-0 w-full h-full grid grid-cols-5 leading-[calc(1em-10%)] opacity-[.03] -z-10'}>*/}
+                                {/*<HiddenText*/}
+                                {/*    className={'absolute top-0 left-0 w-full h-full grid grid-cols-5 leading-[calc(1em-10%)] opacity-[.05] -z-10'}>*/}
                                 {/*    <div*/}
                                 {/*        className={'col-span-full h-full flex justify-between me-[.7em]'}>*/}
                                 {/*        {*/}
@@ -51,7 +51,7 @@ export default function Home() {
                                 {/*            })*/}
                                 {/*        }*/}
                                 {/*    </div>*/}
-                                {/*</div>*/}
+                                {/*</HiddenText>*/}
 
                                 {
                                     Array.from('JakubSokol').map((letter, index) => {
@@ -81,12 +81,12 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className={'mt-32 font-semibold px-5 bg-aero-500 border-4 border-aero-400'}>
+                    <div className={'mt-32 font-semibold bg-alt-gray-300 border-4 border-alt-gray-400'}>
                         <ul className={'flex justify-between h-16 text-2xl/[64px]'}>
-                            <li><a className={'block h-full'} href={'#'}>About me</a></li>
-                            <li><a className={'block h-full'} href={'#'}>Skills</a></li>
-                            <li><a className={'block h-full'} href={'#'}>Projects</a></li>
-                            <li><a className={'block h-full'} href={'#'}>Contact</a></li>
+                            <li><a className={'block h-full px-5'} href={'#'} data-keepwidth={true}>About me</a></li>
+                            <li><a className={'block h-full px-5'} href={'#'} data-keepwidth={true}>Skills</a></li>
+                            <li><a className={'block h-full px-5'} href={'#'} data-keepwidth={true}>Projects</a></li>
+                            <li><a className={'block h-full px-5'} href={'#'} data-keepwidth={true}>Contact</a></li>
                         </ul>
                     </div>
                     <HiddenText className={'text-9xl'}>I am hidden!</HiddenText>
