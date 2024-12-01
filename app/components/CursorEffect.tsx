@@ -97,7 +97,7 @@ export default function CursorEffect() {
                 height: smoothSize.height,
                 borderRadius: smoothSize.borderRadius,
             }}
-            className={`fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert`}>
+            className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl'}>
         </motion.div>
     )
 }

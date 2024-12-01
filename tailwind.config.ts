@@ -15,6 +15,7 @@ export default {
             50: 'hsl(0, 0%, 5%)',
             100: 'hsl(0, 0%, 10%)',
             200: 'hsl(0, 0%, 20%)',
+            250: 'hsl(0, 0%, 25%)',
             300: 'hsl(0, 0%, 30%)',
             400: 'hsl(0, 0%, 40%)',
             500: 'hsl(0, 0%, 50%)',
@@ -54,6 +55,10 @@ export default {
       },
       backgroundImage: {
         gridPattern: "url('/diagonal-stripes.svg')"
+      },
+      fontFamily: {
+        heading: "'Montserrat', sans-serif",
+        text: "'Poppins', sans-serif"
       }
     },
   },

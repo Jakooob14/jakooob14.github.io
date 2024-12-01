@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="520" height="600">
-<pattern patternUnits="userSpaceOnUse" width="52" height="90" id="p">
-<path fill="none" stroke="hsl(0,0%,50%,.1)" stroke-width="3" d="m0,15 26-15 26,15v30l-26,15-26-15zM26,60v30"/></pattern>
-<rect width="520" height="600" fill="url(#p)"/>
-</svg>
