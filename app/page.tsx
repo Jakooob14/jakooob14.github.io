@@ -2,6 +2,8 @@
 
 import {cubicBezier, motion} from "motion/react";
 import HiddenText from "@/app/components/HiddenText";
+import Divider from "@/app/components/Divider";
+import {Heading1} from "@/app/components/Headings";
 
 
 export default function Home() {
@@ -9,7 +11,8 @@ export default function Home() {
     return (
         <>
             <Main/>
-            <Section1/>
+            <AboutSection/>
+            <SkillsSection/>
         </>
     );
 }
@@ -106,12 +109,13 @@ function Main(){
     }
 }
 
-function Section1(){
+function AboutSection(){
     return (
-        <section className={'h-screen bg-alt-gray-primary border-t-4 border-alt-gray-200 shadow-xl'} id={'about'}>
-            <div className={'container mx-auto grid grid-cols-2 grid-rows-3 h-[700px] m-32'}>
+        <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'about'}>
+            <Divider/>
+            <div className={'container mx-auto grid grid-cols-2 grid-rows-3 h-[700px] my-32'}>
                 <div>
-                    <h1 className={'text-8xl w-fit tracking-wider font-semibold'}>About me</h1>
+                    <Heading1>About me</Heading1>
                 </div>
                 <HiddenText className={'text-8xl text-right font-heading'}>Hey there!</HiddenText>
                 <p className={'w-[700px] text-xl text-justify col-start-2 row-start-2 row-span-2'}>
@@ -170,6 +174,17 @@ function Section1(){
                         />
                     </svg>
                 </div>
+            </div>
+            <Divider/>
+        </section>
+    )
+}
+
+function SkillsSection(){
+    return (
+        <section className={'h-screen'}>
+            <div className={'container mx-auto my-32'}>
+                <Heading1>My skills</Heading1>
             </div>
         </section>
     )

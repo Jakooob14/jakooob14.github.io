@@ -1,11 +1,10 @@
 'use client'
 
-import {ReactNode, Suspense, useCallback, useEffect, useRef, useState} from 'react';
-import anime from 'animejs/lib/anime.es.js'
+import {ReactNode} from 'react';
 
 interface StretchedTextProps {
-    children: ReactNode;
-    className?: string;
+    children: ReactNode,
+    className?: string
 }
 
 export function StretchedTextByContainer({ children = '', className = '' }: StretchedTextProps) {
@@ -18,11 +17,11 @@ export function StretchedTextByContainer({ children = '', className = '' }: Stre
 }
 
 interface StretchedTextByLetterSizeProps {
-    className?: string;
-    text: string;
-    gap?: number;
-    elementId?: string;
-    thinnerLettersIndex?: number[];
+    className?: string,
+    text: string,
+    gap?: number,
+    elementId?: string,
+    thinnerLettersIndex?: number[]
 }
 
 export function StretchedTextByLetterSize({className, text, gap = 1.5, elementId, thinnerLettersIndex}: StretchedTextByLetterSizeProps){

@@ -1,9 +1,9 @@
 export default function Credits(){
     const credits = [
         {
-            label: 'Hero Patterns',
-            author: 'Steve Schoger',
-            href: 'https://heropatterns.com/'
+            label: 'Lorem ipsum',
+            author: 'Dolor sit amet',
+            href: 'https://example.com/'
         }
     ]
 
