@@ -5,9 +5,9 @@ import HiddenText from "@/app/components/HiddenText";
 import Divider from "@/app/components/Divider";
 import {Heading1, Heading2} from "@/app/components/Headings";
 import {ReactNode} from "react";
-import {IoLogoJavascript, IoLogoReact} from "react-icons/io5";
-import {SiCsharp, SiJavascript, SiSass} from "react-icons/si";
-import dayjs, {Dayjs} from "dayjs";
+import {IoLogoReact} from "react-icons/io5";
+import {SiCplusplus, SiCsharp} from "react-icons/si";
+import {GodotLogo, NextJSLogo, SassSeal, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
 
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
             <Main/>
             <AboutSection/>
             <SkillsSection/>
+
         </>
     );
 }
@@ -178,6 +179,7 @@ function AboutSection(){
                         />
                     </svg>
                 </div>
+                <Heading1>Education</Heading1>
             </div>
             <Divider/>
         </section>
@@ -196,44 +198,56 @@ function SkillsSection(){
         skillIcon: ReactNode,
         startYear?: number,
         endYear?: number,
+        yearsOverride?: number,
         level?: number
     }
 
     return (
-        <section className={'h-screen'}>
+        <section>
             <div className={'container mx-auto my-32'}>
                 <Heading1 className={'mb-16'}>My skills</Heading1>
-                <div className={'flex flex-wrap'}>
-                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
-                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
-                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
-                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
-                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
+                <div className={'flex flex-col'}>
+                    <div className={'mb-5'}>
+                        <Heading2>Web development</Heading2>
+                        <div className={'flex flex-wrap'}>
+                            <SkillCard skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021} level={3}>React</SkillCard>
+                            <SkillCard skillIcon={<SassSeal className={'h-full'}/>} startYear={2021} level={3}>SCSS</SkillCard>
+                            <SkillCard skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021} level={2}>Next.js</SkillCard>
+                        </div>
+                    </div>
+                    <Divider className={'mb-10'}/>
+                    <div className={'mb-5'}>
+                        <Heading2>Game development</Heading2>
+                        <div className={'flex flex-wrap'}>
+                            <SkillCard skillIcon={<UnrealEngineLogo className={'h-full'}/>} startYear={2023} level={1}>Unreal Engine</SkillCard>
+                            <SkillCard skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1} level={1}>Unity</SkillCard>
+                            <SkillCard skillIcon={<GodotLogo className={'h-full'}/>} startYear={2024} level={0}>Godot</SkillCard>
+                        </div>
+                    </div>
+                    <Divider className={'mb-10'}/>
+                    <div>
+                        <Heading2>Other</Heading2>
+                        <div className={'flex flex-wrap'}>
+                            <SkillCard skillIcon={<SiCsharp/>} startYear={2021} level={3}>C#</SkillCard>
+                            <SkillCard skillIcon={<SiCplusplus/>} startYear={2023} level={0}>Unity</SkillCard>
+                        </div>
+                    </div>
                 </div>
-                {/*<SkillTag><SiJavascript/> JavaScript</SkillTag>*/}
-                {/*<SkillTag><IoLogoReact/> React</SkillTag>*/}
-                {/*<SkillTag><SiCsharp/> C#</SkillTag>*/}
-                {/*<SkillTag><SiSass className={'border-[1px] border-alt-gray-primary bg-[radial-gradient(circle,transparent_0%,transparent_60%,hsl(0,0%,18%)_60%);] rounded-full'}/> SASS</SkillTag>*/}
             </div>
         </section>
     )
 
-    function SkillCard({children, skillIcon, startYear, endYear, level}: SkillCardProps){
+    function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, level}: SkillCardProps){
         const levels = ['Novice', 'Beginner', 'Intermediate', 'Proficient', 'Expert', 'Master'];
+        const yearsFromYear = startYear ? getYearsFromYear(startYear) : undefined;
+        const year = yearsOverride ? (yearsOverride === 1 ? '1 year' : yearsOverride + ' years') : endYear ? `${startYear} to ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 year' : yearsFromYear + ' years') : ''}`;
 
         return (
-            <div className={'flex flex-col gap-1 w-1/4 py-12'} href={'#'}>
-                <span className={'text-3xl mb-2 text-yellow-300#'}>{skillIcon}</span>
+            <div className={'flex flex-col gap-1 w-1/4 py-10'}>
+                <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
                 <h2 className={'text-3xl font-medium'}>{children}</h2>
-                <span className={'opacity-70'}>{endYear ? `${startYear} to ${endYear}` : `${startYear ? getYearsFromYear(startYear) + ' years' : ''}`}{level ? ` - ${levels[level]}` : ''}</span>
+                <span className={'opacity-70'}>{year}{year && level ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
             </div>
-        )
-    }
-
-    function SkillTag({children}: { children: ReactNode }) {
-        return (
-            <span
-                className={'bg-aero-500 border-2 border-aero-600 text-alt-gray-primary font-medium rounded px-2 py-1 inline-flex items-center gap-1.5'}>{children}</span>
         )
     }
 }
