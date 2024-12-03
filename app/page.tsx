@@ -202,8 +202,14 @@ function SkillsSection(){
     return (
         <section className={'h-screen'}>
             <div className={'container mx-auto my-32'}>
-                <Heading1>My skills</Heading1>
-                <SkillCard skillIcon={<SiJavascript/>} startYear={2002} endYear={2015}>JavaScript</SkillCard>
+                <Heading1 className={'mb-16'}>My skills</Heading1>
+                <div className={'flex flex-wrap'}>
+                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
+                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
+                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
+                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
+                    <SkillCard skillIcon={<SiJavascript/>} startYear={2020} level={3}>JavaScript</SkillCard>
+                </div>
                 {/*<SkillTag><SiJavascript/> JavaScript</SkillTag>*/}
                 {/*<SkillTag><IoLogoReact/> React</SkillTag>*/}
                 {/*<SkillTag><SiCsharp/> C#</SkillTag>*/}
@@ -219,7 +225,7 @@ function SkillsSection(){
             <div className={'flex flex-col gap-1'}>
                 <span className={'text-3xl mb-2 text-yellow-300#'}>{skillIcon}</span>
                 <h2 className={'text-3xl font-medium'}>{children}</h2>
-                <span className={'opacity-70'}>{endYear ? `${startYear} to ${endYear}` : `${startYear ? getYearsFromYear(startYear) + 'years' : ''}}`}{level ? ` - ${levels[level]}` : ''}</span>
+                <span className={'opacity-70'}>{endYear ? `${startYear} to ${endYear}` : `${startYear ? getYearsFromYear(startYear) + ' years' : ''}`}{level ? ` - ${levels[level]}` : ''}</span>
             </div>
         )
     }
