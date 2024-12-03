@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import Signature from "@/app/utilities/signature";
 import CursorEffect from "@/app/components/CursorEffect";
+import DebugBorder from "@/app/components/DebugBorder";
 
 export const metadata: Metadata = {
     title: "Jakub Sokol"

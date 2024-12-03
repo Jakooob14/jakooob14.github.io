@@ -222,7 +222,7 @@ function SkillsSection(){
         const levels = ['Novice', 'Beginner', 'Intermediate', 'Proficient', 'Expert', 'Master'];
 
         return (
-            <div className={'flex flex-col gap-1'}>
+            <div className={'flex flex-col gap-1 w-1/4 py-12'} href={'#'}>
                 <span className={'text-3xl mb-2 text-yellow-300#'}>{skillIcon}</span>
                 <h2 className={'text-3xl font-medium'}>{children}</h2>
                 <span className={'opacity-70'}>{endYear ? `${startYear} to ${endYear}` : `${startYear ? getYearsFromYear(startYear) + ' years' : ''}`}{level ? ` - ${levels[level]}` : ''}</span>

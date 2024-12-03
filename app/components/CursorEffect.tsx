@@ -52,9 +52,13 @@ export default function CursorEffect() {
         const element = event.target as HTMLElement;
         const keepWidth: boolean = element.getAttribute('data-keepwidth') == 'true';
 
+        let rect: DOMRect | null = null;
 
-        if (element.nodeName === 'A'){
-            const rect = element.getBoundingClientRect();
+        if (element.nodeName === 'A') rect = element.getBoundingClientRect();
+
+        if (element.parentNode.nodeName === 'A') rect = element.parentElement.getBoundingClientRect();
+
+        if (rect){
             // Make mouse size fit the anchor
             size.width.set(rect.width + (keepWidth ? 0 : hoveredOptions.padding.x));
             size.height.set(rect.height);

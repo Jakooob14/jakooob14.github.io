@@ -27,7 +27,7 @@ export default function DebugBorder({elementName = 'body'}){
     }, [elementName]);
 
     return(
-        <div data-skipdebug={true} className={'bg-black w-full h-full overflow-hidden'}>
+        <div data-skipdebug={true} className={'bg-black w-full overflow-hidden fixed h-fit'}>
             <span className={'text-white text-ellipsis overflow-hidden whitespace-nowrap'}>
                 {hovered ? hovered.nodeName.toLowerCase() +
                     ' innerText: ' + hovered.innerText
