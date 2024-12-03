@@ -10,5 +10,5 @@ export function Heading1({children, className = '', ...props}: HeadingProps) {
 }
 
 export function Heading2({children, className = '', ...props}: HeadingProps) {
-    return <h2 className={'text-7xl w-fit tracking-wide font-semibold ' + className} {...props}>{children}</h2>
+    return <h2 className={'text-5xl w-fit tracking-wide font-semibold ' + className} {...props}>{children}</h2>
 }

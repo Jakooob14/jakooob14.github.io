@@ -3,7 +3,11 @@
 import {cubicBezier, motion} from "motion/react";
 import HiddenText from "@/app/components/HiddenText";
 import Divider from "@/app/components/Divider";
-import {Heading1} from "@/app/components/Headings";
+import {Heading1, Heading2} from "@/app/components/Headings";
+import {ReactNode} from "react";
+import {IoLogoJavascript, IoLogoReact} from "react-icons/io5";
+import {SiCsharp, SiJavascript, SiSass} from "react-icons/si";
+import dayjs, {Dayjs} from "dayjs";
 
 
 export default function Home() {
@@ -181,11 +185,49 @@ function AboutSection(){
 }
 
 function SkillsSection(){
+    function getYearsFromYear(year: number){
+        const yearsFromYear = new Date();
+        yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
+        return yearsFromYear.getFullYear();
+    }
+
+    interface SkillCardProps{
+        children: ReactNode,
+        skillIcon: ReactNode,
+        startYear?: number,
+        endYear?: number,
+        level?: number
+    }
+
     return (
         <section className={'h-screen'}>
             <div className={'container mx-auto my-32'}>
                 <Heading1>My skills</Heading1>
+                <SkillCard skillIcon={<SiJavascript/>} startYear={2002} endYear={2015}>JavaScript</SkillCard>
+                {/*<SkillTag><SiJavascript/> JavaScript</SkillTag>*/}
+                {/*<SkillTag><IoLogoReact/> React</SkillTag>*/}
+                {/*<SkillTag><SiCsharp/> C#</SkillTag>*/}
+                {/*<SkillTag><SiSass className={'border-[1px] border-alt-gray-primary bg-[radial-gradient(circle,transparent_0%,transparent_60%,hsl(0,0%,18%)_60%);] rounded-full'}/> SASS</SkillTag>*/}
             </div>
         </section>
     )
+
+    function SkillCard({children, skillIcon, startYear, endYear, level}: SkillCardProps){
+        const levels = ['Novice', 'Beginner', 'Intermediate', 'Proficient', 'Expert', 'Master'];
+
+        return (
+            <div className={'flex flex-col gap-1'}>
+                <span className={'text-3xl mb-2 text-yellow-300#'}>{skillIcon}</span>
+                <h2 className={'text-3xl font-medium'}>{children}</h2>
+                <span className={'opacity-70'}>{endYear ? `${startYear} to ${endYear}` : `${startYear ? getYearsFromYear(startYear) + 'years' : ''}}`}{level ? ` - ${levels[level]}` : ''}</span>
+            </div>
+        )
+    }
+
+    function SkillTag({children}: { children: ReactNode }) {
+        return (
+            <span
+                className={'bg-aero-500 border-2 border-aero-600 text-alt-gray-primary font-medium rounded px-2 py-1 inline-flex items-center gap-1.5'}>{children}</span>
+        )
+    }
 }
