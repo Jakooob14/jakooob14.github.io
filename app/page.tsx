@@ -7,7 +7,7 @@ import {Heading1, Heading2} from "@/app/components/Headings";
 import {ReactNode} from "react";
 import {IoLogoReact} from "react-icons/io5";
 import {SiCplusplus, SiCsharp} from "react-icons/si";
-import {GodotLogo, NextJSLogo, SassSeal, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
+import {EduchemLogo, GodotLogo, NextJSLogo, SassSeal, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
 
 
 export default function Home() {
@@ -118,35 +118,40 @@ function AboutSection(){
     return (
         <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'about'}>
             <Divider/>
-            <div className={'container mx-auto grid grid-cols-2 grid-rows-3 h-[700px] my-32'}>
-                <div>
-                    <Heading1>About me</Heading1>
-                </div>
+            <div className={'container mx-auto grid grid-cols-2 grid-rows-[auto,auto,auto] my-32'}>
+                <Heading1 className={'h-12'}>About me</Heading1>
                 <HiddenText className={'text-8xl text-right font-heading'}>Hey there!</HiddenText>
-                <p className={'w-[700px] text-xl text-justify col-start-2 row-start-2 row-span-2'}>
-                    Hello, my name is Jakub Sokol. I am an IT student from the Czech Republic with a deep passion for
-                    technology that began in my childhood. From an early age, I was captivated by computers and the
-                    innovations they made possible, whether it was exploring how they worked, learning new software, or
-                    immersing myself in the world of gaming. Over time, this fascination grew into a dedicated pursuit
-                    of knowledge about the inner workings of technology, particularly games.
-                    <br/>
-                    As I delved deeper into the mechanics behind gaming how games are designed, programmed, and brought
-                    to life I realized that creating games isn&#39;t just a career aspiration but a personal dream of
-                    mine.
-                    I aim to combine my technical skills with my creativity to craft experiences that entertain,
-                    inspire, and connect people around the world. My journey as an IT student is just the beginning, and
-                    I’m eager to continue learning, innovating, and eventually bringing my vision of developing games to
-                    reality.
-                </p>
-                <div className={'mb-10 row-span-2'}>
+                <div className={'block w-[700px] text-xl text-justify col-start-2 row-start-2 row-span-2'}>
+                    <p>
+                        Hello, my name is Jakub Sokol. I am an IT student from the Czech Republic with a deep passion for
+                        technology that began in my childhood. From an early age, I was captivated by computers and the
+                        innovations they made possible, whether it was exploring how they worked, learning new software, or
+                        immersing myself in the world of gaming. Over time, this fascination grew into a dedicated pursuit
+                        of knowledge about the inner workings of technology, particularly games.
+                        <br/>
+                        As I delved deeper into the mechanics behind gaming how games are designed, programmed, and brought
+                        to life I realized that creating games isn&#39;t just a career aspiration but a personal dream of
+                        mine.
+                        I aim to combine my technical skills with my creativity to craft experiences that entertain,
+                        inspire, and connect people around the world. My journey as an IT student is just the beginning, and
+                        I’m eager to continue learning, innovating, and eventually bringing my vision of developing games to
+                        reality.
+                    </p>
+                    <Heading2 className={'mt-8'}>Education</Heading2>
+                    <div className={'text-start w-full'}>
+                        <SkillCard className={'!py-6'} skillIcon={<EduchemLogo className={'h-full'}/>} startYear={2021}
+                                   endYear={2025}><span className={'block text-xl'}>High School</span>Educhem</SkillCard>
+                    </div>
+                </div>
+                <div className={'mb-10 row-span-2 w-[80%]'}>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         viewBox='0 0 321.1 227.3'
                         style={{
-                            width: 'auto',
+                            width: '100%',
                             height: '100%',
                             overflow: 'visible'
-                    }}
+                        }}
                     >
                         <defs>
                             <style>
@@ -179,28 +184,13 @@ function AboutSection(){
                         />
                     </svg>
                 </div>
-                <Heading1>Education</Heading1>
             </div>
             <Divider/>
         </section>
     )
 }
 
-function SkillsSection(){
-    function getYearsFromYear(year: number){
-        const yearsFromYear = new Date();
-        yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
-        return yearsFromYear.getFullYear();
-    }
-
-    interface SkillCardProps{
-        children: ReactNode,
-        skillIcon: ReactNode,
-        startYear?: number,
-        endYear?: number,
-        yearsOverride?: number,
-        level?: number
-    }
+function SkillsSection() {
 
     return (
         <section>
@@ -210,26 +200,32 @@ function SkillsSection(){
                     <div className={'mb-5'}>
                         <Heading2>Web development</Heading2>
                         <div className={'flex flex-wrap'}>
-                            <SkillCard skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021} level={3}>React</SkillCard>
-                            <SkillCard skillIcon={<SassSeal className={'h-full'}/>} startYear={2021} level={3}>SCSS</SkillCard>
-                            <SkillCard skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021} level={2}>Next.js</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021}
+                                       level={3}>React</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<SassSeal className={'h-full'}/>} startYear={2021}
+                                       level={3}>SCSS</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
+                                       level={2}>Next.js</SkillCard>
                         </div>
                     </div>
                     <Divider className={'mb-10'}/>
                     <div className={'mb-5'}>
                         <Heading2>Game development</Heading2>
                         <div className={'flex flex-wrap'}>
-                            <SkillCard skillIcon={<UnrealEngineLogo className={'h-full'}/>} startYear={2023} level={1}>Unreal Engine</SkillCard>
-                            <SkillCard skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1} level={1}>Unity</SkillCard>
-                            <SkillCard skillIcon={<GodotLogo className={'h-full'}/>} startYear={2024} level={0}>Godot</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<UnrealEngineLogo className={'h-full'}/>} startYear={2023} level={1}>Unreal
+                                Engine</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1}
+                                       level={1}>Unity</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<GodotLogo className={'h-full'}/>} startYear={2024}
+                                       level={0}>Godot</SkillCard>
                         </div>
                     </div>
                     <Divider className={'mb-10'}/>
                     <div>
                         <Heading2>Other</Heading2>
                         <div className={'flex flex-wrap'}>
-                            <SkillCard skillIcon={<SiCsharp/>} startYear={2021} level={3}>C#</SkillCard>
-                            <SkillCard skillIcon={<SiCplusplus/>} startYear={2023} level={0}>Unity</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<SiCsharp/>} startYear={2021} level={3}>C#</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<SiCplusplus/>} startYear={2023} level={0}>Unity</SkillCard>
                         </div>
                     </div>
                 </div>
@@ -237,17 +233,35 @@ function SkillsSection(){
         </section>
     )
 
-    function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, level}: SkillCardProps){
-        const levels = ['Novice', 'Beginner', 'Intermediate', 'Proficient', 'Expert', 'Master'];
-        const yearsFromYear = startYear ? getYearsFromYear(startYear) : undefined;
-        const year = yearsOverride ? (yearsOverride === 1 ? '1 year' : yearsOverride + ' years') : endYear ? `${startYear} to ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 year' : yearsFromYear + ' years') : ''}`;
+}
 
-        return (
-            <div className={'flex flex-col gap-1 w-1/4 py-10'}>
-                <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
-                <h2 className={'text-3xl font-medium'}>{children}</h2>
-                <span className={'opacity-70'}>{year}{year && level ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
-            </div>
-        )
+interface SkillCardProps {
+    children: ReactNode,
+    skillIcon: ReactNode,
+    startYear?: number,
+    endYear?: number,
+    yearsOverride?: number,
+    level?: number,
+    className?: string
+}
+
+function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, level, className}: SkillCardProps) {
+    function getYearsFromYear(year: number) {
+        const yearsFromYear = new Date();
+        yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
+        return yearsFromYear.getFullYear();
     }
+
+    const levels = ['Novice', 'Beginner', 'Intermediate', 'Proficient', 'Expert', 'Master'];
+    const yearsFromYear = startYear ? getYearsFromYear(startYear) : undefined;
+    const year = yearsOverride ? (yearsOverride === 1 ? '1 year' : yearsOverride + ' years') : endYear ? `${startYear} to ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 year' : yearsFromYear + ' years') : ''}`;
+
+    return (
+        <div className={'flex flex-col gap-1 w-[240px] py-10 ' + className}>
+            <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
+            <h2 className={'text-3xl font-medium'}>{children}</h2>
+            <span
+                className={'text-alt-gray-600 text-lg'}>{year}{year && level ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
+        </div>
+    )
 }

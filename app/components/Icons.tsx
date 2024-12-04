@@ -126,3 +126,51 @@ export const GodotLogo = (props: SVGProps<SVGSVGElement>) => (
         <path transform="matrix(4.1626 0 0 -4.1626 656.64 532.54)" d="m0 0c0-7.994 6.477-14.473 14.471-14.473C22.473-14.473 28.95-7.994 28.95.0s-6.477 14.479-14.479 14.479C6.477 14.479.0 7.994.0.0" fill="#414042"/>
     </svg>
 )
+
+export const EduchemLogo = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlSpace="preserve"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        imageRendering="optimizeQuality"
+        shapeRendering="geometricPrecision"
+        textRendering="geometricPrecision"
+        viewBox="0 0 900 1002.4"
+        {...props}
+    >
+        <defs>
+            <style>{".fil0{fill:#000;fill-rule:nonzero}"}</style>
+        </defs>
+        <path
+            d="M912.46 659.98 456.53 1003.6v-.2L.59 659.73V344.98L456.53 688.6v.25l455.93-343.62z"
+            style={{
+                fill: "#000",
+            }}
+            transform="translate(.018 -2.42)"
+        />
+        <path
+            d="M912.81 345.7 456.88 689.33l-.71-.94L912.1 344.76l.95.47zm-.71-.94.95-.71v1.19l-.95-.47zm-.24 315.23V345.23h1.18v314.76l-.24.47-.95-.47zm1.18 0v.3l-.24.18.24-.47zm-456.88 343.16 455.93-343.63.71.94-455.93 343.63-.95-.47zm.71.94-.95.71v-1.19l.95.47zm.24-.72v.25h-1.18v-.25l.95-.47.24.47zm-.24-.47.24.18v.3l-.24-.47zM.93 659.27l455.94 343.63-.71.94L.22 660.21l-.24-.47zm-.71.94-.24-.18v-.3l.24.47zm.95-315.23v314.76H-.01V344.98l.95-.47.24.47zm-1.18 0v-1.19l.95.71-.95.47zm456.17 344.1L.22 345.45l.71-.94 455.94 343.63.24.47zm.71-.94.24.18v.3l-.24-.47zm-.95.72v-.25h1.18v.25l-.24.47-.95-.47zm.95.47-.95.71v-1.19l.95.47z"
+            style={{
+                fill: "#000",
+                fillRule: "nonzero",
+            }}
+            transform="translate(.018 -2.42)"
+        />
+        <path
+            d="M427.49 312.71 226.24 468.79 24.27 316.37 427.49 3.63z"
+            style={{
+                fill: "#ffb303",
+            }}
+            transform="translate(.018 -2.42)"
+        />
+        <path
+            d="M427.85 4.1 24.63 316.84l-.72-.94L427.13 3.16l.95.47zm-.72-.94.95-.74v1.21zm-.23 309.55V3.63h1.18v309.08l-.23.47zm1.18 0v.29l-.23.18zm-202.2 155.62 201.24-156.08.72.94L226.6 469.27h-.72l-.01-.94zm.72.94-.36.28-.36-.27h.72zM24.61 315.91l201.98 152.42-.71.94L23.9 316.85l-.01-.94zm-.71.94-.62-.46.61-.48z"
+            style={{
+                fill: "#ffb303",
+                fillRule: "nonzero",
+            }}
+            transform="translate(.018 -2.42)"
+        />
+    </svg>
+)
