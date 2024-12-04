@@ -4,10 +4,14 @@ import {cubicBezier, motion} from "motion/react";
 import HiddenText from "@/app/components/HiddenText";
 import Divider from "@/app/components/Divider";
 import {Heading1, Heading2} from "@/app/components/Headings";
-import {ReactNode} from "react";
+import {ReactNode, Suspense} from "react";
 import {IoLogoReact} from "react-icons/io5";
-import {SiCplusplus, SiCsharp} from "react-icons/si";
+import {SiCplusplus, SiCsharp, SiNextdotjs} from "react-icons/si";
 import {EduchemLogo, GodotLogo, NextJSLogo, SassSeal, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
+import Image from "next/image";
+import Link from "next/link";
+import {TbBrandThreejs} from "react-icons/tb";
+import Loading from "@/app/components/Loading";
 
 
 export default function Home() {
@@ -89,15 +93,15 @@ function Main(){
             },
             {
                 label: 'Skills',
-                href: '#'
+                href: '#skills'
             },
             {
-                label: 'Projects',
-                href: '#'
+                label: 'Works',
+                href: '#works'
             },
             {
                 label: 'Contact',
-                href: '#'
+                href: '#contact'
             }
         ]
 
@@ -105,8 +109,7 @@ function Main(){
             <ul className={'flex justify-between h-24 text-2xl/[6rem]'}>
                 {
                     buttons.map((button, index) => {
-                        return <li key={index}><a className={'block h-full px-16'} href={button.href}
-                                                  data-keepwidth={true}>{button.label}</a></li>
+                        return <li key={index}><Link className={'block h-full px-16 text-white'} href={button.href}>{button.label}</Link></li>
                     })
                 }
             </ul>
@@ -191,9 +194,8 @@ function AboutSection(){
 }
 
 function SkillsSection() {
-
     return (
-        <section>
+        <section id={'skills'}>
             <div className={'container mx-auto my-32'}>
                 <Heading1 className={'mb-16'}>My skills</Heading1>
                 <div className={'flex flex-col'}>
@@ -270,28 +272,60 @@ function ProjectsSection(){
     interface ProjectCardProps{
         children: ReactNode,
         className?: string,
-        title: string
+        imageClassName?: string,
+        title: string,
+        tags?: ReactNode
+        imagePath: string
+    }
+
+    interface TagProps{
+        children: string,
+        className?: string,
+        icon?: ReactNode
     }
 
     return (
-        <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'about'}>
+        <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'works'}>
             <Divider/>
-            <div className={'container mx-auto my-32'}>
-                <Heading1>Projects</Heading1>
-                <div className={'flex flex-wrap'}>
-                    <ProjectCard className={'w-1/4'} title={'Personal Website'}>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</ProjectCard>
-                </div>
+            <div className={'container mx-auto my-32 grid grid-rows-12 jgrid-rows-[repeat(12,128px)] grid-cols-2'}>
+                <Heading1>Works</Heading1>
+                <ProjectCard className={'col-start-2 row-span-4'} title={'Acnod'} imagePath={'/works/AcnodNET.png'}
+                    tags={<>
+                        <Tag icon={<SiNextdotjs/>}>NextJS</Tag>
+                        <Tag className={'!bg-aero-300 !text-aero-950'} icon={<TbBrandThreejs/>}>ThreeJS</Tag>
+                    </>}>
+                    Acnod is a project me and my friend <Link href={'https://skymmel.eu'}>Vojtěch
+                    Skyba</Link> are working on. It is a freelance website on which we offer website development
+                    services.
+                </ProjectCard>
+
+                {/*<div className={'row-start-2'}>*/}
+                {/*    <span className={'text-3xl'}>This isn&#39;t all, check out all of my work <Link href={'/works'}>here</Link>.</span>*/}
+                {/*</div>*/}
             </div>
             <Divider/>
         </section>
     )
 
+    function Tag({children, className, icon}: TagProps){
+        return <span className={className + ' h-fit py-1 px-3 rounded-full# bg-alt-gray-300 text-alt-gray-950 font-medium text-sm flex items-center gap-1 '}>{icon}{children}</span>
+    }
 
-    function ProjectCard({children, title, className}: ProjectCardProps){
+    function ProjectCard({children, title, className, imageClassName, tags, imagePath}: ProjectCardProps){
         return (
-            <div className={'bg-alt-gray-200 p-4 rounded-xl ' + className}>
-                <h2 className={'text-3xl'}>{title}</h2>
-                <p>{children}</p>
+            <div
+                className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(45deg,#131516_0%,#1C1F21_100%)] rounded-md# shadow-lg ' + className}>
+                <div className={'m-20'}>
+                    <div className={'flex justify-between items-center'}>
+                        <Heading2 className={'font-bold'}>{title}</Heading2>
+                        <span className={'flex gap-3'}>{tags}</span>
+                    </div>
+                    <p className={'mt-6'}>{children}</p>
+                </div>
+                <Suspense fallback={<Loading/>}>
+                    <Image className={'relative object-contain -right-12 rounded-2xl# ' + imageClassName}
+                           src={imagePath} alt={'Acnod.net website image'} width={1409} height={1059}/>
+                </Suspense>
             </div>
         )
     }
