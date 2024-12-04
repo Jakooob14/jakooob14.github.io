@@ -17,7 +17,7 @@ export default function Home() {
             <Main/>
             <AboutSection/>
             <SkillsSection/>
-
+            <ProjectsSection/>
         </>
     );
 }
@@ -225,7 +225,7 @@ function SkillsSection() {
                         <Heading2>Other</Heading2>
                         <div className={'flex flex-wrap'}>
                             <SkillCard className={'!w-1/3'} skillIcon={<SiCsharp/>} startYear={2021} level={3}>C#</SkillCard>
-                            <SkillCard className={'!w-1/3'} skillIcon={<SiCplusplus/>} startYear={2023} level={0}>Unity</SkillCard>
+                            <SkillCard className={'!w-1/3'} skillIcon={<SiCplusplus/>} startYear={2023} level={0}>C++</SkillCard>
                         </div>
                     </div>
                 </div>
@@ -261,7 +261,38 @@ function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, leve
             <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
             <h2 className={'text-3xl font-medium'}>{children}</h2>
             <span
-                className={'text-alt-gray-600 text-lg'}>{year}{year && level ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
+                className={'text-alt-gray-600 text-lg'}>{year}{year && level !== undefined ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
         </div>
     )
+}
+
+function ProjectsSection(){
+    interface ProjectCardProps{
+        children: ReactNode,
+        className?: string,
+        title: string
+    }
+
+    return (
+        <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'about'}>
+            <Divider/>
+            <div className={'container mx-auto my-32'}>
+                <Heading1>Projects</Heading1>
+                <div className={'flex flex-wrap'}>
+                    <ProjectCard className={'w-1/4'} title={'Personal Website'}>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</ProjectCard>
+                </div>
+            </div>
+            <Divider/>
+        </section>
+    )
+
+
+    function ProjectCard({children, title, className}: ProjectCardProps){
+        return (
+            <div className={'bg-alt-gray-200 p-4 rounded-xl ' + className}>
+                <h2 className={'text-3xl'}>{title}</h2>
+                <p>{children}</p>
+            </div>
+        )
+    }
 }
