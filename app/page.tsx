@@ -287,16 +287,24 @@ function ProjectsSection(){
     return (
         <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'works'}>
             <Divider/>
-            <div className={'container mx-auto my-32 grid grid-rows-12 jgrid-rows-[repeat(12,128px)] grid-cols-2'}>
+            <div className={'container mx-auto my-32 grid grid-rows-12 jgrid-rows-[repeat(12,128px)] grid-cols-2 gap-x-24'}>
                 <Heading1>Works</Heading1>
-                <ProjectCard className={'col-start-2 row-span-4'} title={'Acnod'} imagePath={'/works/AcnodNET.png'}
-                    tags={<>
-                        <Tag icon={<SiNextdotjs/>}>NextJS</Tag>
-                        <Tag className={'!bg-aero-300 !text-aero-950'} icon={<TbBrandThreejs/>}>ThreeJS</Tag>
-                    </>}>
+                <ProjectCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_100%)]'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'-right-12 rounded-2xl#'}
+                             tags={<>
+                                 <Tag icon={<SiNextdotjs/>}>NextJS</Tag>
+                                 <Tag className={'!bg-aero-300 !text-aero-950'} icon={<TbBrandThreejs/>}>ThreeJS</Tag>
+                             </>}>
                     Acnod is a project me and my friend <Link href={'https://skymmel.eu'}>Vojtěch
                     Skyba</Link> are working on. It is a freelance website on which we offer website development
                     services.
+                </ProjectCard>
+
+                <ProjectCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_100%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'-left-12 rounded-2xl#'}
+                             tags={<>
+                                 <Tag icon={<SiNextdotjs/>}>NextJS</Tag>
+                                 <Tag className={'!bg-aero-300 !text-aero-950'} icon={<TbBrandThreejs/>}>ThreeJS</Tag>
+                             </>}>
+                    This website is for a company named Nagy 3D that offers 3D printing and scanning in the northwestern region of the Czech Republic. It offers a minimalistic and clean look so the user can have a good experience.
                 </ProjectCard>
 
                 {/*<div className={'row-start-2'}>*/}
@@ -314,7 +322,7 @@ function ProjectsSection(){
     function ProjectCard({children, title, className, imageClassName, tags, imagePath}: ProjectCardProps){
         return (
             <div
-                className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden bg-[linear-gradient(45deg,#131516_0%,#1C1F21_100%)] rounded-md# shadow-lg ' + className}>
+                className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-lg ' + className}>
                 <div className={'m-20'}>
                     <div className={'flex justify-between items-center'}>
                         <Heading2 className={'font-bold'}>{title}</Heading2>
@@ -323,8 +331,8 @@ function ProjectsSection(){
                     <p className={'mt-6'}>{children}</p>
                 </div>
                 <Suspense fallback={<Loading/>}>
-                    <Image className={'relative object-contain -right-12 rounded-2xl# ' + imageClassName}
-                           src={imagePath} alt={'Acnod.net website image'} width={1409} height={1059}/>
+                    <Image className={'relative object-contain ' + imageClassName}
+                           src={imagePath} alt={title + ' website image'} width={1409} height={1059}/>
                 </Suspense>
             </div>
         )
