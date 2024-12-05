@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="509.27493"
+   height="441.04611"
+   viewBox="0 0 134.74565 116.69345"
+   version="1.1"
+   id="svg2568"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="jakooob logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2570"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="52.5"
+     inkscape:cy="266"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2565" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.36050385,-9.3868175)">
+    <path
+       id="path2714"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.185208"
+       inkscape:transform-center-y="-19.402616"
+       d="M 37.977498,38.797477 -0.3963874,105.26319 H 26.286222 L 37.954243,85.053569 49.622265,105.26319 h 26.729118 z"
+       transform="translate(0.91728584,20.724471)" />
+    <path
+       id="path2670"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.185208"
+       inkscape:transform-center-y="-19.402616"
+       d="M 93.832486,35.641598 78.47115,62.248759 103.30529,105.26319 h 30.72319 z"
+       transform="translate(0.91728584,20.724471)" />
+    <path
+       id="path3253"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.185208"
+       inkscape:transform-center-y="-19.402616"
+       d="M 66.816047,-11.152445 51.454711,15.454716 66.816047,42.061361 82.177901,15.454716 Z"
+       transform="translate(0.91728584,20.724471)" />
+  </g>
+</svg>

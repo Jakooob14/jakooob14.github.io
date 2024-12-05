@@ -12,6 +12,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {TbBrandThreejs} from "react-icons/tb";
 import Loading from "@/app/components/Loading";
+import {FaGlobe} from "react-icons/fa6";
+import {LinkButton} from "@/app/components/Buttons";
 
 
 export default function Home() {
@@ -56,7 +58,7 @@ function Main(){
                             {
                                 Array.from('JakubSokol').map((letter, index) => {
                                     return <span key={index}
-                                                 className={`${index == 4 || index == 9 ? 'w-[.65em]' : ''} ${index == 6 ? '-ms-[.03em]' : ''} ${index >= 5 ? 'pb-[40px]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
+                                                 className={`${index == 4 || index == 9 ? 'w-[.65em]' : ''} ${index == 6 ? '-ms-[.03em]' : ''} ${index >= 5 ? 'pb-[40px]' : ''} ${index == 0 ? 'ms-[.08em]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
                                 })
                             }
                             <motion.div
@@ -275,7 +277,9 @@ function ProjectsSection(){
         imageClassName?: string,
         title: string,
         tags?: ReactNode
-        imagePath: string
+        imagePath: string,
+        learnMoreHref?: string,
+        websiteHref?: string
     }
 
     interface TagProps{
@@ -287,28 +291,27 @@ function ProjectsSection(){
     return (
         <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'works'}>
             <Divider/>
-            <div className={'container mx-auto my-32 grid grid-rows-12 jgrid-rows-[repeat(12,128px)] grid-cols-2 gap-x-24'}>
+            <div className={'container mx-auto my-32 grid grid-rows-6 jgrid-rows-[repeat(12,128px)] grid-cols-2 gap-x-24'}>
                 <Heading1>Works</Heading1>
-                <ProjectCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_100%)]'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'-right-12 rounded-2xl#'}
+                <ProjectCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_100%)]'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
                              tags={<>
-                                 <Tag icon={<SiNextdotjs/>}>NextJS</Tag>
-                                 <Tag className={'!bg-aero-300 !text-aero-950'} icon={<TbBrandThreejs/>}>ThreeJS</Tag>
+                                 <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
+                                 <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
                              </>}>
                     Acnod is a project me and my friend <Link href={'https://skymmel.eu'}>Vojtěch
                     Skyba</Link> are working on. It is a freelance website on which we offer website development
                     services.
                 </ProjectCard>
 
-                <ProjectCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_100%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'-left-12 rounded-2xl#'}
+                <ProjectCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_100%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'float-end !w-full'} websiteHref={'https://www.Nagy3D.cz'}
                              tags={<>
-                                 <Tag icon={<SiNextdotjs/>}>NextJS</Tag>
-                                 <Tag className={'!bg-aero-300 !text-aero-950'} icon={<TbBrandThreejs/>}>ThreeJS</Tag>
+                                 <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
                              </>}>
                     This website is for a company named Nagy 3D that offers 3D printing and scanning in the northwestern region of the Czech Republic. It offers a minimalistic and clean look so the user can have a good experience.
                 </ProjectCard>
 
-                {/*<div className={'row-start-2'}>*/}
-                {/*    <span className={'text-3xl'}>This isn&#39;t all, check out all of my work <Link href={'/works'}>here</Link>.</span>*/}
+                {/*<div className={'row-start-6 col-start-2'}>*/}
+                {/*    <span className={'text-3xl'}>This isn&#39;t all! Check out all of my work <Link href={'/works'}>here</Link>.</span>*/}
                 {/*</div>*/}
             </div>
             <Divider/>
@@ -319,21 +322,36 @@ function ProjectsSection(){
         return <span className={className + ' h-fit py-1 px-3 rounded-full# bg-alt-gray-300 text-alt-gray-950 font-medium text-sm flex items-center gap-1 '}>{icon}{children}</span>
     }
 
-    function ProjectCard({children, title, className, imageClassName, tags, imagePath}: ProjectCardProps){
+    function ProjectCard({children, title, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title, websiteHref}: ProjectCardProps){
         return (
             <div
-                className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-lg ' + className}>
+                className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
                 <div className={'m-20'}>
                     <div className={'flex justify-between items-center'}>
                         <Heading2 className={'font-bold'}>{title}</Heading2>
                         <span className={'flex gap-3'}>{tags}</span>
                     </div>
-                    <p className={'mt-6'}>{children}</p>
+                    <p className={'my-6'}>{children}</p>
+                    <div className={'flex justify-end gap-4 items-center mx-20#'}>
+                        {
+                            websiteHref ?
+                                <Link className={'rounded-full# p-1 flex items-center gap-2'} href={websiteHref} rel={'noreferrer'} target={'_blank'}><FaGlobe
+                                    className={'text-2xl'}/><span>{websiteHref.replace(/https?:\/\/(www\.)?/, '')}</span></Link>
+                                : undefined
+                        }
+                        {
+                            learnMoreHref ?
+                                <LinkButton href={learnMoreHref}>Learn more</LinkButton>
+                                : undefined
+                        }
+                    </div>
                 </div>
-                <Suspense fallback={<Loading/>}>
-                    <Image className={'relative object-contain ' + imageClassName}
-                           src={imagePath} alt={title + ' website image'} width={1409} height={1059}/>
-                </Suspense>
+                <div className={'h-[450px] m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.4)] overflow-hidden'}>
+                    <Suspense fallback={<Loading/>}>
+                        <Image className={'object-cover object-left-top w-full ' + imageClassName}
+                               src={imagePath} alt={title + ' website image'} width={1400} height={1000}/>
+                    </Suspense>
+                </div>
             </div>
         )
     }

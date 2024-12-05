@@ -1,8 +1,10 @@
 'use client';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {motion, useMotionValue, useSpring} from 'framer-motion';
 
 export default function CursorEffect() {
+    const [cursorEnabled, setCursorEnabled] = useState(true)
+
     const defaultCursorSize = 256;
     let cursorSize = defaultCursorSize;
 
@@ -40,6 +42,12 @@ export default function CursorEffect() {
         height: useSpring(size.height, smoothOptions),
         borderRadius: useSpring(size.borderRadius, smoothOptions)
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleTouch = () => {
+        setCursorEnabled(false);
+    }
+
     const checkIfCursorHide = (element: HTMLElement | null): boolean => {
         while (element) {
             const hide = element.getAttribute('data-cursor-hide') === 'true';
@@ -53,6 +61,8 @@ export default function CursorEffect() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleMouseMove = (event: MouseEvent) => {
+        if (!cursorEnabled) return;
+
         const { clientX, clientY } = event;
 
         mouse.x.set(clientX - cursorSize / 2);
@@ -60,11 +70,21 @@ export default function CursorEffect() {
 
         if (!event.target) return;
 
-        const element = event.target as HTMLElement;
+        let element = event.target as HTMLElement;
         const dataCursorPaddingX = element.getAttribute('data-cursor-padding-x');
         const cursorPaddingX = dataCursorPaddingX ? parseFloat(dataCursorPaddingX) : hoveredOptions.padding.x;
 
         let rect: DOMRect | null = null;
+
+        let hoveredElement: HTMLElement | null = element;
+
+        while (hoveredElement){
+            if (hoveredElement.tagName && hoveredElement.tagName.toLowerCase() === 'a') {
+                break;
+            }
+            hoveredElement = hoveredElement.parentElement; // Move up the DOM tree
+        }
+        element = hoveredElement ? hoveredElement : element;
 
         if (element.nodeName === 'A') rect = element.getBoundingClientRect();
 
@@ -102,11 +122,13 @@ export default function CursorEffect() {
     }
 
     useEffect(() => {
+        window.addEventListener('ontouchstart', handleTouch);
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove)
+            window.removeEventListener('ontouchstart', handleTouch);
+            window.removeEventListener('mousemove', handleMouseMove);
         }
-    }, [handleMouseMove])
+    }, [handleMouseMove, handleTouch])
 
     return (
         <motion.div

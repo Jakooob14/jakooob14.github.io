@@ -1,5 +1,19 @@
 import {SVGProps} from "react";
 
+export const MainLogo = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={509.27}
+        height={441.05}
+        viewBox="0 0 134.75 116.69"
+        {...props}
+    >
+        <g fill="#fff" stroke="#fff" strokeWidth={0.185}>
+            <path d="M38.534 50.134.16 116.6h26.683L38.51 96.39l11.668 20.21h26.729zM94.389 46.98 79.028 73.585l24.834 43.014h30.723zM67.373.185 52.012 26.792 67.372 53.4l15.363-26.607z" />
+        </g>
+    </svg>
+)
+
 export const SassSeal = (props: SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -145,14 +159,14 @@ export const EduchemLogo = (props: SVGProps<SVGSVGElement>) => (
         <path
             d="M912.46 659.98 456.53 1003.6v-.2L.59 659.73V344.98L456.53 688.6v.25l455.93-343.62z"
             style={{
-                fill: "#000",
+                fill: "#fff",
             }}
             transform="translate(.018 -2.42)"
         />
         <path
             d="M912.81 345.7 456.88 689.33l-.71-.94L912.1 344.76l.95.47zm-.71-.94.95-.71v1.19l-.95-.47zm-.24 315.23V345.23h1.18v314.76l-.24.47-.95-.47zm1.18 0v.3l-.24.18.24-.47zm-456.88 343.16 455.93-343.63.71.94-455.93 343.63-.95-.47zm.71.94-.95.71v-1.19l.95.47zm.24-.72v.25h-1.18v-.25l.95-.47.24.47zm-.24-.47.24.18v.3l-.24-.47zM.93 659.27l455.94 343.63-.71.94L.22 660.21l-.24-.47zm-.71.94-.24-.18v-.3l.24.47zm.95-315.23v314.76H-.01V344.98l.95-.47.24.47zm-1.18 0v-1.19l.95.71-.95.47zm456.17 344.1L.22 345.45l.71-.94 455.94 343.63.24.47zm.71-.94.24.18v.3l-.24-.47zm-.95.72v-.25h1.18v.25l-.24.47-.95-.47zm.95.47-.95.71v-1.19l.95.47z"
             style={{
-                fill: "#000",
+                fill: "#fff",
                 fillRule: "nonzero",
             }}
             transform="translate(.018 -2.42)"
