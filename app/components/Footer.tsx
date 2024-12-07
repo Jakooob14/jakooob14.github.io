@@ -1,8 +1,13 @@
+'use client'
+
 import {MainLogo} from "@/app/components/Icons";
 import Link from "next/link";
 import {IoLogoGithub, IoLogoInstagram, IoMail} from "react-icons/io5";
+import {useDictionary} from "@/app/[lang]/DictionaryProvider";
 
 export default function Footer(){
+    const dict = useDictionary();
+
     return (
         <footer>
             <div className={'container mx-auto my-12 flex h-[150px]'}>
@@ -20,8 +25,8 @@ export default function Footer(){
 
                 <div className={'w-2 h-full bg-alt-gray-200 mx-24'}></div>
 
-                <div>
-                    <span className={'text-3xl font-semibold text-aero-500 font-heading'}>Contact</span>
+                <div id={'contact'}>
+                    <span className={'text-3xl font-semibold text-aero-500 font-heading'}>{dict.home.main.navigation.contact}</span>
                     <ul className={'text-xl mt-1'}>
                         <li><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8} href={'https://github.com/Jakooob14'} rel={'noreferrer'} target={'_blank'}><IoLogoGithub/>Github</Link></li>
                         <li><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8} href={'https://instagram.com/Jakooob14'} rel={'noreferrer'} target={'_blank'}><IoLogoInstagram/>Instagram</Link></li>
