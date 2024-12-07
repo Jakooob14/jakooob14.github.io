@@ -14,6 +14,7 @@ import {TbBrandThreejs} from "react-icons/tb";
 import Loading from "@/app/components/Loading";
 import {FaGlobe} from "react-icons/fa6";
 import {LinkButton} from "@/app/components/Buttons";
+import Tag from "@/app/components/Tag";
 
 
 export default function Home() {
@@ -279,13 +280,8 @@ function ProjectsSection(){
         tags?: ReactNode
         imagePath: string,
         learnMoreHref?: string,
-        websiteHref?: string
-    }
-
-    interface TagProps{
-        children: string,
-        className?: string,
-        icon?: ReactNode
+        websiteHref?: string,
+        initial?: object
     }
 
     return (
@@ -293,7 +289,11 @@ function ProjectsSection(){
             <Divider/>
             <div className={'container mx-auto my-32 grid grid-rows-6 jgrid-rows-[repeat(12,128px)] grid-cols-2 gap-x-24'}>
                 <Heading1>Works</Heading1>
-                <ProjectCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_100%)]'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
+                <ProjectCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)]'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
+                             initial={{
+                                 translateX: '10%',
+                                 opacity: 0
+                             }}
                              tags={<>
                                  <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
                                  <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
@@ -303,7 +303,11 @@ function ProjectsSection(){
                     services.
                 </ProjectCard>
 
-                <ProjectCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_100%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'float-end !w-full'} websiteHref={'https://www.Nagy3D.cz'}
+                <ProjectCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'float-end !w-full'} websiteHref={'https://www.Nagy3D.cz'}
+                             initial={{
+                                 translateX: '-10%',
+                                 opacity: 0
+                             }}
                              tags={<>
                                  <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
                              </>}>
@@ -318,13 +322,20 @@ function ProjectsSection(){
         </section>
     )
 
-    function Tag({children, className, icon}: TagProps){
-        return <span className={className + ' h-fit py-1 px-3 rounded-full# bg-alt-gray-300 text-alt-gray-950 font-medium text-sm flex items-center gap-1 '}>{icon}{children}</span>
-    }
-
-    function ProjectCard({children, title, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title, websiteHref}: ProjectCardProps){
+    function ProjectCard({children, title, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title, websiteHref, initial}: ProjectCardProps){
         return (
-            <div
+            <motion.div
+                initial={initial}
+                whileInView={{
+                    translateX: 0,
+                    opacity: 1,
+                    transition: {
+                        duration: .8,
+                        ease: cubicBezier(0.76, 0, 0.24, 1),
+                        delay: .4
+                    }
+                }}
+                viewport={{once: true}}
                 className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
                 <div className={'m-20'}>
                     <div className={'flex justify-between items-center'}>
@@ -346,13 +357,13 @@ function ProjectsSection(){
                         }
                     </div>
                 </div>
-                <div className={'h-[450px] m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.4)] overflow-hidden'}>
+                <div className={'h-[450px] m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.3)] overflow-hidden'}>
                     <Suspense fallback={<Loading/>}>
                         <Image className={'object-cover object-left-top w-full ' + imageClassName}
                                src={imagePath} alt={title + ' website image'} width={1400} height={1000}/>
                     </Suspense>
                 </div>
-            </div>
+            </motion.div>
         )
     }
 }
