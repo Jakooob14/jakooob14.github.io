@@ -28,25 +28,25 @@ export default function Acnod(){
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.home}</Heading2>
                         <Suspense fallback={<Loading/>}>
-                            <Image src={'/works/Nagy3DCZ/Nagy3DCZHome.png'} alt={'Home page'} width={1600} height={1972}/>
+                            <Image src={'/works/nagy3dcz/nagy3dcz-home.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.services}</Heading2>
                         <Suspense fallback={<Loading/>}>
-                            <Image src={'/works/Nagy3DCZ/Nagy3DCZServices.png'} alt={'Home page'} width={1600} height={1972}/>
+                            <Image src={'/works/nagy3dcz/nagy3dcz-services.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.about}</Heading2>
                         <Suspense fallback={<Loading/>}>
-                            <Image src={'/works/Nagy3DCZ/Nagy3DCZAbout.png'} alt={'Home page'} width={1600} height={1972}/>
+                            <Image src={'/works/nagy3dcz/nagy3dcz-about.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.contact}</Heading2>
                         <Suspense fallback={<Loading/>}>
-                            <Image src={'/works/Nagy3DCZ/Nagy3DCZContact.png'} alt={'Home page'} width={1600} height={1972}/>
+                            <Image src={'/works/nagy3dcz/nagy3dcz-contact.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                 </div>

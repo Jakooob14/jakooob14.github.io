@@ -11,5 +11,9 @@ const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
 }
 
 export const getDictionary = async (locale: string): Promise<Dictionary> => {
-    return dictionaries[locale as Locale]();
+    const loadDictionary = dictionaries[locale as Locale];
+    if (!loadDictionary) {
+        throw new Error(`Unsupported locale: ${locale}`);
+    }
+    return loadDictionary();
 };

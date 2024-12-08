@@ -31,7 +31,7 @@ export default function Acnod(){
                 <div className={'my-8'}>
                     <Heading2 className={'mb-4'}>{dict.work.pages.home}</Heading2>
                     <Suspense fallback={<Loading/>}>
-                        <Image src={'/works/AcnodNET/AcnodNETHome.png'} alt={'Home page'} width={1600} height={1972}/>
+                        <Image src={'/works/acnodnet/acnodnet-Home.png'} alt={'Home page'} width={1600} height={1972}/>
                     </Suspense>
                 </div>
             </div>

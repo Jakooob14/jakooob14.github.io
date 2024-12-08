@@ -283,7 +283,7 @@ export default function Home() {
                 <Divider/>
                 <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-6 grid-cols-2 gap-x-24'}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <WorkCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
+                    <WorkCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'} title={'Acnod'} imagePath={'/works/acnodnet/acnodnet.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
                                  initial={{
                                      translateX: '10%',
                                      opacity: 0
@@ -295,7 +295,7 @@ export default function Home() {
                         <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
                     </WorkCard>
 
-                    <WorkCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'float-end !w-full'} websiteHref={'https://www.Nagy3D.cz'}
+                    <WorkCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'} title={'Nagy3D'} imagePath={'/works/nagy3dcz/nagy3dcz.png'} imageClassName={'float-end !w-full'} websiteHref={'https://www.Nagy3D.cz'}
                                  initial={{
                                      translateX: '-10%',
                                      opacity: 0
@@ -314,7 +314,7 @@ export default function Home() {
             </section>
         )
 
-        function WorkCard({children, title, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title, websiteHref, initial}: WorkCardProps){
+        function WorkCard({children, title, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title.toLowerCase(), websiteHref, initial}: WorkCardProps){
             return (
                 <motion.div
                     initial={initial}
