@@ -10,7 +10,7 @@ import {EduchemLogo, GodotLogo, NextJSLogo, SassSeal, UnityLogo, UnrealEngineLog
 import Image from "next/image";
 import Link from "next/link";
 import {TbBrandCpp, TbBrandCSharp, TbBrandThreejs} from "react-icons/tb";
-import Loading from "@/app/components/Loading";
+import Loading from "@/app/loading";
 import {FaGlobe} from "react-icons/fa6";
 import {LinkButton} from "@/app/components/Buttons";
 import Tag from "@/app/components/Tag";
@@ -21,18 +21,8 @@ import Translate from "@/app/components/Translate";
 export default function Home() {
     const dict = useDictionary();
 
-    const handleChangeLocale = (locale: string) => {
-        document.cookie = 'lang=' + locale  + '; expires=' + 315360000 + "; path=/";
-        window.location.replace('http://localhost:3000');
-    }
-
     return (
         <>
-            <div>
-                <button onClick={() => handleChangeLocale('en')}>en</button>
-                <button onClick={() => handleChangeLocale('cs')}>cs</button>
-            </div>
-
             <Main/>
             <AboutSection/>
             <SkillsSection/>
@@ -52,21 +42,22 @@ export default function Home() {
 
         return (
             <main className={'h-screen bg-alt-gray-primary bg-gridPattern bg-[length:200px] bg-[left_35px_top_20px]'}>
-                <div className={'relative z-0 container mx-auto flex flex-col justify-center gap-24 h-full'}>
+                <div className={'relative z-0 container mx-auto flex flex-col justify-center gap-3 md:gap-12 lg:gap-24 h-full'}>
 
                     {/* Title */}
                     <div className={'uppercase font-[760] inline-flex items-center justify-center w-full'}>
-                        <div className={'relative inline-block text-[300px] w-full'}>
-                      <span className={'block relative'}>
-                          <div className={'ms-2'}>
-                              <h2 className={'text-4xl text-alt-gray-500 font-extrabold'}>{dict.home.main.subtitle}</h2>
-                          </div>
-                          <motion.div
-                              className={'absolute w-[calc(100%+.1em)] h-full bg-aero-500 top-0 origin-left -ms-[.05em]'}
-                              animate={titleAnimation}>
-                          </motion.div>
-                      </span>
-                            <h1 className={'relative grid grid-cols-[repeat(5,auto)] gap-x-16 w-full'}>
+                        <div
+                            className={'relative inline-block text-[21vw] md:text-[180px] lg:text-[220px] xl:text-[260px] 2xl:text-[300px] w-full'}>
+                              <span className={'block relative'}>
+                                  <div className={'ms-2'}>
+                                      <h2 className={'text-[5vw] md:text-4xl text-alt-gray-500 font-extrabold'}>{dict.home.main.subtitle}</h2>
+                                  </div>
+                                  <motion.div
+                                      className={'absolute w-[calc(100%+.1em)] h-full bg-aero-500 top-0 origin-left -ms-[.05em]'}
+                                      animate={titleAnimation}>
+                                  </motion.div>
+                              </span>
+                            <h1 className={'relative grid grid-cols-[repeat(5,auto)] gap-x-0 lg:gap-x-4 xl:gap-x-10 2xl:gap-x-16 w-full'}>
                                 {
                                     Array.from('JakubSokol').map((letter, index) => {
                                         return <span key={index}
@@ -119,11 +110,13 @@ export default function Home() {
                 }
             ]
 
-            return <div className={'font-semibold jbg-alt-gray-300 backdrop-blur-[10px] border-4 border-alt-gray-250'}>
-                <ul className={'flex justify-between h-24 text-2xl/[6rem]'}>
+            return <div className={'font-semibold backdrop-blur-[10px] border-4 border-alt-gray-250'}>
+                <ul className={'flex justify-around h-12 md:h-24 text-[3.3vw] md:text-2xl leading-[3rem] md:leading-[6rem]'}>
                     {
                         buttons.map((button, index) => {
-                            return <li key={index}><Link className={'block h-full px-16 text-white'} href={button.href}>{button.label}</Link></li>
+                            return <li key={index} className={'w-full text-center'}><Link
+                                className={'block h-full w-full text-white'}
+                                href={button.href}>{button.label}</Link></li>
                         })
                     }
                 </ul>
@@ -131,22 +124,24 @@ export default function Home() {
         }
     }
 
-    function AboutSection(){
+    function AboutSection() {
         return (
             <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'about'}>
                 <Divider/>
-                <div className={'container mx-auto grid grid-cols-2 grid-rows-[auto,auto,auto] my-32'}>
-                    <Heading1 className={'h-12'}>{dict.home.about_me.title}</Heading1>
+                <div className={'container mx-auto flex flex-col xl:grid grid-cols-2 xl:grid-rows-[auto,auto,auto] my-32'}>
+                    <Heading1>{dict.home.about_me.title}</Heading1>
                     {/*<HiddenText className={'text-8xl text-right font-heading'}>Hey there!</HiddenText>*/}
-                    <div className={'block w-[700px] text-xl text-justify col-start-2 row-start-2 row-span-2'}>
-                        <p className={'whitespace-pre-wrap'}>{dict.home.about_me.paragraph}</p>
+                    <div className={'block w-full xl:w-[500px] 2xl:w-[700px] text-xl text-justify col-start-2 row-start-2 row-span-2 order-5'}>
+                        <p className={'whitespace-pre-wrap text-[max(16px,3vw)] sm:text-xl leading-[max(24px,4.5vw)] sm:leading-6'}>{dict.home.about_me.paragraph}</p>
                         <Heading2 className={'mt-8'}>{dict.home.about_me.education.title}</Heading2>
                         <div className={'text-start w-full'}>
-                            <SkillCard className={'!py-6'} skillIcon={<EduchemLogo className={'h-full'}/>} startYear={2021}
-                                       endYear={2025}><span className={'block text-xl'}>{dict.home.about_me.education.high_school}</span>Educhem</SkillCard>
+                            <SkillCard className={'!py-6'} skillIcon={<EduchemLogo className={'h-full'}/>}
+                                       startYear={2021}
+                                       endYear={2025}><span
+                                className={'block text-xl'}>{dict.home.about_me.education.high_school}</span>Educhem</SkillCard>
                         </div>
                     </div>
-                    <div className={'mb-10 row-span-2 w-[80%]'}>
+                    <div className={'mb-10 row-span-2 w-[50%] xl:w-[80%] order-1'}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             viewBox='0 0 321.1 227.3'
@@ -197,37 +192,37 @@ export default function Home() {
         return (
             <section id={'skills'}>
                 <div className={'container mx-auto my-32'}>
-                    <Heading1 className={'mb-16'}>{dict.home.skills.title}</Heading1>
+                    <Heading1 className={'sm:mb-16'}>{dict.home.skills.title}</Heading1>
                     <div className={'flex flex-col'}>
                         <div className={'mb-5'}>
                             <Heading2>{dict.home.skills.web_development}</Heading2>
-                            <div className={'flex flex-wrap'}>
-                                <SkillCard className={'!w-1/3'} skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021}
+                            <div className={'flex flex-wrap flex-col sm:flex-row'}>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021}
                                            level={3}>React</SkillCard>
-                                <SkillCard className={'!w-1/3'} skillIcon={<SassSeal className={'h-full'}/>} startYear={2021}
+                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<SassSeal className={'h-full'}/>} startYear={2021}
                                            level={3}>SCSS</SkillCard>
-                                <SkillCard className={'!w-1/3'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
+                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
                                            level={2}>Next.js</SkillCard>
                             </div>
                         </div>
                         <Divider className={'mb-10'}/>
                         <div className={'mb-5'}>
                             <Heading2>{dict.home.skills.game_development}</Heading2>
-                            <div className={'flex flex-wrap'}>
-                                <SkillCard className={'!w-1/3'} skillIcon={<UnrealEngineLogo className={'h-full'}/>} startYear={2023} level={1}>Unreal
+                            <div className={'flex flex-wrap flex-col sm:flex-row'}>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<UnrealEngineLogo className={'h-full'}/>} startYear={2023} level={1}>Unreal
                                     Engine</SkillCard>
-                                <SkillCard className={'!w-1/3'} skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1}
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1}
                                            level={1}>Unity</SkillCard>
-                                <SkillCard className={'!w-1/3'} skillIcon={<GodotLogo className={'h-full'}/>} startYear={2024}
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<GodotLogo className={'h-full'}/>} startYear={2024}
                                            level={0}>Godot</SkillCard>
                             </div>
                         </div>
                         <Divider className={'mb-10'}/>
                         <div>
                             <Heading2>{dict.home.skills.other}</Heading2>
-                            <div className={'flex flex-wrap'}>
-                                <SkillCard className={'!w-1/3'} skillIcon={<TbBrandCSharp/>} startYear={2021} level={3}>C#</SkillCard>
-                                <SkillCard className={'!w-1/3'} skillIcon={<TbBrandCpp/>} startYear={2023} level={0}>C++</SkillCard>
+                            <div className={'flex flex-wrap flex-col sm:flex-row'}>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCSharp/>} startYear={2021} level={3}>C#</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCpp/>} startYear={2023} level={1}>C++</SkillCard>
                             </div>
                         </div>
                     </div>
@@ -261,11 +256,11 @@ export default function Home() {
         const year = yearsOverride ? (yearsOverride === 1 ? '1 ' + dict.components.skill_card.year : yearsOverride < 5 ? yearsOverride + ' ' + dict.components.skill_card.years_less_than_5 : yearsOverride + ' ' + dict.components.skill_card.years) : endYear ? `${startYear} ${dict.components.skill_card.to} ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 ' + dict.components.skill_card.year : yearsFromYear < 5 ? yearsFromYear + ' ' + dict.components.skill_card.years_less_than_5 : yearsFromYear + ' ' + dict.components.skill_card.years) : ''}`;
 
         return (
-            <div className={'flex flex-col gap-1 w-[240px] py-10 ' + className}>
+            <div className={'flex flex-col gap-1 w-[240px] py-4 sm:py-10 ' + className}>
                 <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
-                <h2 className={'text-3xl font-medium'}>{children}</h2>
+                <h2 className={'text-[max(20px,4.6vw)] sm:text-3xl font-medium'}>{children}</h2>
                 <span
-                    className={'text-alt-gray-600 text-lg'}>{year}{year && level !== undefined ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
+                    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{year}{year && level !== undefined ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
             </div>
         )
     }
@@ -286,9 +281,9 @@ export default function Home() {
         return (
             <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'works'}>
                 <Divider/>
-                <div className={'container mx-auto my-32 grid grid-rows-6 jgrid-rows-[repeat(12,128px)] grid-cols-2 gap-x-24'}>
+                <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-6 grid-cols-2 gap-x-24'}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <WorkCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)]'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
+                    <WorkCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'} title={'Acnod'} imagePath={'/works/AcnodNET.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
                                  initial={{
                                      translateX: '10%',
                                      opacity: 0
@@ -298,7 +293,6 @@ export default function Home() {
                                      <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
                                  </>}>
                         <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
-
                     </WorkCard>
 
                     <WorkCard className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'} title={'Nagy3D'} imagePath={'/works/Nagy3DCZ.png'} imageClassName={'float-end !w-full'} websiteHref={'https://www.Nagy3D.cz'}
@@ -334,14 +328,14 @@ export default function Home() {
                         }
                     }}
                     viewport={{once: true}}
-                    className={'w-full h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
-                    <div className={'m-20'}>
-                        <div className={'flex justify-between items-center'}>
+                    className={'w-full sm:h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
+                    <div className={'m-10 sm:m-20'}>
+                        <div className={'flex justify-between md:items-center flex-col gap-y-4 md:flex-row'}>
                             <Heading2 className={'font-bold'}>{title}</Heading2>
                             <span className={'flex gap-3'}>{tags}</span>
                         </div>
                         <p className={'my-6'}>{children}</p>
-                        <div className={'flex justify-end gap-4 items-center mx-20#'}>
+                        <div className={'flex md:justify-end gap-4 items-start md:items-center mx-20# flex-col md:flex-row'}>
                             {
                                 websiteHref ?
                                     <Link className={'rounded-full# p-1 flex items-center gap-2'} href={websiteHref} rel={'noreferrer'} target={'_blank'}><FaGlobe
@@ -355,7 +349,7 @@ export default function Home() {
                             }
                         </div>
                     </div>
-                    <div className={'h-[450px] m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.3)] overflow-hidden'}>
+                    <div className={'sm:h-[450px] m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.3)] overflow-hidden'}>
                         <Suspense fallback={<Loading/>}>
                             <Image className={'object-cover object-left-top w-full ' + imageClassName}
                                    src={imagePath} alt={title + ' website image'} width={1400} height={1000}/>

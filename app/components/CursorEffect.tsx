@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {motion, useMotionValue, useSpring} from 'framer-motion';
 
 export default function CursorEffect() {
-    const [cursorEnabled, setCursorEnabled] = useState(true)
+    const [cursorEnabled] = useState(true)
 
     const defaultCursorSize = 256;
     let cursorSize = defaultCursorSize;
@@ -43,20 +43,15 @@ export default function CursorEffect() {
         borderRadius: useSpring(size.borderRadius, smoothOptions)
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const handleTouch = () => {
-        setCursorEnabled(false);
-    }
-
     const checkIfCursorHide = (element: HTMLElement | null): boolean => {
         while (element) {
             const hide = element.getAttribute('data-cursor-hide') === 'true';
             if (hide) {
-                return true; // Found a parent with the attribute
+                return true;
             }
-            element = element.parentElement; // Move to the parent element
+            element = element.parentElement;
         }
-        return false; // Reached the root without finding it
+        return false;
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,7 +77,7 @@ export default function CursorEffect() {
             if (hoveredElement.tagName && hoveredElement.tagName.toLowerCase() === 'a') {
                 break;
             }
-            hoveredElement = hoveredElement.parentElement; // Move up the DOM tree
+            hoveredElement = hoveredElement.parentElement;
         }
         element = hoveredElement ? hoveredElement : element;
 
@@ -122,13 +117,13 @@ export default function CursorEffect() {
     }
 
     useEffect(() => {
-        window.addEventListener('ontouchstart', handleTouch);
+        if (window.innerWidth < 1280) return;
+
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
-            window.removeEventListener('ontouchstart', handleTouch);
             window.removeEventListener('mousemove', handleMouseMove);
         }
-    }, [handleMouseMove, handleTouch])
+    }, [handleMouseMove])
 
     return (
         <motion.div

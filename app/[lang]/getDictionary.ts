@@ -1,8 +1,8 @@
 import 'server-only'
 
 import enLocale from './locales/en.json';
+import {Locale} from "@/app/[lang]/LocaleProvider";
 
-type Locale = 'en' | 'cs';
 type Dictionary = typeof enLocale;
 
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {

@@ -3,7 +3,7 @@
 import {Heading1, Heading2} from "@/app/components/Headings";
 import Image from "next/image";
 import {Suspense} from "react";
-import Loading from "@/app/components/Loading";
+import Loading from "@/app/loading";
 import Tag from "@/app/components/Tag";
 import {SiI18Next, SiNextdotjs} from "react-icons/si";
 import {LinkButton} from "@/app/components/Buttons";

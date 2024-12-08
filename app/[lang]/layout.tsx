@@ -22,7 +22,7 @@ interface RootLayoutProps{
     }
 }
 
-export default async function RootLayout({ children, params }: Readonly<RootLayoutProps>) {
+export default async function LangLayout({ children, params }: Readonly<RootLayoutProps>) {
     const {lang} = await params;
     const dict = await getDictionary(lang);
 
@@ -31,9 +31,9 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
             <body className={`antialiased text-white`}>
                 <DictionaryProvider dictionary={dict}>
                     {children}
-                    <Footer />
-                    <Signature />
-                    <CursorEffect />
+                    <Footer/>
+                    <Signature/>
+                    <CursorEffect/>
                 </DictionaryProvider>
             </body>
         </html>

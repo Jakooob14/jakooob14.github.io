@@ -5,9 +5,9 @@ import Negotiator from "negotiator";
 const locales = ['en', 'cs'];
 
 // Get the preferred locale, similar to the above or using a library
-function getLocale() {
-    const headers = { 'accept-language': 'en-US,en;q=0.5' };
-    const languages = new Negotiator({ headers }).languages();
+function getLocale(request: NextRequest) {
+    const acceptLanguageHeader = request.headers.get('accept-language') || '';
+    const languages = new Negotiator({ headers: { 'accept-language': acceptLanguageHeader } }).languages();
     const defaultLocale = 'en';
 
     return match(languages, locales, defaultLocale);
@@ -25,10 +25,15 @@ export function middleware(request: NextRequest) {
     )
 
     // If there is locale return
-    if (pathnameHasLocale) return NextResponse.next();
+    if (pathnameHasLocale) {
+        const locale = pathname.split('/')[1];
+        const response = NextResponse.next();
+        response.cookies.set("lang", locale, { maxAge: 315360000 });
 
+        return response;
+    }
 
-    let locale = getLocale()
+    let locale = getLocale(request)
 
     const langCookie = request.cookies.get("lang");
     if (request.cookies.has('lang') && langCookie && locales.includes(langCookie.value)) locale = langCookie.value;
@@ -38,7 +43,7 @@ export function middleware(request: NextRequest) {
     // The new URL is now /en-US/products
     const response =  NextResponse.redirect(request.nextUrl)
 
-    // Set lang cookie
+    // Set lang cookie and locale header
     response.cookies.set("lang", locale, { maxAge: 315360000 });
 
     return response;

@@ -1,6 +1,7 @@
 {
   "general": {
-    "back": "Back"
+    "back": "Back",
+    "home": "Home"
   },
   "components": {
     "skill_card": {
@@ -18,6 +19,9 @@
       "to": "to"
     }
   },
+  "not_found": {
+    "title": "404 - Not found"
+  },
   "home": {
     "main": {
       "subtitle": "Student & Developer",
@@ -30,7 +34,7 @@
     },
     "about_me": {
       "title": "About me",
-      "paragraph": "Hello, my name is Jakub Sokol. I am an IT student from the Czech Republic with a deep passion for technology that began in my childhood. From an early age, I was captivated by computers and the innovations they made possible, whether it was exploring how they worked, learning new software, or immersing myself in the world of gaming. Over time, this fascination grew into a dedicated pursuit of knowledge about the inner workings of technology, particularly games.\nAs I delved deeper into the mechanics behind gaming how games are designed, programmed, and brought to life I realized that creating games isn&apos;t just a career aspiration but a personal dream of mine. I aim to combine my technical skills with my creativity to craft experiences that entertain, inspire, and connect people around the world. My journey as an IT student is just the beginning, and I’m eager to continue learning, innovating, and eventually bringing my vision of developing games to reality.",
+      "paragraph": "Hello, my name is Jakub Sokol. I am an IT student from the Czech Republic with a deep passion for technology that began in my childhood. From an early age, I was captivated by computers and the innovations they made possible, whether it was exploring how they worked, learning new software, or immersing myself in the world of gaming. Over time, this fascination grew into a dedicated pursuit of knowledge about the inner workings of technology, particularly games.\nAs I delved deeper into the mechanics behind gaming how games are designed, programmed, and brought to life I realized that creating games isn't just a career aspiration but a personal dream of mine. I aim to combine my technical skills with my creativity to craft experiences that entertain, inspire, and connect people around the world. My journey as an IT student is just the beginning, and I’m eager to continue learning, innovating, and eventually bringing my vision of developing games to reality.",
       "education": {
         "title": "Education",
         "high_school": "High School"
