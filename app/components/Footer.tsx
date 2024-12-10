@@ -11,8 +11,7 @@ export default function Footer(){
     const router = useRouter();
 
     const handleChangeLocale = (locale: string) => {
-        document.cookie = 'lang=' + locale  + '; expires=' + 315360000 + "; path=/";
-        router.push('/');
+        router.push('/' + locale);
     }
 
     return (
