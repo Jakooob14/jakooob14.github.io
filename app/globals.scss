@@ -14,8 +14,7 @@
   }
 
   body{
-    @apply bg-alt-gray-primary
-      overflow-x-hidden;
+    @apply bg-alt-gray-primary;
   }
 
   a{
@@ -24,6 +23,10 @@
   .container{
     @apply px-4;
   }
+}
+
+* {
+  overflow-x: hidden;
 }
 
 
