@@ -6,7 +6,7 @@ import {Heading1, Heading2} from "@/app/components/Headings";
 import {ReactNode, Suspense} from "react";
 import {IoLogoReact} from "react-icons/io5";
 import {SiNextdotjs} from "react-icons/si";
-import {EduchemLogo, GodotLogo, NextJSLogo, SassSeal, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
+import {EduchemLogo, GodotLogo, NextJSLogo, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
 import {TbBrandCpp, TbBrandCSharp, TbBrandThreejs} from "react-icons/tb";
