@@ -287,7 +287,7 @@ export default function Home() {
         }
 
         return (
-            <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)]'} id={'works'}>
+            <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)] overflow-x-hidden'} id={'works'}>
                 <Divider/>
                 <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-6 grid-cols-2 gap-x-24'}>
                     <Heading1>{dict.home.works.title}</Heading1>
