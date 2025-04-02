@@ -14,7 +14,8 @@
   }
 
   body{
-    @apply bg-alt-gray-primary;
+    @apply bg-alt-gray-primary
+      overflow-x-hidden;
   }
 
   a{

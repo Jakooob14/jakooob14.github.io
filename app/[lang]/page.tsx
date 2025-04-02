@@ -16,6 +16,8 @@ import {LinkButton} from "@/app/components/Buttons";
 import Tag from "@/app/components/Tag";
 import {useDictionary} from "@/app/[lang]/DictionaryProvider";
 import Translate from "@/app/components/Translate";
+import FlagUK from "@/public/Flag_UK.png";
+import {RiTailwindCssFill} from "react-icons/ri";
 
 
 export default function Home() {
@@ -134,11 +136,14 @@ export default function Home() {
                     <div className={'block w-full xl:w-[500px] 2xl:w-[700px] text-xl text-justify col-start-2 row-start-2 row-span-2 order-5'}>
                         <p className={'whitespace-pre-wrap text-[max(16px,3vw)] sm:text-xl leading-[max(24px,4.5vw)] sm:leading-6'}>{dict.home.about_me.paragraph}</p>
                         <Heading2 className={'mt-8'}>{dict.home.about_me.education.title}</Heading2>
-                        <div className={'text-start w-full'}>
+                        <div className={'text-start w-full flex flex-wrap'}>
                             <SkillCard className={'!py-6'} skillIcon={<EduchemLogo className={'h-full'}/>}
                                        startYear={2021}
                                        endYear={2025}><span
                                 className={'block text-xl'}>{dict.home.about_me.education.high_school}</span>Educhem</SkillCard>
+                            <SkillCard className={'!py-6'} skillIcon={<Image src={FlagUK} width={70} height={48} alt={'UK Flag'}/>}
+                                       totalOverride={'2024'}><span
+                                className={'block text-xl'}>Cambridge</span>{dict.home.about_me.education.fce_certificate}</SkillCard>
                         </div>
                     </div>
                     <div className={'mb-10 row-span-2 w-[50%] xl:w-[80%] order-1'}>
@@ -197,23 +202,25 @@ export default function Home() {
                         <div className={'mb-5'}>
                             <Heading2>{dict.home.skills.web_development}</Heading2>
                             <div className={'flex flex-wrap flex-col sm:flex-row'}>
+                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
+                                           level={3}>Next.js</SkillCard>
                                 <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021}
                                            level={3}>React</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<SassSeal className={'h-full'}/>} startYear={2021}
-                                           level={3}>SCSS</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
-                                           level={2}>Next.js</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<RiTailwindCssFill className={'h-full text-[#3cbfff]'}/>} startYear={2022}
+                                           level={3}>Tailwind CSS</SkillCard>
+                                {/*<SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<SassSeal className={'h-full'}/>} yearsOverride={4}*/}
+                                {/*           level={3}>SCSS</SkillCard>*/}
                             </div>
                         </div>
                         <Divider className={'mb-10'}/>
                         <div className={'mb-5'}>
                             <Heading2>{dict.home.skills.game_development}</Heading2>
                             <div className={'flex flex-wrap flex-col sm:flex-row'}>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<UnrealEngineLogo className={'h-full'}/>} startYear={2023} level={1}>Unreal
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<UnrealEngineLogo className={'h-full'}/>} yearsOverride={1} level={1}>Unreal
                                     Engine</SkillCard>
                                 <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1}
                                            level={1}>Unity</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<GodotLogo className={'h-full'}/>} startYear={2024}
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<GodotLogo className={'h-full'}/>} yearsOverride={1}
                                            level={0}>Godot</SkillCard>
                             </div>
                         </div>
@@ -222,7 +229,7 @@ export default function Home() {
                             <Heading2>{dict.home.skills.other}</Heading2>
                             <div className={'flex flex-wrap flex-col sm:flex-row'}>
                                 <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCSharp/>} startYear={2021} level={3}>C#</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCpp/>} startYear={2023} level={1}>C++</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCpp/>} yearsOverride={1} level={1}>C++</SkillCard>
                             </div>
                         </div>
                     </div>
@@ -238,11 +245,12 @@ export default function Home() {
         startYear?: number,
         endYear?: number,
         yearsOverride?: number,
+        totalOverride?: string,
         level?: number,
         className?: string
     }
 
-    function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, level, className}: SkillCardProps) {
+    function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, totalOverride, level, className}: SkillCardProps) {
         function getYearsFromYear(year: number) {
             const yearsFromYear = new Date();
             yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
@@ -260,7 +268,7 @@ export default function Home() {
                 <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
                 <h2 className={'text-[max(20px,4.6vw)] sm:text-3xl font-medium'}>{children}</h2>
                 <span
-                    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{year}{year && level !== undefined ? ' - ' : ''}{level !== undefined ? levels[level] : ''}</span>
+                    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year + (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')}</span>
             </div>
         )
     }
@@ -283,7 +291,7 @@ export default function Home() {
                 <Divider/>
                 <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-6 grid-cols-2 gap-x-24'}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <WorkCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'} title={'Acnod'} imagePath={'/works/acnodnet/acnodnet.png'} imageClassName={'float-end'} websiteHref={'https://Acnod.net'}
+                    <WorkCard className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'} title={'Acnod'} imagePath={'/works/acnodnet/acnodnet.png'} imageClassName={'float-end'} websiteHref={'https://final-acnod.vercel.app'}
                                  initial={{
                                      translateX: '10%',
                                      opacity: 0
