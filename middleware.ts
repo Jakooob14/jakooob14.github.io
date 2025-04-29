@@ -15,7 +15,7 @@ function getLocale(request: NextRequest) {
 
 export function middleware(request: NextRequest) {
     // Check if there is any supported locale in the pathname
-    const { pathname } = request.nextUrl
+    const { pathname } = request.nextUrl;
 
     // If it's an asset return
     if (pathname.match(".*\\.(?:png|jpg|jpeg|svg|webp|ico|woff2|woff|ttf)") || pathname === '/sig') return NextResponse.next();
@@ -33,17 +33,14 @@ export function middleware(request: NextRequest) {
         return response;
     }
 
-    let locale = getLocale(request)
+    let locale = getLocale(request);
 
     const langCookie = request.cookies.get("lang");
     if (request.cookies.has('lang') && langCookie && locales.includes(langCookie.value)) locale = langCookie.value;
 
-    request.nextUrl.pathname = `/${locale}${pathname}`
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    const response =  NextResponse.redirect(request.nextUrl)
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+    const response =  NextResponse.redirect(request.nextUrl);
 
-    // Set lang cookie and locale header
     response.cookies.set("lang", locale, { maxAge: 315360000 });
 
     return response;

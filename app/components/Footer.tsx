@@ -4,14 +4,15 @@ import {MainLogo} from "@/app/components/Icons";
 import Link from "next/link";
 import {IoLogoGithub, IoLogoInstagram, IoMail} from "react-icons/io5";
 import {useDictionary} from "@/app/[lang]/DictionaryProvider";
-import { useRouter } from 'next/navigation'
+import {usePathname} from 'next/navigation'
 
 export default function Footer(){
     const dict = useDictionary();
-    const router = useRouter();
+    const pathname = usePathname();
 
-    const handleChangeLocale = (locale: string) => {
-        router.push('/' + locale);
+    const handleChangeLocale = async (locale: string) => {
+        const newPath = pathname.replace(/^\/[^/]+/, locale);
+        window.location.replace('/' + newPath);
     }
 
     return (
