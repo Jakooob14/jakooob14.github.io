@@ -2,7 +2,7 @@
 
 import {MainLogo} from "@/app/components/Icons";
 import Link from "next/link";
-import {IoLogoGithub, IoLogoInstagram, IoMail} from "react-icons/io5";
+import {IoLogoGithub, IoLogoInstagram, IoMail, IoLogoLinkedin} from "react-icons/io5";
 import {useDictionary} from "@/app/[lang]/DictionaryProvider";
 import {usePathname} from 'next/navigation'
 
@@ -37,6 +37,9 @@ export default function Footer(){
                         <span
                             className={'text-3xl font-semibold text-aero-500 font-heading'}>{dict.home.main.navigation.contact}</span>
                         <ul className={'text-xl mt-1'}>
+                            <li><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                      href={'https://www.linkedin.com/in/sokoljakub'} rel={'noreferrer'}
+                                      target={'_blank'}><IoLogoLinkedin/>LinkedIn</Link></li>
                             <li><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
                                       href={'https://github.com/Jakooob14'} rel={'noreferrer'}
                                       target={'_blank'}><IoLogoGithub/>Github</Link></li>
