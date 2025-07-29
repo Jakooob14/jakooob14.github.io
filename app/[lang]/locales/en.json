@@ -1,7 +1,9 @@
 {
   "general": {
     "back": "Back",
-    "home": "Home"
+    "home": "Home",
+    "source_code": "Source Code",
+    "download": "Download"
   },
   "components": {
     "skill_card": {
@@ -55,6 +57,84 @@
       },
       "nagy3d": {
         "description": "This website is for a company named Nagy 3D that offers 3D printing and scanning in the northwestern region of the Czech Republic. It offers a minimalistic and clean look so the user can have a good experience."
+      },
+      "slenderman": {
+        "description": "A short horror game clone built in Unreal Engine 5. Original game: Slender: The Eight Pages by Parsec Productions. It features page collection, basic enemy AI, and a full win/lose loop. Focused on learning C++, AI behavior and completing a playable game.",
+        "details": {
+          "intro": {
+            "p1": "A small horror game project inspired by Slender: The Eight Pages, built in Unreal Engine 5.",
+            "p2": "This project was for me to learn and finish developing a playable game in UE5. Not all planned features were implemented as I focused on finishing a playable version."
+          },
+          "gameplay": {
+            "title": "🕹️ Gameplay",
+            "items": [
+              "First-person flashlight exploration",
+              "Collect 8 pages in a forest",
+              "Avoid Slenderman while exploring",
+              "Jump scares, ambient SFX, win/lose states"
+            ]
+          },
+          "features": {
+            "title": "🎮 Features Implemented",
+            "items": [
+              "Basic AI: Slenderman moves and teleports around the player",
+              "Pages placed on POIs",
+              "Win/Lose screens",
+              "Ambient SFX",
+              "Slenderman model and simple jumpscare system"
+            ]
+          },
+          "tech_stack": {
+            "title": "🧱 Tech Stack",
+            "engine": "Engine",
+            "language": "Language",
+            "engine_name": "Unreal Engine 5.5",
+            "language_name": "C++"
+          },
+          "planned": {
+            "title": "🚧 Missing or Planned Features",
+            "items": [
+              "Main menu",
+              "Jump scare sound effect",
+              "VFX on Slenderman kill",
+              "Light flickering when near Slenderman",
+              "Post-processing and color grading"
+            ],
+            "note": "These may be added in a future polish update."
+          },
+          "learned": {
+            "title": "💡 What I Learned",
+            "items": [
+              "Building a full gameplay loop from start to finish",
+              "Managing project scope and avoiding perfectionism",
+              "Using C++ to handle AI and interaction logic",
+              "Setting up pause/lose/win widgets in UE5"
+            ]
+          },
+          "play": {
+            "title": "🗂️ How to Play",
+            "text": "Download <link1 href='https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip' rel='noreferrer' target='_blank'}>here</link1> or from the releases section in <link2 href='https://git.jakooob.dev/Jakooob/slenderman-unreal' rel='noreferrer' target='_blank'}>Gitea</link2>."
+          },
+          "license": {
+            "title": "📁 Source Code License",
+            "text": "This project is shared <strong>for learning purposes only</strong>. Please <strong>do not reuse commercial/marketplace assets</strong> included in the repo unless you own them yourself."
+          },
+          "credits": {
+            "title": "🎨 Credits",
+            "text": "Created by <link href='https://jakooob.dev/'}>Jakub Sokol</link>\nOriginal game: \"Slender: The Eight Pages\" by Parsec Productions",
+            "assets": "Assets:",
+            "list": [
+              "Maelstrom Library - MAE Oak Forest",
+              "Construct Games - IES Light Profile Pack",
+              "Dekogon Studios - Small Structures VOL.2 [Low Poly]",
+              "Dekogon Studios - Fences VOL.3 - Town Modular (Nanite and Low Poly)",
+              "MagicCGIStudios - Industrial Storage Tank Asset Pack",
+              "Simoncho Design - Slender Font",
+              "Epidemic Sounds",
+              "Quixel"
+            ]
+          }
+        }
       }
     }
   },

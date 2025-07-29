@@ -6,6 +6,7 @@ import Footer from "@/app/components/Footer";
 import {ReactNode} from "react";
 import {getDictionary} from "@/app/[lang]/getDictionary";
 import DictionaryProvider from "@/app/[lang]/DictionaryProvider";
+import FloatingLocaleSwitcher from "@/app/components/FloatingLocaleSwitcher";
 
 export const metadata: Metadata = {
     title: "Jakub Sokol"
@@ -34,6 +35,7 @@ export default async function LangLayout({ children, params }: Readonly<RootLayo
                     <Footer/>
                     <Signature/>
                     <CursorEffect/>
+                    <FloatingLocaleSwitcher/>
                 </DictionaryProvider>
             </body>
         </html>

@@ -5,15 +5,11 @@ import Link from "next/link";
 import {IoLogoGithub, IoLogoInstagram, IoMail, IoLogoLinkedin} from "react-icons/io5";
 import {useDictionary} from "@/app/[lang]/DictionaryProvider";
 import {usePathname} from 'next/navigation'
+import {handleChangeLocale} from "@/app/utilities/handleChangeLocale";
 
 export default function Footer(){
     const dict = useDictionary();
     const pathname = usePathname();
-
-    const handleChangeLocale = async (locale: string) => {
-        const newPath = pathname.replace(/^\/[^/]+/, locale);
-        window.location.replace('/' + newPath);
-    }
 
     return (
         <footer>
@@ -53,8 +49,8 @@ export default function Footer(){
                     </div>
                 </div>
                 <div className={'flex items-start'}>
-                    <a className={'cursor-pointer px-2'} onClick={() => handleChangeLocale('en')}>EN</a>
-                    <a className={'cursor-pointer px-2'} onClick={() => handleChangeLocale('cs')}>CS</a>
+                    <a className={'cursor-pointer px-2'} onClick={() => handleChangeLocale(pathname, 'en')}>EN</a>
+                    <a className={'cursor-pointer px-2'} onClick={() => handleChangeLocale(pathname, 'cs')}>CS</a>
                 </div>
             </div>
         </footer>

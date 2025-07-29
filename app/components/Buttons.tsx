@@ -9,7 +9,8 @@ interface DefaultProps{
 
 interface LinkProps extends DefaultProps{
     href: string,
-    rel?: string
+    rel?: string,
+    target?: string
 }
 
 export function LinkButton({children, className, href, rel = 'noreferrer', ...props}: LinkProps){
