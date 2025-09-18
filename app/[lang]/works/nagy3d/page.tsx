@@ -3,7 +3,7 @@
 import {Heading1, Heading2} from "@/app/components/Headings";
 import Image from "next/image";
 import {Suspense} from "react";
-import Loading from "@/app/loading";
+import Loader from "@/app/components/Loader";
 import Tag from "@/app/components/Tag";
 import {SiI18Next, SiNextdotjs} from "react-icons/si";
 import {LinkButton} from "@/app/components/Buttons";
@@ -27,25 +27,25 @@ export default function Acnod(){
                 <div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.home}</Heading2>
-                        <Suspense fallback={<Loading/>}>
+                        <Suspense fallback={<Loader/>}>
                             <Image src={'/works/nagy3dcz/nagy3dcz-home.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.services}</Heading2>
-                        <Suspense fallback={<Loading/>}>
+                        <Suspense fallback={<Loader/>}>
                             <Image src={'/works/nagy3dcz/nagy3dcz-services.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.about}</Heading2>
-                        <Suspense fallback={<Loading/>}>
+                        <Suspense fallback={<Loader/>}>
                             <Image src={'/works/nagy3dcz/nagy3dcz-about.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>
                     <div className={'my-8'}>
                         <Heading2 className={'mb-4'}>{dict.work.pages.contact}</Heading2>
-                        <Suspense fallback={<Loading/>}>
+                        <Suspense fallback={<Loader/>}>
                             <Image src={'/works/nagy3dcz/nagy3dcz-contact.png'} alt={'Home page'} width={1600} height={1972}/>
                         </Suspense>
                     </div>

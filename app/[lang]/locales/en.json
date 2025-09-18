@@ -52,6 +52,10 @@
     "works": {
       "title": "Works",
       "learn_more": "Learn more",
+      "categories": {
+        "web_development": "Web Development",
+        "game_development": "Game Development"
+      },
       "acnod": {
         "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Vojtěch Skyba</link> were working on. It was a freelance website on which we offered website development services."
       },
@@ -135,6 +139,10 @@
             ]
           }
         }
+      },
+      "raylib_games": {
+        "title": "Raylib Games",
+        "description": "This is a collection of games I created using Raylib in C++. Each game demonstrates a variety of gameplay mechanics, challenges, and programming techniques I implemented."
       }
     }
   },

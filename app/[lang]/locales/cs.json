@@ -52,6 +52,10 @@
     "works": {
       "title": "Práce",
       "learn_more": "Zjistit více",
+      "categories": {
+        "web_development": "Webový Vývoj",
+        "game_development": "Herní Vývoj"
+      },
       "acnod": {
         "description": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Vojtěchem&nbsp;Skybou</link>. Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů."
       },
@@ -135,6 +139,10 @@
             ]
           }
         }
+      },
+      "raylib_games": {
+        "title": "Raylib Hry",
+        "description": "Toto je sbírka her, které jsem vytvořil pomocí Raylibu v C++. Každá hra předvádí různé herní mechaniky, výzvy a programovací techniky, které jsem implementoval."
       }
     }
   },

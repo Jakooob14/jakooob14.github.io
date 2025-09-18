@@ -2,7 +2,7 @@
 
 import {cubicBezier, motion} from "motion/react";
 import Divider from "@/app/components/Divider";
-import {Heading1, Heading2} from "@/app/components/Headings";
+import {Heading1, Heading2, Heading3} from "@/app/components/Headings";
 import {ReactNode, Suspense} from "react";
 import {IoLogoReact} from "react-icons/io5";
 import {SiNextdotjs} from "react-icons/si";
@@ -10,7 +10,7 @@ import {EduchemLogo, GodotLogo, NextJSLogo, UnityLogo, UnrealEngineLogo} from "@
 import Image from "next/image";
 import Link from "next/link";
 import {TbBrandCpp, TbBrandCSharp, TbBrandThreejs} from "react-icons/tb";
-import Loading from "@/app/loading";
+import Loader from "@/app/components/Loader";
 import {FaGlobe, FaDownload} from "react-icons/fa6";
 import {LinkButton} from "@/app/components/Buttons";
 import Tag from "@/app/components/Tag";
@@ -220,8 +220,8 @@ export default function Home() {
                                     Engine</SkillCard>
                                 <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1}
                                            level={1}>Unity</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<GodotLogo className={'h-full'}/>} yearsOverride={1}
-                                           level={0}>Godot</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<Image className={'h-full w-fit'} src={"/works/raylib-games/raylib-logo.png"} alt={"Raylib logo"} width={48} height={48}/>}
+                                           level={1}>raylib</SkillCard>
                             </div>
                         </div>
                         <Divider className={'mb-10'}/>
@@ -229,7 +229,7 @@ export default function Home() {
                             <Heading2>{dict.home.skills.other}</Heading2>
                             <div className={'flex flex-wrap flex-col sm:flex-row'}>
                                 <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCSharp/>} yearsOverride={4} level={3}>C#</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCpp/>} yearsOverride={1} level={1}>C++</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCpp/>} yearsOverride={1} level={2}>C++</SkillCard>
                             </div>
                         </div>
                     </div>
@@ -279,6 +279,7 @@ export default function Home() {
             className?: string,
             imageClassName?: string,
             title: string,
+            subtitle?: string,
             tags?: ReactNode
             imagePath: string,
             learnMoreHref?: string,
@@ -291,11 +292,12 @@ export default function Home() {
         return (
             <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)] overflow-x-hidden'} id={'works'}>
                 <Divider/>
-                <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-9 grid-cols-2 gap-x-24'}>
+                <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-12 grid-cols-2 gap-x-24'}>
                     <Heading1>{dict.home.works.title}</Heading1>
                     <WorkCard
                         className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
                         title={'Acnod'}
+                        subtitle={dict.home.works.categories.web_development}
                         imagePath={'/works/acnodnet/acnodnet.png'}
                         imageClassName={'float-end'}
                         websiteHref={'https://final-acnod.vercel.app'}
@@ -313,6 +315,7 @@ export default function Home() {
                     <WorkCard
                         className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
                         title={'Nagy3D'}
+                        subtitle={dict.home.works.categories.web_development}
                         imagePath={'/works/nagy3dcz/nagy3dcz.png'}
                         imageClassName={'float-end !w-full'}
                         websiteHref={'https://www.Nagy3D.cz'}
@@ -329,19 +332,37 @@ export default function Home() {
                     <WorkCard
                         className={'row-start-6 row-span-4 bg-[linear-gradient(135deg,hsla(200,7%,8%,1)_0%,#2F0B0B_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
                         title={'Slenderman'}
+                        subtitle={dict.home.works.categories.game_development}
                         imagePath={'/works/slenderman/slenderman.png'}
                         imageClassName={'float-end !w-full'}
                         websiteHref={'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/latest'}
                         websiteTitle={dict.general.download}
                         websiteIcon={<FaDownload/>}
                         initial={{
-                            translateX: '-10%',
+                            translateX: '10%',
                             opacity: 0
                         }}
                         tags={<>
                             <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<UnrealEngineLogo className={'h-full w-4'}/>}>UE5</Tag>
                         </>}>
                         {dict.home.works.slenderman.description}
+                    </WorkCard>
+
+                    <WorkCard
+                        className={'row-start-8 row-span-4 bg-[linear-gradient(-45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
+                        title={dict.home.works.raylib_games.title}
+                        subtitle={dict.home.works.categories.game_development}
+                        imagePath={'/works/raylib-games/raylib-games.png'}
+                        imageClassName={'float-end !w-full !object-left-top'}
+                        learnMoreHref={"https://github.com/stars/Jakooob14/lists/raylib-games"}
+                        initial={{
+                            translateX: '-10%',
+                            opacity: 0
+                        }}
+                        tags={<>
+                            <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<Image className={'h-full w-4'} src={"/works/raylib-games/raylib-logo.png"} alt={"Raylib logo"} width={16} height={16}/>}>raylib</Tag>
+                        </>}>
+                        {dict.home.works.raylib_games.description}
                     </WorkCard>
 
                     {/*<div className={'row-start-6 col-start-2'}>*/}
@@ -352,7 +373,7 @@ export default function Home() {
             </section>
         )
 
-        function WorkCard({children, title, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title.toLowerCase(), websiteHref, websiteTitle, websiteIcon = <FaGlobe/>, initial}: WorkCardProps){
+        function WorkCard({children, title, subtitle, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title.toLowerCase(), websiteHref, websiteTitle, websiteIcon = <FaGlobe/>, initial}: WorkCardProps){
             return (
                 <motion.div
                     initial={initial}
@@ -368,10 +389,12 @@ export default function Home() {
                     viewport={{once: true}}
                     className={'w-full sm:h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
                     <div className={'m-10 sm:m-20'}>
-                        <div className={'flex justify-between md:items-center flex-col gap-y-4 md:flex-row'}>
+                        <div className={'flex justify-between md:items-center flex-col md:flex-row'}>
                             <Heading2 className={'font-bold'}>{title}</Heading2>
-                            <span className={'flex gap-3'}>{tags}</span>
+                            {subtitle && <Heading3 className={"block md:hidden"}>{subtitle}</Heading3>}
+                            <span className={'flex gap-3 mt-2 md:mt-0'}>{tags}</span>
                         </div>
+                        {subtitle && <Heading3 className={"hidden md:block"}>{subtitle}</Heading3>}
                         <p className={'my-6'}>{children}</p>
                         <div className={'flex md:justify-end gap-4 items-start md:items-center mx-20# flex-col md:flex-row'}>
                             {
@@ -384,14 +407,14 @@ export default function Home() {
                             }
                             {
                                 learnMoreHref ?
-                                    <LinkButton href={learnMoreHref}>{dict.home.works.learn_more}</LinkButton>
+                                    <LinkButton href={learnMoreHref} target={learnMoreHref.startsWith('http') ? '_blank' : ''}>{dict.home.works.learn_more}</LinkButton>
                                     : undefined
                             }
                         </div>
                     </div>
                     <div className={'sm:h-[450px] m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.3)] overflow-hidden'}>
-                        <Suspense fallback={<Loading/>}>
-                            <Image className={'object-cover object-left-top w-full ' + imageClassName}
+                        <Suspense fallback={<Loader/>}>
+                            <Image className={'object-cover object-center h-full ' + imageClassName}
                                    src={imagePath} alt={title + ' website image'} width={1400} height={1000}/>
                         </Suspense>
                     </div>

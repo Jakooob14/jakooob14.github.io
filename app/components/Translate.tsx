@@ -1,4 +1,5 @@
 import { cloneElement, Fragment, ReactElement, ReactNode } from 'react';
+import he from 'he';
 
 interface TranslateProps {
     value: string;
@@ -6,11 +7,7 @@ interface TranslateProps {
 }
 
 
-const decodeHtmlEntities = (text: string) => {
-    const textArea = document.createElement('textarea');
-    textArea.innerHTML = text;
-    return textArea.value;
-};
+const decodeHtmlEntities = (text: string) => he.decode(text);
 
 export default function Translate({ value, components }: TranslateProps) {
     const regex = /<(\w+)(.*?)>(.*?)<\/\1>/g;

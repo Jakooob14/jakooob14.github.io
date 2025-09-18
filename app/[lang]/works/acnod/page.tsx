@@ -4,7 +4,7 @@ import {Heading1, Heading2} from "@/app/components/Headings";
 import Link from "next/link";
 import Image from "next/image";
 import {Suspense} from "react";
-import Loading from "@/app/loading";
+import Loader from "@/app/components/Loader";
 import Tag from "@/app/components/Tag";
 import {SiI18Next, SiNextdotjs} from "react-icons/si";
 import {TbBrandThreejs} from "react-icons/tb";
@@ -30,7 +30,7 @@ export default function Acnod(){
                 </div>
                 <div className={'my-8'}>
                     <Heading2 className={'mb-4'}>{dict.work.pages.home}</Heading2>
-                    <Suspense fallback={<Loading/>}>
+                    <Suspense fallback={<Loader/>}>
                         <Image src={'/works/acnodnet/acnodnet-Home.png'} alt={'Home page'} width={1600} height={1972}/>
                     </Suspense>
                 </div>
