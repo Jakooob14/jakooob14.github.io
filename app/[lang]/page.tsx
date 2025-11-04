@@ -49,7 +49,7 @@ export default function Home() {
                     {/* Title */}
                     <div className={'uppercase font-[760] inline-flex items-center justify-center w-full'}>
                         <div
-                            className={'relative inline-block text-[21vw] md:text-[180px] lg:text-[220px] xl:text-[260px] 2xl:text-[300px] w-full'}>
+                            className={'relative inline-block text-[21vw] md:text-[160px] lg:text-[200px] xl:text-[240px] 2xl:text-[280px] w-full'}>
                               <span className={'block relative'}>
                                   <div className={'ms-2'}>
                                       <h2 className={'text-[5vw] md:text-4xl text-alt-gray-500 font-extrabold'}>{dict.home.main.subtitle}</h2>
@@ -250,6 +250,7 @@ export default function Home() {
         className?: string
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, totalOverride, level, className}: SkillCardProps) {
         function getYearsFromYear(year: number) {
             const yearsFromYear = new Date();
@@ -257,7 +258,7 @@ export default function Home() {
             return yearsFromYear.getFullYear();
         }
 
-        const levels = [dict.components.skill_card.level.novice, dict.components.skill_card.level.beginner, dict.components.skill_card.level.intermediate, dict.components.skill_card.level.proficient, dict.components.skill_card.level.expert, dict.components.skill_card.level.master];
+        // const levels = [dict.components.skill_card.level.novice, dict.components.skill_card.level.beginner, dict.components.skill_card.level.intermediate, dict.components.skill_card.level.proficient, dict.components.skill_card.level.expert, dict.components.skill_card.level.master];
         const yearsFromYear = startYear ? getYearsFromYear(startYear) : 0;
 
         // Does the right wording for 'year(s)'
@@ -268,7 +269,7 @@ export default function Home() {
                 <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
                 <h2 className={'text-[max(20px,4.6vw)] sm:text-3xl font-medium'}>{children}</h2>
                 <span
-                    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year + (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')}</span>
+                    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*/}</span>
             </div>
         )
     }
@@ -292,82 +293,84 @@ export default function Home() {
         return (
             <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)] overflow-x-hidden'} id={'works'}>
                 <Divider/>
-                <div className={'container mx-auto my-32 flex flex-col gap-y-12 xl:gap-y-0 xl:grid grid-rows-12 grid-cols-2 gap-x-24'}>
+                <div className={'container mx-auto my-32'}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <WorkCard
-                        className={'col-start-2 row-span-4 bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
-                        title={'Acnod'}
-                        subtitle={dict.home.works.categories.web_development}
-                        imagePath={'/works/acnodnet/acnodnet.png'}
-                        imageClassName={'float-end'}
-                        websiteHref={'https://final-acnod.vercel.app'}
-                        initial={{
-                            translateX: '10%',
-                            opacity: 0
-                        }}
-                        tags={<>
-                            <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
-                            <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
-                        </>}>
-                        <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
-                    </WorkCard>
+                    <div className={'xl:grid grid-cols-2 gap-x-24 gap-y-24 xl:[&>*:nth-child(even)]:!-translate-y-[256px] mt-20 flex flex-col items-center'}>
+                        <WorkCard
+                            className={'bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)]'}
+                            title={'Acnod'}
+                            subtitle={dict.home.works.categories.web_development}
+                            imagePath={'/works/acnodnet/acnodnet.png'}
+                            imageClassName={'float-end'}
+                            websiteHref={'https://final-acnod.vercel.app'}
+                            initial={{
+                                translateX: '10%',
+                                opacity: 0
+                            }}
+                            tags={<>
+                                <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
+                                <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
+                            </>}>
+                            <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
+                        </WorkCard>
 
-                    <WorkCard
-                        className={'row-start-3 row-span-4 bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
-                        title={'Nagy3D'}
-                        subtitle={dict.home.works.categories.web_development}
-                        imagePath={'/works/nagy3dcz/nagy3dcz.png'}
-                        imageClassName={'float-end !w-full'}
-                        websiteHref={'https://www.Nagy3D.cz'}
-                        initial={{
-                            translateX: '-10%',
-                            opacity: 0
-                        }}
-                        tags={<>
-                            <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
-                        </>}>
-                        {dict.home.works.nagy3d.description}
-                    </WorkCard>
+                        <WorkCard
+                            className={'bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'}
+                            title={'Nagy3D'}
+                            subtitle={dict.home.works.categories.web_development}
+                            imagePath={'/works/nagy3dcz/nagy3dcz.png'}
+                            imageClassName={'float-end !w-full'}
+                            websiteHref={'https://www.Nagy3D.cz'}
+                            initial={{
+                                translateX: '-10%',
+                                opacity: 0
+                            }}
+                            tags={<>
+                                <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
+                            </>}>
+                            {dict.home.works.nagy3d.description}
+                        </WorkCard>
 
-                    <WorkCard
-                        className={'row-start-6 row-span-4 bg-[linear-gradient(135deg,hsla(200,7%,8%,1)_0%,#2F0B0B_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
-                        title={'Slenderman'}
-                        subtitle={dict.home.works.categories.game_development}
-                        imagePath={'/works/slenderman/slenderman.png'}
-                        imageClassName={'float-end !w-full'}
-                        websiteHref={'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/latest'}
-                        websiteTitle={dict.general.download}
-                        websiteIcon={<FaDownload/>}
-                        initial={{
-                            translateX: '10%',
-                            opacity: 0
-                        }}
-                        tags={<>
-                            <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<UnrealEngineLogo className={'h-full w-4'}/>}>UE5</Tag>
-                        </>}>
-                        {dict.home.works.slenderman.description}
-                    </WorkCard>
+                        <WorkCard
+                            className={'bg-[linear-gradient(135deg,hsla(200,7%,8%,1)_0%,#2F0B0B_70%)]'}
+                            title={'Slenderman'}
+                            subtitle={dict.home.works.categories.game_development}
+                            imagePath={'/works/slenderman/slenderman.png'}
+                            imageClassName={'float-end !w-full'}
+                            websiteHref={'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/latest'}
+                            websiteTitle={dict.general.download}
+                            websiteIcon={<FaDownload/>}
+                            initial={{
+                                translateX: '10%',
+                                opacity: 0
+                            }}
+                            tags={<>
+                                <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<UnrealEngineLogo className={'h-full w-4'}/>}>UE5</Tag>
+                            </>}>
+                            {dict.home.works.slenderman.description}
+                        </WorkCard>
 
-                    <WorkCard
-                        className={'row-start-8 row-span-4 bg-[linear-gradient(-45deg,#131516_0%,#1C1F21_70%)] w-full md:w-[min(660px,100%)] xl:w-auto'}
-                        title={dict.home.works.raylib_games.title}
-                        subtitle={dict.home.works.categories.game_development}
-                        imagePath={'/works/raylib-games/raylib-games.png'}
-                        imageClassName={'float-end !w-full !object-left-top'}
-                        learnMoreHref={"https://github.com/stars/Jakooob14/lists/raylib-games"}
-                        initial={{
-                            translateX: '-10%',
-                            opacity: 0
-                        }}
-                        tags={<>
-                            <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<Image className={'h-full w-4'} src={"/works/raylib-games/raylib-logo.png"} alt={"Raylib logo"} width={16} height={16}/>}>raylib</Tag>
-                        </>}>
-                        {dict.home.works.raylib_games.description}
-                    </WorkCard>
+                        <WorkCard
+                            className={'bg-[linear-gradient(-45deg,#131516_0%,#1C1F21_70%)]'}
+                            title={dict.home.works.raylib_games.title}
+                            subtitle={dict.home.works.categories.game_development}
+                            imagePath={'/works/raylib-games/raylib-games.png'}
+                            imageClassName={'float-end !w-full !object-left-top'}
+                            learnMoreHref={"https://github.com/stars/Jakooob14/lists/raylib-games"}
+                            initial={{
+                                translateX: '-10%',
+                                opacity: 0
+                            }}
+                            tags={<>
+                                <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<Image className={'h-full w-4'} src={"/works/raylib-games/raylib-logo.png"} alt={"Raylib logo"} width={16} height={16}/>}>raylib</Tag>
+                            </>}>
+                            {dict.home.works.raylib_games.description}
+                        </WorkCard>
 
-                    {/*<div className={'row-start-6 col-start-2'}>*/}
-                    {/*    <span className={'text-3xl'}>This isn&#39;t all! Check out all of my work <Link href={'/works'}>here</Link>.</span>*/}
-                    {/*</div>*/}
+                        {/*<div className={'row-start-6 col-start-2'}>*/}
+                        {/*    <span className={'text-3xl'}>This isn&#39;t all! Check out all of my work <Link href={'/works'}>here</Link>.</span>*/}
+                        {/*</div>*/}
+                    </div>
                 </div>
                 <Divider/>
             </section>
@@ -387,7 +390,7 @@ export default function Home() {
                         }
                     }}
                     viewport={{once: true}}
-                    className={'w-full sm:h-[800px] relative flex flex-col justify-between overflow-hidden  rounded-md# shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
+                    className={'w-auto md:w-[700px] xl:w-auto relative flex flex-col justify-between overflow-hidden shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
                     <div className={'m-10 sm:m-20'}>
                         <div className={'flex justify-between md:items-center flex-col md:flex-row'}>
                             <Heading2 className={'font-bold'}>{title}</Heading2>
