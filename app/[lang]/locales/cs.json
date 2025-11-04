@@ -36,7 +36,7 @@
     },
     "about_me": {
       "title": "O mně",
-      "paragraph": "Ahoj, jmenuji se Jakub Sokol. Jsem IT student z České republiky s hlubokou vášní pro technologie, která začala už v mém dětství. Od útlého věku mě fascinovaly počítače a inovace, ať už šlo o zkoumání, jak fungují, učení se novým technologiím, nebo ponoření do světa her. Postupem času se tato fascinace proměnila v oddaný zájem o poznávání technologií, zejména her.\nKdyž jsem se ponořil hlouběji do mechanik her – jak jsou navrženy, naprogramovány a oživeny – uvědomil jsem si, že vytváření her není jen kariérní aspirací, ale mým osobním snem. Chci spojit své technické dovednosti s kreativitou, abych vytvořil zážitky, které budou bavit, inspirovat a spojovat lidi po celém světě. Moje cesta jako IT studenta je teprve na začátku a těším se, až se budu dále učit, inovovat a jednou přivedu svou vizi vývoje her k životu.",
+      "paragraph": "Jsem student a vývojář se zájmem o tvorbu moderních webových aplikací. Pracuji s celým vývojovým stackem vytvářím frontend pomocí Reactu, Next.js a Tailwind CSS, a vyvíjím backend v Node.js a PostgreSQL. Mé projekty se zaměřují na plynulý uživatelský zážitek, efektivní práci s daty a pevné technické základy.\n\nRád zkouším a učím se nové technologie a neustále hledám způsoby, jak zlepšovat proces vývoje ať už jde o vylepšení architektury, optimalizaci výkonu nebo experimentování s efektivnějšími pracovními postupy.\n\nMimo webový vývoj se také věnuji vývoji her v C++ a Unity.",
       "education": {
         "title": "Vzdělání",
         "high_school": "Střední škola",
