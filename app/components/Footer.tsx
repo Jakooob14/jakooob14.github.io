@@ -43,7 +43,7 @@ export default function Footer(){
                                       href={'https://instagram.com/Jakooob14'} rel={'noreferrer'}
                                       target={'_blank'}><IoLogoInstagram/>Instagram</Link></li>
                             <li><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                      href={'mailto:me@jakooob.dev'} rel={'noreferrer'}><IoMail/>me@jakooob.dev</Link>
+                                      href={'mailto:me@jakubsokol.cz'} rel={'noreferrer'}><IoMail/>me@jakubsokol.cz</Link>
                             </li>
                         </ul>
                     </div>
