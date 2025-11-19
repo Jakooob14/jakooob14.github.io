@@ -5,7 +5,7 @@ import Divider from "@/app/components/Divider";
 import {Heading1, Heading2, Heading3} from "@/app/components/Headings";
 import {ReactNode, Suspense} from "react";
 import {IoLogoReact} from "react-icons/io5";
-import {SiNextdotjs} from "react-icons/si";
+import {SiBlazor, SiNextdotjs} from "react-icons/si";
 import {EduchemLogo, NextJSLogo, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -332,6 +332,25 @@ export default function Home() {
                         </WorkCard>
 
                         <WorkCard
+                            className={'bg-[linear-gradient(45deg,#171717_0%,#202020_70%)]'}
+                            title={'Monitoring Dashboard'}
+                            subtitle={dict.home.works.categories.web_development}
+                            imagePath={'/works/monitoring-dashboard/monitoring-dashboard.png'}
+                            imageClassName={'float-end !w-full'}
+                            websiteHref={'https://github.com/Jakooob14/MonitoringDashboard'}
+                            websiteTitle={"GitHub"}
+                            learnMoreHref={"/works/monitoring-dashboard"}
+                            initial={{
+                                translateX: '-10%',
+                                opacity: 0
+                            }}
+                            tags={<>
+                                <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiBlazor/>}>Blazor</Tag>
+                            </>}>
+                            {dict.home.works.monitoring_dashboard.description}
+                        </WorkCard>
+
+                        <WorkCard
                             className={'bg-[linear-gradient(135deg,hsla(200,7%,8%,1)_0%,#2F0B0B_70%)]'}
                             title={'Slenderman'}
                             subtitle={dict.home.works.categories.game_development}
@@ -349,6 +368,8 @@ export default function Home() {
                             </>}>
                             {dict.home.works.slenderman.description}
                         </WorkCard>
+
+                        <div></div> {/* TEMP */}
 
                         <WorkCard
                             className={'bg-[linear-gradient(-45deg,#131516_0%,#1C1F21_70%)]'}

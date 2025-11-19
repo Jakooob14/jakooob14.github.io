@@ -62,6 +62,9 @@
       "nagy3d": {
         "description": "This website is for a company named Nagy 3D that offers 3D printing and scanning in the northwestern region of the Czech Republic. It offers a minimalistic and clean look so the user can have a good experience."
       },
+      "monitoring_dashboard": {
+        "description": "A self-hosted uptime and incident monitoring tool built for clarity and reliability. It tracks service availability, logs incidents, handles maintenance windows, and generates daily uptime stats, all powered by .NET 9, Blazor, and PostgreSQL. Background workers do the heavy lifting while a clean Tailwind-styled UI keeps everything easy to read."
+      },
       "slenderman": {
         "description": "A short horror game clone built in Unreal Engine 5. Original game: Slender: The Eight Pages by Parsec Productions. It features page collection, basic enemy AI, and a full win/lose loop. Focused on learning C++, AI behavior and completing a playable game.",
         "details": {
@@ -151,7 +154,9 @@
       "home": "Home page",
       "services": "Services page",
       "about": "About page",
-      "contact": "Contact page"
+      "contact": "Contact page",
+      "users": "Users page",
+      "maintenances": "Maintenances page"
     }
   }
 }

@@ -62,6 +62,9 @@
       "nagy3d": {
         "description": "Tento web je vytvořen pro firmu Nagy 3D, která nabízí 3D tisk a skenování v severozápadní části České republiky. Poskytuje minimalistický a čistý vzhled pro co nejlepší uživatelský zážitek."
       },
+      "monitoring_dashboard": {
+        "description": "Samostatně hostovaný nástroj pro sledování dostupnosti a incidentů zaměřený na přehlednost a spolehlivost. Sleduje dostupnost služeb, zaznamenává incidenty, spravuje údržbové okna a generuje denní statistiky dostupnosti. Vše běží na .NET 9, Blazoru a PostgreSQL. Výpočetně náročnou práci zajišťují background workery, zatímco čisté rozhraní v Tailwindu udržuje vše přehledné."
+      },
       "slenderman": {
         "description": "Krátký hororový klon vytvořený v Unreal Engine 5. Původní hra: Slender: The Eight Pages od Parsec Productions. Obsahuje sběr stránek, základní nepřátelskou AI a systém výhry/prohry. Zaměřeno na učení C++, chování AI a dokončení hratelné hry.",
         "details": {
@@ -151,7 +154,9 @@
       "home": "Domovská stránka",
       "services": "Stránka služeb",
       "about": "Stránka o nás",
-      "contact": "Kontaktní stránka"
+      "contact": "Kontaktní stránka",
+      "users": "Stránka uživatelů",
+      "maintenances": "Stránka údržby"
     }
   }
 }
