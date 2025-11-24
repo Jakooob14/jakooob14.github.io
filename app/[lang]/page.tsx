@@ -6,7 +6,7 @@ import {Heading1, Heading2, Heading3} from "@/app/components/Headings";
 import {ReactNode, Suspense} from "react";
 import {IoLogoReact} from "react-icons/io5";
 import {SiBlazor, SiNextdotjs} from "react-icons/si";
-import {EduchemLogo, NextJSLogo, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
+import {AspNetLogo, BlazorLogo, EduchemLogo, NextJSLogo, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
 import {TbBrandCpp, TbBrandCSharp, TbBrandThreejs} from "react-icons/tb";
@@ -202,14 +202,16 @@ export default function Home() {
                         <div className={'mb-5'}>
                             <Heading2>{dict.home.skills.web_development}</Heading2>
                             <div className={'flex flex-wrap flex-col sm:flex-row'}>
-                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
                                            level={3}>Next.js</SkillCard>
                                 <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021}
                                            level={3}>React</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<RiTailwindCssFill className={'h-full text-[#3cbfff]'}/>} startYear={2022}
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<RiTailwindCssFill className={'h-full text-[#3cbfff]'}/>} startYear={2022}
                                            level={3}>Tailwind CSS</SkillCard>
-                                {/*<SkillCard className={'!w-1/3 min-w-[200px] min-w-[200px'} skillIcon={<SassSeal className={'h-full'}/>} yearsOverride={4}*/}
-                                {/*           level={3}>SCSS</SkillCard>*/}
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<BlazorLogo className={'h-full'}/>}
+                                           level={1}>Blazor</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<AspNetLogo className={'h-full text-white'}/>}
+                                           level={1}>ASP.NET</SkillCard>
                             </div>
                         </div>
                         <Divider className={'mb-10'}/>
@@ -252,24 +254,24 @@ export default function Home() {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function SkillCard({children, skillIcon, startYear, endYear, yearsOverride, totalOverride, level, className}: SkillCardProps) {
-        function getYearsFromYear(year: number) {
-            const yearsFromYear = new Date();
-            yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
-            return yearsFromYear.getFullYear();
-        }
+        // function getYearsFromYear(year: number) {
+        //     const yearsFromYear = new Date();
+        //     yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
+        //     return yearsFromYear.getFullYear();
+        // }
 
         // const levels = [dict.components.skill_card.level.novice, dict.components.skill_card.level.beginner, dict.components.skill_card.level.intermediate, dict.components.skill_card.level.proficient, dict.components.skill_card.level.expert, dict.components.skill_card.level.master];
-        const yearsFromYear = startYear ? getYearsFromYear(startYear) : 0;
+        // const yearsFromYear = startYear ? getYearsFromYear(startYear) : 0;
 
         // Does the right wording for 'year(s)'
-        const year = yearsOverride ? (yearsOverride === 1 ? '1 ' + dict.components.skill_card.year : yearsOverride < 5 ? yearsOverride + ' ' + dict.components.skill_card.years_less_than_5 : yearsOverride + ' ' + dict.components.skill_card.years) : endYear ? `${startYear} ${dict.components.skill_card.to} ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 ' + dict.components.skill_card.year : yearsFromYear < 5 ? yearsFromYear + ' ' + dict.components.skill_card.years_less_than_5 : yearsFromYear + ' ' + dict.components.skill_card.years) : ''}`;
+        // const year = yearsOverride ? (yearsOverride === 1 ? '1 ' + dict.components.skill_card.year : yearsOverride < 5 ? yearsOverride + ' ' + dict.components.skill_card.years_less_than_5 : yearsOverride + ' ' + dict.components.skill_card.years) : endYear ? `${startYear} ${dict.components.skill_card.to} ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 ' + dict.components.skill_card.year : yearsFromYear < 5 ? yearsFromYear + ' ' + dict.components.skill_card.years_less_than_5 : yearsFromYear + ' ' + dict.components.skill_card.years) : ''}`;
 
         return (
             <div className={'flex flex-col gap-1 w-[240px] py-4 sm:py-10 ' + className}>
                 <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
                 <h2 className={'text-[max(20px,4.6vw)] sm:text-3xl font-medium'}>{children}</h2>
-                <span
-                    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*/}</span>
+                {/*<span*/}
+                {/*    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*!/</span>*/}
             </div>
         )
     }
