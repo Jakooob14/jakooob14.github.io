@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ---- THEME CONFIG (Tailwind v4) ---- */
+@theme {
+  /* ALT GRAY */
+  --color-alt-gray-primary: hsl(0 0% 18%);
+  --color-alt-gray-50: hsl(0 0% 5%);
+  --color-alt-gray-100: hsl(0 0% 10%);
+  --color-alt-gray-200: hsl(0 0% 20%);
+  --color-alt-gray-250: hsl(0 0% 25%);
+  --color-alt-gray-300: hsl(0 0% 30%);
+  --color-alt-gray-400: hsl(0 0% 40%);
+  --color-alt-gray-500: hsl(0 0% 50%);
+  --color-alt-gray-600: hsl(0 0% 60%);
+  --color-alt-gray-700: hsl(0 0% 70%);
+  --color-alt-gray-800: hsl(0 0% 80%);
+  --color-alt-gray-900: hsl(0 0% 90%);
+  --color-alt-gray-950: hsl(0 0% 95%);
+
+  /* AERO */
+  --color-aero-50:  hsl(198 87% 97%);
+  --color-aero-100: hsl(197 88% 94%);
+  --color-aero-200: hsl(195 86% 86%);
+  --color-aero-300: hsl(194 86% 74%);
+  --color-aero-400: hsl(193 84% 60%);
+  --color-aero-500: hsl(193 80% 50%);
+  --color-aero-600: hsl(195 89% 39%);
+  --color-aero-700: hsl(196 88% 32%);
+  --color-aero-800: hsl(196 81% 27%);
+  --color-aero-900: hsl(196 72% 24%);
+  --color-aero-950: hsl(199 73% 16%);
+
+  /* NAVY */
+  --color-navy-50:  #f1f4ff;
+  --color-navy-100: #e5e8ff;
+  --color-navy-200: #ced5ff;
+  --color-navy-300: #a7b1ff;
+  --color-navy-400: #767fff;
+  --color-navy-500: #3f42ff;
+  --color-navy-600: #2118ff;
+  --color-navy-700: #1007fa;
+  --color-navy-800: #0d05d2;
+  --color-navy-900: #0c06ac;
+  --color-navy-950: #000080;
+
+  /* FONTS */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-text: 'Poppins', sans-serif;
+}
+
+@layer base{
+  html {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  body {
+    @apply bg-alt-gray-primary;
+  }
+
+  a {
+    @apply text-aero-400;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4;
+  }
+}
+

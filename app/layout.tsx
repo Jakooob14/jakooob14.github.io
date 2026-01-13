@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./tailwind.css";
 import "./globals.scss";
 import {cookies, headers} from "next/headers";
 
