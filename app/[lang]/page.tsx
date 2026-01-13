@@ -18,6 +18,7 @@ import {useDictionary} from "@/app/[lang]/DictionaryProvider";
 import Translate from "@/app/components/Translate";
 import FlagUK from "@/public/Flag_UK.png";
 import {RiTailwindCssFill} from "react-icons/ri";
+import {TargetAndTransition, VariantLabels} from "motion";
 
 
 export default function Home() {
@@ -43,7 +44,7 @@ export default function Home() {
         };
 
         return (
-            <main className={'h-screen bg-alt-gray-primary bg-gridPattern bg-[length:200px] bg-[left_35px_top_20px]'}>
+            <main className={'h-screen bg-alt-gray-primary bg-[url("/diagonal-stripes.svg")] bg-[length:200px] bg-[left_35px_top_20px]'}>
                 <div className={'relative z-0 container mx-auto flex flex-col justify-center gap-3 md:gap-12 lg:gap-24 h-full'}>
 
                     {/* Title */}
@@ -289,7 +290,7 @@ export default function Home() {
             websiteHref?: string,
             websiteTitle?: string,
             websiteIcon?: ReactNode,
-            initial?: object
+            initial?: boolean | VariantLabels | TargetAndTransition
         }
 
         return (
@@ -306,7 +307,7 @@ export default function Home() {
                             imageClassName={'float-end'}
                             websiteHref={'https://final-acnod.vercel.app'}
                             initial={{
-                                translateX: '10%',
+                                translateX: '-10%',
                                 opacity: 0
                             }}
                             tags={<>
@@ -324,7 +325,7 @@ export default function Home() {
                             imageClassName={'float-end !w-full'}
                             websiteHref={'https://www.Nagy3D.cz'}
                             initial={{
-                                translateX: '-10%',
+                                translateX: '10%',
                                 opacity: 0
                             }}
                             tags={<>
@@ -381,7 +382,7 @@ export default function Home() {
                             imageClassName={'float-end !w-full !object-left-top'}
                             learnMoreHref={"https://github.com/stars/Jakooob14/lists/raylib-games"}
                             initial={{
-                                translateX: '-10%',
+                                translateX: '10%',
                                 opacity: 0
                             }}
                             tags={<>
