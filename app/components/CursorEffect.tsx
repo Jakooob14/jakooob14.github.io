@@ -127,14 +127,14 @@ export default function CursorEffect() {
 
     return (
         <motion.div
-            style={ {
+            style={{
                 left: smoothMouse.x,
                 top: smoothMouse.y,
                 width: smoothSize.width,
                 height: smoothSize.height,
                 borderRadius: smoothSize.borderRadius,
-            } }
-            className={ 'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl' }>
+            }}
+            className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl'}>
         </motion.div>
     )
 }

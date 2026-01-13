@@ -13,14 +13,14 @@ export default function Acnod(){
 
     return (
         <main>
-            <div className={ 'container mx-auto my-24' }>
-                <div className={ 'space-x-4' }>
-                    <LinkButton href={ '/#works' }>{dict.general.back}</LinkButton>
-                    <LinkButton target={ '_blank' } href={ 'https://git.jakooob.dev/Jakooob/slenderman-unreal' }>{dict.general.source_code}</LinkButton>
+            <div className={'container mx-auto my-24'}>
+                <div className={'space-x-4'}>
+                    <LinkButton href={'/#works'}>{dict.general.back}</LinkButton>
+                    <LinkButton target={'_blank'} href={'https://git.jakooob.dev/Jakooob/slenderman-unreal'}>{dict.general.source_code}</LinkButton>
                 </div>
-                <Heading1 className={ 'mt-8' }>Slenderman</Heading1>
-                <div className={ 'flex gap-2' }>
-                    <Tag className={ '!bg-aero-300 !text-aero-950 block' } icon={ <UnrealEngineLogo className={ 'h-full w-4' }/> }>UE5</Tag>
+                <Heading1 className={'mt-8'}>Slenderman</Heading1>
+                <div className={'flex gap-2'}>
+                    <Tag className={'!bg-aero-300 !text-aero-950 block'} icon={<UnrealEngineLogo className={'h-full w-4'}/>}>UE5</Tag>
                 </div>
                 <div className='mx-auto py-4 space-y-8'>
                     <section>
@@ -33,7 +33,7 @@ export default function Acnod(){
                     <section>
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.gameplay.title}</h2>
                         <ul className='list-disc list-inside mt-2 space-y-1'>
-                            {dict.home.works.slenderman.details.gameplay.items.map((item, i) => <li key={ i }>{item}</li>)}
+                            {dict.home.works.slenderman.details.gameplay.items.map((item, i) => <li key={i}>{item}</li>)}
                         </ul>
                     </section>
 
@@ -42,7 +42,7 @@ export default function Acnod(){
                     <section>
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.features.title}</h2>
                         <ul className='list-disc list-inside mt-2 space-y-1'>
-                            {dict.home.works.slenderman.details.features.items.map((item, i) => <li key={ i }>{item}</li>)}
+                            {dict.home.works.slenderman.details.features.items.map((item, i) => <li key={i}>{item}</li>)}
                         </ul>
                     </section>
 
@@ -61,7 +61,7 @@ export default function Acnod(){
                     <section>
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.planned.title}</h2>
                         <ul className='list-disc list-inside mt-2 space-y-1'>
-                            {dict.home.works.slenderman.details.planned.items.map((item, i) => <li key={ i }>{item}</li>)}
+                            {dict.home.works.slenderman.details.planned.items.map((item, i) => <li key={i}>{item}</li>)}
                         </ul>
                         <p className='mt-2'>{dict.home.works.slenderman.details.planned.note}</p>
                     </section>
@@ -69,7 +69,7 @@ export default function Acnod(){
                     <section>
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.learned.title}</h2>
                         <ul className='list-disc list-inside mt-2 space-y-1'>
-                            {dict.home.works.slenderman.details.learned.items.map((item, i) => <li key={ i }>{item}</li>)}
+                            {dict.home.works.slenderman.details.learned.items.map((item, i) => <li key={i}>{item}</li>)}
                         </ul>
                     </section>
 
@@ -79,11 +79,11 @@ export default function Acnod(){
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.play.title}</h2>
                         <p className='mt-2'>
                             <Translate
-                                value={ dict.home.works.slenderman.details.play.text }
-                                components={ {
+                                value={dict.home.works.slenderman.details.play.text}
+                                components={{
                                     link1: <Link href='#' />,
                                     link2: <Link href='#' />
-                                } }
+                                }}
                             />
                         </p>
                     </section>
@@ -93,18 +93,18 @@ export default function Acnod(){
                     <section>
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.license.title}</h2>
                         <p className='mt-2'>
-                            <Translate value={ dict.home.works.slenderman.details.license.text } components={ { strong: <strong/> } } />
+                            <Translate value={dict.home.works.slenderman.details.license.text} components={{ strong: <strong/> }} />
                         </p>
                     </section>
 
                     <section>
                         <h2 className='text-xl font-semibold'>{dict.home.works.slenderman.details.credits.title}</h2>
                         <p className='mt-2 whitespace-pre-wrap'>
-                            <Translate value={ dict.home.works.slenderman.details.credits.text } components={ { link: <Link href='#' /> } } />
+                            <Translate value={dict.home.works.slenderman.details.credits.text} components={{ link: <Link href='#' /> }} />
                         </p>
                         <p className='mt-2 font-semibold'>{dict.home.works.slenderman.details.credits.assets}</p>
                         <ul className='list-disc list-inside mt-1 space-y-1'>
-                            {dict.home.works.slenderman.details.credits.list.map((item, i) => <li key={ i }>{item}</li>)}
+                            {dict.home.works.slenderman.details.credits.list.map((item, i) => <li key={i}>{item}</li>)}
                         </ul>
                     </section>
                 </div>

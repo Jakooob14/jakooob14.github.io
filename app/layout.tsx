@@ -13,8 +13,8 @@ export default async function RootLayout({ children}: Readonly<{ children: React
   const lang = langCookie || langHeader;
 
   return (
-      <html lang={ lang }>
-          <body className={ 'antialiased text-white' }>
+      <html lang={lang}>
+          <body className={'antialiased text-white'}>
             {children}
           </body>
       </html>

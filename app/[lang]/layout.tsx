@@ -28,9 +28,9 @@ export default async function LangLayout({ children, params }: Readonly<RootLayo
     const dict = await getDictionary(lang);
 
     return (
-        <html lang={ lang }>
-            <body className={ 'antialiased text-white' }>
-                <DictionaryProvider dictionary={ dict }>
+        <html lang={lang}>
+            <body className={'antialiased text-white'}>
+                <DictionaryProvider dictionary={dict}>
                     {children}
                     <Footer/>
                     <Signature/>

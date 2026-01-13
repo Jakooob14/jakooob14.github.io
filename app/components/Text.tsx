@@ -9,9 +9,9 @@ interface StretchedTextProps {
 
 export function StretchedTextByContainer({ children = '', className = '' }: StretchedTextProps) {
     return (
-        <span className={ 'text-justify h-[1em] ' + className }>
+        <span className={'text-justify h-[1em] ' + className}>
             {children}
-            <span className={ 'w-full inline-block' }></span>
+            <span className={'w-full inline-block'}></span>
         </span>
     );
 }
@@ -46,13 +46,13 @@ export function StretchedTextByLetterSize({ className, text, gap = 1.5, elementI
     // }, [text, gap, thinnerLettersIndex]);
 
     return(
-            <span className={ 'relative block ' + className }>
+            <span className={'relative block ' + className}>
             {Array.from(text).map((letter, index) => {
                 return <span
-                    style={ { marginLeft: `${index * gap - (thinnerLettersIndex?.includes(index) ? .1 : 0)}em` } }
-                    className={ 'absolute left-0 w-[1em]' } id={ elementId } key={ index }>{letter}</span>
+                    style={{ marginLeft: `${index * gap - (thinnerLettersIndex?.includes(index) ? .1 : 0)}em` }}
+                    className={'absolute left-0 w-[1em]'} id={elementId} key={index}>{letter}</span>
             })}
-                <span className={ 'invisible' }>{text}</span>
+                <span className={'invisible'}>{text}</span>
         </span>
     )
 }

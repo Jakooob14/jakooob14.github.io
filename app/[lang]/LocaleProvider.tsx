@@ -11,7 +11,7 @@ const LocaleContext = createContext<Dictionary | null>(null)
 
 export default function LocaleProvider({ dictionary, children,}: { dictionary: Dictionary, children: React.ReactNode }) {
     return (
-        <LocaleContext.Provider value={ dictionary }>
+        <LocaleContext.Provider value={dictionary}>
             {children}
         </LocaleContext.Provider>
     )

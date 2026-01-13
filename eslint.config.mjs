@@ -24,7 +24,6 @@ const eslintConfig = defineConfig([
             '@stylistic/quotes': ['error', 'single'],
             '@stylistic/quote-props': ['error', 'as-needed'],
             '@stylistic/jsx-quotes': ['error', 'prefer-single'],
-            '@stylistic/jsx-curly-spacing': ['error', 'always'],
             '@stylistic/object-curly-spacing': ['error', 'always']
         }
     }

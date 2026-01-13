@@ -73,10 +73,10 @@ export default function HiddenText({ children, className = '', ...props }: Curso
 
 
     return (
-        <motion.div style={ { WebkitMaskImage: getMaskDataUrl(), WebkitMaskRepeat: 'no-repeat', maskPosition: maskPosition } }
-                    className={ 'pointer-events-none select-none ' + className }
-                    { ...props }
-                    ref={ elementRef }>
+        <motion.div style={{ WebkitMaskImage: getMaskDataUrl(), WebkitMaskRepeat: 'no-repeat', maskPosition: maskPosition }}
+                    className={'pointer-events-none select-none ' + className}
+                    {...props}
+                    ref={elementRef}>
             {children}
         </motion.div>
     )

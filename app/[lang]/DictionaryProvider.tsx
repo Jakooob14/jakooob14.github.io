@@ -15,7 +15,7 @@ export default function DictionaryProvider({
     children: React.ReactNode
 }) {
     return (
-        <DictionaryContext.Provider value={ dictionary }>
+        <DictionaryContext.Provider value={dictionary}>
             {children}
         </DictionaryContext.Provider>
     )
