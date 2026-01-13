@@ -31,6 +31,7 @@ import {TargetAndTransition, VariantLabels} from "motion";
 
 export default function Home() {
     const dict = useDictionary();
+    const lang: any = "ad";
 
     return (
         <>

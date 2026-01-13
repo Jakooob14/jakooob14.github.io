@@ -26,6 +26,7 @@
     "three": "^0.182.0"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.7.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/animejs": "^3.1.13",
     "@types/he": "^1.2.3",
