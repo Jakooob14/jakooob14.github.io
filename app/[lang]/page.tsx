@@ -6,7 +6,15 @@ import {Heading1, Heading2, Heading3} from "@/app/components/Headings";
 import {ReactNode, Suspense} from "react";
 import {IoLogoReact} from "react-icons/io5";
 import {SiBlazor, SiNextdotjs} from "react-icons/si";
-import {AspNetLogo, BlazorLogo, EduchemLogo, NextJSLogo, UnityLogo, UnrealEngineLogo} from "@/app/components/Icons";
+import {
+    AspNetLogo,
+    BlazorLogo, CppLogo,
+    CSharpLogo,
+    EduchemLogo,
+    NextJSLogo,
+    UnityLogo,
+    UnrealEngineLogo
+} from "@/app/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
 import {TbBrandCpp, TbBrandCSharp, TbBrandThreejs} from "react-icons/tb";
@@ -231,8 +239,8 @@ export default function Home() {
                         <div>
                             <Heading2>{dict.home.skills.other}</Heading2>
                             <div className={'flex flex-wrap flex-col sm:flex-row'}>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCSharp/>} yearsOverride={4} level={3}>C#</SkillCard>
-                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<TbBrandCpp/>} yearsOverride={1} level={2}>C++</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<CSharpLogo className={'h-full'}/>} yearsOverride={4} level={3}>C#</SkillCard>
+                                <SkillCard className={'!w-1/3 min-w-[200px]'} skillIcon={<CppLogo className={'h-full'}/>} yearsOverride={1} level={2}>C++</SkillCard>
                             </div>
                         </div>
                     </div>
