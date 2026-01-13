@@ -1,7 +1,7 @@
 import 'server-only'
 
 import enLocale from './locales/en.json';
-import {Locale} from "@/app/[lang]/LocaleProvider";
+import { Locale } from '@/app/[lang]/LocaleProvider';
 
 type Dictionary = typeof enLocale;
 

@@ -1,8 +1,8 @@
 'use client'
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
-export default function DebugBorder({elementName = 'body'}){
+export default function DebugBorder({ elementName = 'body' }){
     const [hovered, setHovered] = useState<HTMLElement>();
 
     useEffect(() => {
@@ -27,8 +27,8 @@ export default function DebugBorder({elementName = 'body'}){
     }, [elementName]);
 
     return(
-        <div data-skipdebug={true} className={'bg-black w-full overflow-hidden fixed h-fit'}>
-            <span className={'text-white text-ellipsis overflow-hidden whitespace-nowrap'}>
+        <div data-skipdebug={ true } className={ 'bg-black w-full overflow-hidden fixed h-fit' }>
+            <span className={ 'text-white text-ellipsis overflow-hidden whitespace-nowrap' }>
                 {hovered ? hovered.nodeName.toLowerCase() +
                     ' innerText: ' + hovered.innerText
                     : 'none'}

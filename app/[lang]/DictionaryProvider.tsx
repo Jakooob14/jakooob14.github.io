@@ -1,7 +1,7 @@
 'use client'
 
-import {createContext, useContext} from "react";
-import {getDictionary} from "@/app/[lang]/getDictionary";
+import { createContext, useContext } from 'react';
+import { getDictionary } from '@/app/[lang]/getDictionary';
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
 
@@ -15,7 +15,7 @@ export default function DictionaryProvider({
     children: React.ReactNode
 }) {
     return (
-        <DictionaryContext.Provider value={dictionary}>
+        <DictionaryContext.Provider value={ dictionary }>
             {children}
         </DictionaryContext.Provider>
     )

@@ -1,6 +1,6 @@
 'use client';
-import {useEffect, useState} from 'react';
-import {motion, useMotionValue, useSpring} from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CursorEffect() {
     const [cursorEnabled] = useState(true)
@@ -127,14 +127,14 @@ export default function CursorEffect() {
 
     return (
         <motion.div
-            style={{
+            style={ {
                 left: smoothMouse.x,
                 top: smoothMouse.y,
                 width: smoothSize.width,
                 height: smoothSize.height,
                 borderRadius: smoothSize.borderRadius,
-            }}
-            className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl'}>
+            } }
+            className={ 'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl' }>
         </motion.div>
     )
 }

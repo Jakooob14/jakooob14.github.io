@@ -31,7 +31,7 @@ export default function Translate({ value, components }: TranslateProps) {
     value.replace(regex, (match, tagName, attributes, content, offset) => {
         if (lastIndex < offset) {
             const rawText = value.slice(lastIndex, offset);
-            parsedTemplate.push(<Fragment key={lastIndex}>{decodeHtmlEntities(rawText)}</Fragment>);
+            parsedTemplate.push(<Fragment key={ lastIndex }>{decodeHtmlEntities(rawText)}</Fragment>);
         }
         
         if (components[tagName]) {
@@ -42,7 +42,7 @@ export default function Translate({ value, components }: TranslateProps) {
                 cloneElement(component as ReactElement, { ...parsedAttributes, key: offset }, decodeHtmlEntities(content))
             );
         } else {
-            parsedTemplate.push(<Fragment key={offset}>{decodeHtmlEntities(content)}</Fragment>);
+            parsedTemplate.push(<Fragment key={ offset }>{decodeHtmlEntities(content)}</Fragment>);
         }
 
         lastIndex = offset + match.length;
@@ -51,7 +51,7 @@ export default function Translate({ value, components }: TranslateProps) {
 
     if (lastIndex < value.length) {
         const rawText = value.slice(lastIndex);
-        parsedTemplate.push(<Fragment key={lastIndex}>{decodeHtmlEntities(rawText)}</Fragment>);
+        parsedTemplate.push(<Fragment key={ lastIndex }>{decodeHtmlEntities(rawText)}</Fragment>);
     }
 
     return <>{parsedTemplate}</>;
