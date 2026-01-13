@@ -26,7 +26,8 @@ import { useDictionary } from '@/app/[lang]/DictionaryProvider';
 import Translate from '@/app/components/Translate';
 import FlagUK from '@/public/Flag_UK.png';
 import { RiTailwindCssFill } from 'react-icons/ri';
-import { TargetAndTransition, VariantLabels } from 'motion';
+import { TargetAndTransition, VariantLabels } from 'motion'; 
+import LinksGroup from '@/app/components/LinksGroup';
 
 
 export default function Home() {
@@ -52,7 +53,7 @@ export default function Home() {
         };
 
         return (
-            <main className={'h-screen bg-alt-gray-primary bg-[url("/diagonal-stripes.svg")] bg-size-[200px] bg-position-[left_35px_top_20px]'}>
+            <main className={'h-screen bg-[url("/diagonal-stripes.svg")] bg-size-[50px] bg-position-[left_35px_top_20px]'}>
                 <div className={'relative z-0 container mx-auto flex flex-col justify-center gap-3 md:gap-12 lg:gap-24 h-full'}>
 
                     {/* Title */}
@@ -96,43 +97,15 @@ export default function Home() {
                             </h1>
                         </div>
                     </div>
-                    <HeroButtons/>
+                    <LinksGroup>
+                        <LinksGroup.LinkButton label={dict.home.main.navigation.about_me} href={'#about'}/>
+                        <LinksGroup.LinkButton label={dict.home.main.navigation.skills} href={'#skills'}/>
+                        <LinksGroup.LinkButton label={dict.home.main.navigation.works} href={'#works'}/>
+                        <LinksGroup.LinkButton label={dict.home.main.navigation.contact} href={'#contact'}/>
+                    </LinksGroup>
                 </div>
             </main>
         );
-
-        function HeroButtons() {
-            const buttons = [
-                {
-                    label: dict.home.main.navigation.about_me,
-                    href: '#about'
-                },
-                {
-                    label: dict.home.main.navigation.skills,
-                    href: '#skills'
-                },
-                {
-                    label: dict.home.main.navigation.works,
-                    href: '#works'
-                },
-                {
-                    label: dict.home.main.navigation.contact,
-                    href: '#contact'
-                }
-            ];
-
-            return <div className={'font-semibold backdrop-blur-[10px] border-4 border-alt-gray-250'}>
-                <ul className={'flex justify-around h-12 md:h-24 text-[3.3vw] md:text-2xl leading-12 md:leading-24'}>
-                    {
-                        buttons.map((button, index) => {
-                            return <li key={index} className={'w-full text-center'}><Link
-                                className={'block h-full w-full text-white'}
-                                href={button.href}>{button.label}</Link></li>;
-                        })
-                    }
-                </ul>
-            </div>;
-        }
     }
 
     function AboutSection() {

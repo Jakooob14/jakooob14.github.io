@@ -24,7 +24,7 @@ export default function Acnod(){
                     <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
                 </p>
                 <div className={'flex gap-2'}>
-                    <Tag className={'!bg-aero-300 !text-aero-950'} icon={<SiNextdotjs/>}>NextJS</Tag>
+                    <Tag className={'bg-aero-300! text-aero-950!'} icon={<SiNextdotjs/>}>NextJS</Tag>
                     <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
                     <Tag icon={<SiI18Next/>}>I18Next</Tag>
                 </div>
