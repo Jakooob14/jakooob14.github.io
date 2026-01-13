@@ -1,16 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-    experimental: {
-        turbo: {
-            rules: {
-                "*.scss": {
-                    loaders: ["sass-loader"],
-                    as: "*.css",
-                },
-            }
-        }
-    }
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
