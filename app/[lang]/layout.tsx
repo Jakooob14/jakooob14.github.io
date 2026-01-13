@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-    return [{ lang: 'en' }, { lang: 'cs' }]
+    return [{ lang: 'en' }, { lang: 'cs' }];
 }
 
 interface RootLayoutProps{

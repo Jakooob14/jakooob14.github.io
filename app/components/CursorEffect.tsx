@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CursorEffect() {
-    const [cursorEnabled] = useState(true)
+    const [cursorEnabled] = useState(true);
 
     const defaultCursorSize = 256;
     let cursorSize = defaultCursorSize;
@@ -12,36 +12,36 @@ export default function CursorEffect() {
         padding: {
             x: 0
         }
-    }
+    };
 
 
     const mouse = {
         x: useMotionValue(-300),
         y: useMotionValue(-300),
-    }
+    };
 
     const size = {
         width: useMotionValue(cursorSize),
         height: useMotionValue(cursorSize),
         borderRadius: useMotionValue(cursorSize / 2),
-    }
+    };
 
     const smoothOptions = {
         damping: 30,
         stiffness: 350,
         mass: .5
-    }
+    };
 
     const smoothMouse = {
         x: useSpring(mouse.x, smoothOptions),
         y: useSpring(mouse.y, smoothOptions)
-    }
+    };
 
     const smoothSize = {
         width: useSpring(size.width, smoothOptions),
         height: useSpring(size.height, smoothOptions),
         borderRadius: useSpring(size.borderRadius, smoothOptions)
-    }
+    };
 
     const checkIfCursorHide = (element: HTMLElement | null): boolean => {
         while (element) {
@@ -114,7 +114,7 @@ export default function CursorEffect() {
         // mouse.x.set(clientX - cursorSize / multiplier / 2);
         // mouse.y.set(clientY - cursorSize / multiplier / 2);
 
-    }
+    };
 
     useEffect(() => {
         if (window.innerWidth < 1280) return;
@@ -122,8 +122,8 @@ export default function CursorEffect() {
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
-        }
-    }, [handleMouseMove])
+        };
+    }, [handleMouseMove]);
 
     return (
         <motion.div
@@ -136,5 +136,5 @@ export default function CursorEffect() {
             }}
             className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl'}>
         </motion.div>
-    )
+    );
 }

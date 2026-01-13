@@ -22,7 +22,7 @@ export function proxy(request: NextRequest) {
 
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    )
+    );
 
     // If there is locale return
     if (pathnameHasLocale) {
@@ -57,4 +57,4 @@ export const config = {
      */
         '/((?!api|_next/static|_next/image|favicon.ico).*)',
     ],
-}
+};

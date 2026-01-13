@@ -1,7 +1,7 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
-import stylistic from '@stylistic/eslint-plugin'
+import stylistic from '@stylistic/eslint-plugin';
 
 const eslintConfig = defineConfig([
     ...nextVitals,
@@ -24,7 +24,8 @@ const eslintConfig = defineConfig([
             '@stylistic/quotes': ['error', 'single'],
             '@stylistic/quote-props': ['error', 'as-needed'],
             '@stylistic/jsx-quotes': ['error', 'prefer-single'],
-            '@stylistic/object-curly-spacing': ['error', 'always']
+            '@stylistic/object-curly-spacing': ['error', 'always'],
+            '@stylistic/semi': ['error', 'always']
         }
     }
 ]);

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { motion, useTransform } from 'motion/react';
@@ -13,23 +13,23 @@ interface CursorEffectElementMaskProps {
 }
 
 export default function HiddenText({ children, className = '', ...props }: CursorEffectElementMaskProps) {
-    const [circleSize, setCircleSize] = useState(256)
+    const [circleSize, setCircleSize] = useState(256);
 
     const circle = {
         x: useMotionValue(-1000),
         y: useMotionValue(-1000),
-    }
+    };
 
     const smoothOptions = {
         damping: 30,
         stiffness: 350,
         mass: .5
-    }
+    };
 
     const smoothCircle = {
         x: useSpring(circle.x, smoothOptions),
         y: useSpring(circle.y, smoothOptions)
-    }
+    };
 
     const maskPosition = useTransform(
         [smoothCircle.x, smoothCircle.y],
@@ -55,21 +55,21 @@ export default function HiddenText({ children, className = '', ...props }: Curso
 
         const element = event.target as HTMLElement;
         if (element.nodeName === 'A') {
-            setCircleSize(0)
+            setCircleSize(0);
         } else {
             const rect = elementRef.current.getBoundingClientRect();
             circle.x.set(clientX - rect.x - circleSize / 2);
             circle.y.set(clientY - rect.y - circleSize / 2);
-            setCircleSize(256)
+            setCircleSize(256);
         }
-    }
+    };
 
     useEffect(() => {
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove)
-        }
-    }, [handleMouseMove])
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, [handleMouseMove]);
 
 
     return (
@@ -79,5 +79,5 @@ export default function HiddenText({ children, className = '', ...props }: Curso
                     ref={elementRef}>
             {children}
         </motion.div>
-    )
+    );
 }

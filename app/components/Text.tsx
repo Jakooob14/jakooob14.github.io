@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { ReactNode } from 'react';
 
@@ -50,9 +50,9 @@ export function StretchedTextByLetterSize({ className, text, gap = 1.5, elementI
             {Array.from(text).map((letter, index) => {
                 return <span
                     style={{ marginLeft: `${index * gap - (thinnerLettersIndex?.includes(index) ? .1 : 0)}em` }}
-                    className={'absolute left-0 w-[1em]'} id={elementId} key={index}>{letter}</span>
+                    className={'absolute left-0 w-[1em]'} id={elementId} key={index}>{letter}</span>;
             })}
                 <span className={'invisible'}>{text}</span>
         </span>
-    )
+    );
 }

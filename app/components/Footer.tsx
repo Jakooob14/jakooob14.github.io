@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
 import { MainLogo } from '@/app/components/Icons';
 import Link from 'next/link';
 import { IoLogoGithub, IoLogoInstagram, IoMail, IoLogoLinkedin } from 'react-icons/io5';
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 import { handleChangeLocale } from '@/app/utilities/handleChangeLocale';
 
 export default function Footer(){
@@ -20,7 +20,7 @@ export default function Footer(){
                         {
                             Array.from('JakubSokol').map((letter, index) => {
                                 return <span key={index}
-                                             className={`${index === 4 || index === 9 ? 'w-[.65em]' : ''} ${index === 6 ? '-ms-[.1em]' : ''} ${index === 1 ? '-ms-[.08em]' : ''} ${index === 0 ? 'ms-[.08em]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
+                                             className={`${index === 4 || index === 9 ? 'w-[.65em]' : ''} ${index === 6 ? '-ms-[.1em]' : ''} ${index === 1 ? '-ms-[.08em]' : ''} ${index === 0 ? 'ms-[.08em]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>;
                             })
                         }
                     </span>
@@ -54,5 +54,5 @@ export default function Footer(){
                 </div>
             </div>
         </footer>
-    )
+    );
 }

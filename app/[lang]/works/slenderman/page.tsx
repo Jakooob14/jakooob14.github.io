@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Heading1 } from '@/app/components/Headings';
 import Tag from '@/app/components/Tag';
@@ -111,5 +111,5 @@ export default function Acnod(){
 
             </div>
         </main>
-    )
+    );
 }

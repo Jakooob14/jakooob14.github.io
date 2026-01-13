@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Heading1, Heading2 } from '@/app/components/Headings';
 import Image from 'next/image';
@@ -51,5 +51,5 @@ export default function MonitoringDashboard(){
                 </div>
             </div>
         </main>
-    )
+    );
 }

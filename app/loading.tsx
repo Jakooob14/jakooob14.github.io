@@ -5,5 +5,5 @@ export default function Loading(){
         <div className={'w-screen h-screen flex justify-center items-center'}>
             <span className={style.loader}></span>
         </div>
-    )
+    );
 }

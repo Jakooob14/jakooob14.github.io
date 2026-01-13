@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { cubicBezier, motion } from 'motion/react';
 import Divider from '@/app/components/Divider';
@@ -72,7 +72,7 @@ export default function Home() {
                                 {
                                     Array.from('JakubSokol').map((letter, index) => {
                                         return <span key={index}
-                                                     className={`${index === 4 || index === 9 ? 'w-[.65em]' : ''} ${index === 6 ? '-ms-[.03em]' : ''} ${index >= 5 ? 'pb-10' : ''} ${index === 0 ? 'ms-[.08em]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>
+                                                     className={`${index === 4 || index === 9 ? 'w-[.65em]' : ''} ${index === 6 ? '-ms-[.03em]' : ''} ${index >= 5 ? 'pb-10' : ''} ${index === 0 ? 'ms-[.08em]' : ''} leading-[calc(1em-10%)]`}>{letter}</span>;
                                     })
                                 }
                                 <motion.div
@@ -99,7 +99,7 @@ export default function Home() {
                     <HeroButtons/>
                 </div>
             </main>
-        )
+        );
 
         function HeroButtons() {
             const buttons = [
@@ -119,7 +119,7 @@ export default function Home() {
                     label: dict.home.main.navigation.contact,
                     href: '#contact'
                 }
-            ]
+            ];
 
             return <div className={'font-semibold backdrop-blur-[10px] border-4 border-alt-gray-250'}>
                 <ul className={'flex justify-around h-12 md:h-24 text-[3.3vw] md:text-2xl leading-12 md:leading-24'}>
@@ -127,7 +127,7 @@ export default function Home() {
                         buttons.map((button, index) => {
                             return <li key={index} className={'w-full text-center'}><Link
                                 className={'block h-full w-full text-white'}
-                                href={button.href}>{button.label}</Link></li>
+                                href={button.href}>{button.label}</Link></li>;
                         })
                     }
                 </ul>
@@ -199,7 +199,7 @@ export default function Home() {
                 </div>
                 <Divider/>
             </section>
-        )
+        );
     }
 
     function SkillsSection() {
@@ -246,7 +246,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-        )
+        );
 
     }
 
@@ -282,7 +282,7 @@ export default function Home() {
                 {/*<span*/}
                 {/*    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*!/</span>*/}
             </div>
-        )
+        );
     }
 
     function WorksSection(){
@@ -407,7 +407,7 @@ export default function Home() {
                 </div>
                 <Divider/>
             </section>
-        )
+        );
 
         function WorkCard({ children, title, subtitle, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title.toLowerCase(), websiteHref, websiteTitle, websiteIcon = <FaGlobe/>, initial }: WorkCardProps){
             return (
@@ -455,7 +455,7 @@ export default function Home() {
                         </Suspense>
                     </div>
                 </motion.div>
-            )
+            );
         }
     }
 

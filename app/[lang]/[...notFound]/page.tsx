@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Heading1 } from '@/app/components/Headings';
 import Link from 'next/link';
@@ -14,5 +14,5 @@ export default function NotFoundCatchAll(){
                 <Link href={'/'} className={'text-5xl mt-8 w-fit'}>{dict.general.home}</Link>
             </div>
         </main>
-    )
+    );
 }

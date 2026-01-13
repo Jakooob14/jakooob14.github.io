@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Heading1, Heading2 } from '@/app/components/Headings';
 import Link from 'next/link';
@@ -36,5 +36,5 @@ export default function Acnod(){
                 </div>
             </div>
         </main>
-    )
+    );
 }
