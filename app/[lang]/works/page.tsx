@@ -1,12 +1,9 @@
 'use client';
 
-import { Heading1, Heading2, Heading3 } from '@/app/components/Headings';
+import { Heading1 } from '@/app/components/Headings';
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
 import LinksGroup from '@/app/components/LinksGroup';
 import useHash from '@/app/hooks/useHash';
-import Translate from '@/app/components/Translate';
-import Link from 'next/link';
-import { FaCodeBranch, FaGitAlt } from 'react-icons/fa6';
 import WorkCard from '@/app/components/WorkCard';
 
 export default function WorksPage() {
@@ -31,8 +28,11 @@ export default function WorksPage() {
                     (work.category === hash || hash === '') && (
                         <li key={work.id}
                              id={work.id}
-                             className={`mb-12 w-full ${index % 2 === 0 ? 'justify-self-start' : 'justify-self-end'}`}>
-                            <WorkCard work={work as never} />
+                             className={'mb-12'}>
+                            <WorkCard 
+                                work={work as never}
+                                className={index % 2 === 0 ? 'justify-self-start' : 'justify-self-end'}
+                            />
                         </li>
                     )
                 ))}

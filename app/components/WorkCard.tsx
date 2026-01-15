@@ -3,9 +3,12 @@ import Translate from '@/app/components/Translate';
 import Link from 'next/link';
 import { FaGitAlt } from 'react-icons/fa6';
 import { HTMLAttributes } from 'react';
+import { LinkButton } from '@/app/components/Buttons';
+import { useDictionary } from '@/app/[lang]/DictionaryProvider';
 
 interface WorkCardProps extends HTMLAttributes<HTMLDivElement> {
     work: {
+        id: string;
         title: string;
         category: 'web-development' | 'game-development' | 'other';
         description: string;
@@ -21,6 +24,8 @@ export default function WorkCard({
     className = ''
 }: WorkCardProps
 ) {
+    const dict = useDictionary();
+    
     const CATEGORY_LABELS = {
         'web-development': 'Web Development',
         'game-development': 'Game Development',
@@ -30,7 +35,7 @@ export default function WorkCard({
     const categoryVisible = CATEGORY_LABELS[work.category];
     
     return (
-        <div className={'bg-alt-gray-100 w-full max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}>
+        <div className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% min-w-[700px] w-[700px] max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}>
             <section className={'flex flex-col justify-between m-20 mb-0'}>
                 <section>
                     <div className={'mb-4'}>
@@ -41,7 +46,7 @@ export default function WorkCard({
                         <Translate value={work.description} components={{ link: <Link href={'#'}/> }}/>
                     </p>
                 </section>
-                <section>
+                <section className={'flex justify-between items-center mt-8'}>
                     <ul className={'flex'}>
                         {work.links && work.links.map((link, index) => (
                             <li key={index} className={'mt-2'}>
@@ -58,6 +63,9 @@ export default function WorkCard({
                             </li>
                         ))}
                     </ul>
+                        <LinkButton href={`/works/${work.id}`}>
+                            {dict.home.works.learn_more}
+                        </LinkButton>
                 </section>
             </section>
             <section className={'m-8 h-112.5 shadow-lg'}>

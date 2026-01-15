@@ -61,15 +61,11 @@
           "id": "acnod",
           "title": "Acnod",
           "category": "web-development",
-          "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Vojtěch Skyba</link> were working on. It was a freelance website on which we offered website development services.",
+          "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services.",
           "links": [
             {
               "type": "source-code",
               "url": "https://github.com/jakooob14/"
-            },
-            {
-              "type": "main",
-              "url": "https://acnod.cz/"
             }
           ]
         },
@@ -127,7 +123,7 @@
         }
       ],
       "acnod": {
-        "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Vojtěch Skyba</link> were working on. It was a freelance website on which we offered website development services."
+        "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services."
       },
       "nagy3d": {
         "description": "This website is for a company named Nagy 3D that offers 3D printing and scanning in the northwestern region of the Czech Republic. It offers a minimalistic and clean look so the user can have a good experience."
