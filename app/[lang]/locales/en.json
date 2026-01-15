@@ -56,6 +56,76 @@
         "web_development": "Web Development",
         "game_development": "Game Development"
       },
+      "works_list": [
+        {
+          "id": "acnod",
+          "title": "Acnod",
+          "category": "web-development",
+          "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Vojtěch Skyba</link> were working on. It was a freelance website on which we offered website development services.",
+          "links": [
+            {
+              "type": "source-code",
+              "url": "https://github.com/jakooob14/"
+            },
+            {
+              "type": "main",
+              "url": "https://acnod.cz/"
+            }
+          ]
+        },
+        {
+          "id": "nagy3d",
+          "title": "Nagy 3D",
+          "category": "web-development",
+          "description": "This website is for a company named Nagy 3D that offers 3D printing and scanning in the northwestern region of the Czech Republic. It offers a minimalistic and clean look so the user can have a good experience.",
+          "links": [
+            {
+              "type": "live-site",
+              "url": "https://nagy3d.cz/"
+            }
+          ]
+        },
+        {
+          "id": "monitoring-dashboard",
+          "title": "Monitoring Dashboard",
+          "category": "web-development",
+          "description": "A self-hosted uptime and incident monitoring tool built for clarity and reliability. It tracks service availability, logs incidents, handles maintenance windows, and generates daily uptime stats.",
+          "links": [
+            {
+              "type": "source-code",
+              "url": "https://github.com/Jakooob/monitoring-dashboard"
+            }
+          ]
+        },
+        {
+          "id": "slenderman",
+          "title": "Slenderman UE5",
+          "category": "game-development",
+          "description": "A short horror game clone built in Unreal Engine 5. Original game: Slender: The Eight Pages by Parsec Productions. It features page collection, basic enemy AI, and a full win/lose loop. Focused on learning C++, AI behavior and completing a playable game.",
+          "links": [
+            {
+              "type": "source-code",
+              "url": "https://git.jakooob.dev/Jakooob/slenderman-unreal"
+            },
+            {
+              "type": "download",
+              "url": "https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip"
+            }
+          ]
+        },
+        {
+          "id": "raylib-games",
+          "title": "Raylib Games",
+          "category": "game-development",
+          "description": "This is a collection of games I created using Raylib in C++. Each game demonstrates a variety of gameplay mechanics, challenges, and programming techniques I implemented.",
+          "links": [
+            {
+              "type": "source-code",
+              "url": "#"
+            }
+          ]
+        }
+      ],
       "acnod": {
         "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Vojtěch Skyba</link> were working on. It was a freelance website on which we offered website development services."
       },

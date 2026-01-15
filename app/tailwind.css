@@ -46,6 +46,10 @@
   /* FONTS */
   --font-heading: 'Montserrat', sans-serif;
   --font-text: 'Poppins', sans-serif;
+  
+  /* SHADOWS */
+  --shadow-lg: 0 0 20px 0px rgba(0, 0, 0, .3);
+  --shadow-xl: 0 0 30px -3px rgba(0, 0, 0, .3);
 }
 
 @layer base{

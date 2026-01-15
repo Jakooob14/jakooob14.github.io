@@ -20,9 +20,9 @@ const eslintConfig = defineConfig([
         },
         rules: {
             '@typescript-eslint/no-explicit-any': 'warn',
-            eqeqeq: ['error', 'always'],
+            'eqeqeq': ['error', 'always'],
             '@stylistic/quotes': ['error', 'single'],
-            '@stylistic/quote-props': ['error', 'as-needed'],
+            '@stylistic/quote-props': ['error', 'consistent-as-needed'],
             '@stylistic/jsx-quotes': ['error', 'prefer-single'],
             '@stylistic/object-curly-spacing': ['error', 'always'],
             '@stylistic/semi': ['error', 'always']
