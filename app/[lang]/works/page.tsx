@@ -5,10 +5,13 @@ import { useDictionary } from '@/app/[lang]/DictionaryProvider';
 import LinksGroup from '@/app/components/LinksGroup';
 import useHash from '@/app/hooks/useHash';
 import WorkCard from '@/app/components/WorkCard';
+import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
 
 export default function WorksPage() {
     const dict = useDictionary();
     const hash = useHash();
+    
+    const works = getLocalizedWorks(dict);
     
   return (
     <main className={'my-24'}>
@@ -24,7 +27,7 @@ export default function WorksPage() {
             </div>
             
             <ul className={'grid mt-8 gap-8 md:gap-12 lg:gap-16 grid-cols-1 xl:grid-cols-2'}>
-                {dict.home.works.works_list.map((work, index) => (
+                {works.map((work, index) => (
                     (work.category === hash || hash === '') && (
                         <li key={work.id}
                              id={work.id}
