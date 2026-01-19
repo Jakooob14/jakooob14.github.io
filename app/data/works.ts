@@ -1,23 +1,51 @@
 export type WorkCategory =
     | 'web-development'
-    | 'game-development'
-    | 'other';
+    | 'game-development';
 
 export type WorkLinkType =
     | 'source-code'
     | 'website'
     | 'download';
 
+export type WorkLink = {
+    type: WorkLinkType;
+    url: string;
+    openInNewTab?: boolean;
+    popupText?: string;
+};
+
 export interface Work {
     id: string;
     category: WorkCategory;
-    links: {
-        type: WorkLinkType;
+    links: WorkLink[];
+    media?: {
+        type: 'image' | 'video';
         url: string;
+        alt?: string;
     }[];
 }
 
 export const works: Work[] = [
+    {
+        id: 'test-work',
+        category: 'web-development',
+        links: [
+            {
+                type: 'source-code',
+                url: '#'
+            },
+            {
+                type: 'website',
+                url: '#'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet.png'
+            }
+        ]
+    },
     {
         id: 'acnod',
         category: 'web-development',
@@ -25,6 +53,16 @@ export const works: Work[] = [
             {
                 type: 'source-code',
                 url: 'https://github.com/jakooob14/'
+            },
+            {
+                type: 'website',
+                url: 'https://final-acnod.vercel.app/'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet.png'
             }
         ]
     },
@@ -36,6 +74,12 @@ export const works: Work[] = [
                 type: 'website',
                 url: 'https://nagy3d.cz/'
             }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3dcz.png'
+            }
         ]
     },
     {
@@ -45,6 +89,16 @@ export const works: Work[] = [
             {
                 type: 'source-code',
                 url: 'https://github.com/Jakooob/monitoring-dashboard'
+            },
+            {
+                type: 'website',
+                url: 'https://status.jakooob.dev/'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard.png'
             }
         ]
     },
@@ -58,7 +112,16 @@ export const works: Work[] = [
             },
             {
                 type: 'download',
-                url: 'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip'
+                url: 'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip',
+                openInNewTab: false,
+                popupText: 'Download for Windows',
+                
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/slenderman/slenderman.png'
             }
         ]
     },
@@ -70,6 +133,23 @@ export const works: Work[] = [
                 type: 'source-code',
                 url: 'https://github.com/stars/Jakooob14/lists/raylib-games'
             }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/raylib-games/raylib-games.png'
+            }
         ]
     }
 ];
+
+export function translateWorkCategory(category: WorkCategory): string {
+    switch (category) {
+        case 'web-development':
+            return 'Web Development';
+        case 'game-development':
+            return 'Game Development';
+        default:
+            return 'Other';
+    }
+}

@@ -16,11 +16,11 @@ export async function generateStaticParams() {
     return [{ lang: 'en' }, { lang: 'cs' }];
 }
 
-interface RootLayoutProps{
-    children: ReactNode,
-    params: {
-        lang: string
-    }
+interface RootLayoutProps {
+    children: ReactNode;
+    params: Promise<{
+        lang: string;
+    }>;
 }
 
 export default async function LangLayout({ children, params }: Readonly<RootLayoutProps>) {

@@ -21,7 +21,7 @@ export default function Acnod(){
                 <LinkButton href={'/#works'}>{dict.general.back}</LinkButton>
                 <Heading1 className={'mt-8'}>Acnod</Heading1>
                 <p className={'my-4'}>
-                    <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
+                    <Translate value={dict.home.works.works_list.acnod.description} components={{ link: <Link href={'#'}/> }}/>
                 </p>
                 <div className={'flex gap-2'}>
                     <Tag className={'bg-aero-300! text-aero-950!'} icon={<SiNextdotjs/>}>NextJS</Tag>

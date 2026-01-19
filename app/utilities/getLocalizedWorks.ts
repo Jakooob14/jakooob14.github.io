@@ -1,7 +1,13 @@
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
-import { works } from '@/app/data/works';
+import { Work, works } from '@/app/data/works';
 
-export function getLocalizedWorks(dict: ReturnType<typeof useDictionary>) {
+interface WorkLocalized extends Work {
+    title?: string;
+    brief?: string;
+    description?: string;
+}
+
+export function getLocalizedWorks(dict: ReturnType<typeof useDictionary>): WorkLocalized[] {
     const items = dict.home.works.works_list;
 
     return works.map(work => {
@@ -10,9 +16,9 @@ export function getLocalizedWorks(dict: ReturnType<typeof useDictionary>) {
 
         return {
             ...work,
-            title: t.title,
-            brief: t.brief,
-            description: t.description,
+            title: t?.title,
+            brief: t?.brief,
+            description: t?.description,
         };
     });
 }

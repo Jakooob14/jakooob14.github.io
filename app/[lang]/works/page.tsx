@@ -6,6 +6,7 @@ import LinksGroup from '@/app/components/LinksGroup';
 import useHash from '@/app/hooks/useHash';
 import WorkCard from '@/app/components/WorkCard';
 import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
+import { useState } from 'react';
 
 export default function WorksPage() {
     const dict = useDictionary();
@@ -13,13 +14,15 @@ export default function WorksPage() {
     
     const works = getLocalizedWorks(dict);
     
+    const [resetKey, setResetKey] = useState(0);
+    
   return (
     <main className={'my-24'}>
         <section className={'container mx-auto'}>
             <div>
                 <Heading1 className={'mt-8'}>{dict.home.works.title}</Heading1>
 
-                <LinksGroup>
+                <LinksGroup onClick={() => setResetKey(resetKey + 1)}>
                     <LinksGroup.AnchorButton label={'All'} href={'#'} active={hash === ''}/>
                     <LinksGroup.AnchorButton label={'Websites'} href={'#web-development'} active={hash === 'web-development'}/>
                     <LinksGroup.AnchorButton label={'Games'} href={'#game-development'} active={hash === 'game-development'}/>
@@ -34,6 +37,7 @@ export default function WorksPage() {
                              className={'mb-12'}>
                             <WorkCard 
                                 work={work as never}
+                                key={resetKey}
                                 className={index % 2 === 0 ? 'justify-self-start' : 'justify-self-end'}
                             />
                         </li>
