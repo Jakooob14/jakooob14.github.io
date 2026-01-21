@@ -43,6 +43,26 @@ export const works: Work[] = [
             {
                 type: 'image',
                 url: '/works/acnodnet/acnodnet.png'
+            },
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet-Home.png'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard.png'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-maintenances.png'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-services.png'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-users.png'
             }
         ]
     },

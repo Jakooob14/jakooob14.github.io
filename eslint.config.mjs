@@ -25,7 +25,8 @@ const eslintConfig = defineConfig([
             '@stylistic/quote-props': ['error', 'consistent-as-needed'],
             '@stylistic/jsx-quotes': ['error', 'prefer-single'],
             '@stylistic/object-curly-spacing': ['error', 'always'],
-            '@stylistic/semi': ['error', 'always']
+            '@stylistic/semi': ['error', 'always'],
+            '@typescript-eslint/no-empty-object-type': 'warn'
         }
     }
 ]);
