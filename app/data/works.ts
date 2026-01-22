@@ -1,3 +1,5 @@
+import { Technology } from '@/app/components/TechnologyTag';
+
 export type WorkCategory =
     | 'web-development'
     | 'game-development';
@@ -23,6 +25,7 @@ export interface Work {
         url: string;
         alt?: string;
     }[];
+    technologies?: Technology[];
 }
 
 export const works: Work[] = [
@@ -42,13 +45,16 @@ export const works: Work[] = [
         media: [
             {
                 type: 'image',
-                url: '/works/acnodnet/acnodnet1.webp'
+                url: '/works/acnodnet/acnodnet1.webp',
+                alt: 'Acnod.net project screenshot 1'
             },
             {
                 type: 'image',
-                url: '/works/acnodnet/acnodnet2.webp'
+                url: '/works/acnodnet/acnodnet2.webp',
+                alt: 'Acnod.net project screenshot 2'
             }
-        ]
+        ],
+        technologies: ['nextjs', 'threejs']
     },
     {
         id: 'acnod',

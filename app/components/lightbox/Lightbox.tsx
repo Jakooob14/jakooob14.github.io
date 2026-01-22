@@ -133,6 +133,7 @@ export default function Lightbox({ children }: LightboxProps) {
                                         >
                                             <FaChevronRight/>
                                         </button>
+                                        <span className={'absolute left-6 top-6'}>{index + 1}/{items.length}</span>
                                     </>
                                 )
                             }
@@ -149,7 +150,7 @@ export default function Lightbox({ children }: LightboxProps) {
                                     onClick={handleImageClick}
                                     fill
                                 />
-                                <span className={'text-center block w-full'}>{items[index].alt}</span>
+                                <span className={'text-center block w-full mt-8'}>{items[index].alt}</span>
                             </div>
                         </div>,
                         document.body

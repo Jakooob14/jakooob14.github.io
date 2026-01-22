@@ -13,6 +13,8 @@ import Divider from '@/app/components/Divider';
 import { HTMLAttributes } from 'react';
 import Lightbox from '@/app/components/lightbox/Lightbox';
 import { LightboxItem } from '@/app/components/lightbox/LightboxItem';
+import Tag from '@/app/components/Tag';
+import TechnologyTag from '@/app/components/TechnologyTag';
 
 export function generateStaticParams() {
     return works.map(work => ({
@@ -45,6 +47,18 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                         <span className={'text-xl mb-1.5 text-alt-gray-400 tracking-wider font-semibold'}>2023</span>
                     </div>
                     <Heading2 className={'text-3xl! font-semibold'}>{translateWorkCategory(work.category)}</Heading2>
+                    <ul className={'flex gap-2 my-3'}>
+                        {
+                            work.technologies && work.technologies.length > 0 && work.technologies.map((tech, index) => (
+                                    <li key={index}>
+                                        <TechnologyTag
+                                            technology={tech}
+                                            type={index === 0 ? 'primary' : 'secondary'}
+                                        />
+                                    </li>
+                                ))
+                        }
+                    </ul>
                     <p className={'my-5'}>
                         <Translate value={work.description || ''} components={{ link: <Link href={'#'}/> }}/>
                     </p>
@@ -81,17 +95,8 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                 </section>
                 <Divider className={'my-6'}/>
                 <section>
-                    <Heading2 className={'mt-4'}>Gallery</Heading2>
+                    {/*<Heading2 className={'mt-4'}>Gallery</Heading2>*/}
                     <div className={'mt-4'}>
-                        {/*{work.media?.[0] && (*/}
-                        {/*    <Medium*/}
-                        {/*        type={work.media[0].type}*/}
-                        {/*        url={work.media[0].url}*/}
-                        {/*        alt={work.media[0].alt || 'Medium 1'}*/}
-                        {/*        className={'w-full'}*/}
-                        {/*        mediumClassName={'w-full m-8 shadow-lg'}*/}
-                        {/*    />*/}
-                        {/*)}*/}
                         <Lightbox>
                             {
                                 work.media?.[0] && (
@@ -128,40 +133,4 @@ export default async function IndividualWorkPage({ params }: PageProps) {
             </div>
         </main>
     );
-}
-
-interface MediumProps extends HTMLAttributes<HTMLDivElement> {
-    type: 'image' | 'video';
-    url: string;
-    alt?: string;
-    mediumClassName?: string;
-}
-
-function Medium({ type, url, alt, className, mediumClassName }: MediumProps) {
-    if (type === 'image') {
-        return (
-            <div className={className}>
-                <Image
-                    src={url}
-                    alt={alt || ''}
-                    className={'max-w-full h-auto ' + mediumClassName}
-                    width={800}
-                    height={800}
-                />
-            </div>
-        );
-    }
-    
-    if (type === 'video') {
-        return (
-            <div>
-                <video controls className={'max-w-full h-auto ' + mediumClassName}>
-                    <source src={url} type='video/mp4'/>
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        );
-    }
-    
-    return null;
 }
