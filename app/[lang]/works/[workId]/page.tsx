@@ -59,7 +59,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                                 ))
                         }
                     </ul>
-                    <p className={'my-5'}>
+                    <p className={'my-8'}>
                         <Translate value={work.description || ''} components={{ link: <Link href={'#'}/> }}/>
                     </p>
                     <ul className={'flex items-center gap-4'}>
