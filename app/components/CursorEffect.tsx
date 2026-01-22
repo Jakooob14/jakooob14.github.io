@@ -65,54 +65,46 @@ export default function CursorEffect() {
 
         if (!event.target) return;
 
-        let element = event.target as HTMLElement;
+        const element = event.target as HTMLElement;
         const dataCursorPaddingX = element.getAttribute('data-cursor-padding-x');
         const cursorPaddingX = dataCursorPaddingX ? parseFloat(dataCursorPaddingX) : hoveredOptions.padding.x;
 
-        let rect: DOMRect | null = null;
 
         let hoveredElement: HTMLElement | null = element;
 
-        while (hoveredElement){
-            if (hoveredElement.tagName && hoveredElement.tagName.toLowerCase() === 'a') {
+        while (hoveredElement) {
+            if (
+                hoveredElement.tagName?.toLowerCase() === 'a' ||
+                hoveredElement.getAttribute('data-cursor-hover') === 'true'
+            ) {
                 break;
             }
             hoveredElement = hoveredElement.parentElement;
         }
-        element = hoveredElement ? hoveredElement : element;
 
-        if (element.nodeName === 'A') rect = element.getBoundingClientRect();
+        if (checkIfCursorHide(hoveredElement)) {
+            cursorSize = 0;
+        } else {
+            cursorSize = defaultCursorSize;
+        }
 
-        if (element.parentNode && element.parentElement && element.parentNode.nodeName === 'A') rect = element.parentElement.getBoundingClientRect();
-
-
-        if (checkIfCursorHide(element)) cursorSize = 0; else cursorSize = defaultCursorSize;
+        const rect = hoveredElement
+            ? hoveredElement.getBoundingClientRect()
+            : null;
 
         if (!rect) {
             size.width.set(cursorSize);
             size.height.set(cursorSize);
             size.borderRadius.set(cursorSize / 2);
-
-            // Make mouse smaller
-            // mouse.x.set(clientX - cursorSize / 2);
-            // mouse.y.set(clientY - cursorSize / 2);
             return;
         }
 
-        // Make mouse size fit the anchor
         size.width.set(rect.width + cursorPaddingX);
         size.height.set(rect.height);
         size.borderRadius.set(Math.max(0, parseFloat(getComputedStyle(element).borderRadius)));
         mouse.x.set(rect.left - hoveredOptions.padding.x / 2);
         mouse.x.set(rect.left - cursorPaddingX / 2);
         mouse.y.set(rect.top);
-
-        // Make mouse smaller
-        // const multiplier = 2;
-        // size.width.set(cursorSize / multiplier);
-        // size.height.set(cursorSize / multiplier);
-        // mouse.x.set(clientX - cursorSize / multiplier / 2);
-        // mouse.y.set(clientY - cursorSize / multiplier / 2);
 
     };
 

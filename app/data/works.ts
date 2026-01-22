@@ -42,27 +42,11 @@ export const works: Work[] = [
         media: [
             {
                 type: 'image',
-                url: '/works/acnodnet/acnodnet.png'
+                url: '/works/acnodnet/acnodnet1.webp'
             },
             {
                 type: 'image',
-                url: '/works/acnodnet/acnodnet-Home.png'
-            },
-            {
-                type: 'image',
-                url: '/works/monitoring-dashboard/monitoring-dashboard.png'
-            },
-            {
-                type: 'image',
-                url: '/works/monitoring-dashboard/monitoring-dashboard-maintenances.png'
-            },
-            {
-                type: 'image',
-                url: '/works/monitoring-dashboard/monitoring-dashboard-services.png'
-            },
-            {
-                type: 'image',
-                url: '/works/monitoring-dashboard/monitoring-dashboard-users.png'
+                url: '/works/acnodnet/acnodnet2.webp'
             }
         ]
     },

@@ -83,28 +83,45 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                 <section>
                     <Heading2 className={'mt-4'}>Gallery</Heading2>
                     <div className={'mt-4'}>
-                        {work.media?.[0] && (
-                            <Medium
-                                type={work.media[0].type}
-                                url={work.media[0].url}
-                                alt={work.media[0].alt || 'Medium 1'}
-                                className={'w-full'}
-                                mediumClassName={'w-full m-8 shadow-lg'}
-                            />
-                        )}
+                        {/*{work.media?.[0] && (*/}
+                        {/*    <Medium*/}
+                        {/*        type={work.media[0].type}*/}
+                        {/*        url={work.media[0].url}*/}
+                        {/*        alt={work.media[0].alt || 'Medium 1'}*/}
+                        {/*        className={'w-full'}*/}
+                        {/*        mediumClassName={'w-full m-8 shadow-lg'}*/}
+                        {/*    />*/}
+                        {/*)}*/}
                         <Lightbox>
-                            {work.media && work.media.length > 1 && work.media?.map((medium, index) => {
-                                    if (index === 0) return null;
-                                    return (
-                                        <LightboxItem 
-                                            src={medium.url} 
-                                            width={600} 
-                                            alt={medium.alt || `Medium ${index + 1}`} 
-                                            key={index}
-                                        />
-                                    );
-                                }
-                            )}
+                            {
+                                work.media?.[0] && (
+                                    <LightboxItem
+                                        src={work.media[0].url}
+                                        width={1200}
+                                        alt={work.media[0].alt || ''}
+                                        className={'w-full! h-full!'}
+                                        imageClassName={'w-full! shadow-lg h-full!'}
+                                    />
+                                )
+                            }
+                            <ul className={'grid grid-cols-2 md:grid-cols-3 gap-4 mt-8'}>
+                                {work.media && work.media.length > 1 && work.media?.map((medium, index) => {
+                                        if (index === 0) return null;
+                                        return (
+                                            <li
+                                                key={index}
+                                                className={''}
+                                            >
+                                                <LightboxItem
+                                                    src={medium.url}
+                                                    width={600}
+                                                    alt={medium.alt || ''}
+                                                />
+                                            </li>
+                                        );
+                                    }
+                                )}
+                            </ul>
                         </Lightbox>
                     </div>
                 </section>
