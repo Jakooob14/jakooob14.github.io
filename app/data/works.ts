@@ -26,6 +26,7 @@ export interface Work {
         alt?: string;
     }[];
     technologies?: Technology[];
+    endYear?: number;
     redirectUrl?: string; // Instead of a work page, when clicking learn more in a work card redirect to this link
 }
 
@@ -33,6 +34,7 @@ export const works: Work[] = [
     {
         id: 'acnod',
         category: 'web-development',
+        endYear: 2023,
         links: [
             {
                 type: 'website',
@@ -56,6 +58,7 @@ export const works: Work[] = [
     {
         id: 'nagy3d',
         category: 'web-development',
+        endYear: 2023,
         links: [
             {
                 type: 'website',
@@ -88,6 +91,7 @@ export const works: Work[] = [
     {
         id: 'monitoring-dashboard',
         category: 'web-development',
+        endYear: 2025,
         links: [
             {
                 type: 'website',
@@ -124,6 +128,7 @@ export const works: Work[] = [
     {
         id: 'slenderman',
         category: 'game-development',
+        endYear: 2025,
         links: [
             {
                 type: 'source-code',
@@ -148,6 +153,7 @@ export const works: Work[] = [
     {
         id: 'raylib-games',
         category: 'game-development',
+        endYear: 2025,
         redirectUrl: 'https://github.com/stars/Jakooob14/lists/raylib-games',
         media: [
             {

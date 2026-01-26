@@ -64,7 +64,7 @@ export default function WorkCard({
                             rel={'noreferrer'}
                             target={work.redirectUrl ? '_blank' : '_self'}
                         >
-                            {dict.home.works.learn_more}
+                            {dict.general.learn_more}
                         </LinkButton>
                 </section>
             </section>

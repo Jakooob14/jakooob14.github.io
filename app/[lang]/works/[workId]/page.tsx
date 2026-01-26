@@ -43,7 +43,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                 <section>
                     <div className={'flex items-end gap-2'}>
                         <Heading1 className={'mt-4'}>{work.title}</Heading1>
-                        <span className={'text-xl mb-1.5 text-alt-gray-400 tracking-wider font-semibold'}>2023</span>
+                        {work.endYear && <span className={'text-xl mb-1.5 text-alt-gray-400 tracking-wider font-semibold'}>{work.endYear}</span>}
                     </div>
                     <Heading2 className={'text-3xl! font-semibold'}>{dict.home.works.categories[work.category]}</Heading2>
                     <ul className={'flex gap-2 mt-3'}>
