@@ -1,20 +1,17 @@
-import { translateWorkCategory, works } from '@/app/data/works';
+import { works } from '@/app/data/works';
 import NotFoundCatchAll from '@/app/[lang]/[...notFound]/page';
 import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
 import { getDictionary } from '@/app/[lang]/getDictionary';
 import Translate from '@/app/components/Translate';
 import Link from 'next/link';
-import { Heading1, Heading2, Heading3 } from '@/app/components/Headings';
+import { Heading1, Heading2 } from '@/app/components/Headings';
 import { LinkButton } from '@/app/components/Buttons';
-import Image from 'next/image';
-import { FaDownload, FaGitAlt, FaGlobe } from 'react-icons/fa6';
 import { WorkIcon, WorkLinkIconButton } from '@/app/components/WorkCard';
 import Divider from '@/app/components/Divider';
-import { HTMLAttributes } from 'react';
 import Lightbox from '@/app/components/lightbox/Lightbox';
 import { LightboxItem } from '@/app/components/lightbox/LightboxItem';
-import Tag from '@/app/components/Tag';
 import TechnologyTag from '@/app/components/TechnologyTag';
+import { redirect } from 'next/navigation';
 
 export function generateStaticParams() {
     return works.map(work => ({
@@ -37,17 +34,19 @@ export default async function IndividualWorkPage({ params }: PageProps) {
     
     if (!work) return <NotFoundCatchAll/>;
     
+    if (work.redirectUrl) redirect(work.redirectUrl);
+    
     return (
         <main>
             <div className={'container mx-auto my-24'}>
                 <LinkButton href={'/works'}>{dict.general.back}</LinkButton>
                 <section>
                     <div className={'flex items-end gap-2'}>
-                        <Heading1 className={'mt-4 p-0!'}>{work.title}</Heading1>
+                        <Heading1 className={'mt-4'}>{work.title}</Heading1>
                         <span className={'text-xl mb-1.5 text-alt-gray-400 tracking-wider font-semibold'}>2023</span>
                     </div>
-                    <Heading2 className={'text-3xl! font-semibold'}>{translateWorkCategory(work.category)}</Heading2>
-                    <ul className={'flex gap-2 my-3'}>
+                    <Heading2 className={'text-3xl! font-semibold'}>{dict.home.works.categories[work.category]}</Heading2>
+                    <ul className={'flex gap-2 mt-3'}>
                         {
                             work.technologies && work.technologies.length > 0 && work.technologies.map((tech, index) => (
                                     <li key={index}>
@@ -59,11 +58,11 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                                 ))
                         }
                     </ul>
-                    <p className={'my-8'}>
+                    <p className={'mb-4 mt-2'}>
                         <Translate value={work.description || ''} components={{ link: <Link href={'#'}/> }}/>
                     </p>
                     <ul className={'flex items-center gap-4'}>
-                        {work.links?.map((link, index) => (
+                        {work.links && work.links.length > 0 && work.links?.map((link, index) => (
                             <li key={index} className={'flex items-center'}>
                                 {
                                     index === 0 ? (
@@ -78,11 +77,10 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                                                 <WorkIcon type={link.type} />
                                             </div>
                                             {
-                                                link.type === 'source-code' ? 'Source Code'
-                                                    : link.type === 'download' ? 'Download'
-                                                        : link.type === 'website' ? (
-                                                            'Website'
-                                                        ) : 'Learn More'
+                                                link.type === 'source-code' ? dict.general.source_code
+                                                    : link.type === 'download' ? dict.general.download
+                                                        : link.type === 'website' ? dict.general.website
+                                                            : dict.general.learn_more
                                             }
                                         </LinkButton>
                                     ) : (
@@ -95,7 +93,6 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                 </section>
                 <Divider className={'my-6'}/>
                 <section>
-                    {/*<Heading2 className={'mt-4'}>Gallery</Heading2>*/}
                     <div className={'mt-4'}>
                         <Lightbox>
                             {

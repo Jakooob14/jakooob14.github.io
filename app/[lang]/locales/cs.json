@@ -3,7 +3,9 @@
     "back": "Zpět",
     "home": "Domů",
     "source_code": "Zdrojový Kód",
-    "download": "Stáhnout"
+    "download": "Stáhnout",
+    "website": "Web",
+    "learn_more": "Zjistit více"
   },
   "components": {
     "skill_card": {
@@ -50,102 +52,112 @@
       "other": "Ostatní"
     },
     "works": {
-      "title": "Práce",
-      "learn_more": "Zjistit více",
+      "title": "Works",
       "categories": {
-        "web_development": "Webový Vývoj",
-        "game_development": "Herní Vývoj"
+        "web-development": "Webový vývoj",
+        "game-development": "Vývoj her"
       },
-      "acnod": {
-        "description": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelmem&nbsp;Skybou</link>. Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů."
-      },
-      "nagy3d": {
-        "description": "Tento web je vytvořen pro firmu Nagy 3D, která nabízí 3D tisk a skenování v severozápadní části České republiky. Poskytuje minimalistický a čistý vzhled pro co nejlepší uživatelský zážitek."
-      },
-      "monitoring_dashboard": {
-        "description": "Samostatně hostovaný nástroj pro sledování dostupnosti a incidentů zaměřený na přehlednost a spolehlivost. Sleduje dostupnost služeb, zaznamenává incidenty, spravuje údržbové okna a generuje denní statistiky dostupnosti. Vše běží na .NET 9, Blazoru a PostgreSQL. Výpočetně náročnou práci zajišťují background workery, zatímco čisté rozhraní v Tailwindu udržuje vše přehledné."
-      },
-      "slenderman": {
-        "description": "Krátký hororový klon vytvořený v Unreal Engine 5. Původní hra: Slender: The Eight Pages od Parsec Productions. Obsahuje sběr stránek, základní nepřátelskou AI a systém výhry/prohry. Zaměřeno na učení C++, chování AI a dokončení hratelné hry.",
-        "details": {
-          "intro": {
-            "p1": "Malý hororový projekt inspirovaný hrou Slender: The Eight Pages, vytvořený v Unreal Engine 5.",
-            "p2": "Tento projekt jsem vytvořil, abych se naučil a dokončil vývoj hratelné hry v UE5. Ne všechny plánované funkce byly implementovány, protože jsem se soustředil na dokončení hratelné verze."
-          },
-          "gameplay": {
-            "title": "🕹️ Hratelnost",
-            "items": [
-              "Průzkum s baterkou z pohledu první osoby",
-              "Sbírej 8 stránek v lese",
-              "Vyhýbej se Slendermanovi při průzkumu",
-              "Lekací momenty, ambientní zvuky, stavy výhry/prohry"
-            ]
-          },
-          "features": {
-            "title": "🎮 Implementované Funkce",
-            "items": [
-              "Základní AI: Slenderman se pohybuje a teleportuje kolem hráče",
-              "Stránky rozmístěné na POI (místa zájmu)",
-              "Obrazovky výhry/prohry",
-              "Ambientní zvuky",
-              "Model Slendermana"
-            ]
-          },
-          "tech_stack": {
-            "title": "🧱 Technologie",
-            "engine": "Engine",
-            "language": "Jazyk",
-            "engine_name": "Unreal Engine 5.5",
-            "language_name": "C++"
-          },
-          "planned": {
-            "title": "🚧 Chybějící nebo Plánované Funkce",
-            "items": [
-              "Hlavní menu",
-              "Zvukový efekt pro lekání",
-              "Vizuální efekty při zabití Slendermanem",
-              "Blikání světla při blízkosti Slendermana",
-              "Postprocessing a barevné ladění"
-            ],
-            "note": "Tyto funkce mohou být přidány v budoucí aktualizaci."
-          },
-          "learned": {
-            "title": "💡 Co jsem se naučil",
-            "items": [
-              "Vytvořit kompletní herní smyčku od začátku do konce",
-              "Řídit rozsah projektu a vyhýbat se perfekcionismu",
-              "Použít C++ pro logiku AI a interakce",
-              "Nastavit widgety pro pauzu, výhru a prohru v UE5"
-            ]
-          },
-          "play": {
-            "title": "🗂️ Jak hrát",
-            "text": "Stáhni <link1 href='https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip' rel='noreferrer' target='_blank'>zde</link1> nebo z části Releases na <link2 href='https://git.jakooob.dev/Jakooob/slenderman-unreal' rel='noreferrer' target='_blank'>Gitea</link2>."
-          },
-          "license": {
-            "title": "📁 Licence Zdrojového Kódu",
-            "text": "Tento projekt je sdílen <strong>pouze pro studijní účely</strong>. Prosím <strong>nepoužívej komerční/marketplace assety</strong> ze repozitáře, pokud je sám nevlastníš."
-          },
-          "credits": {
-            "title": "🎨 Poděkování",
-            "text": "Vytvořil <link href='https://jakooob.dev/'>Jakub Sokol</link>\nPůvodní hra: \"Slender: The Eight Pages\" od Parsec Productions",
-            "assets": "Assety:",
-            "list": [
-              "Maelstrom Library - MAE Oak Forest",
-              "Construct Games - IES Light Profile Pack",
-              "Dekogon Studios - Small Structures VOL.2 [Low Poly]",
-              "Dekogon Studios - Fences VOL.3 - Town Modular (Nanite and Low Poly)",
-              "MagicCGIStudios - Industrial Storage Tank Asset Pack",
-              "Simoncho Design - Slender Font",
-              "Epidemic Sounds",
-              "Quixel"
-            ]
+      "works_list": {
+        "acnod": {
+          "title": "Acnod",
+          "brief": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelmem&nbsp;Skybou</link>. Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů.",
+          "description": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelmem&nbsp;Skybou</link>. Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů."
+        },
+        "nagy3d": {
+          "title": "Nagy 3D",
+          "brief": "Tento web je vytvořen pro firmu Nagy 3D, která nabízí 3D tisk a skenování v severozápadní části České republiky. Poskytuje minimalistický a čistý vzhled pro co nejlepší uživatelský zážitek.",
+          "description": "Tento web je vytvořen pro firmu Nagy 3D, která nabízí 3D tisk a skenování v severozápadní části České republiky. Poskytuje minimalistický a čistý vzhled pro co nejlepší uživatelský zážitek."
+        },
+        "monitoring-dashboard": {
+          "title": "Monitoring Dashboard",
+          "brief": "Samostatně hostovaný nástroj pro sledování dostupnosti a incidentů zaměřený na přehlednost a spolehlivost. Sleduje dostupnost služeb, zaznamenává incidenty, spravuje údržbové okna a generuje denní statistiky dostupnosti.",
+          "description": "Samostatně hostovaný nástroj pro sledování dostupnosti a incidentů zaměřený na přehlednost a spolehlivost. Sleduje dostupnost služeb, zaznamenává incidenty, spravuje údržbové okna a generuje denní statistiky dostupnosti. Vše běží na .NET 9, Blazoru a PostgreSQL. Výpočetně náročnou práci zajišťují background workery, zatímco čisté rozhraní v Tailwindu udržuje vše přehledné."
+        },
+        "slenderman": {
+          "title": "Slenderman",
+          "brief": "Krátký hororový klon vytvořený v Unreal Engine 5. Původní hra: Slender: The Eight Pages od Parsec Productions. Obsahuje sběr stránek, základní nepřátelskou AI a systém výhry/prohry. Zaměřeno na učení C++, chování AI a dokončení hratelné hry.",
+          "description": "Krátký hororový klon vytvořený v Unreal Engine 5. Původní hra: Slender: The Eight Pages od Parsec Productions. Obsahuje sběr stránek, základní nepřátelskou AI a systém výhry/prohry. Zaměřeno na učení C++, chování AI a dokončení hratelné hry.",
+          "details": {
+            "intro": {
+              "p1": "Malý hororový projekt inspirovaný hrou Slender: The Eight Pages, vytvořený v Unreal Engine 5.",
+              "p2": "Tento projekt jsem vytvořil, abych se naučil a dokončil vývoj hratelné hry v UE5. Ne všechny plánované funkce byly implementovány, protože jsem se soustředil na dokončení hratelné verze."
+            },
+            "gameplay": {
+              "title": "🕹️ Hratelnost",
+              "items": [
+                "Průzkum s baterkou z pohledu první osoby",
+                "Sbírej 8 stránek v lese",
+                "Vyhýbej se Slendermanovi při průzkumu",
+                "Lekací momenty, ambientní zvuky, stavy výhry/prohry"
+              ]
+            },
+            "features": {
+              "title": "🎮 Implementované Funkce",
+              "items": [
+                "Základní AI: Slenderman se pohybuje a teleportuje kolem hráče",
+                "Stránky rozmístěné na POI (místa zájmu)",
+                "Obrazovky výhry/prohry",
+                "Ambientní zvuky",
+                "Model Slendermana"
+              ]
+            },
+            "tech_stack": {
+              "title": "🧱 Technologie",
+              "engine": "Engine",
+              "language": "Jazyk",
+              "engine_name": "Unreal Engine 5.5",
+              "language_name": "C++"
+            },
+            "planned": {
+              "title": "🚧 Chybějící nebo Plánované Funkce",
+              "items": [
+                "Hlavní menu",
+                "Zvukový efekt pro lekání",
+                "Vizuální efekty při zabití Slendermanem",
+                "Blikání světla při blízkosti Slendermana",
+                "Postprocessing a barevné ladění"
+              ],
+              "note": "Tyto funkce mohou být přidány v budoucí aktualizaci."
+            },
+            "learned": {
+              "title": "💡 Co jsem se naučil",
+              "items": [
+                "Vytvořit kompletní herní smyčku od začátku do konce",
+                "Řídit rozsah projektu a vyhýbat se perfekcionismu",
+                "Použít C++ pro logiku AI a interakce",
+                "Nastavit widgety pro pauzu, výhru a prohru v UE5"
+              ]
+            },
+            "play": {
+              "title": "🗂️ Jak hrát",
+              "text": "Stáhni <link1 href='https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip' rel='noreferrer' target='_blank'>zde</link1> nebo z části Releases na <link2 href='https://git.jakooob.dev/Jakooob/slenderman-unreal' rel='noreferrer' target='_blank'>Gitea</link2>."
+            },
+            "license": {
+              "title": "📁 Licence Zdrojového Kódu",
+              "text": "Tento projekt je sdílen <strong>pouze pro studijní účely</strong>. Prosím <strong>nepoužívej komerční/marketplace assety</strong> ze repozitáře, pokud je sám nevlastníš."
+            },
+            "credits": {
+              "title": "🎨 Poděkování",
+              "text": "Vytvořil <link href='https://jakooob.dev/'>Jakub Sokol</link>\nPůvodní hra: \"Slender: The Eight Pages\" od Parsec Productions",
+              "assets": "Assety:",
+              "list": [
+                "Maelstrom Library - MAE Oak Forest",
+                "Construct Games - IES Light Profile Pack",
+                "Dekogon Studios - Small Structures VOL.2 [Low Poly]",
+                "Dekogon Studios - Fences VOL.3 - Town Modular (Nanite and Low Poly)",
+                "MagicCGIStudios - Industrial Storage Tank Asset Pack",
+                "Simoncho Design - Slender Font",
+                "Epidemic Sounds",
+                "Quixel"
+              ]
+            }
           }
+        },
+        "raylib-games": {
+          "title": "Raylib Hry",
+          "brief": "Toto je sbírka her, které jsem vytvořil pomocí Raylibu v C++. Každá hra předvádí různé herní mechaniky, výzvy a programovací techniky, které jsem implementoval.",
+          "description": "Toto je sbírka her, které jsem vytvořil pomocí Raylibu v C++. Každá hra předvádí různé herní mechaniky, výzvy a programovací techniky, které jsem implementoval."
         }
-      },
-      "raylib_games": {
-        "title": "Raylib Hry",
-        "description": "Toto je sbírka her, které jsem vytvořil pomocí Raylibu v C++. Každá hra předvádí různé herní mechaniky, výzvy a programovací techniky, které jsem implementoval."
       }
     }
   },

@@ -303,7 +303,7 @@ export default function Home() {
                             className={'bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'}
                             title={'Nagy3D'}
                             subtitle={dict.home.works.categories.web_development}
-                            imagePath={'/works/nagy3dcz/nagy3dcz.png'}
+                            imagePath={'/works/nagy3dcz/nagy3d.png'}
                             imageClassName={'float-end !w-full'}
                             websiteHref={'https://www.Nagy3D.cz'}
                             initial={{

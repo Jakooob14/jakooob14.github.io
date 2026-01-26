@@ -5,7 +5,7 @@ import { FaDownload, FaGitAlt, FaGlobe } from 'react-icons/fa6';
 import { HTMLAttributes } from 'react';
 import { LinkButton } from '@/app/components/Buttons';
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
-import { translateWorkCategory, Work, WorkLink, WorkLinkType } from '@/app/data/works';
+import { Work, WorkLink, WorkLinkType } from '@/app/data/works';
 import { cubicBezier, motion } from 'motion/react';
 import Image from 'next/image';
 
@@ -45,7 +45,7 @@ export default function WorkCard({
                 <section>
                     <div className={'mb-4'}>
                         <Heading2 className={'font-semibold'}>{work.title || 'Untitled'}</Heading2>
-                        <Heading3 className={'font-semibold mt-1'}>{translateWorkCategory(work.category)}</Heading3>
+                        <Heading3 className={'font-semibold mt-1'}>{dict.home.works.categories[work.category]}</Heading3>
                     </div>
                     <p>
                         <Translate value={work.brief || ''} components={{ link: <Link href={'#'}/> }}/>
@@ -59,7 +59,11 @@ export default function WorkCard({
                             </li>
                         ))}
                     </ul>
-                        <LinkButton href={`/works/${work.id}`}>
+                        <LinkButton 
+                            href={work.redirectUrl || `/works/${work.id}`} 
+                            rel={'noreferrer'}
+                            target={work.redirectUrl ? '_blank' : '_self'}
+                        >
                             {dict.home.works.learn_more}
                         </LinkButton>
                 </section>

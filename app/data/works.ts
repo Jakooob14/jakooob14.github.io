@@ -19,62 +19,39 @@ export type WorkLink = {
 export interface Work {
     id: string;
     category: WorkCategory;
-    links: WorkLink[];
+    links?: WorkLink[];
     media?: {
         type: 'image' | 'video';
         url: string;
         alt?: string;
     }[];
     technologies?: Technology[];
+    redirectUrl?: string; // Instead of a work page, when clicking learn more in a work card redirect to this link
 }
 
 export const works: Work[] = [
     {
-        id: 'test-work',
+        id: 'acnod',
         category: 'web-development',
         links: [
             {
-                type: 'source-code',
-                url: '#'
-            },
-            {
                 type: 'website',
-                url: '#'
+                url: 'https://final-acnod.vercel.app'
             }
         ],
         media: [
             {
                 type: 'image',
                 url: '/works/acnodnet/acnodnet1.webp',
-                alt: 'Acnod.net project screenshot 1'
+                alt: 'Acnod Home page 1'
             },
             {
                 type: 'image',
                 url: '/works/acnodnet/acnodnet2.webp',
-                alt: 'Acnod.net project screenshot 2'
+                alt: 'Acnod Home page 2'
             }
         ],
-        technologies: ['nextjs', 'threejs']
-    },
-    {
-        id: 'acnod',
-        category: 'web-development',
-        links: [
-            {
-                type: 'source-code',
-                url: 'https://github.com/jakooob14/'
-            },
-            {
-                type: 'website',
-                url: 'https://final-acnod.vercel.app/'
-            }
-        ],
-        media: [
-            {
-                type: 'image',
-                url: '/works/acnodnet/acnodnet.png'
-            }
-        ]
+        technologies: ['nextjs', 'threejs', 'i18next']
     },
     {
         id: 'nagy3d',
@@ -82,14 +59,30 @@ export const works: Work[] = [
         links: [
             {
                 type: 'website',
-                url: 'https://nagy3d.cz/'
+                url: 'https://nagy3d.cz'
             }
         ],
         media: [
             {
                 type: 'image',
-                url: '/works/nagy3dcz/nagy3dcz.png'
-            }
+                url: '/works/nagy3dcz/nagy3d.webp',
+                alt: 'Nagy3D Home page'
+            },
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d-services.webp',
+                alt: 'Nagy3DServices page'
+            },
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d-about.webp',
+                alt: 'Nagy3D About page'
+            },
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d-contact.webp',
+                alt: 'Nagy3D Contact page'
+            },
         ]
     },
     {
@@ -97,19 +90,35 @@ export const works: Work[] = [
         category: 'web-development',
         links: [
             {
-                type: 'source-code',
-                url: 'https://github.com/Jakooob/monitoring-dashboard'
-            },
-            {
                 type: 'website',
                 url: 'https://status.jakooob.dev/'
+            },
+            {
+                type: 'source-code',
+                url: 'https://github.com/Jakooob/monitoring-dashboard'
             }
         ],
         media: [
             {
                 type: 'image',
-                url: '/works/monitoring-dashboard/monitoring-dashboard.png'
-            }
+                url: '/works/monitoring-dashboard/monitoring-dashboard-home.webp',
+                alt: 'Monitoring Dashboard Home page'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-services.webp',
+                alt: 'Monitoring Dashboard Services page'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-maintenances.webp',
+                alt: 'Monitoring Dashboard Maintenances page'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-users.webp',
+                alt: 'Monitoring Dashboard Users page'
+            },
         ]
     },
     {
@@ -131,35 +140,21 @@ export const works: Work[] = [
         media: [
             {
                 type: 'image',
-                url: '/works/slenderman/slenderman.png'
+                url: '/works/slenderman/slenderman.webp',
+                alt: 'Slenderman Game',
             }
         ]
     },
     {
         id: 'raylib-games',
         category: 'game-development',
-        links: [
-            {
-                type: 'source-code',
-                url: 'https://github.com/stars/Jakooob14/lists/raylib-games'
-            }
-        ],
+        redirectUrl: 'https://github.com/stars/Jakooob14/lists/raylib-games',
         media: [
             {
                 type: 'image',
-                url: '/works/raylib-games/raylib-games.png'
+                url: '/works/raylib-games/raylib-games.webp',
+                alt: 'Raylib Games'
             }
         ]
     }
 ];
-
-export function translateWorkCategory(category: WorkCategory): string {
-    switch (category) {
-        case 'web-development':
-            return 'Web Development';
-        case 'game-development':
-            return 'Game Development';
-        default:
-            return 'Other';
-    }
-}

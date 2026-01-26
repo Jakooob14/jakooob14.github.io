@@ -3,7 +3,9 @@
     "back": "Back",
     "home": "Home",
     "source_code": "Source Code",
-    "download": "Download"
+    "download": "Download",
+    "website": "Website",
+    "learn_more": "Learn more"
   },
   "components": {
     "skill_card": {
@@ -51,18 +53,12 @@
     },
     "works": {
       "title": "Works",
-      "learn_more": "Learn more",
       "categories": {
-        "web_development": "Web Development",
-        "game_development": "Game Development"
+        "web-development": "Web Development",
+        "game-development": "Game Development"
       },
       "works_list": {
         "acnod": {
-          "title": "Acnod",
-          "brief": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services.",
-          "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services."
-        },
-        "test-work": {
           "title": "Acnod",
           "brief": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services.",
           "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services."
