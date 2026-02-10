@@ -7,6 +7,7 @@ import { ReactNode } from 'react';
 import { getDictionary } from '@/app/[lang]/getDictionary';
 import DictionaryProvider from '@/app/[lang]/DictionaryProvider';
 import FloatingLocaleSwitcher from '@/app/components/FloatingLocaleSwitcher';
+import ScrollToTop from '@/app/components/ScrollToTop';
 
 export const metadata: Metadata = {
     title: 'Jakub Sokol'
@@ -36,6 +37,7 @@ export default async function LangLayout({ children, params }: Readonly<RootLayo
                     <Signature/>
                     <CursorEffect/>
                     <FloatingLocaleSwitcher/>
+                    <ScrollToTop/>
                 </DictionaryProvider>
             </body>
         </html>
