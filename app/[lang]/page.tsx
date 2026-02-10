@@ -101,10 +101,26 @@ export default function Home() {
                         </div>
                     </div>
                     <LinksGroup>
-                        <LinksGroup.LinkButton label={dict.home.main.navigation.about_me} href={'#about'}/>
-                        <LinksGroup.LinkButton label={dict.home.main.navigation.skills} href={'#skills'}/>
-                        <LinksGroup.LinkButton label={dict.home.main.navigation.works} href={'#works'}/>
-                        <LinksGroup.LinkButton label={dict.home.main.navigation.contact} href={'#contact'}/>
+                        <LinksGroup.LinkButton 
+                            label={dict.home.main.navigation.about_me} 
+                            href={'#about'}
+                            data-cursor-reset-click
+                        />
+                        <LinksGroup.LinkButton 
+                            label={dict.home.main.navigation.skills} 
+                            href={'#skills'}
+                            data-cursor-reset-click
+                        />
+                        <LinksGroup.LinkButton 
+                            label={dict.home.main.navigation.works} 
+                            href={'#works'}
+                            data-cursor-reset-click
+                        />
+                        <LinksGroup.LinkButton 
+                            label={dict.home.main.navigation.contact} 
+                            href={'#contact'}
+                            data-cursor-reset-click
+                        />
                     </LinksGroup>
                 </div>
             </main>
@@ -282,7 +298,7 @@ export default function Home() {
                 <Divider/>
                 <div className={`container mx-auto relative px-0 mt-32 ${works.filter(w => w.featured).length % 2 === 0 && 'mb-32'}`}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! translate-y-30 flex flex-col items-center'}>
+                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! 2xl:translate-y-30 mb-24 2xl:mb-0 flex flex-col items-center'}>
                         {works.map((work => (
                             work.featured && (
                                 <WorkCard

@@ -103,7 +103,7 @@ export function WorkLinkIconButton({ link, className, ...props }: WorkLinkButton
             title={link.popupText}
             {...props}
         >
-            <WorkIcon type={link.type} className={'rounded-full'} />
+            <WorkIcon type={link.type} className={'rounded-full overflow-visible'} />
         </Link>
     );
 }

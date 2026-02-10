@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export default function CursorEffect() {
     const [cursorEnabled, setCursorEnabled] = useState(true);
+    const pathname = usePathname();
 
     const defaultCursorSize = 256;
     let cursorSize = defaultCursorSize;
@@ -54,7 +56,7 @@ export default function CursorEffect() {
         return false;
     };
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
     const handleMouseMove = (event: MouseEvent) => {
         if (!cursorEnabled) return;
 
@@ -108,26 +110,49 @@ export default function CursorEffect() {
 
     };
 
+    const resetCursor = (event?: MouseEvent) => {
+        cursorSize = defaultCursorSize;
+        size.width.set(cursorSize);
+        size.height.set(cursorSize);
+        size.borderRadius.set(cursorSize / 2);
+        if (event) {
+            const { clientX, clientY } = event;
+            mouse.x.set(clientX - cursorSize / 2);
+            mouse.y.set(clientY - cursorSize / 2);
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, [handleMouseMove]);
+    }, [handleMouseMove, resetCursor]);
     
     const handleTouch = () => {
         setCursorEnabled(false);
+    };
+    
+    const handleClick = (event: MouseEvent) => {
+        const element = event.target as HTMLElement;
+        console.log(element.getAttribute('data-cursor-reset-click'));
+        if (element.getAttribute('data-cursor-reset-click') === 'true' || element.tagName?.toLowerCase() === 'a' || element.closest('a')) {
+            if (element.getAttribute('data-cursor-reset-click') === 'false') return;
+            resetCursor(event);
+        }
     };
 
     useEffect(() => {
         window.addEventListener('touchstart', handleTouch);
         window.addEventListener('touchmove', handleTouch);
         window.addEventListener('touchend', handleTouch);
+        window.addEventListener('click', handleClick);
 
         return () => {
             window.removeEventListener('touchstart', handleTouch);
             window.removeEventListener('touchmove', handleTouch);
             window.removeEventListener('touchend', handleTouch);
+            window.removeEventListener('click', handleClick);
         };
     }, []);
 

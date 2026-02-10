@@ -25,9 +25,23 @@ export default function WorksPage() {
                 <Heading1 className={'mt-8'}>{dict.home.works.title}</Heading1>
 
                 <LinksGroup onClick={() => setResetKey(resetKey + 1)}>
-                    <LinksGroup.AnchorButton label={'All'} href={'#'} active={hash === ''}/>
-                    <LinksGroup.AnchorButton label={'Websites'} href={'#web-development'} active={hash === 'web-development'}/>
-                    <LinksGroup.AnchorButton label={'Games'} href={'#game-development'} active={hash === 'game-development'}/>
+                    <LinksGroup.AnchorButton 
+                        label={'All'} href={'#'} 
+                        active={hash === ''}
+                        data-cursor-reset-click={false}
+                    />
+                    <LinksGroup.AnchorButton 
+                        label={'Websites'} 
+                        href={'#web-development'} 
+                        active={hash === 'web-development'}
+                        data-cursor-reset-click={false}
+                    />
+                    <LinksGroup.AnchorButton 
+                        label={'Games'} 
+                        href={'#game-development'} 
+                        active={hash === 'game-development'}
+                        data-cursor-reset-click={false}
+                    />
                 </LinksGroup>
             </div>
             
