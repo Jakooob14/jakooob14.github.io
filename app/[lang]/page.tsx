@@ -282,7 +282,7 @@ export default function Home() {
                 <Divider/>
                 <div className={`container mx-auto relative px-0 mt-32 ${works.filter(w => w.featured).length % 2 === 0 && 'mb-32'}`}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! mt-20 flex flex-col items-center'}>
+                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! translate-y-30 flex flex-col items-center'}>
                         {works.map((work => (
                             work.featured && (
                                 <WorkCard
@@ -295,10 +295,11 @@ export default function Home() {
                             )
                         )))}
                     </div>
-
-                    <Link className={`2xl:absolute text-center 2xl:text-start w-full 2xl:w-auto block my-16 2xl:my-0 bg-aero-500 px-9 py-8 shadow-lg ${works.filter(w => w.featured).length % 2 === 0 ? 'right-[16px] bottom-2' : 'bottom-[300px]'}`} href={'/works'}>
-                        <span className={'text-3xl text-white'}>This isn&#39;t all! Check out all of my work here.</span>
-                    </Link>
+                    <div className={'flex flex-col items-center mb-32 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16'}>
+                        <span className={'text-5xl font-heading font-bold'}>There&#39;s even more to see!</span>
+                        <Link className={'text-2xl font-semibold bg-aero-500 text-white px-8 py-4 mt-8 shadow-md'} href={'/works'}>View all my work</Link>
+                        {/*  TODO: translations  */}
+                    </div>
                 </div>
                 <Divider/>
             </section>
