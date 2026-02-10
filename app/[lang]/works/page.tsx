@@ -7,6 +7,7 @@ import useHash from '@/app/hooks/useHash';
 import WorkCard from '@/app/components/WorkCard';
 import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
 import { useState } from 'react';
+import { LinkButton } from '@/app/components/Buttons';
 
 export default function WorksPage() {
     const dict = useDictionary();
@@ -19,6 +20,7 @@ export default function WorksPage() {
   return (
     <main className={'my-24'}>
         <section className={'container mx-auto'}>
+            <LinkButton href={'/'}>{dict.general.back}</LinkButton>
             <div>
                 <Heading1 className={'mt-8'}>{dict.home.works.title}</Heading1>
 

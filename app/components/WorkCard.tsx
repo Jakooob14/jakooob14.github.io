@@ -20,7 +20,8 @@ interface WorkCardProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function WorkCard({
     work,
-    className = ''
+    className = '',
+    style
 }: WorkCardProps
 ) {
     const dict = useDictionary();
@@ -40,7 +41,9 @@ export default function WorkCard({
                 }
             }}
             viewport={{ once: true }}
-            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% min-w-[700px] w-[700px] max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}>
+            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% min-w-[700px] w-[700px] max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}
+            style={style}
+        >
             <section className={'flex flex-col justify-between m-20 mb-0 h-[300px] min-h-[300px]'}>
                 <section>
                     <div className={'mb-4'}>
@@ -54,7 +57,7 @@ export default function WorkCard({
                 <section className={'flex justify-between items-center mt-8'}>
                     <ul className={'flex'}>
                         {work.links && work.links.map((link, index) => (
-                            <li key={index}>
+                            <li key={index} className={'rounded-full'}>
                                 <WorkLinkIconButton link={link}/>
                             </li>
                         ))}
@@ -100,7 +103,7 @@ export function WorkLinkIconButton({ link, className, ...props }: WorkLinkButton
             title={link.popupText}
             {...props}
         >
-            <WorkIcon type={link.type} />
+            <WorkIcon type={link.type} className={'rounded-full'} />
         </Link>
     );
 }

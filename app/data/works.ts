@@ -1,4 +1,5 @@
 import { Technology } from '@/app/components/TechnologyTag';
+import { Property } from 'csstype';
 
 export type WorkCategory =
     | 'web-development'
@@ -19,6 +20,8 @@ export type WorkLink = {
 export interface Work {
     id: string;
     category: WorkCategory;
+    featured?: boolean;
+    background?: Property.Background;
     links?: WorkLink[];
     media?: {
         type: 'image' | 'video';
@@ -34,6 +37,8 @@ export const works: Work[] = [
     {
         id: 'acnod',
         category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #131516 0%, #1C1F21 70%)',
         endYear: 2023,
         links: [
             {
@@ -58,6 +63,8 @@ export const works: Work[] = [
     {
         id: 'nagy3d',
         category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #000f14 0%, #023447 70%)',
         endYear: 2023,
         links: [
             {
@@ -91,6 +98,8 @@ export const works: Work[] = [
     {
         id: 'monitoring-dashboard',
         category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #171717 0%, #202020 70%)',
         endYear: 2025,
         links: [
             {
@@ -128,6 +137,7 @@ export const works: Work[] = [
     {
         id: 'slenderman',
         category: 'game-development',
+        background: 'linear-gradient(135deg, hsla(200, 7%, 8%, 1) 0%, #2F0B0B 70%)',
         endYear: 2025,
         links: [
             {
@@ -153,6 +163,7 @@ export const works: Work[] = [
     {
         id: 'raylib-games',
         category: 'game-development',
+        background: 'linear-gradient(-45deg, #131516 0%, #1C1F21 70%)',
         endYear: 2025,
         redirectUrl: 'https://github.com/stars/Jakooob14/lists/raylib-games',
         media: [

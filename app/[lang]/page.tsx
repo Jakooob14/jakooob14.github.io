@@ -28,10 +28,13 @@ import FlagUK from '@/public/Flag_UK.png';
 import { RiTailwindCssFill } from 'react-icons/ri';
 import { TargetAndTransition, VariantLabels } from 'motion'; 
 import LinksGroup from '@/app/components/LinksGroup';
+import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
+import WorkCard from '@/app/components/WorkCard';
 
 
 export default function Home() {
     const dict = useDictionary();
+    const works = getLocalizedWorks(dict);
 
     return (
         <>
@@ -178,7 +181,7 @@ export default function Home() {
     function SkillsSection() {
         return (
             <section id={'skills'}>
-                <div className={'container mx-auto my-32'}>
+                <div className={'container mx-auto mt-32 mb-16'}>
                     <Heading1 className={'sm:mb-16'}>{dict.home.skills.title}</Heading1>
                     <div className={'flex flex-col'}>
                         <div className={'mb-5'}>
@@ -208,14 +211,14 @@ export default function Home() {
                                            level={1}>raylib</SkillCard>
                             </div>
                         </div>
-                        <Divider className={'mb-10'}/>
-                        <div>
-                            <Heading2>{dict.home.skills.other}</Heading2>
-                            <div className={'flex flex-wrap flex-col sm:flex-row'}>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<CSharpLogo className={'h-full'}/>} yearsOverride={4} level={3}>C#</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<CppLogo className={'h-full'}/>} yearsOverride={1} level={2}>C++</SkillCard>
-                            </div>
-                        </div>
+                        {/*<Divider className={'mb-10'}/>*/}
+                        {/*<div>*/}
+                        {/*    <Heading2>{dict.home.skills.other}</Heading2>*/}
+                        {/*    <div className={'flex flex-wrap flex-col sm:flex-row'}>*/}
+                        {/*        <SkillCard className={'w-1/3! min-w-50'} skillIcon={<CSharpLogo className={'h-full'}/>} yearsOverride={4} level={3}>C#</SkillCard>*/}
+                        {/*        <SkillCard className={'w-1/3! min-w-50'} skillIcon={<CppLogo className={'h-full'}/>} yearsOverride={1} level={2}>C++</SkillCard>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </section>
@@ -277,159 +280,30 @@ export default function Home() {
         return (
             <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)] overflow-x-hidden'} id={'works'}>
                 <Divider/>
-                <div className={'container mx-auto my-32'}>
+                <div className={`container mx-auto relative px-0 mt-32 ${works.filter(w => w.featured).length % 2 === 0 && 'mb-32'}`}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <div className={'xl:grid grid-cols-2 gap-x-24 gap-y-24 xl:[&>*:nth-child(even)]:-translate-y-64! mt-20 flex flex-col items-center'}>
-                        <WorkCard
-                            className={'bg-[linear-gradient(45deg,#131516_0%,#1C1F21_70%)]'}
-                            title={'Acnod'}
-                            subtitle={dict.home.works.categories.web_development}
-                            imagePath={'/works/acnodnet/acnodnet.png'}
-                            imageClassName={'float-end'}
-                            websiteHref={'https://final-acnod.vercel.app'}
-                            initial={{
-                                translateX: '-10%',
-                                opacity: 0
-                            }}
-                            tags={<>
-                                <Tag className={'bg-aero-300! ' +
-                                    'text-aero-950!'} icon={<SiNextdotjs/>}>NextJS</Tag>
-                                <Tag icon={<TbBrandThreejs/>}>ThreeJS</Tag>
-                            </>}>
-                            <Translate value={dict.home.works.acnod.description} components={{ link: <Link href={'#'}/> }}/>
-                        </WorkCard>
-
-                        <WorkCard
-                            className={'bg-[linear-gradient(45deg,#000f14_0%,#023447_70%)]'}
-                            title={'Nagy3D'}
-                            subtitle={dict.home.works.categories.web_development}
-                            imagePath={'/works/nagy3dcz/nagy3d.png'}
-                            imageClassName={'float-end !w-full'}
-                            websiteHref={'https://www.Nagy3D.cz'}
-                            initial={{
-                                translateX: '10%',
-                                opacity: 0
-                            }}
-                            tags={<>
-                                <Tag className={'bg-aero-300! text-aero-950!'} icon={<SiNextdotjs/>}>NextJS</Tag>
-                            </>}>
-                            {dict.home.works.nagy3d.description}
-                        </WorkCard>
-
-                        <WorkCard
-                            className={'bg-[linear-gradient(45deg,#171717_0%,#202020_70%)]'}
-                            title={'Monitoring Dashboard'}
-                            subtitle={dict.home.works.categories.web_development}
-                            imagePath={'/works/monitoring-dashboard/monitoring-dashboard.png'}
-                            imageClassName={'float-end !w-full'}
-                            websiteHref={'https://github.com/Jakooob14/MonitoringDashboard'}
-                            websiteTitle={'GitHub'}
-                            learnMoreHref={'/works/monitoring-dashboard'}
-                            initial={{
-                                translateX: '-10%',
-                                opacity: 0
-                            }}
-                            tags={<>
-                                <Tag className={'bg-aero-300! text-aero-950!'} icon={<SiBlazor/>}>Blazor</Tag>
-                            </>}>
-                            {dict.home.works.monitoring_dashboard.description}
-                        </WorkCard>
-
-                        <WorkCard
-                            className={'bg-[linear-gradient(135deg,hsla(200,7%,8%,1)_0%,#2F0B0B_70%)]'}
-                            title={'Slenderman'}
-                            subtitle={dict.home.works.categories.game_development}
-                            imagePath={'/works/slenderman/slenderman.png'}
-                            imageClassName={'float-end !w-full'}
-                            websiteHref={'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/latest'}
-                            websiteTitle={dict.general.download}
-                            websiteIcon={<FaDownload/>}
-                            initial={{
-                                translateX: '10%',
-                                opacity: 0
-                            }}
-                            tags={<>
-                                <Tag className={'bg-aero-300! text-aero-950! block'} icon={<UnrealEngineLogo className={'h-full w-4'}/>}>UE5</Tag>
-                            </>}>
-                            {dict.home.works.slenderman.description}
-                        </WorkCard>
-
-                        <div></div> {/* TEMP */}
-
-                        <WorkCard
-                            className={'bg-[linear-gradient(-45deg,#131516_0%,#1C1F21_70%)]'}
-                            title={dict.home.works.raylib_games.title}
-                            subtitle={dict.home.works.categories.game_development}
-                            imagePath={'/works/raylib-games/raylib-games.png'}
-                            imageClassName={'float-end !w-full !object-left-top'}
-                            learnMoreHref={'https://github.com/stars/Jakooob14/lists/raylib-games'}
-                            initial={{
-                                translateX: '10%',
-                                opacity: 0
-                            }}
-                            tags={<>
-                                <Tag className={'bg-aero-300! text-aero-950! block'} icon={<Image className={'h-full w-4'} src={'/works/raylib-games/raylib-logo.png'} alt={'Raylib logo'} width={16} height={16}/>}>raylib</Tag>
-                            </>}>
-                            {dict.home.works.raylib_games.description}
-                        </WorkCard>
-
-                        {/*<div className={'row-start-6 col-start-2'}>*/}
-                        {/*    <span className={'text-3xl'}>This isn&#39;t all! Check out all of my work <Link href={'/works'}>here</Link>.</span>*/}
-                        {/*</div>*/}
+                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! mt-20 flex flex-col items-center'}>
+                        {works.map((work => (
+                            work.featured && (
+                                <WorkCard
+                                    work={work as never}
+                                    key={work.id}
+                                    style={{
+                                        background: work.background,
+                                    }}
+                                />
+                            )
+                        )))}
                     </div>
+
+                    <Link className={`2xl:absolute text-center 2xl:text-start w-full 2xl:w-auto block my-16 2xl:my-0 bg-aero-500 px-9 py-8 shadow-lg ${works.filter(w => w.featured).length % 2 === 0 ? 'right-[16px] bottom-2' : 'bottom-[300px]'}`} href={'/works'}>
+                        <span className={'text-3xl text-white'}>This isn&#39;t all! Check out all of my work here.</span>
+                    </Link>
                 </div>
                 <Divider/>
             </section>
         );
 
-        function WorkCard({ children, title, subtitle, className, imageClassName, tags, imagePath, learnMoreHref = '/works/' + title.toLowerCase(), websiteHref, websiteTitle, websiteIcon = <FaGlobe/>, initial }: WorkCardProps){
-            return (
-                <motion.div
-                    initial={initial}
-                    whileInView={{
-                        translateX: 0,
-                        opacity: 1,
-                        transition: {
-                            duration: .8,
-                            ease: cubicBezier(0.76, 0, 0.24, 1),
-                            delay: .4
-                        }
-                    }}
-                    viewport={{ once: true }}
-                    className={'w-auto md:w-175 xl:w-auto relative flex flex-col justify-between overflow-hidden shadow-[0_0_30px_-3px_rgba(0,0,0,.3)] ' + className}>
-                    <div className={'m-10 sm:m-20'}>
-                        <div className={'flex justify-between md:items-center flex-col md:flex-row'}>
-                            <Heading2 className={'font-bold'}>{title}</Heading2>
-                            {subtitle && <Heading3 className={'block md:hidden'}>{subtitle}</Heading3>}
-                            <span className={'flex gap-3 mt-2 md:mt-0'}>{tags}</span>
-                        </div>
-                        {subtitle && <Heading3 className={'hidden md:block'}>{subtitle}</Heading3>}
-                        <p className={'my-6'}>{children}</p>
-                        <div className={'flex md:justify-end gap-4 items-start md:items-center mx-20# flex-col md:flex-row'}>
-                            {
-                                websiteHref ?
-                                    <Link className={'rounded-full# p-1 flex items-center gap-2'} href={websiteHref} rel={'noreferrer'} target={'_blank'}>
-                                        <span className={'text-2xl'}>{websiteIcon}</span>
-                                        <span>{websiteTitle || websiteHref.replace(/https?:\/\/(www\.)?/, '')}</span>
-                                    </Link>
-                                    : undefined
-                            }
-                            {
-                                learnMoreHref ?
-                                    <LinkButton href={learnMoreHref} target={learnMoreHref.startsWith('http') ? '_blank' : ''}>{dict.home.works.learn_more}</LinkButton>
-                                    : undefined
-                            }
-                        </div>
-                    </div>
-                    <div className={'sm:h-112.5 m-8 shadow-[0_0_20px_0px_rgba(0,0,0,.3)] overflow-hidden'}>
-                        <Suspense fallback={<Loader/>}>
-                            <Image className={'object-cover object-center h-full ' + imageClassName}
-                                   src={imagePath} alt={title + ' website image'} width={1400} height={1000}/>
-                        </Suspense>
-                    </div>
-                </motion.div>
-            );
-        }
     }
 
 }
