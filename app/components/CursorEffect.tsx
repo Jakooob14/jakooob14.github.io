@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CursorEffect() {
-    const [cursorEnabled] = useState(true);
+    const [cursorEnabled, setCursorEnabled] = useState(true);
 
     const defaultCursorSize = 256;
     let cursorSize = defaultCursorSize;
@@ -109,13 +109,27 @@ export default function CursorEffect() {
     };
 
     useEffect(() => {
-        if (window.innerWidth < 1280) return;
-
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
     }, [handleMouseMove]);
+    
+    const handleTouch = () => {
+        setCursorEnabled(false);
+    };
+
+    useEffect(() => {
+        window.addEventListener('touchstart', handleTouch);
+        window.addEventListener('touchmove', handleTouch);
+        window.addEventListener('touchend', handleTouch);
+
+        return () => {
+            window.removeEventListener('touchstart', handleTouch);
+            window.removeEventListener('touchmove', handleTouch);
+            window.removeEventListener('touchend', handleTouch);
+        };
+    }, []);
 
     return (
         <motion.div
@@ -125,6 +139,7 @@ export default function CursorEffect() {
                 width: smoothSize.width,
                 height: smoothSize.height,
                 borderRadius: smoothSize.borderRadius,
+                display: cursorEnabled ? 'block' : 'none',
             }}
             className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl'}>
         </motion.div>
