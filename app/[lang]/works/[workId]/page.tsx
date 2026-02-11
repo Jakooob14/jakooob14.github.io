@@ -12,11 +12,15 @@ import Lightbox from '@/app/components/lightbox/Lightbox';
 import { LightboxItem } from '@/app/components/lightbox/LightboxItem';
 import TechnologyTag from '@/app/components/TechnologyTag';
 import { redirect } from 'next/navigation';
+import { locales } from '@/app/[lang]/getDictionary';
 
 export function generateStaticParams() {
-    return works.map(work => ({
-        id: work.id
-    }));
+    return locales.flatMap(lang =>
+        works.map(work => ({
+            lang,
+            workId: work.id,
+        }))
+    );
 }
 
 interface PageProps {

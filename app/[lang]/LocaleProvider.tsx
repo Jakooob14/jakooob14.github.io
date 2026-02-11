@@ -5,8 +5,6 @@ import { getDictionary } from '@/app/[lang]/getDictionary';
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
 
-export type Locale = 'en' | 'cs';
-
 const LocaleContext = createContext<Dictionary | null>(null);
 
 export default function LocaleProvider({ dictionary, children,}: { dictionary: Dictionary, children: React.ReactNode }) {

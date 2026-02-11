@@ -1,9 +1,11 @@
 import 'server-only';
 
 import enLocale from './locales/en.json';
-import { Locale } from '@/app/[lang]/LocaleProvider';
 
 type Dictionary = typeof enLocale;
+
+export type Locale = 'en' | 'cs';
+export const locales: Locale[] = ['en', 'cs'];
 
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
     en: () => import('./locales/en.json').then((module) => module.default),
