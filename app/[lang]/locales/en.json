@@ -38,7 +38,7 @@
     },
     "about_me": {
       "title": "About me",
-      "paragraph": "I'm a student and developer passionate about creating modern web applications. I work across the whole stack, building frontends with React, Next.js, and Tailwind CSS, and developing backends with Node.js and PostgreSQL. My projects focus on smooth user experiences, efficient data handling, and solid technical foundations.\n\nI like exploring and learning new technologies and improving how things are built, whether it’s refining architecture, optimizing performance, or experimenting with better development workflows.\n\nOutside of web development, I also explore game development in C++ and Unity.",
+      "paragraph": "I'm a student and developer passionate about creating modern web applications. I work across the whole stack, building applications with React, Next.js, Tailwind CSS, PostgreSQL and newly ASP.NET. My projects focus on smooth user experiences, efficient data handling, and solid technical foundations.\n\nI like exploring and learning new technologies and improving how things are built, whether it’s refining architecture, optimizing performance, or experimenting with better development workflows.\n\nOutside of web development, I also explore game development in C++ and Unity.",
       "education": {
         "title": "Education",
         "high_school": "High School",
@@ -52,7 +52,15 @@
       "other": "Other"
     },
     "works": {
-      "title": "Works",
+      "more_cta": {
+        "top": "There's even more to see!",
+        "bottom": "View all my works"
+      },
+      "navigation": {
+        "all": "All",
+        "web_development": "Websites",
+        "game_development": "Games"
+      },
       "categories": {
         "web-development": "Web Development",
         "game-development": "Game Development"

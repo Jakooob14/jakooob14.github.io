@@ -22,22 +22,22 @@ export default function WorksPage() {
         <section className={'container mx-auto'}>
             <LinkButton href={'/'}>{dict.general.back}</LinkButton>
             <div>
-                <Heading1 className={'mt-8'}>{dict.home.works.title}</Heading1>
+                <Heading1 className={'mt-8'}>{dict.home.main.navigation.works}</Heading1>
 
                 <LinksGroup onClick={() => setResetKey(resetKey + 1)}>
                     <LinksGroup.AnchorButton 
-                        label={'All'} href={'#'} 
+                        label={dict.home.works.navigation.all} href={'#'} 
                         active={hash === ''}
                         data-cursor-reset-click={false}
                     />
                     <LinksGroup.AnchorButton 
-                        label={'Websites'} 
+                        label={dict.home.works.navigation.web_development} 
                         href={'#web-development'} 
                         active={hash === 'web-development'}
                         data-cursor-reset-click={false}
                     />
                     <LinksGroup.AnchorButton 
-                        label={'Games'} 
+                        label={dict.home.works.navigation.game_development} 
                         href={'#game-development'} 
                         active={hash === 'game-development'}
                         data-cursor-reset-click={false}
@@ -45,7 +45,7 @@ export default function WorksPage() {
                 </LinksGroup>
             </div>
             
-            <ul className={'grid mt-8 gap-8 md:gap-12 lg:gap-16 grid-cols-1 xl:grid-cols-2'}>
+            <ul className={'grid mt-20 gap-8 md:gap-12 lg:gap-16 grid-cols-1 xl:grid-cols-2'}>
                 {works.map((work, index) => (
                     (work.category === hash || hash === '') && (
                         <li key={work.id}
@@ -60,8 +60,6 @@ export default function WorksPage() {
                     )
                 ))}
             </ul>
-            
-        {/* TODO: Implement concept art and make each project have a slide up animation on load and category change */}
         </section>
     </main>
   );

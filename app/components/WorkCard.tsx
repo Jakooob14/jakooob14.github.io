@@ -15,13 +15,15 @@ interface WorkExtended extends Work {
 }
 
 interface WorkCardProps extends HTMLAttributes<HTMLDivElement> {
-    work: WorkExtended
+    work: WorkExtended;
+    dynamicHeight?: boolean;
 }
 
 export default function WorkCard({
     work,
     className = '',
-    style
+    style,
+    dynamicHeight = false,
 }: WorkCardProps
 ) {
     const dict = useDictionary();
@@ -41,20 +43,20 @@ export default function WorkCard({
                 }
             }}
             viewport={{ once: true }}
-            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% lg:min-w-[700px] w-[700px] max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}
+            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% lg:min-w-[700px] max-w-150 flex flex-col justify-between shadow-xl xl:min-h-225 ' + className}
             style={style}
         >
-            <section className={'flex flex-col justify-between m-20 mb-0 h-[300px] min-h-[300px]'}>
+            <section className={'flex flex-col justify-between m-10 sm:m-15 xl:m-20 mb-4! min-h-[300px]'}>
                 <section>
                     <div className={'mb-4'}>
                         <Heading2 className={'font-semibold'}>{work.title || 'Untitled'}</Heading2>
-                        <Heading3 className={'font-semibold mt-1'}>{dict.home.works.categories[work.category]}</Heading3>
+                        <Heading3 className={'font-semibold -mt-2 lg:mt-1'}>{dict.home.works.categories[work.category]}</Heading3>
                     </div>
                     <p>
                         <Translate value={work.brief || ''} components={{ link: <Link href={'#'}/> }}/>
                     </p>
                 </section>
-                <section className={'flex justify-between items-center mt-8'}>
+                <section className={'flex justify-between lg:items-center mt-8 flex-col lg:flex-row gap-y-3'}>
                     <ul className={'flex'}>
                         {work.links && work.links.map((link, index) => (
                             <li key={index} className={'rounded-full'}>
@@ -66,12 +68,13 @@ export default function WorkCard({
                             href={work.redirectUrl || `/works/${work.id}`} 
                             rel={'noreferrer'}
                             target={work.redirectUrl ? '_blank' : '_self'}
+                            className={'w-fit'}
                         >
                             {dict.general.learn_more}
                         </LinkButton>
                 </section>
             </section>
-            <section className={'m-8 h-112.5 shadow-lg'}>
+            <section className={'m-8 shadow-lg xl:h-112.5'}>
                 <div className={'w-full h-full bg-alt-gray-50 overflow-hidden'}>
                     {work.media && work.media.length > 0 && work.media[0].type === 'image' && (
                         <Image

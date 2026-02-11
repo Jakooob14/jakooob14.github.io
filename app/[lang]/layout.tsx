@@ -8,6 +8,7 @@ import { getDictionary } from '@/app/[lang]/getDictionary';
 import DictionaryProvider from '@/app/[lang]/DictionaryProvider';
 import FloatingLocaleSwitcher from '@/app/components/FloatingLocaleSwitcher';
 import ScrollToTop from '@/app/components/ScrollToTop';
+import PageTransition from '@/app/components/PageTransition';
 
 export const metadata: Metadata = {
     title: 'Jakub Sokol'
@@ -32,8 +33,10 @@ export default async function LangLayout({ children, params }: Readonly<RootLayo
         <html lang={lang}>
             <body className={'antialiased text-white'}>
                 <DictionaryProvider dictionary={dict}>
-                    {children}
-                    <Footer/>
+                    <PageTransition>
+                        {children}
+                        <Footer/>
+                    </PageTransition>
                     <Signature/>
                     <CursorEffect/>
                     <FloatingLocaleSwitcher/>

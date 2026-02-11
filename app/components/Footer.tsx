@@ -28,8 +28,8 @@ export default function Footer(){
                 </div>
 
                 <div id={'contact'}>
-                    <span className={'text-3xl font-semibold text-aero-500 font-heading text-end w-full block'}>{dict.home.main.navigation.contact}</span>
-                    <ul className={'text-xl mt-1 flex flex-col items-end'}>
+                    <span className={'text-3xl font-semibold text-aero-500 font-heading md:text-end w-full block'}>{dict.home.main.navigation.contact}</span>
+                    <ul className={'text-xl mt-1 flex flex-col md:items-end'}>
                         <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
                                   href={'https://www.linkedin.com/in/sokoljakub'} rel={'noreferrer'}
                                   target={'_blank'}><IoLogoLinkedin/>LinkedIn</Link></li>

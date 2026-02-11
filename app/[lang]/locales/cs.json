@@ -38,7 +38,7 @@
     },
     "about_me": {
       "title": "O mně",
-      "paragraph": "Jsem student a vývojář se zájmem o tvorbu moderních webových aplikací. Pracuji s celým vývojovým stackem vytvářím frontend pomocí Reactu, Next.js a Tailwind CSS, a vyvíjím backend v Node.js a PostgreSQL. Mé projekty se zaměřují na plynulý uživatelský zážitek, efektivní práci s daty a pevné technické základy.\n\nRád zkouším a učím se nové technologie a neustále hledám způsoby, jak zlepšovat proces vývoje ať už jde o vylepšení architektury, optimalizaci výkonu nebo experimentování s efektivnějšími pracovními postupy.\n\nMimo webový vývoj se také věnuji vývoji her v C++ a Unity.",
+      "paragraph": "Jsem student a vývojář se zájmem o tvorbu moderních webových aplikací. Pracuji s celým vývojovým stackem vytvářím aplikace pomocí Reactu, Next.js, Tailwind CSS, PostgreSQL a nově ASP.NET. Mé projekty se zaměřují na plynulý uživatelský zážitek, efektivní práci s daty a pevné technické základy.\n\nRád zkouším a učím se nové technologie a neustále hledám způsoby, jak zlepšovat proces vývoje ať už jde o vylepšení architektury, optimalizaci výkonu nebo experimentování s efektivnějšími pracovními postupy.\n\nMimo webový vývoj se také věnuji vývoji her v C++ a Unity.",
       "education": {
         "title": "Vzdělání",
         "high_school": "Střední škola",
@@ -52,7 +52,15 @@
       "other": "Ostatní"
     },
     "works": {
-      "title": "Works",
+      "more_cta": {
+        "top": "A to ještě není všechno!",
+        "bottom": "Zobrazit všechny práce"
+      },
+      "navigation": {
+        "all": "Vše",
+        "web_development": "Web",
+        "game_development": "Hry"
+      },
       "categories": {
         "web-development": "Webový vývoj",
         "game-development": "Vývoj her"

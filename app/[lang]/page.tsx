@@ -2,14 +2,12 @@
 
 import { cubicBezier, motion } from 'motion/react';
 import Divider from '@/app/components/Divider';
-import { Heading1, Heading2, Heading3 } from '@/app/components/Headings';
-import { ReactNode, Suspense } from 'react';
+import { Heading1, Heading2 } from '@/app/components/Headings';
+import { ReactNode } from 'react';
 import { IoLogoReact } from 'react-icons/io5';
-import { SiBlazor, SiNextdotjs } from 'react-icons/si';
 import {
     AspNetLogo,
-    BlazorLogo, CppLogo,
-    CSharpLogo,
+    BlazorLogo,
     EduchemLogo,
     NextJSLogo,
     UnityLogo,
@@ -17,13 +15,7 @@ import {
 } from '@/app/components/Icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import { TbBrandThreejs } from 'react-icons/tb';
-import Loader from '@/app/components/Loader';
-import { FaGlobe, FaDownload } from 'react-icons/fa6';
-import { LinkButton } from '@/app/components/Buttons';
-import Tag from '@/app/components/Tag';
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
-import Translate from '@/app/components/Translate';
 import FlagUK from '@/public/Flag_UK.png';
 import { RiTailwindCssFill } from 'react-icons/ri';
 import { TargetAndTransition, VariantLabels } from 'motion'; 
@@ -296,9 +288,9 @@ export default function Home() {
         return (
             <section className={'bg-alt-gray-primary shadow-[0px_0px_30px_-2px_rgba(0,0,0,.15)] overflow-x-hidden'} id={'works'}>
                 <Divider/>
-                <div className={`container mx-auto relative px-0 mt-32 ${works.filter(w => w.featured).length % 2 === 0 && 'mb-32'}`}>
-                    <Heading1>{dict.home.works.title}</Heading1>
-                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! 2xl:translate-y-30 my-24 2xl:my-0 flex flex-col items-center'}>
+                <div className={`container mx-auto relative mt-32 ${works.filter(w => w.featured).length % 2 === 0 && 'mb-32'}`}>
+                    <Heading1>{dict.home.main.navigation.works}</Heading1>
+                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! 2xl:translate-y-30 mt-10 sm:mt-16 mb-24 lg:my-24 2xl:my-0 flex flex-col items-center'}>
                         {works.map((work => (
                             work.featured && (
                                 <WorkCard
@@ -307,14 +299,14 @@ export default function Home() {
                                     style={{
                                         background: work.background,
                                     }}
+                                    dynamicHeight
                                 />
                             )
                         )))}
                     </div>
-                    <div className={'flex flex-col items-center mb-32 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16 bg-diagonal-stripes stripes-color-[hsl(0,0%,19%)] stripes-size-5 border-[6px] border-alt-gray-200'}>
-                        <span className={'text-5xl font-heading font-bold'}>There&#39;s even more to see!</span>
-                        <Link className={'text-2xl font-semibold bg-aero-500 text-white px-8 py-4 mt-8 shadow-md'} href={'/works'}>View all my work</Link>
-                        {/*  TODO: translations  */}
+                    <div className={'flex flex-col items-center mb-32 p-4 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16 bg-diagonal-stripes stripes-color-[hsl(0,0%,19%)] stripes-size-5 border-[6px] border-alt-gray-200'}>
+                        <span className={'text-4xl lg:text-5xl font-heading font-bold text-center'}>{dict.home.works.more_cta.top}</span>
+                        <Link className={'text-xl lg:text-2xl font-semibold bg-aero-500 text-white px-8 py-4 mt-8 shadow-md text-center'} href={'/works'}>{dict.home.works.more_cta.bottom}</Link>
                     </div>
                 </div>
                 <Divider/>
