@@ -50,6 +50,11 @@
   /* SHADOWS */
   --shadow-lg: 0 0 20px 0px rgba(0, 0, 0, .3);
   --shadow-xl: 0 0 30px -3px rgba(0, 0, 0, .3);
+
+  /* STRIPES BACKGROUND */
+  --stripe-color-primary: var(--color-alt-gray-200);
+  --stripe-color-secondary: transparent;
+  --stripe-size: 14px;
 }
 
 @layer base{
@@ -77,3 +82,27 @@
   }
 }
 
+/* STRIPES BACKGROUND */
+@utility stripes-color-* {
+  --stripe-color-primary: --value(--color-*, [color]);
+}
+
+@utility stripes-color-secondary-* {
+  --stripe-color-secondary: --value(--color-*, [color]);
+}
+
+@utility stripes-size-* {
+  --stripe-size: --spacing(--value(integer));
+}
+
+@layer utilities {
+  .bg-diagonal-stripes {
+    background-image: repeating-linear-gradient(
+            -45deg,
+            var(--stripe-color-secondary),
+            var(--stripe-color-secondary) var(--stripe-size),
+            var(--stripe-color-primary) var(--stripe-size),
+            var(--stripe-color-primary) calc(var(--stripe-size) * 2)
+    );
+  }
+}

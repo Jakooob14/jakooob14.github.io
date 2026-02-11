@@ -27,7 +27,7 @@ export default function ScrollToTop() {
     return (
         <motion.div
             onClick={scrollToTop}
-            className={'fixed bottom-4 right-4 p-2 bg-aero-300 rounded-full text-aero-950 shadow-md cursor-pointer z-10'}
+            className={'fixed bottom-4 right-4 p-2 bg-aero-400 rounded-full text-aero-950 shadow-md cursor-pointer z-10'}
             data-cursor-hover
             initial={{
                 opacity: 0,

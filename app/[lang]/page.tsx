@@ -56,7 +56,7 @@ export default function Home() {
         };
 
         return (
-            <main className={'h-screen bg-[url("/diagonal-stripes.svg")] bg-size-[50px] bg-position-[left_35px_top_20px]'}>
+            <main className={'h-screen bg-diagonal-stripes stripes-color-[hsl(0,0%,19%)] stripes-size-5'}>
                 <div className={'relative z-0 container mx-auto flex flex-col justify-center gap-3 md:gap-12 lg:gap-24 h-full'}>
 
                     {/* Title */}
@@ -298,7 +298,7 @@ export default function Home() {
                 <Divider/>
                 <div className={`container mx-auto relative px-0 mt-32 ${works.filter(w => w.featured).length % 2 === 0 && 'mb-32'}`}>
                     <Heading1>{dict.home.works.title}</Heading1>
-                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! 2xl:translate-y-30 mb-24 2xl:mb-0 flex flex-col items-center'}>
+                    <div className={'2xl:grid grid-cols-2 gap-x-24 gap-y-24 2xl:[&>*:nth-child(even)]:-translate-y-64! 2xl:[&>*:last-child:nth-child(odd)]:col-start-2 2xl:[&>*:last-child:nth-child(odd)]:-translate-y-64! 2xl:translate-y-30 my-24 2xl:my-0 flex flex-col items-center'}>
                         {works.map((work => (
                             work.featured && (
                                 <WorkCard
@@ -311,7 +311,7 @@ export default function Home() {
                             )
                         )))}
                     </div>
-                    <div className={'flex flex-col items-center mb-32 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16'}>
+                    <div className={'flex flex-col items-center mb-32 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16 bg-diagonal-stripes stripes-color-[hsl(0,0%,19%)] stripes-size-5 border-[6px] border-alt-gray-200'}>
                         <span className={'text-5xl font-heading font-bold'}>There&#39;s even more to see!</span>
                         <Link className={'text-2xl font-semibold bg-aero-500 text-white px-8 py-4 mt-8 shadow-md'} href={'/works'}>View all my work</Link>
                         {/*  TODO: translations  */}

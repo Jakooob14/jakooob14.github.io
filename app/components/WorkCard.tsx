@@ -41,7 +41,7 @@ export default function WorkCard({
                 }
             }}
             viewport={{ once: true }}
-            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% min-w-[700px] w-[700px] max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}
+            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% lg:min-w-[700px] w-[700px] max-w-150 h-225 flex flex-col justify-between shadow-xl ' + className}
             style={style}
         >
             <section className={'flex flex-col justify-between m-20 mb-0 h-[300px] min-h-[300px]'}>
