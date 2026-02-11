@@ -166,7 +166,7 @@ export default function CursorEffect() {
                 borderRadius: smoothSize.borderRadius,
                 display: cursorEnabled ? 'block' : 'none',
             }}
-            className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert shadow-2xl'}>
+            className={'fixed z-[1000] /border-[3px] border-alt-gray-900 pointer-events-none backdrop-invert backdrop-hue-rotate-180 backdrop-saturate-200 shadow-2xl'}>
         </motion.div>
     );
 }
