@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 
 interface StretchedTextProps {
     children: ReactNode,
@@ -24,7 +24,7 @@ interface StretchedTextByLetterSizeProps {
     thinnerLettersIndex?: number[]
 }
 
-export function StretchedTextByLetterSize({className, text, gap = 1.5, elementId, thinnerLettersIndex}: StretchedTextByLetterSizeProps){
+export function StretchedTextByLetterSize({ className, text, gap = 1.5, elementId, thinnerLettersIndex }: StretchedTextByLetterSizeProps){
     // const textRef = useRef<HTMLSpanElement>(null);
     // const lettersRef = useRef<(HTMLSpanElement | null)[]>([]);
     // const [textWidth, setTextWidth] = useState('0px')
@@ -49,10 +49,10 @@ export function StretchedTextByLetterSize({className, text, gap = 1.5, elementId
             <span className={'relative block ' + className}>
             {Array.from(text).map((letter, index) => {
                 return <span
-                    style={{marginLeft: `${index * gap - (thinnerLettersIndex?.includes(index) ? .1 : 0)}em`}}
-                    className={'absolute left-0 w-[1em]'} id={elementId} key={index}>{letter}</span>
+                    style={{ marginLeft: `${index * gap - (thinnerLettersIndex?.includes(index) ? .1 : 0)}em` }}
+                    className={'absolute left-0 w-[1em]'} id={elementId} key={index}>{letter}</span>;
             })}
                 <span className={'invisible'}>{text}</span>
         </span>
-    )
+    );
 }

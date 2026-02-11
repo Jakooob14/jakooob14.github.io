@@ -1,8 +1,8 @@
 'use client';
 
-import {CZ, US} from "country-flag-icons/react/3x2";
-import {usePathname} from "next/navigation";
-import {handleChangeLocale} from "@/app/utilities/handleChangeLocale";
+import { CZ, US } from 'country-flag-icons/react/3x2';
+import { usePathname } from 'next/navigation';
+import { handleChangeLocale } from '@/app/utilities/handleChangeLocale';
 
 export default function FloatingLocaleSwitcher() {
     const pathname = usePathname();

@@ -1,0 +1,177 @@
+import { Technology } from '@/app/components/TechnologyTag';
+import { Property } from 'csstype';
+
+export type WorkCategory =
+    | 'web-development'
+    | 'game-development';
+
+export type WorkLinkType =
+    | 'source-code'
+    | 'website'
+    | 'download';
+
+export type WorkLink = {
+    type: WorkLinkType;
+    url: string;
+    openInNewTab?: boolean;
+    popupText?: string;
+};
+
+export interface Work {
+    id: string;
+    category: WorkCategory;
+    featured?: boolean;
+    background?: Property.Background;
+    links?: WorkLink[];
+    media?: {
+        type: 'image' | 'video';
+        url: string;
+        alt?: string;
+    }[];
+    technologies?: Technology[];
+    endYear?: number;
+    redirectUrl?: string; // Instead of a work page, when clicking learn more in a work card redirect to this link
+}
+
+export const works: Work[] = [
+    {
+        id: 'acnod',
+        category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #131516 0%, #1C1F21 70%)',
+        endYear: 2023,
+        links: [
+            {
+                type: 'website',
+                url: 'https://final-acnod.vercel.app'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet1.webp',
+                alt: 'Acnod Home page 1'
+            },
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet2.webp',
+                alt: 'Acnod Home page 2'
+            }
+        ],
+        technologies: ['nextjs', 'threejs', 'i18next']
+    },
+    {
+        id: 'nagy3d',
+        category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #000f14 0%, #023447 70%)',
+        endYear: 2023,
+        links: [
+            {
+                type: 'website',
+                url: 'https://nagy3d.cz'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d.webp',
+                alt: 'Nagy3D Home page'
+            },
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d-services.webp',
+                alt: 'Nagy3DServices page'
+            },
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d-about.webp',
+                alt: 'Nagy3D About page'
+            },
+            {
+                type: 'image',
+                url: '/works/nagy3dcz/nagy3d-contact.webp',
+                alt: 'Nagy3D Contact page'
+            },
+        ]
+    },
+    {
+        id: 'monitoring-dashboard',
+        category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #171717 0%, #202020 70%)',
+        endYear: 2025,
+        links: [
+            {
+                type: 'website',
+                url: 'https://status.jakooob.dev/'
+            },
+            {
+                type: 'source-code',
+                url: 'https://github.com/Jakooob/monitoring-dashboard'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-home.webp',
+                alt: 'Monitoring Dashboard Home page'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-services.webp',
+                alt: 'Monitoring Dashboard Services page'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-maintenances.webp',
+                alt: 'Monitoring Dashboard Maintenances page'
+            },
+            {
+                type: 'image',
+                url: '/works/monitoring-dashboard/monitoring-dashboard-users.webp',
+                alt: 'Monitoring Dashboard Users page'
+            },
+        ]
+    },
+    {
+        id: 'slenderman',
+        category: 'game-development',
+        background: 'linear-gradient(135deg, hsla(200, 7%, 8%, 1) 0%, #2F0B0B 70%)',
+        endYear: 2025,
+        links: [
+            {
+                type: 'source-code',
+                url: 'https://git.jakooob.dev/Jakooob/slenderman-unreal'
+            },
+            {
+                type: 'download',
+                url: 'https://git.jakooob.dev/Jakooob/slenderman-unreal/releases/download/latest/Slenderman%20-%20Windows.zip',
+                openInNewTab: false,
+                popupText: 'Download for Windows',
+                
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/slenderman/slenderman.webp',
+                alt: 'Slenderman Game',
+            }
+        ]
+    },
+    {
+        id: 'raylib-games',
+        category: 'game-development',
+        background: 'linear-gradient(-45deg, #131516 0%, #1C1F21 70%)',
+        endYear: 2025,
+        redirectUrl: 'https://github.com/stars/Jakooob14/lists/raylib-games',
+        media: [
+            {
+                type: 'image',
+                url: '/works/raylib-games/raylib-games.webp',
+                alt: 'Raylib Games'
+            }
+        ]
+    }
+];

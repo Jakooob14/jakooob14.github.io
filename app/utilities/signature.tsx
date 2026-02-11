@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import {useEffect} from "react";
+import { useEffect } from 'react';
 
 export default function Signature() {
     useEffect(() => {
@@ -8,7 +8,7 @@ export default function Signature() {
             .then((r) => r.text())
             .then(text  => {
                 console.log(text);
-            })
+            });
     }, []);
-    return (<></>)
+    return (<></>);
 }
