@@ -75,16 +75,18 @@ export default function WorkCard({
                 </section>
             </section>
             <section className={'m-8 shadow-lg xl:h-112.5'}>
-                <div className={'w-full h-full bg-alt-gray-50 overflow-hidden'}>
+                <div className={'w-full h-full bg-alt-gray-50# overflow-hidden relative'}>
                     {work.media && work.media.length > 0 && work.media[0].type === 'image' && (
                         <Image
                             src={work.media[0].url}
                             alt={work.media[0].alt || work.title || 'Work Image'}
-                            className={'w-full h-full object-cover'}
+                            className={'w-full h-full object-cover relative z-1'}
                             width={700}
                             height={700}
                         />
                     )}
+
+                    <div className={'absolute top-0 left-0 w-full h-full flex items-center justify-center animate-pulse bg-alt-gray-300'}></div>
                 </div>
             </section>
         </motion.div>

@@ -40,6 +40,7 @@ export function LightboxItem({ src, width, height, alt = '', className, imageCla
             <div className={'absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity'}>
                 <FaMagnifyingGlassPlus size={32}/>
             </div>
+            <div className={'absolute top-0 left-0 w-full h-full flex items-center justify-center animate-pulse bg-alt-gray-300 -z-1'}></div>
         </div>
     );
 }

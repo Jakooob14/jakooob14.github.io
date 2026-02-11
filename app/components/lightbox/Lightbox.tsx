@@ -1,6 +1,6 @@
 'use client';
 
-import { HTMLAttributes, useCallback, useEffect, useState, MouseEvent, useRef } from 'react';
+import { HTMLAttributes, useCallback, useEffect, useState, MouseEvent } from 'react';
 import { LightboxContext } from './LightboxContext';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';

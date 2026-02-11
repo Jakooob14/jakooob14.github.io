@@ -103,7 +103,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                                 work.media?.[0] && (
                                     <LightboxItem
                                         src={work.media[0].url}
-                                        width={1200}
+                                        width={1000}
                                         alt={work.media[0].alt || ''}
                                         className={'w-full! h-full!'}
                                         imageClassName={'w-full! shadow-lg h-full!'}
