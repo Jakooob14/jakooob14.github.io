@@ -66,10 +66,21 @@
         "game-development": "Game Development"
       },
       "works_list": {
+        "tda26": {
+          "title": "Tour de App 2026",
+          "brief": "",
+          "description": "",
+          "sections": [
+            {
+              "title": "Section 1",
+              "content": "Content for section 1"
+            }
+          ]
+        },
         "acnod": {
           "title": "Acnod",
-          "brief": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services.",
-          "description": "Acnod was a project me and my friend <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelm Skyba</link> were working on. It was a freelance website on which we offered website development services."
+          "brief": "Acnod was a project me and my friend [Wilhelm Skyba](https://skymmel.eu) were working on. It was a freelance website on which we offered website development services.",
+          "description": "Acnod was a project me and my friend [Wilhelm Skyba](https://skymmel.eu) were working on. It was a freelance website on which we offered website development services."
         },
         "nagy3d": {
           "title": "Nagy 3D",
@@ -146,7 +157,7 @@
             },
             "credits": {
               "title": "🎨 Credits",
-              "text": "Created by <link href='https://jakooob.dev/'}>Jakub Sokol</link>\nOriginal game: \"Slender: The Eight Pages\" by Parsec Productions",
+              "text": "Created by [Jakub Sokol](https://jakooob.dev/)\nOriginal game: \"Slender: The Eight Pages\" by Parsec Productions",
               "assets": "Assets:",
               "list": [
                 "Maelstrom Library - MAE Oak Forest",

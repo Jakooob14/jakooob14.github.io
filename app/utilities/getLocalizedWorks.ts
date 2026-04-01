@@ -5,6 +5,12 @@ interface WorkLocalized extends Work {
     title?: string;
     brief?: string;
     description?: string;
+    sections: Section[];
+}
+
+interface Section {
+    title?: string;
+    content?: string;
 }
 
 export function getLocalizedWorks(dict: ReturnType<typeof useDictionary>): WorkLocalized[] {
@@ -12,13 +18,14 @@ export function getLocalizedWorks(dict: ReturnType<typeof useDictionary>): WorkL
 
     return works.map(work => {
         const key = work.id as keyof typeof items;
-        const t = items[key];
+        const t = items[key] as WorkLocalized | undefined;
 
         return {
             ...work,
             title: t?.title,
             brief: t?.brief,
             description: t?.description,
+            sections: t?.sections ?? [],
         };
     });
 }

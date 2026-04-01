@@ -1,58 +1,26 @@
-import { cloneElement, Fragment, ReactElement, ReactNode } from 'react';
-import he from 'he';
+import ReactMarkdown, { Components } from 'react-markdown';
+import Link from 'next/link';
+import { Heading1, Heading2 } from '@/app/components/Headings';
 
 interface TranslateProps {
     value: string;
-    components: Record<string, ReactNode>;
+    components?: Components;
 }
 
-
-const decodeHtmlEntities = (text: string) => he.decode(text);
+const defaultComponents: Components = {
+    a: ({ href, children }) => <Link href={href ?? '#'}>{children}</Link>,
+    h1: ({ children }) => <Heading1 className={'text-5xl! mb-2'}>{children}</Heading1>,
+    h2: ({ children }) => <Heading2 className={'text-3xl! mb-2'}>{children}</Heading2>,
+    ul: ({ children }) => <ul className={'list-[square] marker:text-aero-400 list-inside mt-2 mb-4'}>{children}</ul>,
+    li: ({ children }) => <li className={'ml-1'}>{children}</li>,
+};
 
 export default function Translate({ value, components }: TranslateProps) {
-    const regex = /<(\w+)(.*?)>(.*?)<\/\1>/g;
-
-    const parseAttributes = (attributesString: string) => {
-        const attributes: Record<string, string> = {};
-        const attrRegex = /(\w+)=['"]([^'"]+)['"]/g;
-        let match;
-
-        while ((match = attrRegex.exec(attributesString)) !== null) {
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const [_, key, value] = match;
-            attributes[key] = value;
-        }
-        return attributes;
-    };
-
-    const parsedTemplate: ReactNode[] = [];
-    let lastIndex = 0;
-    
-    value.replace(regex, (match, tagName, attributes, content, offset) => {
-        if (lastIndex < offset) {
-            const rawText = value.slice(lastIndex, offset);
-            parsedTemplate.push(<Fragment key={lastIndex}>{decodeHtmlEntities(rawText)}</Fragment>);
-        }
-        
-        if (components[tagName]) {
-            const component = components[tagName];
-            const parsedAttributes = parseAttributes(attributes);
-
-            parsedTemplate.push(
-                cloneElement(component as ReactElement, { ...parsedAttributes, key: offset }, decodeHtmlEntities(content))
-            );
-        } else {
-            parsedTemplate.push(<Fragment key={offset}>{decodeHtmlEntities(content)}</Fragment>);
-        }
-
-        lastIndex = offset + match.length;
-        return ''; 
-    });
-
-    if (lastIndex < value.length) {
-        const rawText = value.slice(lastIndex);
-        parsedTemplate.push(<Fragment key={lastIndex}>{decodeHtmlEntities(rawText)}</Fragment>);
-    }
-
-    return <>{parsedTemplate}</>;
+    return (
+        <section className={'markdown'}>
+            <ReactMarkdown components={{ ...defaultComponents, ...components }}>
+                {value}
+            </ReactMarkdown>
+        </section>
+    );
 }

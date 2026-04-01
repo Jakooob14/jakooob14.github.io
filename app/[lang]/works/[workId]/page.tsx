@@ -3,7 +3,6 @@ import NotFoundCatchAll from '@/app/[lang]/[...notFound]/page';
 import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
 import { getDictionary } from '@/app/[lang]/getDictionary';
 import Translate from '@/app/components/Translate';
-import Link from 'next/link';
 import { Heading1, Heading2 } from '@/app/components/Headings';
 import { LinkButton } from '@/app/components/Buttons';
 import { WorkIcon, WorkLinkIconButton } from '@/app/components/WorkCard';
@@ -63,7 +62,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                         }
                     </ul>
                     <p className={'mb-4 mt-2'}>
-                        <Translate value={work.description || ''} components={{ link: <Link href={'#'}/> }}/>
+                        <Translate value={work.description || ''}/>
                     </p>
                     <ul className={'flex items-center gap-4'}>
                         {work.links && work.links.length > 0 && work.links?.map((link, index) => (
@@ -95,6 +94,18 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                         ))}
                     </ul>
                 </section>
+                <article className={'flex items-center gap-4'}>
+                    {
+                        work.sections.map((section, index) => (
+                            <div key={index} className={'mt-8'}>
+                                <Heading2 className={'text-3xl! font-semibold'}>{section.title}</Heading2>
+                                <p className={'mt-2'}>
+                                    <Translate value={section.content || ''}/>
+                                </p>
+                            </div>
+                        ))
+                    }
+                </article>
                 <Divider className={'my-6'}/>
                 <section>
                     <div className={'mt-4'}>

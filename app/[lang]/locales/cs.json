@@ -66,10 +66,20 @@
         "game-development": "Vývoj her"
       },
       "works_list": {
+        "tda26": {
+          "title": "Think different Academy",
+          "brief": "",
+          "description": "",
+          "sections": [
+            {
+              "content": "## Cíl aplikace\nVytvořit systém, kde:\n- Lektor může připravovat výukové moduly (materiály + kvízy)  \n- Obsah se postupně odkrývá během živé výuky  \n- Studenti mohou interaktivně reagovat a plnit úkoly  \n&nbsp;\n## Funkcionalita\n- Tvorba modulů s materiály a kvízy  \n- Postupné odemykání obsahu během hodiny  \n- Vyplňování kvízů studenty v reálném čase  \n- Přehled výsledků a statistik studentů  \n- Hodnocení studentů lektorem  \n&nbsp;\n## Architektura systému\n- Struktura: **pobočky → lektoři → studenti**  \n- Lektoři mohou zvát studenty do systému  \n- Studenti si vytváří účty a přistupují k obsahu  \n&nbsp;\n## Gamifikace\n- XP systém za aktivitu  \n- Virtuální měna (kačenky)  \n- Denní úkoly  \n- Kosmetické odměny za aktivitu  \n&nbsp;\n## Vývoj & škálovatelnost\nV rámci finále bylo nutné během 9 hodin:\n- Upravit aplikaci pro lepší škálovatelnost  \n- Připravit monetizační model  \n- Zvýšit zábavnost a engagement uživatelů  \n&nbsp;\n## Přidaná hodnota\n- Propojení výuky a gamifikace  \n- Zvýšení zapojení studentů  \n- Jednoduchá správa obsahu pro lektory  \n&nbsp;\n## Tým Error Makers\n - [Stanislav Škudrna](https://stanislavskudrna.cz)\n - [Serhii Yavorskiy](https://serhii.cz)\n - [Jakub Sokol](https://jakubsokol.cz)"
+            }
+          ]
+        },
         "acnod": {
           "title": "Acnod",
-          "brief": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelmem&nbsp;Skybou</link>. Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů.",
-          "description": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem <link href='https://skymmel.eu' rel='noreferrer' target='_blank'}>Wilhelmem&nbsp;Skybou</link>. Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů."
+          "brief": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem [Wilhelmem&nbsp;Skybou](https://skymmel.eu). Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů.",
+          "description": "Acnod byl projekt, na kterém jsme pracovali s mým kamarádem [Wilhelmem&nbsp;Skybou](https://skymmel.eu). Jednalo se o webovou stránku, na které jsme nabízeli služby vývoje webů."
         },
         "nagy3d": {
           "title": "Nagy 3D",
@@ -146,7 +156,7 @@
             },
             "credits": {
               "title": "🎨 Poděkování",
-              "text": "Vytvořil <link href='https://jakooob.dev/'>Jakub Sokol</link>\nPůvodní hra: \"Slender: The Eight Pages\" od Parsec Productions",
+              "text": "Vytvořil [Jakub Sokol](https://jakooob.dev/)\nPůvodní hra: \"Slender: The Eight Pages\" od Parsec Productions",
               "assets": "Assety:",
               "list": [
                 "Maelstrom Library - MAE Oak Forest",

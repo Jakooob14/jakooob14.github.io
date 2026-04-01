@@ -53,7 +53,7 @@ export default function WorkCard({
                         <Heading3 className={'font-semibold -mt-2 lg:mt-1'}>{dict.home.works.categories[work.category]}</Heading3>
                     </div>
                     <p>
-                        <Translate value={work.brief || ''} components={{ link: <Link href={'#'}/> }}/>
+                        <Translate value={work.brief || ''}/>
                     </p>
                 </section>
                 <section className={'flex justify-between lg:items-center mt-8 flex-col lg:flex-row gap-y-3'}>

@@ -35,6 +35,32 @@ export interface Work {
 
 export const works: Work[] = [
     {
+        id: 'tda26',
+        category: 'web-development',
+        featured: true,
+        background: 'linear-gradient(45deg, #131516 0%, #1C1F21 70%)',
+        endYear: 2026,
+        links: [
+            {
+                type: 'source-code',
+                url: 'https://github.com/AldiiX/TdA26-Error-Makers'
+            }
+        ],
+        media: [
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet1.webp',
+                alt: 'Acnod Home page 1'
+            },
+            {
+                type: 'image',
+                url: '/works/acnodnet/acnodnet2.webp',
+                alt: 'Acnod Home page 2'
+            }
+        ],
+        technologies: ['nextjs', 'threejs', 'i18next']
+    },
+    {
         id: 'acnod',
         category: 'web-development',
         featured: true,
