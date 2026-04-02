@@ -67,13 +67,37 @@
       },
       "works_list": {
         "tda26": {
-          "title": "Tour de App 2026",
-          "brief": "",
-          "description": "",
+          "title": "Think Different Academy",
+          "brief": "Think Different Academy is a web platform for engaging education created for the Tour de App 2026 competition. It allows lecturers to create interactive modules with materials and quizzes that students complete in real time.\n",
+          "description": "Think Different Academy is a web platform for engaging education created as part of the Tour de App 2026 competition. It enables lecturers to prepare interactive modules with materials and quizzes that can be gradually revealed during lessons, while students complete the content in real time. The system also includes user management (branches, lecturers, students), result statistics, and gamification elements such as XP, virtual currency, and activity-based rewards. We placed 1st in the competition round and 3rd in the final, where the goal was to improve the application within 9 hours in terms of scalability, monetization, and user experience.",
           "sections": [
             {
-              "title": "Section 1",
-              "content": "Content for section 1"
+              "title": "Our Goal",
+              "content": "To create a system where:\n- The lecturer can prepare learning modules (materials + quizzes)  \n- Content is gradually revealed during live lessons  \n- Students can interactively respond and complete tasks"
+            },
+            {
+              "title": "Features",
+              "content": "- Creation of modules with materials and quizzes  \n- Gradual unlocking of content during lessons  \n- Students complete quizzes in real time  \n- Overview of student results and statistics  \n- Lecturer-based student evaluation"
+            },
+            {
+              "title": "Architecture",
+              "content": "- Structure: branches, lecturers, students\n- Lecturers can invite students into the system  \n- Students create accounts and access content \n- Frontend: NuxtJS, Backend: .NET 9, Database: MySQL and Redis"
+            },
+            {
+              "title": "Gamification",
+              "content": "- XP system based on activity  \n- Virtual currency (duck coins)  \n- Daily tasks  \n- Cosmetic rewards for activity"
+            },
+            {
+              "title": "Development and Scalability",
+              "content": "During the final, within 9 hours, it was required to:\n- Adjust the application for better scalability  \n- Prepare a monetization model  \n- Increase user engagement and enjoyment"
+            },
+            {
+              "title": "Added Value",
+              "content": "- Combination of education and gamification  \n- Increased student engagement  \n- Simple content management for lecturers"
+            },
+            {
+              "title": "Error Makers Team",
+              "content": "Third place in the final, team members:\n - [Jakub Sokol](https://jakubsokol.cz)\n - [Stanislav Škudrna](https://stanislavskudrna.cz)\n - [Serhii Yavorskiy](https://serhii.cz)"
             }
           ]
         },

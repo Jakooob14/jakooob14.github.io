@@ -77,6 +77,7 @@ export default function CursorEffect() {
         while (hoveredElement) {
             if (
                 hoveredElement.tagName?.toLowerCase() === 'a' ||
+                hoveredElement.tagName?.toLowerCase() === 'button' ||
                 hoveredElement.getAttribute('data-cursor-hover') === 'true'
             ) {
                 break;
@@ -135,7 +136,6 @@ export default function CursorEffect() {
     
     const handleClick = (event: MouseEvent) => {
         const element = event.target as HTMLElement;
-        console.log(element.getAttribute('data-cursor-reset-click'));
         if (element.getAttribute('data-cursor-reset-click') === 'true' || element.tagName?.toLowerCase() === 'a' || element.closest('a')) {
             if (element.getAttribute('data-cursor-reset-click') === 'false') return;
             resetCursor(event);

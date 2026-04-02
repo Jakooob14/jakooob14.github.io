@@ -54,6 +54,9 @@ export default function WorksPage() {
                             <WorkCard 
                                 work={work as never}
                                 key={resetKey}
+                                style={{
+                                    background: work.background,
+                                }}
                                 className={index % 2 === 0 ? 'justify-self-start' : 'justify-self-end'}
                             />
                         </li>

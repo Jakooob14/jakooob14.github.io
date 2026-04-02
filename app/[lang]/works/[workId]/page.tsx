@@ -61,7 +61,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                                 ))
                         }
                     </ul>
-                    <p className={'mb-4 mt-2'}>
+                    <p className={'mb-4 mt-4'}>
                         <Translate value={work.description || ''}/>
                     </p>
                     <ul className={'flex items-center gap-4'}>
@@ -94,10 +94,10 @@ export default async function IndividualWorkPage({ params }: PageProps) {
                         ))}
                     </ul>
                 </section>
-                <article className={'flex items-center gap-4'}>
+                <article className={'grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 mt-8'}>
                     {
                         work.sections.map((section, index) => (
-                            <div key={index} className={'mt-8'}>
+                            <div key={index} className={'bg-alt-gray-200 p-6 border border-alt-gray-300 shadow-md'}>
                                 <Heading2 className={'text-3xl! font-semibold'}>{section.title}</Heading2>
                                 <p className={'mt-2'}>
                                     <Translate value={section.content || ''}/>

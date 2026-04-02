@@ -43,10 +43,10 @@ export default function WorkCard({
                 }
             }}
             viewport={{ once: true }}
-            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% lg:min-w-[700px] max-w-150 flex flex-col justify-between shadow-xl xl:min-h-225 ' + className}
+            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% lg:min-w-[700px] max-w-150 flex flex-col justify-between shadow-xl xl:min-h-200 ' + className}
             style={style}
         >
-            <section className={'flex flex-col justify-between m-10 sm:m-15 xl:m-20 mb-4! min-h-[300px]'}>
+            <section className={'flex flex-col justify-between m-10 sm:m-15 xl:m-20 mb-4! min-h-[300px] max-h-[300px]'}>
                 <section>
                     <div className={'mb-4'}>
                         <Heading2 className={'font-semibold'}>{work.title || 'Untitled'}</Heading2>
@@ -74,13 +74,13 @@ export default function WorkCard({
                         </LinkButton>
                 </section>
             </section>
-            <section className={'m-8 shadow-lg xl:h-112.5'}>
+            <section className={'m-8 shadow-lg xl:h-96'}>
                 <div className={'w-full h-full bg-alt-gray-50# overflow-hidden relative'}>
                     {work.media && work.media.length > 0 && work.media[0].type === 'image' && (
                         <Image
                             src={work.media[0].url}
                             alt={work.media[0].alt || work.title || 'Work Image'}
-                            className={'w-full h-full object-cover relative z-1'}
+                            className={'w-full h-full object-cover relative z-1 object-top'}
                             width={700}
                             height={700}
                         />

@@ -38,7 +38,7 @@ export const works: Work[] = [
         id: 'tda26',
         category: 'web-development',
         featured: true,
-        background: 'linear-gradient(45deg, #131516 0%, #1C1F21 70%)',
+        background: 'linear-gradient(45deg, hsl(136.8, 30%, 15%) 0%, hsl(204.06, 60%, 15%) 70%)',
         endYear: 2026,
         links: [
             {
@@ -49,14 +49,69 @@ export const works: Work[] = [
         media: [
             {
                 type: 'image',
-                url: '/works/acnodnet/acnodnet1.webp',
-                alt: 'Acnod Home page 1'
+                url: '/works/tda26/tda26-home.webp',
+                alt: 'Home page'
             },
             {
                 type: 'image',
-                url: '/works/acnodnet/acnodnet2.webp',
-                alt: 'Acnod Home page 2'
-            }
+                url: '/works/tda26/tda26-courses.webp',
+                alt: 'Courses page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-course.webp',
+                alt: 'Course page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-course-edit.webp',
+                alt: 'Course edit page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-file-material-create.webp',
+                alt: 'File material create modal'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-quiz.webp',
+                alt: 'Quiz page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-quiz-result.webp',
+                alt: 'Quiz result page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-file-material-statistics.webp',
+                alt: 'File material statistics page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-shop.webp',
+                alt: 'Shop page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-daily-rewards.webp',
+                alt: 'Daily rewards page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-lecturers.webp',
+                alt: 'Lecturers page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-about.webp',
+                alt: 'About page'
+            },
+            {
+                type: 'image',
+                url: '/works/tda26/tda26-faq.webp',
+                alt: 'FAQ page'
+            },
         ],
         technologies: ['nextjs', 'threejs', 'i18next']
     },

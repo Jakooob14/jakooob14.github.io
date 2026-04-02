@@ -68,11 +68,36 @@
       "works_list": {
         "tda26": {
           "title": "Think different Academy",
-          "brief": "",
-          "description": "",
+          "brief": "Think different Academy je webová platforma pro zábavné vzdělávání vytvořená pro soutěž Tour de App 2026. Umožňuje lektorům vytvářet interaktivní moduly s materiály a kvízy, které studenti vyplňují v reálném čase.\n",
+          "description": "Think different Academy je webová platforma pro zábavné vzdělávání vytvořená v rámci soutěže Tour de App 2026. Umožňuje lektorům připravovat interaktivní moduly s materiály a kvízy, které mohou během výuky postupně odkrývat, zatímco studenti obsah vyplňují v reálném čase. Součástí systému je také správa uživatelů (pobočky, lektoři, studenti), statistiky výsledků a gamifikační prvky jako XP, virtuální měna a odměny za aktivitu. V soutěžním kole jsme se umístili na 1. místě a ve finále, kde bylo cílem během 9 hodin aplikaci vylepšit z hlediska škálovatelnosti, monetizace a uživatelského zážitku, jsme získali 3. místo.",
           "sections": [
             {
-              "content": "## Cíl aplikace\nVytvořit systém, kde:\n- Lektor může připravovat výukové moduly (materiály + kvízy)  \n- Obsah se postupně odkrývá během živé výuky  \n- Studenti mohou interaktivně reagovat a plnit úkoly  \n&nbsp;\n## Funkcionalita\n- Tvorba modulů s materiály a kvízy  \n- Postupné odemykání obsahu během hodiny  \n- Vyplňování kvízů studenty v reálném čase  \n- Přehled výsledků a statistik studentů  \n- Hodnocení studentů lektorem  \n&nbsp;\n## Architektura systému\n- Struktura: **pobočky → lektoři → studenti**  \n- Lektoři mohou zvát studenty do systému  \n- Studenti si vytváří účty a přistupují k obsahu  \n&nbsp;\n## Gamifikace\n- XP systém za aktivitu  \n- Virtuální měna (kačenky)  \n- Denní úkoly  \n- Kosmetické odměny za aktivitu  \n&nbsp;\n## Vývoj & škálovatelnost\nV rámci finále bylo nutné během 9 hodin:\n- Upravit aplikaci pro lepší škálovatelnost  \n- Připravit monetizační model  \n- Zvýšit zábavnost a engagement uživatelů  \n&nbsp;\n## Přidaná hodnota\n- Propojení výuky a gamifikace  \n- Zvýšení zapojení studentů  \n- Jednoduchá správa obsahu pro lektory  \n&nbsp;\n## Tým Error Makers\n - [Stanislav Škudrna](https://stanislavskudrna.cz)\n - [Serhii Yavorskiy](https://serhii.cz)\n - [Jakub Sokol](https://jakubsokol.cz)"
+              "title": "Náš cíl",
+              "content": "Vytvořit systém, kde:\n- Lektor může připravovat výukové moduly (materiály + kvízy)  \n- Obsah se postupně odkrývá během živé výuky  \n- Studenti mohou interaktivně reagovat a plnit úkoly"
+            },
+            {
+              "title": "Funkce a vlastnosti",
+              "content": "- Tvorba modulů s materiály a kvízy  \n- Postupné odemykání obsahu během hodiny  \n- Vyplňování kvízů studenty v reálném čase  \n- Přehled výsledků a statistik studentů  \n- Hodnocení studentů lektorem"
+            },
+            {
+              "title": "Architektura",
+              "content": "- Struktura: pobočky, lektoři, studenti\n- Lektoři mohou zvát studenty do systému  \n- Studenti si vytváří účty a přistupují k obsahu \n- Frontend: NuxtJS, Backend: .NET 9, Database: MySQL a Redis"
+            },
+            {
+              "title": "Gamifikace",
+              "content": "- XP systém za aktivitu  \n- Virtuální měna (kačenky)  \n- Denní úkoly  \n- Kosmetické odměny za aktivitu"
+            },
+            {
+              "title": "Vývoj a škálovatelnost",
+              "content": "V rámci finále bylo nutné během 9 hodin:\n- Upravit aplikaci pro lepší škálovatelnost  \n- Připravit monetizační model  \n- Zvýšit zábavnost a engagement uživatelů"
+            },
+            {
+              "title": "Přidávaná hodnota",
+              "content": "- Propojení výuky a gamifikace  \n- Zvýšení zapojení studentů  \n- Jednoduchá správa obsahu pro lektory"
+            },
+            {
+              "title": "Tým Error Makers",
+              "content": "Třetí místo ve finále, ve složení\n - [Jakub Sokol](https://jakubsokol.cz)\n - [Stanislav Škudrna](https://stanislavskudrna.cz)\n - [Serhii Yavorskiy](https://serhii.cz)"
             }
           ]
         },

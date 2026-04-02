@@ -13,7 +13,34 @@ function getLocale(request: NextRequest) {
     return match(languages, locales, defaultLocale);
 }
 
+function adminAuth(request: NextRequest) {
+    const token = process.env.ADMIN_TOKEN;
+    const storedToken = request.cookies.get('token')?.value;
+
+    if (!token) {
+        return new NextResponse('Some environment variables aren\'t set', { status: 500 });
+    }
+
+    if (storedToken === token) {
+        return null; // Authorized
+    }
+
+    return new NextResponse(null, { status: 401 }); // Unauthorized
+}
+
 export function proxy(request: NextRequest) {
+    // Check if the request is for the admin section and if the user is authenticated
+    if (request.nextUrl.pathname.includes('/admin/')) {
+        const authResponse = adminAuth(request);
+
+        if (request.nextUrl.pathname.endsWith('/login')) {
+            if (!authResponse) request.nextUrl.pathname = '/admin/markdown';
+            else return NextResponse.next();
+        }
+        
+        if (authResponse) request.nextUrl.pathname = '/admin/login';
+    }
+    
     // Check if there is any supported locale in the pathname
     const { pathname } = request.nextUrl;
 

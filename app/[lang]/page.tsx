@@ -304,7 +304,7 @@ export default function Home() {
                             )
                         )))}
                     </div>
-                    <div className={'flex flex-col items-center mb-32 p-4 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16 bg-diagonal-stripes stripes-color-[hsl(0,0%,19%)] stripes-size-5 border-[6px] border-alt-gray-200'}>
+                    <div className={'mt-52 flex flex-col items-center mb-32 p-4 bg-linear-to-tr from-alt-gray-200 to-[hsl(0_0%_21%)] py-16 bg-diagonal-stripes stripes-color-[hsl(0,0%,19%)] stripes-size-5 border-[6px] border-alt-gray-200'}>
                         <span className={'text-4xl lg:text-5xl font-heading font-bold text-center'}>{dict.home.works.more_cta.top}</span>
                         <Link className={'text-xl lg:text-2xl font-semibold bg-aero-500 text-white px-8 py-4 mt-8 shadow-md text-center'} href={'/works'}>{dict.home.works.more_cta.bottom}</Link>
                     </div>
