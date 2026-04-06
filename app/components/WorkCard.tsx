@@ -43,10 +43,10 @@ export default function WorkCard({
                 }
             }}
             viewport={{ once: true }}
-            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% lg:min-w-[700px] max-w-150 flex flex-col justify-between shadow-xl xl:min-h-200 ' + className}
+            className={'bg-linear-to-br from-[hsl(0,0%,10%)] to-[hsl(0,0%,12%)] from-0% to-70% 2xl:min-w-[700px] max-w-150 flex flex-col justify-between shadow-xl xl:min-h-200 ' + className}
             style={style}
         >
-            <section className={'flex flex-col justify-between m-10 sm:m-15 xl:m-20 mb-4! min-h-[300px] max-h-[300px]'}>
+            <section className={'flex flex-col justify-between m-10 sm:m-15 xl:m-20 mb-4! min-h-[330px] max-h-none lg:max-h-[330px]'}>
                 <section>
                     <div className={'mb-4'}>
                         <Heading2 className={'font-semibold'}>{work.title || 'Untitled'}</Heading2>

@@ -57,7 +57,6 @@ export default function WorksPage() {
                                 style={{
                                     background: work.background,
                                 }}
-                                className={index % 2 === 0 ? 'justify-self-start' : 'justify-self-end'}
                             />
                         </li>
                     )
