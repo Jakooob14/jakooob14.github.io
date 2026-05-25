@@ -113,7 +113,7 @@ export const works: Work[] = [
                 alt: 'FAQ page'
             },
         ],
-        technologies: ['nextjs', 'threejs', 'i18next']
+        technologies: ['nuxt', 'aspnet']
     },
     {
         id: 'acnod',
