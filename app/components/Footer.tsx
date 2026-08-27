@@ -2,7 +2,7 @@
 
 import { MainLogo } from '@/app/components/Icons';
 import Link from 'next/link';
-import { IoLogoGithub, IoLogoInstagram, IoMail, IoLogoLinkedin } from 'react-icons/io5';
+import { IoLogoGithub, IoLogoInstagram, IoMail, IoLogoLinkedin, IoLogoWhatsapp } from 'react-icons/io5';
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
 
 export default function Footer(){
@@ -31,16 +31,23 @@ export default function Footer(){
                     <span className={'text-3xl font-semibold text-aero-500 font-heading md:text-end w-full block'}>{dict.home.main.navigation.contact}</span>
                     <ul className={'text-xl mt-1 flex flex-col md:items-end'}>
                         <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                  href={'https://www.linkedin.com/in/sokoljakub'} rel={'noreferrer'}
-                                  target={'_blank'}><IoLogoLinkedin/>LinkedIn</Link></li>
+                                                      href={'https://www.linkedin.com/in/sokoljakub'} rel={'noreferrer'}
+                                                      target={'_blank'}><IoLogoLinkedin/>LinkedIn</Link>
+                        </li>
                         <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                  href={'https://github.com/Jakooob14'} rel={'noreferrer'}
-                                  target={'_blank'}><IoLogoGithub/>Github</Link></li>
+                                                      href={'https://github.com/Jakooob14'} rel={'noreferrer'}
+                                                      target={'_blank'}><IoLogoGithub/>Github</Link>
+                        </li>
                         <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                  href={'https://instagram.com/Jakooob14'} rel={'noreferrer'}
-                                  target={'_blank'}><IoLogoInstagram/>Instagram</Link></li>
+                                                      href={'https://instagram.com/Jakooob14'} rel={'noreferrer'}
+                                                      target={'_blank'}><IoLogoInstagram/>Instagram</Link>
+                        </li>
                         <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                  href={'mailto:me@jakubsokol.cz'} rel={'noreferrer'}><IoMail/>me@jakubsokol.cz</Link>
+                                                      href={'mailto:me@jakubsokol.cz'} rel={'noreferrer'}><IoMail/>me@jakubsokol.cz</Link>
+                        </li>
+                        <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                                      href={'https://wa.me/420705910512'} rel={'noreferrer'}
+                                                      target={'_blank'}><IoLogoWhatsapp/>+420 705 910 512</Link>
                         </li>
                     </ul>
                 </div>
