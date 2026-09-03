@@ -185,7 +185,7 @@ export const works: Work[] = [
         links: [
             {
                 type: 'website',
-                url: 'https://status.jakooob.dev/'
+                url: 'https://monitoring-dashboard.jakooob.dev/'
             },
             {
                 type: 'source-code',
