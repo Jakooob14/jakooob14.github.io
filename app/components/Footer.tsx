@@ -27,29 +27,37 @@ export default function Footer(){
                     {/*<div className={'w-2 h-full bg-alt-gray-200 mx-24'}></div>*/}
                 </div>
 
-                <div id={'contact'}>
-                    <span className={'text-3xl font-semibold text-aero-500 font-heading md:text-end w-full block'}>{dict.home.main.navigation.contact}</span>
-                    <ul className={'text-xl mt-1 flex flex-col md:items-end'}>
-                        <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                                      href={'https://www.linkedin.com/in/sokoljakub'} rel={'noreferrer'}
-                                                      target={'_blank'}><IoLogoLinkedin/>LinkedIn</Link>
-                        </li>
-                        <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                                      href={'https://github.com/Jakooob14'} rel={'noreferrer'}
-                                                      target={'_blank'}><IoLogoGithub/>Github</Link>
-                        </li>
-                        <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                                      href={'https://instagram.com/Jakooob14'} rel={'noreferrer'}
-                                                      target={'_blank'}><IoLogoInstagram/>Instagram</Link>
-                        </li>
-                        <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                                      href={'mailto:me@jakubsokol.cz'} rel={'noreferrer'}><IoMail/>me@jakubsokol.cz</Link>
-                        </li>
-                        <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
-                                                      href={'https://wa.me/420705910512'} rel={'noreferrer'}
-                                                      target={'_blank'}><IoLogoWhatsapp/>+420 705 910 512</Link>
-                        </li>
-                    </ul>
+                <div id={'contact'} className={'flex flex-col md:flex-row items-start md:items-center gap-y-6 gap-x-12 pb-8 pt-4 md:pb-0 md:pt-0'}>
+                    <div>
+                        <span className={'text-3xl font-semibold text-aero-500 font-heading md:text-end w-full block'}>{dict.footer.contact}</span>
+                        <ul className={'text-xl mt-1 flex flex-col md:items-end'}>
+                            <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                                          href={'mailto:me@jakubsokol.cz'} rel={'noreferrer'}><IoMail/>me@jakubsokol.cz</Link>
+                            </li>
+                            <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                                          href={'https://wa.me/420705910512'} rel={'noreferrer'}
+                                                          target={'_blank'}><IoLogoWhatsapp/>+420 705 910 512</Link>
+                            </li>
+                            <li className={'w-fit'}><span className={'text-white w-fit'}>IČO: 29972736</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span className={'text-3xl font-semibold text-aero-500 font-heading md:text-end w-full block'}>{dict.footer.socials}</span>
+                        <ul className={'text-xl mt-1 flex flex-col md:items-end'}>
+                            <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                                          href={'https://www.linkedin.com/in/sokoljakub'} rel={'noreferrer'}
+                                                          target={'_blank'}><IoLogoLinkedin/>LinkedIn</Link>
+                            </li>
+                            <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                                          href={'https://github.com/Jakooob14'} rel={'noreferrer'}
+                                                          target={'_blank'}><IoLogoGithub/>Github</Link>
+                            </li>
+                            <li className={'w-fit'}><Link className={'flex items-center gap-2 text-white w-fit'} data-cursor-padding-x={8}
+                                                          href={'https://instagram.com/Jakooob14'} rel={'noreferrer'}
+                                                          target={'_blank'}><IoLogoInstagram/>Instagram</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </footer>
