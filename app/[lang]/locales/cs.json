@@ -54,8 +54,25 @@
     "skills": {
       "title": "Mé dovednosti",
       "web_development": "Webový vývoj",
-      "game_development": "Vývoj her",
-      "other": "Ostatní"
+      "frontend_fullstack": "Frontend & Fullstack",
+      "backend_devops": "Backend, data a DevOps",
+      "roles": {
+        "fullstack": "Fullstack",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "language": "Jazyk",
+        "styling": "Stylování",
+        "database": "Databáze",
+        "cache": "Cache / NoSQL",
+        "orm": "ORM",
+        "devops": "DevOps",
+        "framework": "Framework"
+      },
+      "status": {
+        "primary": "Hlavní",
+        "active": "Aktivní",
+        "exploring": "Učím se"
+      }
     },
     "works": {
       "more_cta": {

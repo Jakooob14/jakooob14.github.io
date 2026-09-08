@@ -54,8 +54,25 @@
     "skills": {
       "title": "My skills",
       "web_development": "Web development",
-      "game_development": "Game development",
-      "other": "Other"
+      "frontend_fullstack": "Frontend & Fullstack",
+      "backend_devops": "Backend, Data & DevOps",
+      "roles": {
+        "fullstack": "Fullstack",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "language": "Language",
+        "styling": "Styling",
+        "database": "Database",
+        "cache": "Cache / NoSQL",
+        "orm": "ORM",
+        "devops": "DevOps",
+        "framework": "Framework"
+      },
+      "status": {
+        "primary": "Primary",
+        "active": "Active",
+        "exploring": "Exploring"
+      }
     },
     "works": {
       "more_cta": {

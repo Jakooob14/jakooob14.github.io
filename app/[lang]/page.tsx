@@ -8,16 +8,26 @@ import { IoLogoReact } from 'react-icons/io5';
 import {
     AspNetLogo,
     BlazorLogo,
+    CSharpLogo,
     EduchemLogo,
-    NextJSLogo,
-    UnityLogo,
-    UnrealEngineLogo
+    NextJSLogo
 } from '@/app/components/Icons';
+import {
+    SiDocker,
+    SiNuxtdotjs,
+    SiPostgresql,
+    SiPrisma,
+    SiRedis,
+    SiTypescript,
+    SiVuedotjs
+} from 'react-icons/si';
+import SkillCard from '@/app/components/SkillCard';
+import EducationCard from '@/app/components/EducationCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useDictionary } from '@/app/[lang]/DictionaryProvider';
 import FlagUK from '@/public/Flag_UK.png';
-import { RiTailwindCssFill } from 'react-icons/ri';
+import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
 import { TargetAndTransition, VariantLabels } from 'motion'; 
 import LinksGroup from '@/app/components/LinksGroup';
 import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
@@ -126,28 +136,31 @@ export default function Home() {
                 <Divider/>
                 <div className={'container mx-auto flex flex-col xl:grid grid-cols-2 xl:grid-rows-[auto,auto,auto] my-32'}>
                     <Heading1>{dict.home.about_me.title}</Heading1>
-                    <div className={'block w-full xl:w-125 2xl:w-175 text-xl text-justify col-start-2 row-start-2 row-span-2 order-5'}>
+                    <div className={'block w-full xl:w-125 2xl:w-190 text-xl text-justify col-start-2 row-start-2 row-span-2 order-5'}>
                         <p className={'whitespace-pre-wrap text-[max(16px,3vw)] sm:text-xl leading-[max(24px,4.5vw)] sm:leading-6'}>{dict.home.about_me.paragraph}</p>
                         <Heading2 className={'mt-8'}>{dict.home.about_me.education.title}</Heading2>
-                        <div className={'text-start w-full flex flex-wrap'}>
-                            <SkillCard className={'py-6!'} skillIcon={<Image src={FISLogo} width={48} height={48} alt={'FIS Logo'}/>}
-                                       totalOverride={`2026 - ${dict.components.skill_card.present}`}
-                                       showYears={true}>
-                                <span className={'block text-xl'}>{dict.home.about_me.education.bachelor_degree}</span>
-                                VŠE - IVWT
-                            </SkillCard>
-                            <SkillCard className={'py-6!'} skillIcon={<EduchemLogo className={'h-full'}/>}
-                                       startYear={2022}
-                                       endYear={2026}
-                                       showYears={true}>
-                                <span className={'block text-xl'}>{dict.home.about_me.education.high_school}</span>
-                                Educhem
-                            </SkillCard>
-                            <SkillCard className={'py-6!'} skillIcon={<Image src={FlagUK} width={70} height={48} alt={'UK Flag'}/>}
-                                       totalOverride={'2024'} showYears={true}>
-                                <span className={'block text-xl'}>Cambridge</span>
-                                {dict.home.about_me.education.fce_certificate}
-                            </SkillCard>
+                        <div className={'grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 mt-6 w-full'}>
+                            <EducationCard
+                                icon={<Image src={FISLogo} width={44} height={44} alt={'FIS Logo'} className={'object-contain'}/>}
+                                title={dict.home.about_me.education.bachelor_degree}
+                                institution={'VŠE - IVWT'}
+                                period={`2026 - ${dict.components.skill_card.present}`}
+                                href={'https://fis.vse.cz/bakalarske-studium/bakalarske-programy/informacni-veda-a-webove-technologie/'}
+                            />
+                            <EducationCard
+                                icon={<EduchemLogo className={'h-full w-full object-contain'}/>}
+                                title={dict.home.about_me.education.high_school}
+                                institution={'Educhem'}
+                                period={'2022 - 2026'}
+                                href={'https://www.educhem.cz/'}
+                            />
+                            <EducationCard
+                                icon={<Image src={FlagUK} width={44} height={44} alt={'UK Flag'} className={'object-contain'}/>}
+                                title={'Cambridge'}
+                                institution={dict.home.about_me.education.fce_certificate}
+                                period={'2024'}
+                                href={'https://www.cambridge.org/'}
+                            />
                         </div>
                     </div>
                     <div className={'mb-10 row-span-2 w-[50%] xl:w-[80%] order-1'}>
@@ -200,87 +213,47 @@ export default function Home() {
     function SkillsSection() {
         return (
             <section id={'skills'}>
-                <div className={'container mx-auto mt-32 mb-16'}>
-                    <Heading1 className={'sm:mb-16'}>{dict.home.skills.title}</Heading1>
-                    <div className={'flex flex-col'}>
-                        <div className={'mb-5'}>
-                            <Heading2>{dict.home.skills.web_development}</Heading2>
-                            <div className={'flex flex-wrap flex-col sm:flex-row'}>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<NextJSLogo className={'h-full'}/>} startYear={2021}
-                                           level={3}>Next.js</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<IoLogoReact className={'text-[#58c4dc]'}/>} startYear={2021}
-                                           level={3}>React</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<RiTailwindCssFill className={'h-full text-[#3cbfff]'}/>} startYear={2022}
-                                           level={3}>Tailwind CSS</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<BlazorLogo className={'h-full'}/>}
-                                           level={1}>Blazor</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<AspNetLogo className={'h-full text-white'}/>}
-                                           level={1}>ASP.NET</SkillCard>
+                <div className={'container mx-auto mt-32 mb-24'}>
+                    <Heading1 className={'mb-6 sm:mb-8'}>{dict.home.skills.title}</Heading1>
+
+                    <div>
+                        <div className={'flex flex-col gap-10 sm:gap-16'}>
+                            <div>
+                                <div className={'flex items-baseline gap-3 mb-6 pb-2 border-b border-alt-gray-200/60'}>
+                                    <Heading2>
+                                        {dict.home.skills.frontend_fullstack}
+                                    </Heading2>
+                                </div>
+                                <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4'}>
+                                    <SkillCard name={'Next.js'} icon={<RiNextjsFill className={'h-full w-full'}/>} />
+                                    <SkillCard name={'React'} icon={<IoLogoReact className={'text-[#58c4dc]'}/>} />
+                                    <SkillCard name={'Nuxt'} icon={<SiNuxtdotjs className={'text-[#00dc82]'}/>} />
+                                    <SkillCard name={'Vue'} icon={<SiVuedotjs className={'text-[#42b883]'}/>} />
+                                    <SkillCard name={'TypeScript'} icon={<SiTypescript className={'text-[#3178c6]'}/>} />
+                                    <SkillCard name={'Tailwind CSS'} icon={<RiTailwindCssFill className={'text-[#38bdf8]'}/>} />
+                                    <SkillCard name={'Blazor'} icon={<BlazorLogo className={'h-full w-full'}/>} />
+                                </div>
+                            </div>
+
+                            <div>
+                                <div className={'flex items-baseline gap-3 mb-6 pb-2 border-b border-alt-gray-200/60'}>
+                                    <Heading2>
+                                        {dict.home.skills.backend_devops}
+                                    </Heading2>
+                                </div>
+                                <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4'}>
+                                    <SkillCard name={'ASP.NET Core'} icon={<AspNetLogo className={'h-full w-full text-white'}/>} />
+                                    <SkillCard name={'C#'} icon={<CSharpLogo className={'h-full w-full'}/>} />
+                                    <SkillCard name={'PostgreSQL'} icon={<SiPostgresql className={'text-[#4169e1]'}/>} />
+                                    <SkillCard name={'Redis'} icon={<SiRedis className={'text-[#dc382d]'}/>} />
+                                    <SkillCard name={'Prisma'} icon={<SiPrisma className={'text-white'}/>} />
+                                    <SkillCard name={'Docker'} icon={<SiDocker className={'text-[#2496ed]'}/>} />
+                                </div>
                             </div>
                         </div>
-                        <Divider className={'mb-10'}/>
-                        <div className={'mb-5'}>
-                            <Heading2>{dict.home.skills.game_development}</Heading2>
-                            <div className={'flex flex-wrap flex-col sm:flex-row'}>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<UnrealEngineLogo className={'h-full'}/>} yearsOverride={1} level={1}>Unreal
-                                    Engine</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<UnityLogo className={'h-full'}/>} yearsOverride={1}
-                                           level={1}>Unity</SkillCard>
-                                <SkillCard className={'w-1/3! min-w-50'} skillIcon={<Image className={'h-full w-fit'} src={'/works/raylib-games/raylib-logo.png'} alt={'Raylib logo'} width={48} height={48}/>}
-                                           level={1}>raylib</SkillCard>
-                            </div>
-                        </div>
-                        {/*<Divider className={'mb-10'}/>*/}
-                        {/*<div>*/}
-                        {/*    <Heading2>{dict.home.skills.other}</Heading2>*/}
-                        {/*    <div className={'flex flex-wrap flex-col sm:flex-row'}>*/}
-                        {/*        <SkillCard className={'w-1/3! min-w-50'} skillIcon={<CSharpLogo className={'h-full'}/>} yearsOverride={4} level={3}>C#</SkillCard>*/}
-                        {/*        <SkillCard className={'w-1/3! min-w-50'} skillIcon={<CppLogo className={'h-full'}/>} yearsOverride={1} level={2}>C++</SkillCard>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </section>
-        );
-
-    }
-
-    interface SkillCardProps {
-        children: ReactNode,
-        skillIcon: ReactNode,
-        startYear?: number,
-        endYear?: number,
-        yearsOverride?: number,
-        totalOverride?: string,
-        level?: number,
-        className?: string,
-        showYears?: boolean
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function SkillCard({ children, skillIcon, startYear, endYear, yearsOverride, totalOverride, level, className, showYears = false }: SkillCardProps) {
-        function getYearsFromYear(year: number) {
-            const yearsFromYear = new Date();
-            yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
-            return yearsFromYear.getFullYear();
-        }
-
-        const levels = [dict.components.skill_card.level.novice, dict.components.skill_card.level.beginner, dict.components.skill_card.level.intermediate, dict.components.skill_card.level.proficient, dict.components.skill_card.level.expert, dict.components.skill_card.level.master];
-        const yearsFromYear = startYear ? getYearsFromYear(startYear) : 0;
-
-        // Does the right wording for 'year(s)'
-        const year = yearsOverride ? (yearsOverride === 1 ? '1 ' + dict.components.skill_card.year : yearsOverride < 5 ? yearsOverride + ' ' + dict.components.skill_card.years_less_than_5 : yearsOverride + ' ' + dict.components.skill_card.years) : endYear ? `${startYear} ${dict.components.skill_card.to} ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 ' + dict.components.skill_card.year : yearsFromYear < 5 ? yearsFromYear + ' ' + dict.components.skill_card.years_less_than_5 : yearsFromYear + ' ' + dict.components.skill_card.years) : ''}`;
-
-        return (
-            <div className={'flex flex-col gap-1 w-60 py-4 sm:py-10 ' + className}>
-                <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
-                <h2 className={'text-[max(20px,4.6vw)] sm:text-3xl font-medium'}>{children}</h2>
-                {showYears && (
-                    <span className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>
-                        {totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*/}
-                    </span>
-                )}
-            </div>
         );
     }
 
