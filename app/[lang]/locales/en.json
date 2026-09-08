@@ -20,7 +20,8 @@
       "year": "year",
       "years_less_than_5": "years",
       "years": "years",
-      "to": "to"
+      "to": "-",
+      "present": "Present"
     }
   },
   "not_found": {
@@ -46,7 +47,8 @@
       "education": {
         "title": "Education",
         "high_school": "High School",
-        "fce_certificate": "FCE B2 English"
+        "fce_certificate": "FCE B2 English",
+        "bachelor_degree": "Bachelor's Degree"
       }
     },
     "skills": {

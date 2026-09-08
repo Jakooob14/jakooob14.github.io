@@ -20,7 +20,8 @@
       "year": "rok",
       "years_less_than_5": "roky",
       "years": "let",
-      "to": "až"
+      "to": "-",
+      "present": "Současnost"
     }
   },
   "not_found": {
@@ -46,7 +47,8 @@
       "education": {
         "title": "Vzdělání",
         "high_school": "Střední škola",
-        "fce_certificate": "FCE B2 Angličtina"
+        "fce_certificate": "FCE B2 Angličtina",
+        "bachelor_degree": "Bakalářský titul"
       }
     },
     "skills": {

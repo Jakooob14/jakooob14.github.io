@@ -22,6 +22,7 @@ import { TargetAndTransition, VariantLabels } from 'motion';
 import LinksGroup from '@/app/components/LinksGroup';
 import { getLocalizedWorks } from '@/app/utilities/getLocalizedWorks';
 import WorkCard from '@/app/components/WorkCard';
+import FISLogo from '@/public/FIS_2_logo_neg_bez_poz_rgb.png';
 
 
 export default function Home() {
@@ -125,18 +126,28 @@ export default function Home() {
                 <Divider/>
                 <div className={'container mx-auto flex flex-col xl:grid grid-cols-2 xl:grid-rows-[auto,auto,auto] my-32'}>
                     <Heading1>{dict.home.about_me.title}</Heading1>
-                    {/*<HiddenText className={'text-8xl text-right font-heading'}>Hey there!</HiddenText>*/}
                     <div className={'block w-full xl:w-125 2xl:w-175 text-xl text-justify col-start-2 row-start-2 row-span-2 order-5'}>
                         <p className={'whitespace-pre-wrap text-[max(16px,3vw)] sm:text-xl leading-[max(24px,4.5vw)] sm:leading-6'}>{dict.home.about_me.paragraph}</p>
                         <Heading2 className={'mt-8'}>{dict.home.about_me.education.title}</Heading2>
                         <div className={'text-start w-full flex flex-wrap'}>
+                            <SkillCard className={'py-6!'} skillIcon={<Image src={FISLogo} width={48} height={48} alt={'FIS Logo'}/>}
+                                       totalOverride={`2026 - ${dict.components.skill_card.present}`}
+                                       showYears={true}>
+                                <span className={'block text-xl'}>{dict.home.about_me.education.bachelor_degree}</span>
+                                VŠE - IVWT
+                            </SkillCard>
                             <SkillCard className={'py-6!'} skillIcon={<EduchemLogo className={'h-full'}/>}
-                                       startYear={2021}
-                                       endYear={2025}><span
-                                className={'block text-xl'}>{dict.home.about_me.education.high_school}</span>Educhem</SkillCard>
+                                       startYear={2022}
+                                       endYear={2026}
+                                       showYears={true}>
+                                <span className={'block text-xl'}>{dict.home.about_me.education.high_school}</span>
+                                Educhem
+                            </SkillCard>
                             <SkillCard className={'py-6!'} skillIcon={<Image src={FlagUK} width={70} height={48} alt={'UK Flag'}/>}
-                                       totalOverride={'2024'}><span
-                                className={'block text-xl'}>Cambridge</span>{dict.home.about_me.education.fce_certificate}</SkillCard>
+                                       totalOverride={'2024'} showYears={true}>
+                                <span className={'block text-xl'}>Cambridge</span>
+                                {dict.home.about_me.education.fce_certificate}
+                            </SkillCard>
                         </div>
                     </div>
                     <div className={'mb-10 row-span-2 w-[50%] xl:w-[80%] order-1'}>
@@ -242,29 +253,33 @@ export default function Home() {
         yearsOverride?: number,
         totalOverride?: string,
         level?: number,
-        className?: string
+        className?: string,
+        showYears?: boolean
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function SkillCard({ children, skillIcon, startYear, endYear, yearsOverride, totalOverride, level, className }: SkillCardProps) {
-        // function getYearsFromYear(year: number) {
-        //     const yearsFromYear = new Date();
-        //     yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
-        //     return yearsFromYear.getFullYear();
-        // }
+    function SkillCard({ children, skillIcon, startYear, endYear, yearsOverride, totalOverride, level, className, showYears = false }: SkillCardProps) {
+        function getYearsFromYear(year: number) {
+            const yearsFromYear = new Date();
+            yearsFromYear.setFullYear(yearsFromYear.getFullYear() - year);
+            return yearsFromYear.getFullYear();
+        }
 
-        // const levels = [dict.components.skill_card.level.novice, dict.components.skill_card.level.beginner, dict.components.skill_card.level.intermediate, dict.components.skill_card.level.proficient, dict.components.skill_card.level.expert, dict.components.skill_card.level.master];
-        // const yearsFromYear = startYear ? getYearsFromYear(startYear) : 0;
+        const levels = [dict.components.skill_card.level.novice, dict.components.skill_card.level.beginner, dict.components.skill_card.level.intermediate, dict.components.skill_card.level.proficient, dict.components.skill_card.level.expert, dict.components.skill_card.level.master];
+        const yearsFromYear = startYear ? getYearsFromYear(startYear) : 0;
 
         // Does the right wording for 'year(s)'
-        // const year = yearsOverride ? (yearsOverride === 1 ? '1 ' + dict.components.skill_card.year : yearsOverride < 5 ? yearsOverride + ' ' + dict.components.skill_card.years_less_than_5 : yearsOverride + ' ' + dict.components.skill_card.years) : endYear ? `${startYear} ${dict.components.skill_card.to} ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 ' + dict.components.skill_card.year : yearsFromYear < 5 ? yearsFromYear + ' ' + dict.components.skill_card.years_less_than_5 : yearsFromYear + ' ' + dict.components.skill_card.years) : ''}`;
+        const year = yearsOverride ? (yearsOverride === 1 ? '1 ' + dict.components.skill_card.year : yearsOverride < 5 ? yearsOverride + ' ' + dict.components.skill_card.years_less_than_5 : yearsOverride + ' ' + dict.components.skill_card.years) : endYear ? `${startYear} ${dict.components.skill_card.to} ${endYear}` : `${startYear ? (yearsFromYear === 0 ? '' : yearsFromYear === 1 ? '1 ' + dict.components.skill_card.year : yearsFromYear < 5 ? yearsFromYear + ' ' + dict.components.skill_card.years_less_than_5 : yearsFromYear + ' ' + dict.components.skill_card.years) : ''}`;
 
         return (
             <div className={'flex flex-col gap-1 w-60 py-4 sm:py-10 ' + className}>
                 <span className={'text-5xl mb-2 text-yellow-300# h-12'}>{skillIcon}</span>
                 <h2 className={'text-[max(20px,4.6vw)] sm:text-3xl font-medium'}>{children}</h2>
-                {/*<span*/}
-                {/*    className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>{totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*!/</span>*/}
+                {showYears && (
+                    <span className={'text-alt-gray-600 text-[max(16px,2.8vw)] sm:text-lg'}>
+                        {totalOverride ? totalOverride : year /*+ (year && level !== undefined ? ' - ' : '') + (level !== undefined ? levels[level] : '')*/}
+                    </span>
+                )}
             </div>
         );
     }
