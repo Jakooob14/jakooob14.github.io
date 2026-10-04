@@ -8,19 +8,23 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-nexa);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-color:hsla(198,93%,59%,1);
+  background-image:
+      radial-gradient(at 50% 0%, hsla(200,89%,27%,1) 0px, transparent 70%),
+      radial-gradient(at 14% 79%, hsla(200,98%,39%,1) 0px, transparent 50%),
+      radial-gradient(at 72% 36%, hsla(198,93%,59%,1) 0px, transparent 50%),
+      radial-gradient(at 90% 82%, hsla(204,93%,93%,1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(287,0%,100%,1) 0px, transparent 50%);
 }
