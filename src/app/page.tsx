@@ -5,12 +5,14 @@ import { animate } from "motion/react";
 
 export default function Home() {
     const textGroupRef = useRef<SVGGElement>(null);
-    const irisRef = useRef<SVGCircleElement>(null);
+    const dashRef = useRef<SVGRectElement>(null);
 
     useEffect(() => {
-        const ox = 844;
+        const ox = 880;
         const oy = 540;
-        const startScale = 60;
+        const startScale = 50;
+        const startW = 100;
+        const startH = 28;
 
         const controls = animate(startScale, 1, {
             duration: 1.6,
@@ -23,11 +25,16 @@ export default function Home() {
                         `translate(${ox}, ${oy}) scale(${latest}) translate(${-ox}, ${-oy})`
                     );
                 }
-                if (irisRef.current) {
-                    // Radius smoothly transitions from 40 down to 0 as it approaches scale 1
-                    const progress = (latest - 1) / (startScale - 1);
-                    const r = Math.max(0, progress * 40);
-                    irisRef.current.setAttribute("r", String(r));
+                if (dashRef.current) {
+                    const progress = Math.max(0, (latest - 1) / (startScale - 1));
+                    const w = progress * startW;
+                    const h = progress * startH;
+                    const rx = Math.min(h / 2, 4);
+                    dashRef.current.setAttribute("x", String(ox - w / 2));
+                    dashRef.current.setAttribute("y", String(oy - h / 2));
+                    dashRef.current.setAttribute("width", String(w));
+                    dashRef.current.setAttribute("height", String(h));
+                    dashRef.current.setAttribute("rx", String(rx));
                 }
             },
         });
@@ -54,13 +61,15 @@ export default function Home() {
                             <g
                                 ref={textGroupRef}
                                 className="mask-text-group"
-                                transform="translate(844, 540) scale(60) translate(-844, -540)"
+                                transform="translate(880, 540) scale(50) translate(-880, -540)"
                             >
-                                <circle
-                                    ref={irisRef}
-                                    cx="844"
-                                    cy="540"
-                                    r="40"
+                                <rect
+                                    ref={dashRef}
+                                    x={880 - 50}
+                                    y={540 - 14}
+                                    width="100"
+                                    height="28"
+                                    rx="4"
                                     fill="black"
                                 />
                                 <text
