@@ -60,7 +60,7 @@ function Layer({ text, textClassName, textStyle, maskHeightPercentage = 100, mas
                 </defs>
 
                 <g mask={`url(#${maskId})`}>
-                    <text className={textClassName} style={textStyle} fill={color}>
+                    <text className={'animate-spin [animation-duration:25s] [animation-direction:reverse] origin-[100px_100px] ' + textClassName} style={textStyle} fill={color}>
                         <textPath href="#circle-path" startOffset="0%">
                             {text}
                         </textPath>
