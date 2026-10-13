@@ -17,9 +17,17 @@ const nexa = localFont({
     variable: "--font-nexa"
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
+const hostGrotesk = localFont({
+    src: [
+        {
+            path: "../../public/fonts/Host Grotesk/HostGrotesk-VariableFont_wght.ttf",
+        },
+        {
+            path: "../../public/fonts/Host Grotesk/HostGrotesk-Italic-VariableFont_wght.ttf",
+            style: 'italic'
+        },
+    ],
+    variable: "--font-host-grotesk"
 });
 
 export const metadata: Metadata = {
@@ -31,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
         <html
             lang="en"
-            className={`${nexa.variable} ${geistMono.variable} h-full antialiased`}
+            className={`${nexa.variable} ${hostGrotesk.variable} h-full antialiased`}
         >
         <body className="min-h-full flex flex-col">{children}</body>
         </html>
