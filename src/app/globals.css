@@ -8,6 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-heading: var(--font-nexa);
   --font-sans: var(--font-host-grotesk);
 }
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import localFont from 'next/font/local';
 import "./globals.css";
+import Header from "@/components/Header";
 
 const nexa = localFont({
     src: [
@@ -41,7 +42,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             lang="en"
             className={`${nexa.variable} ${hostGrotesk.variable} h-full antialiased`}
         >
-        <body className="min-h-full flex flex-col">{children}</body>
+        <body className="min-h-full flex flex-col h-[1500px]">
+        <Header/>
+        {children}
+        </body>
         </html>
     );
 }
