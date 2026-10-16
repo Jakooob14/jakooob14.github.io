@@ -1,10 +1,12 @@
 'use client';
 
-import {LuAtSign, LuInstagram, LuLanguages, LuLinkedin} from "react-icons/lu";
+import {LuAtSign, LuGithub, LuInstagram, LuLanguages, LuLinkedin} from "react-icons/lu";
 import Link from "next/link";
 import { useScroll, motion, useTransform } from "motion/react";
 import { HTMLAttributes, ReactNode } from "react";
 import Dropdown, { DropdownItem } from "./Dropdown";
+import IconContainer from "@/components/IconContainer";
+import socials from "@/data/socials";
 
 export { default as Dropdown } from "./Dropdown";
 export type { DropdownItem, DropdownProps } from "./Dropdown";
@@ -42,14 +44,14 @@ export default function Header() {
             style={{ position, top }}
         >
             <nav className={'relative container mx-auto flex justify-between'}>
-                <section>
+                <section className={'shadow-lg rounded-full'}>
                     <Link href={'/'}>
                         <IconContainer>
                             <span className={'font-heading font-black'}>JS</span>
                         </IconContainer>
                     </Link>
                 </section>
-                <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 font-medium'}>
+                <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 font-medium shadow-lg'}>
                     {links.map((link) => (
                         <li key={link.path}>
                             <Link href={link.path} className={`${link.active ? 'bg-foreground text-background' : 'hover:bg-foreground/15'}  px-4 py-1.75 rounded-full transition-colors duration-100`}>
@@ -61,12 +63,13 @@ export default function Header() {
                 <section className={'flex gap-4'}>
                     <Dropdown 
                         items={[
-                            { label: "LinkedIn", href: "https://linkedin.com/in/sokoljakub", icon: <LuLinkedin /> },
-                            { label: "Instagram", href: "https://instagram.com/jakooob14", icon: <LuInstagram /> }
+                            { label: "GitHub", href: socials.github.link, icon: <LuGithub /> },
+                            { label: "LinkedIn", href: socials.linkedin.link, icon: <LuLinkedin /> },
+                            { label: "Instagram", href: socials.instagram.link, icon: <LuInstagram /> }
                         ]} 
                         align="right"
                     >
-                        <IconContainer aria-label="Contact options">
+                        <IconContainer aria-label="Contact options" className={'shadow-lg'}>
                             <LuAtSign />
                         </IconContainer>
                     </Dropdown>
@@ -78,27 +81,12 @@ export default function Header() {
                         ]}
                         align="right"
                     >
-                        <IconContainer aria-label="Select language">
+                        <IconContainer aria-label="Select language" className={'shadow-lg'}>
                             <LuLanguages />
                         </IconContainer>
                     </Dropdown>
                 </section>
             </nav>
         </motion.header>
-    );
-}
-
-interface IconContainerProps extends HTMLAttributes<HTMLDivElement> {
-    children: ReactNode;
-}
-
-function IconContainer({ children, className = '', ...props }: IconContainerProps) {
-    return (
-        <div
-            className={`bg-background grid place-content-center rounded-full w-12 h-12 text-xl relative transition-colors duration-150 hover:bg-foreground hover:text-background ${className}`}
-            {...props}
-        >
-            {children}
-        </div>
     );
 }

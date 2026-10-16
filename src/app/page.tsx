@@ -1,5 +1,9 @@
 import { WarpedName } from "@/components/WarpedName";
 import SpinningCircleText from "@/components/home/SpinningCircleText";
+import IconContainer from "@/components/IconContainer";
+import {LuGithub, LuInstagram, LuLinkedin} from "react-icons/lu";
+import Link from "next/link";
+import socials from "@/data/socials";
 
 export default function Home() {
     return (
@@ -10,6 +14,23 @@ export default function Home() {
                         <h1 className="sr-only">JAKUB SOKOL</h1>
                         <WarpedName className="w-full max-w-[1024px] h-auto select-none" />
                         <span className={'ps-16 font-medium text-2xl max-w-[650px]'}>Lorem ipsum dolor sit amet & lorem ipsum dolor, dolor amet lorem ipsum dolor sit amet</span>
+                        <div className={'flex justify-end gap-4 text-foreground'}>
+                            <Link href={socials.github.link}>
+                                <IconContainer>
+                                    <LuGithub />
+                                </IconContainer>
+                            </Link>
+                            <Link href={socials.linkedin.link}>
+                                <IconContainer>
+                                    <LuLinkedin />
+                                </IconContainer>
+                            </Link>
+                            <Link href={socials.instagram.link}>
+                                <IconContainer>
+                                    <LuInstagram />
+                                </IconContainer>
+                            </Link>
+                        </div>
                     </div>
                     
                     <SpinningCircleText
