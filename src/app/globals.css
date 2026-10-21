@@ -10,6 +10,21 @@
   --color-foreground: var(--foreground);
   --font-heading: var(--font-nexa);
   --font-sans: var(--font-host-grotesk);
+
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bbe7fc;
+  --color-primary-300: #7ed4fb;
+  --color-primary-400: #3abff6;
+  --color-primary-500: #10a7e7;
+  --color-primary-600: #0486c5;
+  --color-primary-700: #046ba0;
+  --color-primary-800: #085982;
+  --color-primary-900: #0d4b6d;
+  --color-primary-950: #093048;
+  
+  --color-accent: var(--color-primary-700);
+  --color-heading: var(--color-primary-600);
 }
 
 @layer components {
@@ -25,6 +40,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-host-grotesk), sans-serif;
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
