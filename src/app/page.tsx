@@ -6,6 +6,7 @@ import Link from "next/link";
 import socials from "@/data/socials";
 import {Heading1, Heading2} from "@/components/Heading";
 import TechnologyMarquee from "@/components/home/TechnologyMarquee";
+import Project from "@/components/home/Project";
 
 export default function Home() {
     return (
@@ -109,6 +110,10 @@ export default function Home() {
                   >Technologies I use</Heading2>
                   <TechnologyMarquee/>
               </section>
+          </section>
+          <section id={"portfolio"} className={'container mx-auto mt-24'}>
+              <Heading1>Portfolio</Heading1>
+              <Project title="Netuvio" iconUrl="/portfolio/netuvio.svg" />
           </section>
       </div>
     );
