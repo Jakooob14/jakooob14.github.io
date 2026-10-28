@@ -50,17 +50,6 @@
   will-change: transform;
 }
 
-.marquee-container:hover .animate-marquee,
-.marquee-container:focus-within .animate-marquee {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation-play-state: paused;
-  }
-}
-
 .marquee-mask {
   mask-image: linear-gradient(
     to right,

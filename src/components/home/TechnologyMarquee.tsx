@@ -36,7 +36,7 @@ export default function TechnologyMarquee({ className = "" }: TechnologyMarqueeP
       className={`group relative flex overflow-hidden select-none marquee-mask marquee-container ${className}`}
       aria-label="Technologies and tools"
     >
-      <div className="flex shrink-0 items-center gap-16 pr-12 animate-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]">
+      <div className="flex shrink-0 items-center gap-16 pr-12 animate-marquee ">
         {Array.from({ length: REPEAT_COUNT }).map((_, repeatIndex) => (
           <Fragment key={`primary-${repeatIndex}`}>
             {TECHNOLOGIES.map((tech) => (
@@ -54,7 +54,7 @@ export default function TechnologyMarquee({ className = "" }: TechnologyMarqueeP
 
       <div
         aria-hidden="true"
-        className="flex shrink-0 items-center gap-12 pr-12 animate-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+        className="flex shrink-0 items-center gap-12 pr-12 animate-marquee"
       >
         {Array.from({ length: REPEAT_COUNT }).map((_, repeatIndex) => (
           <Fragment key={`secondary-${repeatIndex}`}>
