@@ -1,7 +1,5 @@
-import type { NextConfig } from "next";
+import Inspector from 'interactive-react-inspector'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = {}
 
-export default nextConfig;
+export default Inspector.next(nextConfig)

@@ -54,7 +54,7 @@ export default function Header() {
                 <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 font-medium shadow-lg'}>
                     {links.map((link) => (
                         <li key={link.path}>
-                            <Link href={link.path} className={`${link.active ? 'bg-foreground text-background' : 'hover:bg-foreground/15'}  px-4 py-1.75 rounded-full transition-colors duration-100`}>
+                            <Link href={link.path} className={`${link.active ? 'bg-foreground text-background' : 'hover:bg-foreground/15'}  px-4 py-1.75 rounded-full transition-colors duration-100 hover:text-foreground`}>
                                 {link.label}
                             </Link>
                         </li>

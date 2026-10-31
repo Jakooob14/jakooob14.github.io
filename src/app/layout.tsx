@@ -3,6 +3,7 @@ import { Geist_Mono } from "next/font/google";
 import localFont from 'next/font/local';
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const nexa = localFont({
     src: [
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <body className="min-h-full flex flex-col h-[1500px]">
         <Header/>
         {children}
+        <Footer/>
         </body>
         </html>
     );
