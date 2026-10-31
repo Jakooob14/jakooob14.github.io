@@ -63,12 +63,12 @@ export interface SubHeadingProps extends Omit<HeadingProps, "level"> {
 }
 
 const visualStyles: Record<HeadingLevel, string> = {
-    1: "text-6xl sm:text-7xl md:text-8xl",
-    2: "text-5xl sm:text-6xl md:text-7xl",
-    3: "text-4xl sm:text-5xl md:text-6xl",
-    4: "text-3xl sm:text-4xl md:text-4xl",
-    5: "text-2xl sm:text-3xl md:text-3xl",
-    6: "text-xl sm:text-2xl md:text-2xl",
+    1: "text-6xl sm:text-7xl md:text-8xl mb-6",
+    2: "text-5xl sm:text-6xl md:text-7xl mb-5",
+    3: "text-4xl sm:text-5xl md:text-6xl mb-3",
+    4: "text-3xl sm:text-4xl md:text-4xl mb-3",
+    5: "text-2xl sm:text-3xl md:text-3xl mb-2",
+    6: "text-xl sm:text-2xl md:text-2xl mb-2",
 };
 
 const weightClasses: Record<HeadingWeight, string> = {

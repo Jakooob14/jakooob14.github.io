@@ -7,10 +7,11 @@ import socials from "@/data/socials";
 import {Heading1, Heading2} from "@/components/Heading";
 import TechnologyMarquee from "@/components/home/TechnologyMarquee";
 import Project from "@/components/home/Project";
+import Certificate from "@/components/home/Certificate";
 
 export default function Home() {
     return (
-      <div className={'min-h-[10000px]'}>
+      <div>
           <main className="min-h-screen p-8 flex flex-col">
               <section className="background rounded-xl w-full flex-1 flex items-center justify-center p-6 overflow-hidden text-white">
                   <div className={'mx-auto flex items-center justify-center w-full max-w-[1024px]'}>
@@ -95,7 +96,7 @@ export default function Home() {
           </main>
           <section id={"about"} className={'container mx-auto mt-24'}>
               <section>
-                  <Heading1 className={'mb-6 max-w-[600px]'}>About Me</Heading1>
+                  <Heading1 className={'max-w-[600px]'}>About Me</Heading1>
                   <span className={'text-5xl'}>I'm a full-stack developer and student from Czechia focused on building modern, high performance web applications.</span>
                 <div className={'flex gap-8 w-full mt-8 items-center'}>
                     <div className={'w-[350px] h-[120px] shrink-0 bg-primary-400 rounded-2xl'}></div>
@@ -113,14 +114,43 @@ export default function Home() {
           </section>
           <section id={"portfolio"} className={'container mx-auto mt-24'}>
               <Heading1>Portfolio</Heading1>
-              <Project 
-                  title="Netuvio" 
-                  iconUrl="/portfolio/netuvio.svg" 
+              <Project
+                  title="Netuvio"
+                  iconUrl="/portfolio/netuvio.svg"
                   description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
               />
-              <Link href={"/portfolio"} className={'block bg-neutral-100 p-8 mt-4 rounded-3xl hover:bg-heading hover:text-text-secondary transition-colors'}>
+              <Link href={"/portfolio"} className={'block bg-neutral-100 p-8 mt-8 rounded-3xl hover:bg-heading hover:text-text-secondary transition-colors'}>
                   <span className={'flex items-center gap-2 text-3xl'}>See my entire portfolio <LuArrowRight/></span>
               </Link>
+          </section>
+          <section id={"portfolio"} className={'container mx-auto mt-24'}>
+              <Heading1>Certificates</Heading1>
+              <div className={'flex flex-col gap-8'}>
+                  <Certificate
+                      title={"FCE B2 English"}
+                      organization={"Cambridge"}
+                      description={"qwjieqjwergdf egij orjioqwrejio gfqwejrio  jioqwer ijotijoqrweij owerfe"}
+                      year={2023}
+                  />
+                  <Certificate
+                      title={"FCE B2 English"}
+                      organization={"Cambridge"}
+                      description={"qwjieqjwergdf egij orjioqwrejio gfqwejrio  jioqwer ijotijoqrweij owerfe"}
+                      year={2023}
+                  />
+                  <Certificate
+                      title={"FCE B2 English"}
+                      organization={"Cambridge"}
+                      description={"qwjieqjwergdf egij orjioqwrejio gfqwejrio  jioqwer ijotijoqrweij owerfe"}
+                      year={2023}
+                  />
+                  <Certificate
+                      title={"FCE B2 English"}
+                      organization={"Cambridge"}
+                      description={"qwjieqjwergdf egij orjioqwrejio gfqwejrio  jioqwer ijotijoqrweij owerfe"}
+                      year={2023}
+                  />
+              </div>
           </section>
       </div>
     );
