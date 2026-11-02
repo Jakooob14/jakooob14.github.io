@@ -25,6 +25,14 @@ export default function Header() {
             label: "About"
         },
         {
+            path: "#portfolio",
+            label: "Portfolio"
+        },
+        {
+            path: "#certificates",
+            label: "Certificates"
+        },
+        {
             path: "#contact",
             label: "Contact"
         },
