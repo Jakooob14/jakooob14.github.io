@@ -51,10 +51,10 @@ export default function Header() {
                         </IconContainer>
                     </Link>
                 </section>
-                <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 font-medium shadow-lg'}>
+                <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 py-1.75 font-medium shadow-lg'}>
                     {links.map((link) => (
-                        <li key={link.path}>
-                            <Link href={link.path} className={`${link.active ? 'bg-foreground text-background' : 'hover:bg-foreground/15'}  px-4 py-1.75 rounded-full transition-colors duration-100 hover:text-foreground`}>
+                        <li key={link.path} className={'h-full'}>
+                            <Link href={link.path} className={`${link.active ? 'bg-foreground text-background hover:text-background' : 'hover:bg-foreground/15 hover:text-foreground'} px-4 h-full grid place-content-center rounded-full transition-colors duration-100`}>
                                 {link.label}
                             </Link>
                         </li>
