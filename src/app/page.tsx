@@ -12,7 +12,7 @@ import Certificate from "@/components/home/Certificate";
 export default function Home() {
     return (
       <div>
-          <main className="min-h-screen p-8 flex flex-col">
+          <main id="home" className="min-h-screen p-8 flex flex-col">
               <section className="background rounded-xl w-full flex-1 flex items-center justify-center p-6 overflow-hidden text-white">
                   <div className={'mx-auto flex items-center justify-center w-full max-w-[1024px]'}>
                       <div className={'flex flex-col w-full'}>
@@ -123,7 +123,7 @@ export default function Home() {
                   <span className={'flex items-center gap-2 text-3xl'}>See my entire portfolio <LuArrowRight/></span>
               </Link>
           </section>
-          <section id={"portfolio"} className={'container mx-auto mt-24'}>
+          <section id={"certificates"} className={'container mx-auto mt-24'}>
               <Heading1>Certificates</Heading1>
               <div className={'flex flex-col gap-8'}>
                   <Certificate
