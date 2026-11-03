@@ -4,6 +4,7 @@ import IconContainer from "@/components/IconContainer";
 import {LuArrowRight, LuGithub, LuInstagram, LuLinkedin} from "react-icons/lu";
 import Link from "next/link";
 import socials from "@/data/socials";
+import projects from "@/data/projects";
 import {Heading1, Heading2} from "@/components/Heading";
 import TechnologyMarquee from "@/components/home/TechnologyMarquee";
 import Project from "@/components/home/Project";
@@ -115,21 +116,15 @@ export default function Home() {
           <section id={"portfolio"} className={'container mx-auto mt-24'}>
               <Heading1>Portfolio</Heading1>
               <div className={'grid grid-cols-1 md:grid-cols-2 gap-8'}>
-                  <Project
-                      title="Netuvio"
-                      iconUrl="/portfolio/netuvio.svg"
-                      description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
-                  />
-                  <Project
-                      title="Netuvio"
-                      iconUrl="/portfolio/netuvio.svg"
-                      description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
-                  />
-                  <Project
-                      title="Netuvio"
-                      iconUrl="/portfolio/netuvio.svg"
-                      description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
-                  />
+                  {projects.map((project) => (
+                      <Project
+                          key={project.id}
+                          title={project.title}
+                          iconUrl={project.iconUrl}
+                          description={project.description}
+                          previewUrl={project.previewUrl}
+                      />
+                  ))}
               </div>
               <Link href={"/portfolio"} className={'block bg-neutral-100 p-8 mt-8 rounded-3xl hover:bg-heading hover:text-text-secondary transition-colors'}>
                   <span className={'flex items-center gap-2 text-3xl'}>See my entire portfolio <LuArrowRight/></span>
