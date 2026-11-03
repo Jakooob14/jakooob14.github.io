@@ -114,11 +114,23 @@ export default function Home() {
           </section>
           <section id={"portfolio"} className={'container mx-auto mt-24'}>
               <Heading1>Portfolio</Heading1>
-              <Project
-                  title="Netuvio"
-                  iconUrl="/portfolio/netuvio.svg"
-                  description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
-              />
+              <div className={'grid grid-cols-1 md:grid-cols-2 gap-8'}>
+                  <Project
+                      title="Netuvio"
+                      iconUrl="/portfolio/netuvio.svg"
+                      description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
+                  />
+                  <Project
+                      title="Netuvio"
+                      iconUrl="/portfolio/netuvio.svg"
+                      description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
+                  />
+                  <Project
+                      title="Netuvio"
+                      iconUrl="/portfolio/netuvio.svg"
+                      description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, tincidunt nec ante vitae, condimentum vehicula magna. Vivamus gravida justo sed aliquet venenatis. Quisque eu eros quis elit efficitur pharetra eget eget dolor. Maecenas eleifend convallis sapien. Sed vestibulum congue lectus vitae sagittis. "}
+                  />
+              </div>
               <Link href={"/portfolio"} className={'block bg-neutral-100 p-8 mt-8 rounded-3xl hover:bg-heading hover:text-text-secondary transition-colors'}>
                   <span className={'flex items-center gap-2 text-3xl'}>See my entire portfolio <LuArrowRight/></span>
               </Link>
