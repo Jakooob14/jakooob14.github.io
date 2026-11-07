@@ -78,8 +78,8 @@ export default function Header() {
 
     return (
         <motion.header 
-            className={'w-full z-40'}
-            style={{ position, top }}
+            className={`w-full z-40 px-4 sm:px-6 lg:px-8 ${isHomePage ? "" : "mt-6 mb-8"}`}
+            style={isHomePage ? { position, top } : undefined}
         >
             <nav className={'relative container mx-auto flex justify-between'}>
                 <section className={'shadow-lg rounded-full'}>

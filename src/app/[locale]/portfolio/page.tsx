@@ -78,7 +78,7 @@ export default async function PortfolioPage({
     }));
 
     return (
-        <main className="container mx-auto pt-36 md:pt-44 pb-20 px-4 sm:px-6 lg:px-8">
+        <main className="container mx-auto pb-20 px-4 sm:px-6 lg:px-8">
             <div className="mb-6">
                 <Link
                     href="/"
