@@ -63,6 +63,20 @@
     },
     "empty": "V této kategorii nebyly nalezeny žádné projekty."
   },
+  "projectDetail": {
+    "backToPortfolio": "Zpět na portfolio",
+    "category": "Kategorie",
+    "year": "Rok",
+    "technologies": "Technologie",
+    "liveSite": "Přejít na web",
+    "sourceCode": "Zdrojový kód",
+    "gallery": "Galerie projektu",
+    "gallerySubtitle": "Vizuální ukázky a snímky rozhraní projektu.",
+    "nextProject": "Další projekt",
+    "previousProject": "Předchozí projekt",
+    "allProjects": "Všechny projekty",
+    "viewProject": "Zobrazit projekt"
+  },
   "certificates": {
     "heading": "Certifikáty",
     "cambridge": {

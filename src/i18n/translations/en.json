@@ -63,6 +63,20 @@
     },
     "empty": "No projects found in this category."
   },
+  "projectDetail": {
+    "backToPortfolio": "Back to Portfolio",
+    "category": "Category",
+    "year": "Year",
+    "technologies": "Technologies",
+    "liveSite": "Visit Live Site",
+    "sourceCode": "View Source",
+    "gallery": "Project Gallery",
+    "gallerySubtitle": "Visual preview and screenshots of the project interface.",
+    "nextProject": "Next Project",
+    "previousProject": "Previous Project",
+    "allProjects": "All Projects",
+    "viewProject": "View Project"
+  },
   "certificates": {
     "heading": "Certificates",
     "cambridge": {
