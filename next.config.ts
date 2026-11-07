@@ -1,5 +1,8 @@
-import Inspector from 'interactive-react-inspector'
+import Inspector from 'interactive-react-inspector';
+import createNextIntlPlugin from 'next-intl/plugin';
 
-const nextConfig = {}
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
-export default Inspector.next(nextConfig)
+const nextConfig = {};
+
+export default Inspector.next(withNextIntl(nextConfig));

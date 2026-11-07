@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Jakub Sokol - Full-stack Developer",
+    "description": "Personal portfolio of Jakub Sokol, full-stack developer and student from Czechia building modern, high-performance web applications."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "certificates": "Certificates",
+    "contact": "Contact",
+    "selectLanguage": "Select language",
+    "contactOptions": "Contact options"
+  },
+  "hero": {
+    "title": "JAKUB SOKOL",
+    "subtitle": "Full-stack developer and student from Czechia focused on building modern, high-performance web applications.",
+    "circleText": "Full-stack developer • Creative coder • Student •"
+  },
+  "about": {
+    "heading": "About Me",
+    "lead": "I'm a full-stack developer and student from Czechia focused on building modern, high performance web applications.",
+    "bio": "My daily toolkit includes React, Next.js, Vue, Nuxt.js, and ASP.NET. I have a strong interest in learning emerging technologies, refining software architecture, and optimizing overall performance and development workflows.",
+    "technologies": "Technologies I use"
+  },
+  "portfolio": {
+    "heading": "Portfolio",
+    "seeAll": "See my entire portfolio",
+    "projects": {
+      "netuvio": {
+        "title": "Netuvio",
+        "description": "Modern platform and web infrastructure tailored for high performance, intuitive interface, and seamless client management."
+      },
+      "tda26": {
+        "title": "Think different Academy",
+        "description": "Interactive educational web platform created for Tour de App 2026 featuring live quizzes, modular lessons, and gamification."
+      },
+      "acnodnet": {
+        "title": "Acnod",
+        "description": "High-performance digital platform and networking solution built with modern full-stack web architecture."
+      }
+    }
+  },
+  "certificates": {
+    "heading": "Certificates",
+    "cambridge": {
+      "title": "FCE B2 English",
+      "organization": "Cambridge",
+      "description": "First Certificate in English certifying upper-intermediate proficiency in English language communication."
+    }
+  },
+  "footer": {
+    "tagline": "Full-stack developer focused on building modern, high-performance web applications.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "socials": "Socials",
+    "copied": "Copied",
+    "copyEmail": "Copy email address",
+    "copyPhone": "Copy phone number"
+  }
+}

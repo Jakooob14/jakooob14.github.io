@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import Image from "next/image";
 import { Heading3 } from "@/components/Heading";
 import { ProjectItem } from "@/data/projects";
-import { resolveAsset, isVideoAsset } from "@/lib/assets";
+import { resolveAsset } from "@/lib/assets";
 
 interface ProjectProps extends HTMLAttributes<HTMLDivElement> {
     project: ProjectItem;

@@ -1,24 +1,25 @@
 'use client';
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { Heading6 } from "@/components/Heading";
 import socials from "@/data/socials";
 import copy from "@/lib/copy";
 import {
-    LuArrowUpRight,
     LuCheck,
     LuCopy,
     LuGithub,
     LuInstagram,
     LuLinkedin,
     LuMail,
-    LuMapPin,
     LuPhone
 } from "react-icons/lu";
 import { ReactNode } from "react";
 
 export default function Footer() {
+    const tFooter = useTranslations("footer");
+    const tNav = useTranslations("nav");
     const [copiedTarget, setCopiedTarget] = useState<string | null>(null);
 
     const handleCopy = async (text: string, id: string) => {
@@ -31,13 +32,11 @@ export default function Footer() {
         }
     };
 
-    const currentYear = new Date().getFullYear();
-
     const navLinks = [
-        { label: "Home", href: "#home" },
-        { label: "About", href: "#about" },
-        { label: "Portfolio", href: "#portfolio" },
-        { label: "Certificates", href: "#certificates" },
+        { label: tNav("home"), href: "#home" },
+        { label: tNav("about"), href: "#about" },
+        { label: tNav("portfolio"), href: "#portfolio" },
+        { label: tNav("certificates"), href: "#certificates" },
     ];
 
     return (
@@ -49,7 +48,7 @@ export default function Footer() {
                             Jakub Sokol
                         </Link>
                         <p className="text-foreground/75 text-sm leading-relaxed max-w-xs">
-                            Full-stack developer focused on building modern, high-performance web applications.
+                            {tFooter("tagline")}
                         </p>
                         <div className="flex flex-col gap-1 text-sm text-foreground/60 pt-2">
                             <span className="text-neutral-500">IČO: 29972736</span>
@@ -58,17 +57,17 @@ export default function Footer() {
 
                     <nav aria-label="Footer navigation">
                         <Heading6 visualLevel={6} variant="heading" className="mb-3 text-lg sm:text-xl">
-                            Navigation
+                            {tFooter("navigation")}
                         </Heading6>
                         <ul className="flex flex-col gap-2 text-sm">
                             {navLinks.map((link) => (
                                 <li key={link.href}>
-                                    <Link
+                                    <a
                                         href={link.href}
                                         className="text-foreground/75 hover:text-accent transition-colors"
                                     >
                                         {link.label}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -76,7 +75,7 @@ export default function Footer() {
 
                     <div>
                         <Heading6 visualLevel={6} variant="heading" className="mb-3 text-lg sm:text-xl">
-                            Contact
+                            {tFooter("contact")}
                         </Heading6>
                         <ul className="flex flex-col gap-2 text-sm">
                             <li className="flex items-center gap-2">
@@ -90,14 +89,14 @@ export default function Footer() {
                                 <button
                                     type="button"
                                     onClick={() => handleCopy(socials.email, "email")}
-                                    aria-label="Copy email address"
-                                    title="Copy email address"
+                                    aria-label={tFooter("copyEmail")}
+                                    title={tFooter("copyEmail")}
                                     className="p-1 rounded-md text-foreground/50 hover:text-accent hover:bg-neutral-200/60 transition-colors cursor-pointer"
                                 >
                                     {copiedTarget === "email" ? (
                                         <span className="flex items-center gap-1 text-emerald-600 font-medium text-xs">
                                             <LuCheck className="w-4 h-4" aria-hidden="true" />
-                                            <span className="sr-only sm:not-sr-only">Copied</span>
+                                            <span className="sr-only sm:not-sr-only">{tFooter("copied")}</span>
                                         </span>
                                     ) : (
                                         <LuCopy className="w-4 h-4" aria-hidden="true" />
@@ -118,14 +117,14 @@ export default function Footer() {
                                 <button
                                     type="button"
                                     onClick={() => handleCopy(socials.phone, "phone")}
-                                    aria-label="Copy phone number"
-                                    title="Copy phone number"
+                                    aria-label={tFooter("copyPhone")}
+                                    title={tFooter("copyPhone")}
                                     className="p-1 rounded-md text-foreground/50 hover:text-accent hover:bg-neutral-200/60 transition-colors cursor-pointer"
                                 >
                                     {copiedTarget === "phone" ? (
                                         <span className="flex items-center gap-1 text-emerald-600 font-medium text-xs">
                                             <LuCheck className="w-4 h-4" aria-hidden="true" />
-                                            <span className="sr-only sm:not-sr-only">Copied</span>
+                                            <span className="sr-only sm:not-sr-only">{tFooter("copied")}</span>
                                         </span>
                                     ) : (
                                         <LuCopy className="w-4 h-4" aria-hidden="true" />
@@ -137,7 +136,7 @@ export default function Footer() {
 
                     <div>
                         <Heading6 visualLevel={6} variant="heading" className="mb-3 text-lg sm:text-xl">
-                            Socials
+                            {tFooter("socials")}
                         </Heading6>
                         <ul className="flex flex-col gap-2 text-sm font-medium">
                             <li>
@@ -165,7 +164,7 @@ interface SocialLinkProps {
 
 function SocialLink({ title, href, icon }: SocialLinkProps) {
     return (
-        <Link
+        <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
@@ -173,6 +172,6 @@ function SocialLink({ title, href, icon }: SocialLinkProps) {
         >
             <span className="w-4 h-4 flex items-center justify-center shrink-0">{icon}</span>
             <span>{title}</span>
-        </Link>
+        </a>
     );
 }

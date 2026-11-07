@@ -1,41 +1,31 @@
 'use client';
 
-import {LuAtSign, LuGithub, LuInstagram, LuLanguages, LuLinkedin} from "react-icons/lu";
-import Link from "next/link";
+import { LuAtSign, LuGithub, LuInstagram, LuLanguages, LuLinkedin } from "react-icons/lu";
 import { useScroll, motion, useTransform } from "motion/react";
-import { HTMLAttributes, ReactNode } from "react";
 import Dropdown, { DropdownItem } from "./Dropdown";
 import IconContainer from "@/components/IconContainer";
 import socials from "@/data/socials";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { locales, localeLabels, Locale } from "@/i18n/config";
+import { setLocaleCookie } from "@/lib/cookies";
 
 export { default as Dropdown } from "./Dropdown";
 export type { DropdownItem, DropdownProps } from "./Dropdown";
 
 export default function Header() {
     const { scrollY } = useScroll();
-    
+    const locale = useLocale();
+    const tNav = useTranslations("nav");
+    const pathname = usePathname();
+    const router = useRouter();
+
     const links = [
-        {
-            path: "#home",
-            label: "Home",
-            active: true,
-        },
-        {
-            path: "#about",
-            label: "About"
-        },
-        {
-            path: "#portfolio",
-            label: "Portfolio"
-        },
-        {
-            path: "#certificates",
-            label: "Certificates"
-        },
-        {
-            path: "#contact",
-            label: "Contact"
-        },
+        { path: "#home", label: tNav("home") },
+        { path: "#about", label: tNav("about") },
+        { path: "#portfolio", label: tNav("portfolio") },
+        { path: "#certificates", label: tNav("certificates") },
+        { path: "#contact", label: tNav("contact") },
     ];
 
     const position = useTransform(scrollY, (value) =>
@@ -45,6 +35,18 @@ export default function Header() {
     const top = useTransform(scrollY, (value) =>
         value > 54 ? 26 : 80
     );
+
+    const handleLocaleChange = (newLocale: Locale) => {
+        if (newLocale === locale) return;
+        setLocaleCookie(newLocale);
+        router.replace(pathname, { locale: newLocale });
+    };
+
+    const languageItems: DropdownItem[] = locales.map((loc) => ({
+        label: localeLabels[loc] ?? loc.toUpperCase(),
+        active: loc === locale,
+        onClick: () => handleLocaleChange(loc),
+    }));
 
     return (
         <motion.header 
@@ -60,11 +62,14 @@ export default function Header() {
                     </Link>
                 </section>
                 <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 py-1.75 font-medium shadow-lg'}>
-                    {links.map((link) => (
+                    {links.map((link, idx) => (
                         <li key={link.path} className={'h-full'}>
-                            <Link href={link.path} className={`${link.active ? 'bg-foreground text-background hover:text-background' : 'hover:bg-foreground/15 hover:text-foreground'} px-4 h-full grid place-content-center rounded-full transition-colors duration-100`}>
+                            <a 
+                                href={link.path} 
+                                className={`${idx === 0 ? 'bg-foreground text-background hover:text-background' : 'hover:bg-foreground/15 hover:text-foreground'} px-4 h-full grid place-content-center rounded-full transition-colors duration-100`}
+                            >
                                 {link.label}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                 </ul>
@@ -77,19 +82,16 @@ export default function Header() {
                         ]} 
                         align="right"
                     >
-                        <IconContainer aria-label="Contact options" className={'shadow-lg'}>
+                        <IconContainer aria-label={tNav("contactOptions")} className={'shadow-lg'}>
                             <LuAtSign />
                         </IconContainer>
                     </Dropdown>
 
                     <Dropdown 
-                        items={[
-                            { label: "English", active: true },
-                            { label: "Česky" }
-                        ]}
+                        items={languageItems}
                         align="right"
                     >
-                        <IconContainer aria-label="Select language" className={'shadow-lg'}>
+                        <IconContainer aria-label={tNav("selectLanguage")} className={'shadow-lg'}>
                             <LuLanguages />
                         </IconContainer>
                     </Dropdown>

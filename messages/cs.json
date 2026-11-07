@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Jakub Sokol - Full-stack Vývojář",
+    "description": "Osobní portfolio Jakuba Sokola, full-stack vývojáře a studenta z Česka zaměřeného na tvorbu moderních, vysoce výkonných webových aplikací."
+  },
+  "nav": {
+    "home": "Domů",
+    "about": "O mně",
+    "portfolio": "Portfolio",
+    "certificates": "Certifikáty",
+    "contact": "Kontakt",
+    "selectLanguage": "Vybrat jazyk",
+    "contactOptions": "Možnosti kontaktu"
+  },
+  "hero": {
+    "title": "JAKUB SOKOL",
+    "subtitle": "Full-stack vývojář a student z Česka se zaměřením na tvorbu moderních, vysoce výkonných webových aplikací.",
+    "circleText": "Full-stack vývojář • Kreativní kodér • Student •"
+  },
+  "about": {
+    "heading": "O mně",
+    "lead": "Jsem full-stack vývojář a student z Česka se zaměřením na tvorbu moderních, vysoce výkonných webových aplikací.",
+    "bio": "Můj každodenní toolkit zahrnuje React, Next.js, Vue, Nuxt.js a ASP.NET. Rád se učím nové technologie, zdokonaluji softwarovou architekturu a optimalizuji výkon i vývojové procesy.",
+    "technologies": "Technologie, které používám"
+  },
+  "portfolio": {
+    "heading": "Portfolio",
+    "seeAll": "Zobrazit celé portfolio",
+    "projects": {
+      "netuvio": {
+        "title": "Netuvio",
+        "description": "Moderní platforma a webová infrastruktura navržená pro vysoký výkon, intuitivní rozhraní a bezproblémovou správu klientů."
+      },
+      "tda26": {
+        "title": "Think different Academy",
+        "description": "Interaktivní vzdělávací platforma vytvořená pro Tour de App 2026 s kvízy v reálném čase, modulární výukou a gamifikací."
+      },
+      "acnodnet": {
+        "title": "Acnod",
+        "description": "Vysoce výkonná digitální platforma a síťové řešení postavené na moderní full-stack webové architektuře."
+      }
+    }
+  },
+  "certificates": {
+    "heading": "Certifikáty",
+    "cambridge": {
+      "title": "FCE B2 Angličtina",
+      "organization": "Cambridge",
+      "description": "First Certificate in English osvědčující pokročilou znalost anglického jazyka na úrovni B2."
+    }
+  },
+  "footer": {
+    "tagline": "Full-stack vývojář se zaměřením na tvorbu moderních, vysoce výkonných webových aplikací.",
+    "navigation": "Navigace",
+    "contact": "Kontakt",
+    "socials": "Sítě",
+    "copied": "Zkopírováno",
+    "copyEmail": "Zkopírovat e-mailovou adresu",
+    "copyPhone": "Zkopírovat telefonní číslo"
+  }
+}
