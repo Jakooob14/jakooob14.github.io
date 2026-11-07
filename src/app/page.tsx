@@ -119,10 +119,7 @@ export default function Home() {
                   {projects.map((project) => (
                       <Project
                           key={project.id}
-                          title={project.title}
-                          iconUrl={project.iconUrl}
-                          description={project.description}
-                          previewUrl={project.previewUrl}
+                          project={project}
                       />
                   ))}
               </div>
