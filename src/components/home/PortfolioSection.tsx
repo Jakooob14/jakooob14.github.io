@@ -13,10 +13,10 @@ export default function PortfolioSection() {
         ...project,
         title: t.has(`projects.${project.id}.title`)
             ? t(`projects.${project.id}.title`)
-            : project.title,
+            : project.title ?? project.id,
         description: t.has(`projects.${project.id}.description`)
             ? t(`projects.${project.id}.description`)
-            : project.description,
+            : project.description ?? "",
         iconUrl: resolveAsset(project, "icon"),
         coverUrl: resolveAsset(project, "cover"),
     }));
@@ -24,11 +24,12 @@ export default function PortfolioSection() {
     return (
         <section id="portfolio" className="container mx-auto mt-24">
             <Heading1>{t("heading")}</Heading1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                 {localizedProjects.map((project) => (
                     <Project
                         key={project.id}
                         project={project}
+                        className="h-full"
                     />
                 ))}
             </div>

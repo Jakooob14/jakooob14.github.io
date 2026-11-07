@@ -69,10 +69,10 @@ export default async function PortfolioPage({
         ...project,
         title: tPortfolio.has(`projects.${project.id}.title`)
             ? tPortfolio(`projects.${project.id}.title`)
-            : project.title,
+            : project.title ?? project.id,
         description: tPortfolio.has(`projects.${project.id}.description`)
             ? tPortfolio(`projects.${project.id}.description`)
-            : project.description,
+            : project.description ?? "",
         iconUrl: resolveAsset(project, "icon"),
         coverUrl: resolveAsset(project, "cover"),
     }));

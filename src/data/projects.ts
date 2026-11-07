@@ -3,6 +3,8 @@ export type ProjectCategory = "work" | "personal";
 export interface ProjectItem {
     id: string;
     category: ProjectCategory;
+    title?: string;
+    description?: string;
 }
 
 const projects: ProjectItem[] = [

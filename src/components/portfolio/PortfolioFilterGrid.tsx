@@ -84,7 +84,7 @@ export default function PortfolioFilterGrid({
             ) : (
                 <motion.div
                     layout
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
                 >
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project) => (
@@ -95,9 +95,11 @@ export default function PortfolioFilterGrid({
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.25 }}
+                                className="h-full flex flex-col"
                             >
                                 <Project
                                     project={project}
+                                    className="h-full"
                                     categoryBadgeLabel={
                                         categoryBadgeLabels[project.category]
                                     }
