@@ -99,9 +99,9 @@ export default async function LocaleLayout({
     return (
         <html
             lang={locale}
-            className={`${nexa.variable} ${hostGrotesk.variable} h-full antialiased`}
+            className={`${nexa.variable} ${hostGrotesk.variable} h-full antialiased scroll-smooth`}
         >
-            <body className="min-h-full flex flex-col h-[1500px]">
+            <body className="min-h-screen flex flex-col">
                 <NextIntlClientProvider messages={messages}>
                     <Header />
                     {children}

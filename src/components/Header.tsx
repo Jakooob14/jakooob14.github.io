@@ -6,7 +6,7 @@ import Dropdown, { DropdownItem } from "./Dropdown";
 import IconContainer from "@/components/IconContainer";
 import socials from "@/data/socials";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { locales, localeLabels, Locale } from "@/i18n/config";
 import { setLocaleCookie } from "@/lib/cookies";
 
@@ -20,13 +20,20 @@ export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
 
-    const links = [
-        { path: "#home", label: tNav("home") },
-        { path: "#about", label: tNav("about") },
-        { path: "#portfolio", label: tNav("portfolio") },
-        { path: "#certificates", label: tNav("certificates") },
-        { path: "#contact", label: tNav("contact") },
+    const isHomePage = pathname === "/";
+
+    const navItems = [
+        { id: "home", label: tNav("home") },
+        { id: "about", label: tNav("about") },
+        { id: "portfolio", label: tNav("portfolio") },
+        { id: "certificates", label: tNav("certificates") },
+        { id: "contact", label: tNav("contact") },
     ];
+
+    const links = navItems.map((item) => ({
+        href: isHomePage ? `#${item.id}` : `/${locale}#${item.id}`,
+        label: item.label,
+    }));
 
     const position = useTransform(scrollY, (value) =>
         value > 54 ? "fixed" : "absolute"
@@ -55,17 +62,17 @@ export default function Header() {
         >
             <nav className={'relative container mx-auto flex justify-between'}>
                 <section className={'shadow-lg rounded-full'}>
-                    <Link href={'/'}>
+                    <a href={isHomePage ? "#home" : `/${locale}`}>
                         <IconContainer>
                             <span className={'font-heading font-black'}>JS</span>
                         </IconContainer>
-                    </Link>
+                    </a>
                 </section>
                 <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 py-1.75 font-medium shadow-lg'}>
                     {links.map((link, idx) => (
-                        <li key={link.path} className={'h-full'}>
+                        <li key={link.href} className={'h-full'}>
                             <a 
-                                href={link.path} 
+                                href={link.href} 
                                 className={`${idx === 0 ? 'bg-foreground text-background hover:text-background' : 'hover:bg-foreground/15 hover:text-foreground'} px-4 h-full grid place-content-center rounded-full transition-colors duration-100`}
                             >
                                 {link.label}

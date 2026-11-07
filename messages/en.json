@@ -57,5 +57,11 @@
     "copied": "Copied",
     "copyEmail": "Copy email address",
     "copyPhone": "Copy phone number"
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "returnHome": "Return Home"
   }
 }

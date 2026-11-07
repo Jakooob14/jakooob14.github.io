@@ -22,15 +22,26 @@
   --color-primary-800: #085982;
   --color-primary-900: #0d4b6d;
   --color-primary-950: #093048;
-  
+
   --color-accent: var(--color-primary-700);
   --color-heading: var(--color-primary-600);
-  
+
   --color-text-primary: var(--foreground);
   --color-text-secondary: var(--background);
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     background: var(--background);
     color: var(--color-text-primary);
@@ -42,7 +53,7 @@
     font-family: var(--font-nexa), sans-serif;
     @apply tracking-normal;
   }
-  
+
   a {
     @apply hover:text-accent hover:transition-colors;
   }
@@ -83,17 +94,17 @@
 
 .marquee-mask {
   mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 48px,
-    black calc(100% - 48px),
-    transparent 100%
+      to right,
+      transparent 0%,
+      black 48px,
+      black calc(100% - 48px),
+      transparent 100%
   );
   -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 48px,
-    black calc(100% - 48px),
-    transparent 100%
+      to right,
+      transparent 0%,
+      black 48px,
+      black calc(100% - 48px),
+      transparent 100%
   );
 }

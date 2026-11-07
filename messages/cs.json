@@ -57,5 +57,11 @@
     "copied": "Zkopírováno",
     "copyEmail": "Zkopírovat e-mailovou adresu",
     "copyPhone": "Zkopírovat telefonní číslo"
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Stránka nenalezena",
+    "description": "Stránka, kterou hledáte, neexistuje nebo byla přesunuta.",
+    "returnHome": "Zpět domů"
   }
 }
