@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
 import { Heading6 } from "@/components/Heading";
 import socials from "@/data/socials";
 import copy from "@/lib/copy";
@@ -20,6 +20,8 @@ import { ReactNode } from "react";
 export default function Footer() {
     const tFooter = useTranslations("footer");
     const tNav = useTranslations("nav");
+    const pathname = usePathname();
+    const locale = useLocale();
     const [copiedTarget, setCopiedTarget] = useState<string | null>(null);
 
     const handleCopy = async (text: string, id: string) => {
@@ -32,11 +34,12 @@ export default function Footer() {
         }
     };
 
+    const isHomePage = pathname === "/";
     const navLinks = [
-        { label: tNav("home"), href: "#home" },
-        { label: tNav("about"), href: "#about" },
-        { label: tNav("portfolio"), href: "#portfolio" },
-        { label: tNav("certificates"), href: "#certificates" },
+        { label: tNav("home"), href: isHomePage ? "#home" : `/${locale}` },
+        { label: tNav("about"), href: isHomePage ? "#about" : `/${locale}#about` },
+        { label: tNav("portfolio"), href: `/${locale}/portfolio` },
+        { label: tNav("certificates"), href: isHomePage ? "#certificates" : `/${locale}#certificates` },
     ];
 
     return (

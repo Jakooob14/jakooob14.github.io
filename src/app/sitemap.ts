@@ -3,7 +3,7 @@ import { locales, defaultLocale } from '@/i18n/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://jakubsokol.cz';
-    const routes = [''];
+    const routes = ['', '/portfolio'];
 
     const items: MetadataRoute.Sitemap = [];
 

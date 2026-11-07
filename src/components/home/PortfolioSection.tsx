@@ -2,6 +2,7 @@ import { Heading1 } from "@/components/Heading";
 import Project from "@/components/home/Project";
 import projects from "@/data/projects";
 import { Link } from "@/i18n/routing";
+import { resolveAsset } from "@/lib/assets";
 import { LuArrowRight } from "react-icons/lu";
 import { useTranslations } from "next-intl";
 
@@ -16,6 +17,8 @@ export default function PortfolioSection() {
         description: t.has(`projects.${project.id}.description`)
             ? t(`projects.${project.id}.description`)
             : project.description,
+        iconUrl: resolveAsset(project, "icon"),
+        coverUrl: resolveAsset(project, "cover"),
     }));
 
     return (

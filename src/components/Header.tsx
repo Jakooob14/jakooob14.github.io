@@ -21,19 +21,40 @@ export default function Header() {
     const router = useRouter();
 
     const isHomePage = pathname === "/";
+    const isPortfolioPage = pathname === "/portfolio";
 
     const navItems = [
-        { id: "home", label: tNav("home") },
-        { id: "about", label: tNav("about") },
-        { id: "portfolio", label: tNav("portfolio") },
-        { id: "certificates", label: tNav("certificates") },
-        { id: "contact", label: tNav("contact") },
+        {
+            id: "home",
+            label: tNav("home"),
+            href: isHomePage ? "#home" : `/${locale}`,
+            active: isHomePage,
+        },
+        {
+            id: "about",
+            label: tNav("about"),
+            href: isHomePage ? "#about" : `/${locale}#about`,
+            active: false,
+        },
+        {
+            id: "portfolio",
+            label: tNav("portfolio"),
+            href: `/${locale}/portfolio`,
+            active: isPortfolioPage,
+        },
+        {
+            id: "certificates",
+            label: tNav("certificates"),
+            href: isHomePage ? "#certificates" : `/${locale}#certificates`,
+            active: false,
+        },
+        {
+            id: "contact",
+            label: tNav("contact"),
+            href: isHomePage ? "#contact" : `/${locale}#contact`,
+            active: false,
+        },
     ];
-
-    const links = navItems.map((item) => ({
-        href: isHomePage ? `#${item.id}` : `/${locale}#${item.id}`,
-        label: item.label,
-    }));
 
     const position = useTransform(scrollY, (value) =>
         value > 54 ? "fixed" : "absolute"
@@ -69,13 +90,13 @@ export default function Header() {
                     </a>
                 </section>
                 <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 py-1.75 font-medium shadow-lg'}>
-                    {links.map((link, idx) => (
-                        <li key={link.href} className={'h-full'}>
+                    {navItems.map((item) => (
+                        <li key={item.id} className={'h-full'}>
                             <a 
-                                href={link.href} 
-                                className={`${idx === 0 ? 'bg-foreground text-background hover:text-background' : 'hover:bg-foreground/15 hover:text-foreground'} px-4 h-full grid place-content-center rounded-full transition-colors duration-100`}
+                                href={item.href} 
+                                className={`${item.active ? 'bg-foreground text-background hover:text-background' : 'hover:bg-foreground/15 hover:text-foreground'} px-4 h-full grid place-content-center rounded-full transition-colors duration-100`}
                             >
-                                {link.label}
+                                {item.label}
                             </a>
                         </li>
                     ))}

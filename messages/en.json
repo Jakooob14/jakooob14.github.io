@@ -41,6 +41,28 @@
       }
     }
   },
+  "portfolioPage": {
+    "title": "Portfolio - Jakub Sokol",
+    "description": "Explore commercial work and personal software projects by Jakub Sokol.",
+    "heading": "Portfolio",
+    "subtitle": "A collection of commercial client projects and personal engineering endeavors.",
+    "backHome": "Back to Home",
+    "filter": {
+      "all": "All",
+      "work": "Work",
+      "personal": "Personal"
+    },
+    "counts": {
+      "all": "All ({count})",
+      "work": "Work ({count})",
+      "personal": "Personal ({count})"
+    },
+    "categoryBadge": {
+      "work": "Work",
+      "personal": "Personal"
+    },
+    "empty": "No projects found in this category."
+  },
   "certificates": {
     "heading": "Certificates",
     "cambridge": {

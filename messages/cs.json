@@ -41,6 +41,28 @@
       }
     }
   },
+  "portfolioPage": {
+    "title": "Portfolio - Jakub Sokol",
+    "description": "Prohlédněte si pracovní zakázky a osobní vývojářské projekty Jakuba Sokola.",
+    "heading": "Portfolio",
+    "subtitle": "Přehled komerčních klientských projektů a osobních softwarových řešení.",
+    "backHome": "Zpět na úvod",
+    "filter": {
+      "all": "Vše",
+      "work": "Práce",
+      "personal": "Osobní"
+    },
+    "counts": {
+      "all": "Vše ({count})",
+      "work": "Práce ({count})",
+      "personal": "Osobní ({count})"
+    },
+    "categoryBadge": {
+      "work": "Práce",
+      "personal": "Osobní"
+    },
+    "empty": "V této kategorii nebyly nalezeny žádné projekty."
+  },
   "certificates": {
     "heading": "Certifikáty",
     "cambridge": {
