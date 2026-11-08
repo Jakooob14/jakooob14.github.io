@@ -9,6 +9,7 @@ export interface ProjectItem {
     githubUrl?: string;
     title?: string;
     description?: string;
+    featured?: boolean;
 }
 
 const projects: ProjectItem[] = [
@@ -18,6 +19,7 @@ const projects: ProjectItem[] = [
         year: "2024 - Present",
         technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
         liveUrl: "https://netuvio.cz",
+        featured: true
     },
     {
         id: "tda26",

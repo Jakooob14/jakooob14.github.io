@@ -25,12 +25,14 @@ export default function PortfolioSection() {
         <section id="portfolio" className="container mx-auto mt-24">
             <Heading1>{t("heading")}</Heading1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                {localizedProjects.map((project) => (
-                    <Project
-                        key={project.id}
-                        project={project}
-                        className="h-full"
-                    />
+                {localizedProjects
+                    .filter(project => project.featured)
+                    .map((project) => (
+                        <Project
+                            key={project.id}
+                            project={project}
+                            className="h-full"
+                        />
                 ))}
             </div>
             <Link
