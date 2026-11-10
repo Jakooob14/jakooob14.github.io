@@ -7,10 +7,11 @@ import {
     useEffect,
     useCallback,
     useId,
+    useMemo,
     ReactNode,
 } from "react";
 import Image from "next/image";
-import { LuChevronLeft, LuChevronRight, LuX } from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight, LuX, LuImage } from "react-icons/lu";
 
 export interface LightboxItemData {
     id: string;
@@ -47,6 +48,7 @@ export interface LightboxProps {
 export function Lightbox({ children, className = "" }: LightboxProps) {
     const [items, setItems] = useState<LightboxItemData[]>([]);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [loadedItemSrc, setLoadedItemSrc] = useState<string | null>(null);
 
     const registerItem = useCallback((item: LightboxItemData) => {
         setItems((prev) => {
@@ -74,6 +76,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
 
     const closeLightbox = useCallback(() => {
         setActiveIndex(null);
+        setLoadedItemSrc(null);
     }, []);
 
     const showPrev = useCallback(() => {
@@ -110,6 +113,14 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     }, [activeIndex, closeLightbox, showPrev, showNext]);
 
     const activeItem = activeIndex !== null && items[activeIndex] ? items[activeIndex] : null;
+    const isLoading = activeItem !== null && loadedItemSrc !== activeItem.src;
+
+    const adjacentIndices = useMemo(() => {
+        if (activeIndex === null || items.length <= 1) return [];
+        const nextIndex = (activeIndex + 1) % items.length;
+        const prevIndex = (activeIndex - 1 + items.length) % items.length;
+        return nextIndex === prevIndex ? [nextIndex] : [nextIndex, prevIndex];
+    }, [activeIndex, items.length]);
 
     return (
         <LightboxContext.Provider
@@ -174,15 +185,55 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="relative w-full h-full flex items-center justify-center">
+                            {/* Pulsing skeleton / frosted placeholder card */}
+                            {isLoading && (
+                                <div
+                                    aria-hidden="true"
+                                    className="w-full max-w-4xl h-[55vh] sm:h-[70vh] rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl animate-pulse flex flex-col items-center justify-center p-8 shadow-2xl"
+                                >
+                                    <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-4 text-white/40">
+                                        <LuImage className="w-8 h-8" />
+                                    </div>
+                                    <div className="h-3 w-44 bg-white/15 rounded-full mb-3" />
+                                    <div className="h-2.5 w-28 bg-white/10 rounded-full" />
+                                </div>
+                            )}
+
                             <Image
+                                key={activeItem.src}
                                 src={activeItem.src}
                                 alt={activeItem.alt}
                                 width={1600}
                                 height={1000}
-                                className="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl"
+                                className={`max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl transition-opacity duration-300 ${
+                                    isLoading ? "opacity-0 absolute pointer-events-none" : "opacity-100"
+                                }`}
                                 priority
+                                onLoad={() => setLoadedItemSrc(activeItem.src)}
+                                onError={() => setLoadedItemSrc(activeItem.src)}
                             />
                         </div>
+
+                        {/* Preload adjacent images */}
+                        {adjacentIndices.map((idx) => {
+                            const preloadItem = items[idx];
+                            if (!preloadItem) return null;
+                            return (
+                                <div
+                                    key={`preload-${preloadItem.id}-${preloadItem.src}`}
+                                    className="hidden"
+                                    aria-hidden="true"
+                                >
+                                    <Image
+                                        src={preloadItem.src}
+                                        alt=""
+                                        width={1600}
+                                        height={1000}
+                                        priority
+                                    />
+                                </div>
+                            );
+                        })}
 
                         {/* Image Counter */}
                         {items.length > 1 && (
