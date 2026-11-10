@@ -8,6 +8,7 @@ import {
     useCallback,
     useId,
     useMemo,
+    useRef,
     ReactNode,
 } from "react";
 import Image from "next/image";
@@ -50,6 +51,27 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [loadedItemSrc, setLoadedItemSrc] = useState<string | null>(null);
 
+    // Zoom & pan states
+    const [isZoomed, setIsZoomed] = useState(false);
+    const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
+    const [isDragging, setIsDragging] = useState(false);
+    const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+    const dragStartRef = useRef<{ startX: number; startY: number; initialOffsetX: number; initialOffsetY: number; didMove: boolean }>({
+        startX: 0,
+        startY: 0,
+        initialOffsetX: 0,
+        initialOffsetY: 0,
+        didMove: false,
+    });
+    const imageContainerRef = useRef<HTMLDivElement | null>(null);
+
+    const resetZoom = useCallback(() => {
+        setIsZoomed(false);
+        setZoomPosition({ x: 50, y: 50 });
+        setDragOffset({ x: 0, y: 0 });
+        setIsDragging(false);
+    }, []);
+
     const registerItem = useCallback((item: LightboxItemData) => {
         setItems((prev) => {
             const exists = prev.some((i) => i.id === item.id);
@@ -69,29 +91,33 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
             const index = currentItems.findIndex((item) => item.id === id);
             if (index !== -1) {
                 setActiveIndex(index);
+                resetZoom();
             }
             return currentItems;
         });
-    }, []);
+    }, [resetZoom]);
 
     const closeLightbox = useCallback(() => {
         setActiveIndex(null);
         setLoadedItemSrc(null);
-    }, []);
+        resetZoom();
+    }, [resetZoom]);
 
     const showPrev = useCallback(() => {
+        resetZoom();
         setActiveIndex((prev) => {
             if (prev === null || items.length === 0) return null;
             return (prev - 1 + items.length) % items.length;
         });
-    }, [items.length]);
+    }, [items.length, resetZoom]);
 
     const showNext = useCallback(() => {
+        resetZoom();
         setActiveIndex((prev) => {
             if (prev === null || items.length === 0) return null;
             return (prev + 1) % items.length;
         });
-    }, [items.length]);
+    }, [items.length, resetZoom]);
 
     useEffect(() => {
         if (activeIndex === null) return;
@@ -112,6 +138,18 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
         };
     }, [activeIndex, closeLightbox, showPrev, showNext]);
 
+    // Global mouseup listener for smooth drag release anywhere
+    useEffect(() => {
+        if (!isDragging) return;
+
+        const handleMouseUp = () => {
+            setIsDragging(false);
+        };
+
+        window.addEventListener("mouseup", handleMouseUp);
+        return () => window.removeEventListener("mouseup", handleMouseUp);
+    }, [isDragging]);
+
     const activeItem = activeIndex !== null && items[activeIndex] ? items[activeIndex] : null;
     const isLoading = activeItem !== null && loadedItemSrc !== activeItem.src;
 
@@ -121,6 +159,62 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
         const prevIndex = (activeIndex - 1 + items.length) % items.length;
         return nextIndex === prevIndex ? [nextIndex] : [nextIndex, prevIndex];
     }, [activeIndex, items.length]);
+
+    const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        // If a drag move occurred, ignore click toggle
+        if (dragStartRef.current.didMove) {
+            dragStartRef.current.didMove = false;
+            return;
+        }
+
+        if (isLoading) return;
+
+        if (isZoomed) {
+            resetZoom();
+        } else {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+            const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+            setZoomPosition({ x, y });
+            setDragOffset({ x: 0, y: 0 });
+            setIsZoomed(true);
+        }
+    };
+
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!isZoomed || isLoading || e.button !== 0) return;
+        dragStartRef.current = {
+            startX: e.clientX,
+            startY: e.clientY,
+            initialOffsetX: dragOffset.x,
+            initialOffsetY: dragOffset.y,
+            didMove: false,
+        };
+        setIsDragging(true);
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!isZoomed || !isDragging) return;
+        const deltaX = e.clientX - dragStartRef.current.startX;
+        const deltaY = e.clientY - dragStartRef.current.startY;
+
+        if (Math.hypot(deltaX, deltaY) > 4) {
+            dragStartRef.current.didMove = true;
+        }
+
+        setDragOffset({
+            x: dragStartRef.current.initialOffsetX + deltaX,
+            y: dragStartRef.current.initialOffsetY + deltaY,
+        });
+    };
+
+    const cursorClass = isLoading
+        ? "cursor-default"
+        : !isZoomed
+        ? "cursor-zoom-in"
+        : isDragging
+        ? "cursor-grabbing"
+        : "cursor-grab";
 
     return (
         <LightboxContext.Provider
@@ -138,7 +232,9 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                     role="dialog"
                     aria-modal="true"
                     aria-label={activeItem.alt || "Image preview"}
-                    className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200"
+                    className={`fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center animate-in fade-in duration-200 select-none overflow-hidden ${
+                        isZoomed ? "p-0" : "p-4 sm:p-8"
+                    }`}
                     onClick={closeLightbox}
                 >
                     {/* Close Button */}
@@ -151,8 +247,8 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                         <LuX className="w-6 h-6" />
                     </button>
 
-                    {/* Navigation Buttons */}
-                    {items.length > 1 && (
+                    {/* Navigation Buttons (hidden when zoomed to avoid accidental clicks) */}
+                    {items.length > 1 && !isZoomed && (
                         <>
                             <button
                                 type="button"
@@ -179,12 +275,20 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                         </>
                     )}
 
-                    {/* Active Modal Image */}
+                    {/* Active Modal Image Wrapper */}
                     <div
-                        className="relative max-w-6xl max-h-[85vh] w-full h-full flex flex-col items-center justify-center"
+                        className={`relative w-full h-full flex flex-col items-center justify-center transition-all duration-300 ${
+                            isZoomed ? "max-w-none max-h-none" : "max-w-6xl max-h-[85vh]"
+                        }`}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="relative w-full h-full flex items-center justify-center">
+                        <div
+                            ref={imageContainerRef}
+                            className={`relative w-full h-full flex items-center justify-center ${cursorClass}`}
+                            onClick={handleContainerClick}
+                            onMouseDown={handleMouseDown}
+                            onMouseMove={handleMouseMove}
+                        >
                             {/* Pulsing skeleton / frosted placeholder card */}
                             {isLoading && (
                                 <div
@@ -199,19 +303,35 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                                 </div>
                             )}
 
-                            <Image
-                                key={activeItem.src}
-                                src={activeItem.src}
-                                alt={activeItem.alt}
-                                width={1600}
-                                height={1000}
-                                className={`max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl transition-opacity duration-300 ${
-                                    isLoading ? "opacity-0 absolute pointer-events-none" : "opacity-100"
+                            <div
+                                className={`flex items-center justify-center ${
+                                    isZoomed && !isLoading ? "will-change-transform" : ""
                                 }`}
-                                priority
-                                onLoad={() => setLoadedItemSrc(activeItem.src)}
-                                onError={() => setLoadedItemSrc(activeItem.src)}
-                            />
+                                style={{
+                                    transform: isZoomed && !isLoading
+                                        ? `translate3d(${dragOffset.x}px, ${dragOffset.y}px, 0px) scale(2.5)`
+                                        : "translate3d(0px, 0px, 0px) scale(1)",
+                                    transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                                    transition: isDragging
+                                        ? "none"
+                                        : "transform 250ms cubic-bezier(0.2, 0, 0.2, 1)",
+                                }}
+                            >
+                                <Image
+                                    key={activeItem.src}
+                                    src={activeItem.src}
+                                    alt={activeItem.alt}
+                                    width={2400}
+                                    height={1600}
+                                    draggable={false}
+                                    className={`max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl select-none transition-opacity duration-300 pointer-events-none ${
+                                        isLoading ? "opacity-0 absolute" : "opacity-100"
+                                    }`}
+                                    priority
+                                    onLoad={() => setLoadedItemSrc(activeItem.src)}
+                                    onError={() => setLoadedItemSrc(activeItem.src)}
+                                />
+                            </div>
                         </div>
 
                         {/* Preload adjacent images */}
@@ -236,7 +356,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                         })}
 
                         {/* Image Counter */}
-                        {items.length > 1 && (
+                        {items.length > 1 && !isZoomed && (
                             <div className="mt-3 text-white/70 text-sm font-medium tracking-wide">
                                 {activeIndex + 1} / {items.length}
                             </div>
