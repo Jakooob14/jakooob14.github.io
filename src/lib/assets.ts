@@ -6,10 +6,12 @@ export type AssetType = SingleAssetType | "gallery";
 
 export const IMAGE_EXTENSIONS = ["svg", "webp", "png", "jpg", "jpeg", "avif", "ico"] as const;
 export const VIDEO_EXTENSIONS = ["mp4", "webm", "ogg", "mov"] as const;
+export const PDF_EXTENSIONS = ["pdf"] as const;
 export const MEDIA_EXTENSIONS = [...IMAGE_EXTENSIONS, ...VIDEO_EXTENSIONS] as const;
 
 export type ImageExtension = (typeof IMAGE_EXTENSIONS)[number];
 export type VideoExtension = (typeof VIDEO_EXTENSIONS)[number];
+export type PdfExtension = (typeof PDF_EXTENSIONS)[number];
 export type MediaExtension = (typeof MEDIA_EXTENSIONS)[number];
 
 const ICON_EXTENSION_PRIORITY: ImageExtension[] = ["svg", "webp", "png", "ico", "jpg", "jpeg", "avif"];
@@ -81,6 +83,47 @@ export function resolveAsset(projectOrId: string | { id: string }, type: AssetTy
     }
 
     return null;
+}
+
+export interface CertificateAsset {
+    url: string;
+    type: "image" | "pdf";
+    filename: string;
+}
+
+export function resolveCertificateAssets(certificateId: string): CertificateAsset[] {
+    const certDir = path.join(process.cwd(), "public", "certificates", certificateId);
+
+    if (!fs.existsSync(certDir)) {
+        return [];
+    }
+
+    const files = fs.readdirSync(certDir);
+    const validAssets: CertificateAsset[] = [];
+
+    for (const file of files) {
+        if (file.startsWith(".")) continue;
+        const ext = file.split(".").pop()?.toLowerCase();
+        if (!ext) continue;
+
+        if (IMAGE_EXTENSIONS.includes(ext as ImageExtension)) {
+            validAssets.push({
+                url: `/certificates/${certificateId}/${file}`,
+                type: "image",
+                filename: file,
+            });
+        } else if (ext === "pdf") {
+            validAssets.push({
+                url: `/certificates/${certificateId}/${file}`,
+                type: "pdf",
+                filename: file,
+            });
+        }
+    }
+
+    return validAssets.sort((a, b) =>
+        a.filename.localeCompare(b.filename, undefined, { numeric: true, sensitivity: "base" })
+    );
 }
 
 export default resolveAsset;

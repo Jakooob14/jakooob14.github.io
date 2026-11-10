@@ -1,6 +1,7 @@
 import { Heading1 } from "@/components/Heading";
 import Certificate from "@/components/home/Certificate";
 import certificates from "@/data/certificates";
+import { resolveCertificateAssets } from "@/lib/assets";
 import { useTranslations } from "next-intl";
 
 export default function CertificatesSection() {
@@ -20,6 +21,7 @@ export default function CertificatesSection() {
                     const description = t.has(`${cert.id}.description`)
                         ? t(`${cert.id}.description`)
                         : cert.description ?? "";
+                    const assets = resolveCertificateAssets(cert.id);
 
                     return (
                         <Certificate
@@ -28,6 +30,7 @@ export default function CertificatesSection() {
                             organization={organization}
                             description={description}
                             year={cert.year}
+                            assets={assets}
                         />
                     );
                 })}

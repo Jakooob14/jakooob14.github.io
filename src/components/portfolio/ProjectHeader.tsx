@@ -25,7 +25,7 @@ export default function ProjectHeader({ project, labels }: ProjectHeaderProps) {
             </Link>
 
             <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-neutral-700 bg-neutral-200/70 px-3 py-1 rounded-full">
+                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-neutral-700 bg-neutral-100 px-3 py-1 rounded-full">
                     {labels.categoryBadge}
                 </span>
 

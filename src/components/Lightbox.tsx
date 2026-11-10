@@ -12,12 +12,19 @@ import {
     ReactNode,
 } from "react";
 import Image from "next/image";
-import { LuChevronLeft, LuChevronRight, LuX, LuImage } from "react-icons/lu";
+import dynamic from "next/dynamic";
+import { LuChevronLeft, LuChevronRight, LuX, LuImage, LuFileText } from "react-icons/lu";
+
+const PdfCanvasViewer = dynamic(() => import("./PdfCanvasViewer"), {
+    ssr: false,
+});
 
 export interface LightboxItemData {
     id: string;
     src: string;
     alt: string;
+    type?: "image" | "pdf";
+    pageNumber?: number;
 }
 
 interface LightboxContextType {
@@ -42,14 +49,33 @@ export function useLightboxContext() {
 }
 
 export interface LightboxProps {
-    children: ReactNode;
+    children?: ReactNode;
     className?: string;
+    items?: LightboxItemData[];
+    isOpen?: boolean;
+    onClose?: () => void;
+    initialIndex?: number;
 }
 
-export function Lightbox({ children, className = "" }: LightboxProps) {
-    const [items, setItems] = useState<LightboxItemData[]>([]);
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
-    const [loadedItemSrc, setLoadedItemSrc] = useState<string | null>(null);
+export function Lightbox({
+    children,
+    className = "",
+    items: controlledItems,
+    isOpen: controlledIsOpen,
+    onClose: controlledOnClose,
+    initialIndex = 0,
+}: LightboxProps) {
+    const [registeredItems, setRegisteredItems] = useState<LightboxItemData[]>([]);
+    const [internalActiveIndex, setInternalActiveIndex] = useState<number | null>(null);
+    const [controlledIndex, setControlledIndex] = useState(initialIndex);
+    const [prevInitialIndex, setPrevInitialIndex] = useState(initialIndex);
+    const [loadedItemKey, setLoadedItemKey] = useState<string | null>(null);
+
+    // Fade animation states
+    const [isClosing, setIsClosing] = useState(false);
+    const [closingItem, setClosingItem] = useState<LightboxItemData | null>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     // Zoom & pan states
     const [isZoomed, setIsZoomed] = useState(false);
@@ -65,6 +91,21 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     });
     const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
+    const items = controlledItems ?? registeredItems;
+    const isControlled = controlledIsOpen !== undefined;
+
+    // Reset controlled index if initialIndex changes
+    if (initialIndex !== prevInitialIndex) {
+        setPrevInitialIndex(initialIndex);
+        setControlledIndex(initialIndex);
+    }
+
+    const activeIndex = isControlled
+        ? controlledIsOpen && items.length > 0
+            ? controlledIndex
+            : null
+        : internalActiveIndex;
+
     const resetZoom = useCallback(() => {
         setIsZoomed(false);
         setZoomPosition({ x: 50, y: 50 });
@@ -73,7 +114,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     }, []);
 
     const registerItem = useCallback((item: LightboxItemData) => {
-        setItems((prev) => {
+        setRegisteredItems((prev) => {
             const exists = prev.some((i) => i.id === item.id);
             if (exists) {
                 return prev.map((i) => (i.id === item.id ? item : i));
@@ -83,44 +124,100 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     }, []);
 
     const unregisterItem = useCallback((id: string) => {
-        setItems((prev) => prev.filter((item) => item.id !== id));
+        setRegisteredItems((prev) => prev.filter((item) => item.id !== id));
     }, []);
 
     const openLightbox = useCallback((id: string) => {
-        setItems((currentItems) => {
-            const index = currentItems.findIndex((item) => item.id === id);
-            if (index !== -1) {
-                setActiveIndex(index);
-                resetZoom();
-            }
-            return currentItems;
-        });
-    }, [resetZoom]);
+        const index = items.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            setInternalActiveIndex(index);
+            setIsClosing(false);
+            setClosingItem(null);
+            resetZoom();
+        }
+    }, [items, resetZoom]);
+
+    const activeItem = activeIndex !== null && items[activeIndex] ? items[activeIndex] : null;
 
     const closeLightbox = useCallback(() => {
-        setActiveIndex(null);
-        setLoadedItemSrc(null);
+        if (isClosing) return;
+        if (activeItem) {
+            setClosingItem(activeItem);
+        }
+        setIsClosing(true);
+        setIsVisible(false);
         resetZoom();
-    }, [resetZoom]);
+
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+        }
+
+        closeTimeoutRef.current = setTimeout(() => {
+            setIsClosing(false);
+            setClosingItem(null);
+            setLoadedItemKey(null);
+            if (isControlled) {
+                setControlledIndex(initialIndex);
+                controlledOnClose?.();
+            } else {
+                setInternalActiveIndex(null);
+            }
+        }, 200);
+    }, [activeItem, controlledOnClose, initialIndex, isClosing, isControlled, resetZoom]);
+
+    // Handle fade in when activeIndex opens
+    useEffect(() => {
+        if (activeIndex !== null && !isClosing) {
+            const frame = requestAnimationFrame(() => {
+                setIsVisible(true);
+            });
+            return () => cancelAnimationFrame(frame);
+        }
+    }, [activeIndex, isClosing]);
+
+    // Clean up close timer on unmount
+    useEffect(() => {
+        return () => {
+            if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+            }
+        };
+    }, []);
 
     const showPrev = useCallback(() => {
+        if (isClosing) return;
         resetZoom();
-        setActiveIndex((prev) => {
-            if (prev === null || items.length === 0) return null;
-            return (prev - 1 + items.length) % items.length;
-        });
-    }, [items.length, resetZoom]);
+        if (isControlled) {
+            setControlledIndex((prev) => {
+                if (items.length === 0) return 0;
+                return (prev - 1 + items.length) % items.length;
+            });
+        } else {
+            setInternalActiveIndex((prev) => {
+                if (prev === null || items.length === 0) return null;
+                return (prev - 1 + items.length) % items.length;
+            });
+        }
+    }, [isControlled, isClosing, items.length, resetZoom]);
 
     const showNext = useCallback(() => {
+        if (isClosing) return;
         resetZoom();
-        setActiveIndex((prev) => {
-            if (prev === null || items.length === 0) return null;
-            return (prev + 1) % items.length;
-        });
-    }, [items.length, resetZoom]);
+        if (isControlled) {
+            setControlledIndex((prev) => {
+                if (items.length === 0) return 0;
+                return (prev + 1) % items.length;
+            });
+        } else {
+            setInternalActiveIndex((prev) => {
+                if (prev === null || items.length === 0) return null;
+                return (prev + 1) % items.length;
+            });
+        }
+    }, [isControlled, isClosing, items.length, resetZoom]);
 
     useEffect(() => {
-        if (activeIndex === null) return;
+        if (activeIndex === null && !isClosing) return;
 
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "Escape") closeLightbox();
@@ -136,7 +233,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
             document.body.style.overflow = originalOverflow;
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [activeIndex, closeLightbox, showPrev, showNext]);
+    }, [activeIndex, isClosing, closeLightbox, showPrev, showNext]);
 
     // Global mouseup listener for smooth drag release anywhere
     useEffect(() => {
@@ -150,8 +247,12 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
         return () => window.removeEventListener("mouseup", handleMouseUp);
     }, [isDragging]);
 
-    const activeItem = activeIndex !== null && items[activeIndex] ? items[activeIndex] : null;
-    const isLoading = activeItem !== null && loadedItemSrc !== activeItem.src;
+    const displayedItem = activeItem ?? closingItem;
+
+    const activeItemKey = displayedItem
+        ? `${displayedItem.id}#${displayedItem.src}#${displayedItem.pageNumber ?? 1}`
+        : null;
+    const isLoading = displayedItem !== null && loadedItemKey !== activeItemKey;
 
     const adjacentIndices = useMemo(() => {
         if (activeIndex === null || items.length <= 1) return [];
@@ -167,7 +268,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
             return;
         }
 
-        if (isLoading) return;
+        if (isLoading || isClosing) return;
 
         if (isZoomed) {
             resetZoom();
@@ -182,7 +283,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     };
 
     const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isZoomed || isLoading || e.button !== 0) return;
+        if (!isZoomed || isLoading || isClosing || e.button !== 0) return;
         dragStartRef.current = {
             startX: e.clientX,
             startY: e.clientY,
@@ -194,7 +295,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
     };
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isZoomed || !isDragging) return;
+        if (!isZoomed || !isDragging || isClosing) return;
         const deltaX = e.clientX - dragStartRef.current.startX;
         const deltaY = e.clientY - dragStartRef.current.startY;
 
@@ -208,13 +309,15 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
         });
     };
 
-    const cursorClass = isLoading
+    const cursorClass = isLoading || isClosing
         ? "cursor-default"
         : !isZoomed
         ? "cursor-zoom-in"
         : isDragging
         ? "cursor-grabbing"
         : "cursor-grab";
+
+    const isModalMounted = (activeIndex !== null && activeItem !== null) || isClosing;
 
     return (
         <LightboxContext.Provider
@@ -225,23 +328,23 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                 closeLightbox,
             }}
         >
-            <div className={className}>{children}</div>
+            {children ? <div className={className}>{children}</div> : null}
 
-            {activeIndex !== null && activeItem && (
+            {isModalMounted && displayedItem && (
                 <div
                     role="dialog"
                     aria-modal="true"
-                    aria-label={activeItem.alt || "Image preview"}
-                    className={`fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center animate-in fade-in duration-200 select-none overflow-hidden ${
-                        isZoomed ? "p-0" : "p-4 sm:p-8"
-                    }`}
+                    aria-label={displayedItem.alt || "Preview"}
+                    className={`fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center select-none overflow-hidden transition-opacity duration-200 ease-in-out ${
+                        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+                    } ${isZoomed ? "p-0" : "p-4 sm:p-8"}`}
                     onClick={closeLightbox}
                 >
                     {/* Close Button */}
                     <button
                         type="button"
                         onClick={closeLightbox}
-                        aria-label="Close image preview"
+                        aria-label="Close preview"
                         className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
                     >
                         <LuX className="w-6 h-6" />
@@ -256,7 +359,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                                     e.stopPropagation();
                                     showPrev();
                                 }}
-                                aria-label="Previous image"
+                                aria-label="Previous page"
                                 className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
                             >
                                 <LuChevronLeft className="w-6 h-6" />
@@ -267,7 +370,7 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                                     e.stopPropagation();
                                     showNext();
                                 }}
-                                aria-label="Next image"
+                                aria-label="Next page"
                                 className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
                             >
                                 <LuChevronRight className="w-6 h-6" />
@@ -275,11 +378,11 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                         </>
                     )}
 
-                    {/* Active Modal Image Wrapper */}
+                    {/* Active Modal Content Wrapper */}
                     <div
-                        className={`relative w-full h-full flex flex-col items-center justify-center transition-all duration-300 ${
-                            isZoomed ? "max-w-none max-h-none" : "max-w-6xl max-h-[85vh]"
-                        }`}
+                        className={`relative w-full h-full flex flex-col items-center justify-center transition-all duration-200 ease-out ${
+                            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                        } ${isZoomed ? "max-w-none max-h-none" : "max-w-6xl max-h-[85vh]"}`}
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div
@@ -296,7 +399,11 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                                     className="w-full max-w-4xl h-[55vh] sm:h-[70vh] rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl animate-pulse flex flex-col items-center justify-center p-8 shadow-2xl"
                                 >
                                     <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-4 text-white/40">
-                                        <LuImage className="w-8 h-8" />
+                                        {displayedItem.type === "pdf" ? (
+                                            <LuFileText className="w-8 h-8" />
+                                        ) : (
+                                            <LuImage className="w-8 h-8" />
+                                        )}
                                     </div>
                                     <div className="h-3 w-44 bg-white/15 rounded-full mb-3" />
                                     <div className="h-2.5 w-28 bg-white/10 rounded-full" />
@@ -317,27 +424,47 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                                         : "transform 250ms cubic-bezier(0.2, 0, 0.2, 1)",
                                 }}
                             >
-                                <Image
-                                    key={activeItem.src}
-                                    src={activeItem.src}
-                                    alt={activeItem.alt}
-                                    width={2400}
-                                    height={1600}
-                                    draggable={false}
-                                    className={`max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl select-none transition-opacity duration-300 pointer-events-none ${
-                                        isLoading ? "opacity-0 absolute" : "opacity-100"
-                                    }`}
-                                    priority
-                                    onLoad={() => setLoadedItemSrc(activeItem.src)}
-                                    onError={() => setLoadedItemSrc(activeItem.src)}
-                                />
+                                {displayedItem.type === "pdf" ? (
+                                    <div className={isLoading ? "opacity-0 absolute pointer-events-none" : "opacity-100 transition-opacity duration-300"}>
+                                        <PdfCanvasViewer
+                                            key={activeItemKey ?? displayedItem.src}
+                                            src={displayedItem.src}
+                                            pageNumber={displayedItem.pageNumber ?? 1}
+                                            onLoad={() => {
+                                                if (activeItemKey) setLoadedItemKey(activeItemKey);
+                                            }}
+                                            onError={() => {
+                                                if (activeItemKey) setLoadedItemKey(activeItemKey);
+                                            }}
+                                        />
+                                    </div>
+                                ) : (
+                                    <Image
+                                        key={displayedItem.src}
+                                        src={displayedItem.src}
+                                        alt={displayedItem.alt}
+                                        width={2400}
+                                        height={1600}
+                                        draggable={false}
+                                        className={`max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl select-none transition-opacity duration-300 pointer-events-none ${
+                                            isLoading ? "opacity-0 absolute" : "opacity-100"
+                                        }`}
+                                        priority
+                                        onLoad={() => {
+                                            if (activeItemKey) setLoadedItemKey(activeItemKey);
+                                        }}
+                                        onError={() => {
+                                            if (activeItemKey) setLoadedItemKey(activeItemKey);
+                                        }}
+                                    />
+                                )}
                             </div>
                         </div>
 
-                        {/* Preload adjacent images */}
+                        {/* Preload adjacent images (excluding PDFs) */}
                         {adjacentIndices.map((idx) => {
                             const preloadItem = items[idx];
-                            if (!preloadItem) return null;
+                            if (!preloadItem || preloadItem.type === "pdf") return null;
                             return (
                                 <div
                                     key={`preload-${preloadItem.id}-${preloadItem.src}`}
@@ -355,8 +482,8 @@ export function Lightbox({ children, className = "" }: LightboxProps) {
                             );
                         })}
 
-                        {/* Image Counter */}
-                        {items.length > 1 && !isZoomed && (
+                        {/* Counter */}
+                        {items.length > 1 && !isZoomed && activeIndex !== null && (
                             <div className="mt-3 text-white/70 text-sm font-medium tracking-wide">
                                 {activeIndex + 1} / {items.length}
                             </div>
@@ -375,6 +502,8 @@ export interface LightboxItemProps {
     children?: ReactNode;
     className?: string;
     aspectRatio?: string;
+    type?: "image" | "pdf";
+    pageNumber?: number;
 }
 
 export function LightboxItem({
@@ -384,15 +513,17 @@ export function LightboxItem({
     children,
     className = "",
     aspectRatio = "aspect-16/10",
+    type = "image",
+    pageNumber,
 }: LightboxItemProps) {
     const generatedId = useId();
     const itemId = id || generatedId;
     const { registerItem, unregisterItem, openLightbox } = useLightbox();
 
     useEffect(() => {
-        registerItem({ id: itemId, src, alt });
+        registerItem({ id: itemId, src, alt, type, pageNumber });
         return () => unregisterItem(itemId);
-    }, [itemId, src, alt, registerItem, unregisterItem]);
+    }, [itemId, src, alt, type, pageNumber, registerItem, unregisterItem]);
 
     const handleClick = () => {
         openLightbox(itemId);
