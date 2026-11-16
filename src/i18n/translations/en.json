@@ -20,7 +20,7 @@
   "about": {
     "heading": "About Me",
     "lead": "I'm a full-stack developer and student from Czechia focused on building modern, high performance web applications.",
-    "bio": "My daily toolkit includes React, Next.js, Vue, Nuxt.js, and ASP.NET. I have a strong interest in learning emerging technologies, refining software architecture, and optimizing overall performance and development workflows.",
+    "bio": "My daily toolkit includes <react></react>React, <nextjs></nextjs>Next.js, <vue></vue>Vue, <nuxtjs></nuxtjs>Nuxt.js, and <aspnet></aspnet>ASP.NET. I have a strong interest in learning emerging technologies, refining software architecture, and optimizing overall performance and development workflows.",
     "technologies": "Technologies I use"
   },
   "portfolio": {
