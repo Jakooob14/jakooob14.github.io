@@ -1,11 +1,21 @@
 'use client';
 
-import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { usePathname, useSearchParams } from "next/navigation";
 import Project, { ProjectCardItem } from "@/components/home/Project";
 import { ProjectCategory } from "@/data/projects";
 
 type FilterType = "all" | ProjectCategory;
+
+const FILTER_QUERY_PARAM = "category";
+const VALID_CATEGORIES: readonly ProjectCategory[] = ["work", "personal"];
+
+function parseFilterParam(value: string | null): FilterType {
+    if (value && (VALID_CATEGORIES as readonly string[]).includes(value)) {
+        return value as ProjectCategory;
+    }
+    return "all";
+}
 
 interface PortfolioFilterGridProps {
     projects: ProjectCardItem[];
@@ -21,14 +31,19 @@ interface PortfolioFilterGridProps {
     emptyMessage: string;
 }
 
-export default function PortfolioFilterGrid({
+interface PortfolioFilterGridViewProps extends PortfolioFilterGridProps {
+    selectedFilter: FilterType;
+    onSelectFilter?: (filter: FilterType) => void;
+}
+
+function PortfolioFilterGridView({
     projects,
     filterLabels,
     categoryBadgeLabels,
     emptyMessage,
-}: PortfolioFilterGridProps) {
-    const [selectedFilter, setSelectedFilter] = useState<FilterType>("all");
-
+    selectedFilter,
+    onSelectFilter,
+}: PortfolioFilterGridViewProps) {
     const workCount = projects.filter((p) => p.category === "work").length;
     const personalCount = projects.filter((p) => p.category === "personal").length;
     const allCount = projects.length;
@@ -54,7 +69,8 @@ export default function PortfolioFilterGrid({
                         <button
                             key={filter.id}
                             type="button"
-                            onClick={() => setSelectedFilter(filter.id)}
+                            aria-pressed={isActive}
+                            onClick={() => onSelectFilter?.(filter.id)}
                             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                                 isActive
                                     ? "bg-foreground text-background"
@@ -86,7 +102,7 @@ export default function PortfolioFilterGrid({
                     layout
                     className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
                 >
-                    <AnimatePresence mode="popLayout">
+                    <AnimatePresence mode="popLayout" initial={false}>
                         {filteredProjects.map((project) => (
                             <motion.div
                                 key={project.id}
@@ -110,5 +126,39 @@ export default function PortfolioFilterGrid({
                 </motion.div>
             )}
         </div>
+    );
+}
+
+export function PortfolioFilterGridFallback(props: PortfolioFilterGridProps) {
+    return <PortfolioFilterGridView {...props} selectedFilter="all" />;
+}
+
+export default function PortfolioFilterGrid(props: PortfolioFilterGridProps) {
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+
+    const selectedFilter = parseFilterParam(searchParams.get(FILTER_QUERY_PARAM));
+
+    const handleSelectFilter = (filter: FilterType) => {
+        if (filter === selectedFilter) return;
+
+        const params = new URLSearchParams(searchParams.toString());
+        if (filter === "all") {
+            params.delete(FILTER_QUERY_PARAM);
+        } else {
+            params.set(FILTER_QUERY_PARAM, filter);
+        }
+
+        const query = params.toString();
+        const nextUrl = query ? `${pathname}?${query}` : pathname;
+        window.history.pushState(null, "", nextUrl);
+    };
+
+    return (
+        <PortfolioFilterGridView
+            {...props}
+            selectedFilter={selectedFilter}
+            onSelectFilter={handleSelectFilter}
+        />
     );
 }

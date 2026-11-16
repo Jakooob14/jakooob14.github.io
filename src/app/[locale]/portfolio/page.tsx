@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { isValidLocale, locales, defaultLocale } from "@/i18n/config";
 import { Link } from "@/i18n/routing";
 import { Heading1 } from "@/components/Heading";
-import PortfolioFilterGrid from "@/components/portfolio/PortfolioFilterGrid";
+import PortfolioFilterGrid, {
+    PortfolioFilterGridFallback,
+} from "@/components/portfolio/PortfolioFilterGrid";
 import projects from "@/data/projects";
 import { resolveAsset } from "@/lib/assets";
 import { LuArrowLeft } from "react-icons/lu";
@@ -77,6 +80,20 @@ export default async function PortfolioPage({
         coverUrl: resolveAsset(project, "cover"),
     }));
 
+    const gridProps = {
+        projects: localizedProjects,
+        filterLabels: {
+            all: tPage("filter.all"),
+            work: tPage("filter.work"),
+            personal: tPage("filter.personal"),
+        },
+        categoryBadgeLabels: {
+            work: tPage("categoryBadge.work"),
+            personal: tPage("categoryBadge.personal"),
+        },
+        emptyMessage: tPage("empty"),
+    };
+
     return (
         <main className="container mx-auto pb-20 px-4 sm:px-6 lg:px-8">
             <div className="mb-6">
@@ -94,19 +111,9 @@ export default async function PortfolioPage({
                 </p>
             </div>
 
-            <PortfolioFilterGrid
-                projects={localizedProjects}
-                filterLabels={{
-                    all: tPage("filter.all"),
-                    work: tPage("filter.work"),
-                    personal: tPage("filter.personal"),
-                }}
-                categoryBadgeLabels={{
-                    work: tPage("categoryBadge.work"),
-                    personal: tPage("categoryBadge.personal"),
-                }}
-                emptyMessage={tPage("empty")}
-            />
+            <Suspense fallback={<PortfolioFilterGridFallback {...gridProps} />}>
+                <PortfolioFilterGrid {...gridProps} />
+            </Suspense>
         </main>
     );
 }

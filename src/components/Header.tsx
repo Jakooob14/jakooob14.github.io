@@ -67,7 +67,8 @@ export default function Header() {
     const handleLocaleChange = (newLocale: Locale) => {
         if (newLocale === locale) return;
         setLocaleCookie(newLocale);
-        router.replace(pathname, { locale: newLocale });
+        const search = typeof window !== "undefined" ? window.location.search : "";
+        router.replace(`${pathname}${search}`, { locale: newLocale });
     };
 
     const languageItems: DropdownItem[] = locales.map((loc) => ({
