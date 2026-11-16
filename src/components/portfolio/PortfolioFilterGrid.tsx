@@ -93,38 +93,38 @@ function PortfolioFilterGridView({
             </div>
 
             {/* Projects Grid */}
-            {filteredProjects.length === 0 ? (
-                <div className="py-20 text-center text-neutral-500 bg-neutral-50 rounded-3xl">
-                    <p className="text-lg">{emptyMessage}</p>
-                </div>
-            ) : (
+            <AnimatePresence mode="wait" initial={false}>
                 <motion.div
-                    layout
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
+                    key={selectedFilter}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
                 >
-                    <AnimatePresence mode="popLayout" initial={false}>
-                        {filteredProjects.map((project) => (
-                            <motion.div
-                                key={project.id}
-                                layout
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.95 }}
-                                transition={{ duration: 0.25 }}
-                                className="h-full flex flex-col"
-                            >
-                                <Project
-                                    project={project}
-                                    className="h-full"
-                                    categoryBadgeLabel={
-                                        categoryBadgeLabels[project.category]
-                                    }
-                                />
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
+                    {filteredProjects.length === 0 ? (
+                        <div className="py-20 text-center text-neutral-500 bg-neutral-50 rounded-3xl">
+                            <p className="text-lg">{emptyMessage}</p>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                            {filteredProjects.map((project) => (
+                                <div
+                                    key={project.id}
+                                    className="h-full flex flex-col"
+                                >
+                                    <Project
+                                        project={project}
+                                        className="h-full"
+                                        categoryBadgeLabel={
+                                            categoryBadgeLabels[project.category]
+                                        }
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </motion.div>
-            )}
+            </AnimatePresence>
         </div>
     );
 }
