@@ -1,17 +1,19 @@
 'use client';
 
-import { useState, useEffect, useCallback, HTMLAttributes } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Card from "@/components/Card";
 import { CertificateAsset } from "@/lib/assets";
 import { Lightbox, LightboxItemData } from "@/components/Lightbox";
 import { getPdfPageCount } from "@/lib/pdf";
-import { LuEye } from "react-icons/lu";
 
-interface CertificateProps extends HTMLAttributes<HTMLDivElement> {
+interface CertificateProps {
     title: string;
     organization: string;
     description: string;
     year: number;
     assets?: CertificateAsset[];
+    className?: string;
+    id?: string;
 }
 
 export default function Certificate({
@@ -21,7 +23,7 @@ export default function Certificate({
     year,
     assets = [],
     className = "",
-    ...props
+    id,
 }: CertificateProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [slides, setSlides] = useState<LightboxItemData[]>([]);
@@ -79,39 +81,17 @@ export default function Certificate({
 
     return (
         <>
-            <div
-                {...props}
-                role={hasAssets ? "button" : undefined}
-                tabIndex={hasAssets ? 0 : undefined}
-                aria-label={hasAssets ? `${title} - ${organization}` : undefined}
+            <Card
+                id={id}
+                title={title}
+                subtitle={organization}
+                description={description}
+                year={year}
+                hoverVariant="accent"
                 onClick={hasAssets ? handleOpen : undefined}
-                onKeyDown={
-                    hasAssets
-                        ? (e) => {
-                              if (e.key === "Enter" || e.key === " ") {
-                                  e.preventDefault();
-                                  handleOpen();
-                              }
-                          }
-                        : undefined
-                }
-                className={`group flex flex-col md:flex-row justify-between bg-neutral-100 p-8 rounded-3xl transition-all duration-300 ${
-                    hasAssets
-                        ? "cursor-pointer hover:bg-heading hover:text-text-secondary"
-                        : "hover:bg-heading hover:text-text-secondary"
-                } ${className}`}
-            >
-                <div className="w-full md:w-56 flex flex-col mb-4 md:mb-0">
-                    <span className="font-semibold text-lg">{title}</span>
-                    <span className="opacity-80">{organization}</span>
-                </div>
-                <div className="flex-1 md:px-6">
-                    <p className="leading-relaxed opacity-90">{description}</p>
-                </div>
-                <div className="w-full md:w-28 text-2xl flex items-center justify-between md:justify-end mt-4 md:mt-0 gap-3">
-                    <span>{year}</span>
-                </div>
-            </div>
+                ariaLabel={hasAssets ? `${title} - ${organization}` : undefined}
+                className={className}
+            />
 
             {hasAssets && (
                 <Lightbox

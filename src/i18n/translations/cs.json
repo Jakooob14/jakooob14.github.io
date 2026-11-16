@@ -21,6 +21,22 @@
     "heading": "O mně",
     "lead": "Jsem full-stack vývojář a student z Česka se zaměřením na tvorbu moderních, vysoce výkonných webových aplikací.",
     "bio": "Můj každodenní toolkit zahrnuje <react></react>React, <nextjs></nextjs>Next.js, <vue></vue>Vue, <nuxtjs></nuxtjs>Nuxt.js a <aspnet></aspnet>ASP.NET. Rád se učím nové technologie, zdokonaluji softwarovou architekturu a optimalizuji výkon i vývojové procesy.",
+    "background": {
+      "heading": "Vzdělání & praxe",
+      "education": {
+        "year": "2026 - Současnost",
+        "title": "Informační a webové technologie",
+        "institution": "VŠE v Praze - Fakulta informatiky a statistiky (FIS)",
+        "description": "Bakalářské studium zaměřené na moderní webové technologie, softwarové inženýrství, databázové systémy a propojení IT s byznysem."
+      },
+      "experience": {
+        "year": "2023 - Současnost",
+        "title": "Freelance Full-stack Vývojář",
+        "company": "Zakázkový vývoj webů a aplikací",
+        "description": "Návrh, vývoj a nasazení moderních webů a webových aplikací na míru pro klienty – od uživatelského rozhraní až po backend.",
+        "cta": "Prohlédnout realizované projekty"
+      }
+    },
     "technologies": "Technologie, které používám"
   },
   "portfolio": {

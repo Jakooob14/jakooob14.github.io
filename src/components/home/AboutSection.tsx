@@ -1,9 +1,10 @@
+import Card from "@/components/Card";
 import { Heading1, Heading2 } from "@/components/Heading";
 import TechnologyMarquee from "@/components/home/TechnologyMarquee";
 import { useTranslations } from "next-intl";
-import {SiDotnet, SiNuxt, SiReact, SiVuedotjs} from "react-icons/si";
-import {RiNextjsFill} from "react-icons/ri";
-import {LuGraduationCap, LuLayers, LuZap} from "react-icons/lu";
+import { SiDotnet, SiNuxt, SiReact, SiVuedotjs } from "react-icons/si";
+import { RiNextjsFill } from "react-icons/ri";
+import { LuBriefcase, LuGraduationCap } from "react-icons/lu";
 
 export default function AboutSection() {
     const t = useTranslations("about");
@@ -26,6 +27,39 @@ export default function AboutSection() {
                     })}</span>
                 </div>
             </section>
+
+            <section className="mt-10">
+                <Heading2
+                    visualLevel={4}
+                    variant="foreground"
+                    className="mb-4"
+                >
+                    {t("background.heading")}
+                </Heading2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <Card
+                        icon={<LuGraduationCap />}
+                        title={t("background.education.title")}
+                        subtitle={t("background.education.institution")}
+                        year={t("background.education.year")}
+                        description={t("background.education.description")}
+                        className="h-full"
+                    />
+                    <Card
+                        icon={<LuBriefcase />}
+                        title={t("background.experience.title")}
+                        subtitle={t("background.experience.company")}
+                        year={t("background.experience.year")}
+                        description={t("background.experience.description")}
+                        link={{
+                            href: "/portfolio",
+                            label: t("background.experience.cta"),
+                        }}
+                        className="h-full"
+                    />
+                </div>
+            </section>
+
             <section className="mt-10">
                 <Heading2
                     visualLevel={4}

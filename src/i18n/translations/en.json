@@ -21,6 +21,22 @@
     "heading": "About Me",
     "lead": "I'm a full-stack developer and student from Czechia focused on building modern, high performance web applications.",
     "bio": "My daily toolkit includes <react></react>React, <nextjs></nextjs>Next.js, <vue></vue>Vue, <nuxtjs></nuxtjs>Nuxt.js, and <aspnet></aspnet>ASP.NET. I have a strong interest in learning emerging technologies, refining software architecture, and optimizing overall performance and development workflows.",
+    "background": {
+      "heading": "Education & Experience",
+      "education": {
+        "year": "2026 - Present",
+        "title": "Information and Web Technologies",
+        "institution": "Prague University of Economics and Business (VŠE) - FIS",
+        "description": "Bachelor's degree focused on modern web technologies, software engineering, database systems, and bridging IT with business."
+      },
+      "experience": {
+        "year": "2023 - Present",
+        "title": "Freelance Full-stack Developer",
+        "company": "Custom Web & App Development",
+        "description": "Designing, building, and deploying custom websites and modern web applications for clients from UI to backend architecture.",
+        "cta": "Explore client projects"
+      }
+    },
     "technologies": "Technologies I use"
   },
   "portfolio": {
