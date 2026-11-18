@@ -11,6 +11,7 @@ interface CertificateProps {
     organization: string;
     description: string;
     year: number;
+    href?: string;
     assets?: CertificateAsset[];
     className?: string;
     id?: string;
@@ -21,6 +22,7 @@ export default function Certificate({
     organization,
     description,
     year,
+    href,
     assets = [],
     className = "",
     id,
@@ -83,13 +85,15 @@ export default function Certificate({
         <>
             <Card
                 id={id}
+                layout="horizontal"
                 title={title}
                 subtitle={organization}
                 description={description}
                 year={year}
+                href={!hasAssets ? href : undefined}
                 hoverVariant="accent"
                 onClick={hasAssets ? handleOpen : undefined}
-                ariaLabel={hasAssets ? `${title} - ${organization}` : undefined}
+                ariaLabel={hasAssets || href ? `${title} - ${organization}` : undefined}
                 className={className}
             />
 

@@ -8,7 +8,7 @@ export default function CertificatesSection() {
     const t = useTranslations("certificates");
 
     return (
-        <section id="certificates" className="container mx-auto mt-24">
+        <section id="achievements" className="container mx-auto mt-24">
             <Heading1>{t("heading")}</Heading1>
             <div className="flex flex-col gap-8">
                 {certificates.map((cert) => {
@@ -29,6 +29,7 @@ export default function CertificatesSection() {
                             title={title}
                             organization={organization}
                             description={description}
+                            href={cert.href}
                             year={cert.year}
                             assets={assets}
                         />

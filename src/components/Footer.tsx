@@ -20,6 +20,7 @@ import { ReactNode } from "react";
 export default function Footer() {
     const tFooter = useTranslations("footer");
     const tNav = useTranslations("nav");
+    const tCertificates = useTranslations("certificates");
     const pathname = usePathname();
     const locale = useLocale();
     const [copiedTarget, setCopiedTarget] = useState<string | null>(null);
@@ -38,8 +39,9 @@ export default function Footer() {
     const navLinks = [
         { label: tNav("home"), href: isHomePage ? "#home" : `/${locale}` },
         { label: tNav("about"), href: isHomePage ? "#about" : `/${locale}#about` },
+        { label: tNav("services"), href: isHomePage ? "#services" : `/${locale}#services` },
         { label: tNav("portfolio"), href: `/${locale}/portfolio` },
-        { label: tNav("certificates"), href: isHomePage ? "#certificates" : `/${locale}#certificates` },
+        { label: tCertificates("heading"), href: isHomePage ? "#achievements" : `/${locale}#achievements` },
     ];
 
     return (

@@ -6,8 +6,9 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "services": "Services",
     "portfolio": "Portfolio",
-    "certificates": "Certificates",
+    "achievements": "Achievements",
     "contact": "Contact",
     "selectLanguage": "Select language",
     "contactOptions": "Contact options"
@@ -38,6 +39,28 @@
       }
     },
     "technologies": "Technologies I use"
+  },
+  "services": {
+    "heading": "How I Can Help",
+    "subtitle": "From initial architecture design to fast production deployment.",
+    "items": {
+      "webApps": {
+        "title": "Custom Web Applications",
+        "description": "Client portals, internal tools, and interactive web applications — from system architecture and UI design to production."
+      },
+      "websites": {
+        "title": "Modern Business Websites",
+        "description": "Fast, responsive showcase websites with clean design focused on SEO, accessibility, and real conversions."
+      },
+      "backend": {
+        "title": "Backend, API & Integrations",
+        "description": "Relational database design, secure REST APIs, real-time WebSocket communication, and seamless third-party integrations."
+      },
+      "optimization": {
+        "title": "Optimization & Refactoring",
+        "description": "Speeding up slow websites, eliminating technical debt, setting up monitoring, and modernizing legacy codebases."
+      }
+    }
   },
   "portfolio": {
     "heading": "Portfolio",
@@ -94,7 +117,12 @@
     "viewProject": "View Project"
   },
   "certificates": {
-    "heading": "Certificates",
+    "heading": "Achievements & Certificates",
+    "tda26": {
+      "title": "Tour de App 2026",
+      "organization": "Think Different Academy",
+      "description": "Designed and built a real-time educational platform with WebSocket quizzes and gamification that passed competition load testing with zero downtime."
+    },
     "cambridge": {
       "title": "FCE B2 English",
       "organization": "Cambridge",

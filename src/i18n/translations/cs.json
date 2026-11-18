@@ -6,8 +6,9 @@
   "nav": {
     "home": "Domů",
     "about": "O mně",
+    "services": "Služby",
     "portfolio": "Portfolio",
-    "certificates": "Certifikáty",
+    "achievements": "Úspěchy",
     "contact": "Kontakt",
     "selectLanguage": "Vybrat jazyk",
     "contactOptions": "Možnosti kontaktu"
@@ -38,6 +39,28 @@
       }
     },
     "technologies": "Technologie, které používám"
+  },
+  "services": {
+    "heading": "S čím mohu pomoci",
+    "subtitle": "Od prvního návrhu architektury až po rychlé nasazení do produkce.",
+    "items": {
+      "webApps": {
+        "title": "Webové aplikace na míru",
+        "description": "Klientské portály, interní nástroje a interaktivní webové aplikace – od návrhu architektury přes UI až po produkční provoz."
+      },
+      "websites": {
+        "title": "Moderní firemní weby",
+        "description": "Rychlé a responzivní prezentační weby s čistým designem a důrazem na SEO, přístupnost a konverzní výsledky."
+      },
+      "backend": {
+        "title": "Backend, API & integrace",
+        "description": "Návrh relačních databází, bezpečných REST API, real-time komunikace přes WebSockets a napojení na externí služby."
+      },
+      "optimization": {
+        "title": "Optimalizace & refaktoring",
+        "description": "Zrychlení pomalých webů, odstranění technického dluhu, nasazení monitoringu a modernizace stávajícího kódu."
+      }
+    }
   },
   "portfolio": {
     "heading": "Portfolio",
@@ -94,7 +117,12 @@
     "viewProject": "Zobrazit projekt"
   },
   "certificates": {
-    "heading": "Certifikáty",
+    "heading": "Úspěchy a certifikáty",
+    "tda26": {
+      "title": "Tour de App 2026",
+      "organization": "Think Different Academy",
+      "description": "Návrh a vývoj real-time vzdělávací platformy s WebSocket kvízy a gamifikací, která obstála v zátěžovém hodnocení bez výpadků."
+    },
     "cambridge": {
       "title": "FCE B2 Angličtina",
       "organization": "Cambridge",

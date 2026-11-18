@@ -37,15 +37,21 @@ export default function Header() {
             active: false,
         },
         {
+            id: "services",
+            label: tNav("services"),
+            href: isHomePage ? "#services" : `/${locale}#services`,
+            active: false,
+        },
+        {
             id: "portfolio",
             label: tNav("portfolio"),
             href: `/${locale}/portfolio`,
             active: isPortfolioPage,
         },
         {
-            id: "certificates",
-            label: tNav("certificates"),
-            href: isHomePage ? "#certificates" : `/${locale}#certificates`,
+            id: "achievements",
+            label: tNav("achievements"),
+            href: isHomePage ? "#achievements" : `/${locale}#achievements`,
             active: false,
         },
         {
