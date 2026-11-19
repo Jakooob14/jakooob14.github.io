@@ -20,7 +20,7 @@ const certificates: CertificateItem[] = [
     {
         id: "cambridge",
         type: "certificate",
-        year: 2023,
+        year: 2024,
     },
 ];
 
