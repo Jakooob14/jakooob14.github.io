@@ -39,7 +39,6 @@ export default function HeroSection() {
 
                     <SpinningCircleText
                         className="absolute bottom-[-68px] left-[10%] z-100"
-                        textClassName="tracking-widest text-red-500!"
                         text={t("circleText")}
                     />
 

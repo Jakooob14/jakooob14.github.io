@@ -16,12 +16,12 @@
   "hero": {
     "title": "JAKUB SOKOL",
     "subtitle": "Full-stack developer and student from Czechia focused on building modern, high-performance web applications.",
-    "circleText": "Full-stack developer • Creative coder • Student •"
+    "circleText": "Full-stack developer • Open to work • Student •"
   },
   "about": {
     "heading": "About Me",
     "lead": "I'm a full-stack developer and student from Czechia focused on building modern, high performance web applications.",
-    "bio": "My daily toolkit includes <react></react>React, <nextjs></nextjs>Next.js, <vue></vue>Vue, <nuxtjs></nuxtjs>Nuxt.js, and <aspnet></aspnet>ASP.NET. I have a strong interest in learning emerging technologies, refining software architecture, and optimizing overall performance and development workflows.",
+    "bio": "My daily toolkit includes <react></react>React, <nextjs></nextjs>Next.js, <vue></vue>Vue, <nuxtjs></nuxtjs>Nuxt.js, and <aspnet></aspnet>ASP.NET. I have a strong interest in learning new technologies, refining software architecture, and optimizing overall performance and development workflows.",
     "background": {
       "heading": "Education & Experience",
       "education": {
@@ -46,11 +46,11 @@
     "items": {
       "webApps": {
         "title": "Custom Web Applications",
-        "description": "Client portals, internal tools, and interactive web applications — from system architecture and UI design to production."
+        "description": "Client portals, internal tools, and interactive web applications from system architecture and UI design to production."
       },
       "websites": {
         "title": "Modern Business Websites",
-        "description": "Fast, responsive showcase websites with clean design focused on SEO, accessibility, and real conversions."
+        "description": "Fast, responsive showcase websites with clean design focused on SEO and real conversions."
       },
       "backend": {
         "title": "Backend, API & Integrations",
@@ -120,8 +120,8 @@
     "heading": "Achievements & Certificates",
     "tda26": {
       "title": "Tour de App 2026",
-      "organization": "Think Different Academy",
-      "description": "Designed and built a real-time educational platform with WebSocket quizzes and gamification that passed competition load testing with zero downtime."
+      "organization": "students can grow",
+      "description": "Designed and built a real-time educational platform with WebSocket quizzes and gamification."
     },
     "cambridge": {
       "title": "FCE B2 English",
