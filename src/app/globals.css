@@ -28,6 +28,8 @@
 
   --color-text-primary: var(--foreground);
   --color-text-secondary: var(--background);
+  
+  --shadow-sym: 0 0 15px hsla(0, 0%, 0%, 0.1);
 }
 
 @layer base {

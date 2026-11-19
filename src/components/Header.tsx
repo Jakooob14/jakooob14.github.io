@@ -90,14 +90,14 @@ export default function Header() {
                 style={isHomePage ? { position, top } : undefined}
             >
                 <nav className={'relative container mx-auto flex justify-between'}>
-                    <section className={'shadow-lg rounded-full'}>
+                    <section className={'shadow-sym rounded-full'}>
                         <a href={isHomePage ? "#home" : `/${locale}`}>
                             <IconContainer>
                                 <span className={'font-heading font-black'}>JS</span>
                             </IconContainer>
                         </a>
                     </section>
-                    <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 py-1.75 font-medium shadow-lg'}>
+                    <ul className={'flex gap-6 h-12 items-center bg-background rounded-full px-2 py-1.75 font-medium shadow-sym'}>
                         {navItems.map((item) => (
                             <li key={item.id} className={'h-full'}>
                                 <a 
@@ -118,7 +118,7 @@ export default function Header() {
                             ]} 
                             align="right"
                         >
-                            <IconContainer aria-label={tNav("contactOptions")} className={'shadow-lg'}>
+                            <IconContainer aria-label={tNav("contactOptions")} className={'shadow-sym'}>
                                 <LuAtSign />
                             </IconContainer>
                         </Dropdown>
@@ -127,7 +127,7 @@ export default function Header() {
                             items={languageItems}
                             align="right"
                         >
-                            <IconContainer aria-label={tNav("selectLanguage")} className={'shadow-lg'}>
+                            <IconContainer aria-label={tNav("selectLanguage")} className={'shadow-sym'}>
                                 <LuLanguages />
                             </IconContainer>
                         </Dropdown>
